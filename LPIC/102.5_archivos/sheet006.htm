@@ -1,0 +1,317 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../102.5.htm">
+<link rel=File-List href=filelist.xml>
+<title>102.5 - Use RPM and YUM package management</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(5);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../102.5.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1084 style='border-collapse:
+ collapse;table-layout:fixed;width:813pt'>
+ <col class=xl66 width=1084 style='mso-width-source:userset;mso-width-alt:39643;
+ width:813pt'>
+ <col class=xl66 width=394 style='mso-width-source:userset;mso-width-alt:14409;
+ width:296pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'><a
+  name="RANGE!A1">yum</a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'>YUM es
+  a los ficheros rpm lo que APT a los ficheros dpkg: un programa de gestión de
+  paquetes.<span style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>Recupera
+  los paquetes dentro de los repositorios y gestiona las dependencias.<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'>YUM
+  significa Yellow dog Updater Modified.<span style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=1084 style='height:30.0pt;width:813pt'>Se
+  utiliza principalmente en las distribuciones Redhat (versiones Enterprise) y
+  Fedora, pero se puede utilizar en cualquier distribución de tipo RPM si los
+  repositorios asociados lo soportan.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>El
+  fichero de configuración es /etc/yum.conf.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>Con
+  cada comando, YUM intenta refrescar sus datos si se ha superado el plazo de
+  expiración.<span style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'>Se
+  puede reducir o ampliar este plazo con la modificación de la línea
+  metadata_expire del fichero de configuración.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'>metadata_expire=1h</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>Puede
+  forzar la actualización de la caché con el parámetro makecache:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'># yum
+  makecache</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>Otra
+  posibilidad consiste en forzar la supresión de la caché para que se vuelva a
+  construir de manera automática con el próximo comando YUM:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'># yum
+  clean all</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>El
+  parámetro list permite listar los paquetes.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>Todos
+  se listan por defecto.<span style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'>Se
+  puede precisar una lista de paquetes o facilitar caracteres comodines.<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>Hay
+  varias opciones disponibles:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>- all:
+  es el caso por defecto: se listan primero los paquetes instalados y luego los
+  disponibles para la instalación.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>-
+  available: los paquetes disponibles para instalación.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>-
+  updates: los paquetes que se pueden actualizar.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>-
+  installed: los paquetes actualizados.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>-
+  obsoletes: los paquetes del sistema ahora obsoletos debido a las versiones
+  superiores disponibles.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>-
+  recent: los últimos paquetes añadidos en los repositorios.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>-
+  repolist: los repositorios configurados en yum.conf o yum.repos.d.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'>El
+  comando siguiente lista los núcleos disponibles:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'># yum
+  list available kernel\*</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>El
+  parámetro info devuelve la información detallada de un paquete.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'>Es
+  equivale al parámetro -i del comando rpm.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'># yum
+  info mc</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>Para
+  instalar paquetes hay que pasar el parámetro install, seguido de los nombres
+  de paquetes a instalar.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'># yum
+  install mc</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>Para
+  comprobar la publicación de actualizaciones, con el parámetro check-update:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'># yum
+  check-update</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'>Si no
+  devuelve nada quiere decir que no hay publicada ninguna actualización.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>Tiene
+  dos posibilidades para instalar las actualizaciones:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>-
+  update: actualización de un paquete o de todos si no se especifica ningún
+  paquete.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>-
+  upgrade: actualización completa de la distribución: se sustituyen los
+  paquetes considerados como obsoletos con los de la última versión disponible.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'>En
+  algunos casos, para el núcleo por ejemplo, tendrá que evitar durante una
+  actualización instalar automáticamente algunos paquetes.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>En este
+  caso, utilice el parámetro --exclude:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'># yum
+  list -exclude=kernel\* update</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'>Para
+  convertir esta exclusión en algo permanente, póngala en el fichero de
+  configuración añadiendo una línea como la siguiente:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'>exclude=php*
+  kernel*</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>Para
+  buscar un paquete hay que usar el parámetro search, seguido del paquete o de
+  los paquetes a buscar en los repositorios.<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'>Se
+  autorizan los caracteres comodines.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'># yum
+  search tomcat</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1084 style='height:15.0pt;width:813pt'>Para
+  suprimir un paquete, hay que utilizar el parámetro remove:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1084 style='height:15.0pt;width:813pt'># yum
+  remove mc</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1084 style='width:813pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

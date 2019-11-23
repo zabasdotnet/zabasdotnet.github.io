@@ -1,0 +1,877 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../208.4.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(8);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../208.4.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1487 style='border-collapse:
+ collapse;table-layout:fixed;width:1115pt'>
+ <col class=xl68 width=1439 style='mso-width-source:userset;mso-width-alt:52626;
+ width:1079pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>Nginx
+  como reverse proxy</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Es
+  difícil migrar un servidor web Apache que ya exista a <font class="font5">Nginx</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>La
+  configuración de Apache suele ser compleja y no es fácil reproducirla en <font
+  class="font5">Nginx</font><font class="font0">, ya que los servidores tienen
+  una concepción muy diferente.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>En
+  particular, <font class="font5">Nginx</font><font class="font0"> </font><font
+  class="font10">no</font><font class="font0"> </font><font class="font10">permite</font><font
+  class="font0"> establecer archivos de configuración a nivel de directorio,
+  los </font><font class="font9">archivos</font><font class="font0"> </font><font
+  class="font10">.htaccess</font><font class="font0"> de Apache.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Una
+  solución que se utiliza frecuentemente es configurar <font class="font5">Nginx</font><font
+  class="font0"> como </font><font class="font12">reverse proxy</font><font
+  class="font0"> del servidor Apache.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Esto
+  permite (casi) no modificar nada en la configuración del servidor Apache al
+  tiempo que nos beneficiamos del excelente rendimiento de <font class="font15">Nginx</font><font
+  class="font0"> como </font><font class="font12">servidor web estático</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>1.
+  Reverse proxy</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Un
+  reverse proxy HTTP (que se puede traducir como proxy inverso) es un servidor
+  HTTP que recibe las peticiones de los clientes y las envía a uno o varios
+  servidores HTTP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Esta
+  técnica se utiliza con diferentes objetivos:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>-
+  Hacer que servidores HTTP situados en la red interna de la empresa sean
+  accesibles desde el exterior:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Solo
+  el reverse proxy HTTP (en la DMZ) es visible desde el exterior y redirige las
+  peticiones a los servidores internos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>-
+  Servidor de caché:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Como
+  el reverse proxy recibe todas las peticiones de los clientes, de uno o varios
+  servidores, puede poner en la caché los elementos no dinámicos que se pidan.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Mejora
+  el rendimiento y reduce la carga de los servidores finales.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>-
+  Reparto de carga (load balancing):</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>El
+  reverse proxy puede gestionar un pool de servidores HTTP de aplicaciones y
+  repartir las consultas de los clientes, según diferentes criterios, hacia los
+  diferentes elementos del pool.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'><font
+  class="font5">Nginx</font><font class="font0"> se puede utilizar para todas
+  estas funciones.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Como
+  complemento del rol de servidor de caché, <font class="font5">Nginx</font><font
+  class="font0"> también se puede configurar para gestionar todas las
+  peticiones no dinámicas (páginas estáticas, archivos de imágenes, vídeos,
+  hojas de estilo, bibliotecas javascript, etc.).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>También
+  para redirigir las peticiones dinámicas (scripts PHP, Python…) a uno o varios
+  servidores.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Como
+  su gestión de acceso a discos y a la caché de memoria es especialmente
+  eficaz, <font class="font5">Nginx</font><font class="font0"> permitirá
+  mejorar de forma muy significativa el rendimiento de los servidores Apache
+  que tengan muchas peticiones.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>El
+  servidor Apache tendrá muchas menos peticiones y solo se le enviarán las de
+  los elementos dinámicos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'><font
+  class="font5">Nginx</font><font class="font0"> también dispone de mecanismos
+  flexibles y potentes de </font><font class="font15">balanceo de carga</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl74 height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1439 style='height:15.0pt;width:1079pt'>En el
+  ámbito del examen <font class="font17">LPIC2</font><font class="font16">, es
+  importante conocer la configuración básica de </font><font class="font17">Nginx</font><font
+  class="font16"> como </font><font class="font17">reverse proxy</font><font
+  class="font16">.</font></td>
+  <td class=xl74 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>2. El
+  módulo ngx_http_proxy</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Este
+  módulo estándar está incluido por <font class="font5">defecto</font><font
+  class="font0"> en el servidor </font><font class="font5">Nginx</font><font
+  class="font0"> (</font><font class="font23">excepto</font><font class="font0">
+  si se </font><font class="font23">compila</font><font class="font0"> con la
+  opción </font><font class="font22">--without-http_proxy_module</font><font
+  class="font0">).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Proporciona
+  un conjunto variado de directivas para gestionar y optimizar las
+  redirecciones de consultas, así como la puesta en caché de los elementos
+  devueltos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Aquí
+  nos limitaremos a las directivas básicas para implementar <font class="font5">Nginx</font><font
+  class="font0"> como reverse proxy.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>3.
+  Declaración del servidor de destino</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>La <font
+  class="font23">directiva</font><font class="font0"> </font><font
+  class="font15">proxy_pass</font><font class="font0"> permite indicar a </font><font
+  class="font5">Nginx</font><font class="font0"> hacia que servidor debe
+  redirigir una petición.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>La
+  sintaxis completa es:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'>proxy_pass
+  Protocolo://Host[:Puerto][/URI]</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*Con:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'><font
+  class="font5">Protocolo</font><font class="font0"> --&gt; puede tratarse de
+  http o https para redirigir en SSL.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'><font
+  class="font5">Host</font><font class="font0"> --&gt; se puede especificar el
+  nombre del host o su dirección IP o ruta de acceso de socket Unix con el
+  prefijo unix:.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'><font
+  class="font5">Puerto</font><font class="font0"> --&gt; solo es obligatorio si
+  el servidor de destino está en la misma máquina (se deberá configurar con un
+  número de puerto diferente del asignado a Nginx).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'><font
+  class="font5">URI</font><font class="font0"> --&gt; opcional. La parte de la
+  URI de origen correspondiente a la ubicación especificada (si es preciso
+  modificada por una directiva) se remplazará por la cadena URI indicada y a
+  continuación se enviará al servidor destino.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*Ejemplos:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'>proxy_pass
+  http://10.0.0.2;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Redirección
+  al servidor remoto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'>proxy_pass
+  http://www.masoc.local;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Redirección
+  al servidor remoto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'>proxy_pass
+  https://10.0.0.2;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Redirección
+  al servidor remoto en SSL.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'>proxy_pass
+  http://127.0.0.1:8080;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Redirección
+  al servidor local de la máquina, que escucha en el puerto 8080.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'>location
+  /info/ {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'>proxy_pass
+  http://www.masoc.local/externo/;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'>}</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Redirección
+  al servidor remoto, sustituyendo /info/ en la URI por /externo/.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>4.
+  Selección de las peticiones que se deben redirigir</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Otras
+  técnicas permiten determinar las peticiones que se han de tratar localmente
+  por el servidor Nginx y las peticiones que se han de redirigir a un servidor
+  de destino.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>a.
+  Selección mediante un bloque de ubicación utilizando una expresión regular</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Se
+  puede definir un bloque de ubicación específico para cada tipo de petición
+  que se ha de redirigir.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*Ejemplo</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Para
+  redirigir solo las peticiones de los scripts PHP (archivo con sufijo .php,
+  .php3, .php4, .php5, etc.) a un servidor remoto:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'>http
+  {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>    </span>include /etc/nginx/mime.types;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>index index.html index.htm;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>server {<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>          </span>listen 80 default;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>          </span>server_name beta;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>          </span>root<span
+  style='mso-spacerun:yes'>  </span>/usr/share/nginx/html/public;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>          </span>location ~* \.php.*$ {<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>             </span>proxy_pass
+  http://www.local;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>          </span>}<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>}<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'>}</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>b.
+  Selección mediante la directiva try_files</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Esta
+  directiva permite especificar diferentes criterios de búsqueda del objeto que
+  se pide, utilizado en el orden indicado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Al
+  final de la directiva, se puede especificar un nombre de bloque de ubicación
+  con nombre.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Así,
+  primero se puede intentar servir localmente las peticiones y a continuación,
+  en caso de fallo, redirigir la petición a un servidor destino.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*Ejemplo:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'>http
+  {<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>    </span>include /etc/nginx/mime.types;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>    </span>index index.html index.htm;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>    </span>server {<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>listen 80 default;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>server_name beta;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>root<span style='mso-spacerun:yes'> 
+  </span>/usr/share/nginx/html/public;<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>location @destino {<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>            </span>proxy_pass http://www.local;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>}<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>location / {<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>            </span>try_files $uri $uri/
+  @destino;<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>}<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>    </span>}<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'>}</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1439 style='height:15.0pt;width:1079pt'>Cualquier
+  petición se buscará <font class="font18">a partir de la raíz del servidor</font><font
+  class="font8">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Si no
+  se encuentra el elemento correspondiente, se pone el sufijo / a la URI.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Si
+  tampoco se encuentra, se redirige la petición al bloque de ubicación llamado
+  destino, definido más arriba y asociado al servidor destino www.local.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl82 width=1439 style='height:15.0pt;width:1079pt'>La
+  variable <font class="font18">$uri</font><font class="font24"> contiene la </font><font
+  class="font18">URI</font><font class="font24"> que pide el </font><font
+  class="font18">cliente</font><font class="font24">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>c.
+  Selección mediante la directiva fastcgi_pass</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>La
+  directiva <font class="font15">fastcgi_pass</font><font class="font0">, del </font><font
+  class="font23">módulo</font><font class="font0"> estándar </font><font
+  class="font15">http_fastcgi</font><font class="font0">, permite asociar un
+  bloque de ubicación a una redirección hacia un servidor de scripts remoto.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>De
+  nuevo, esto permite tratar los elementos estáticos en local por <font
+  class="font5">Nginx</font><font class="font0"> y redirigir las peticiones
+  dinámicas a un servidor de destino.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>La
+  sintaxis completa es:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1439 style='height:15.0pt;width:1079pt'>fastcgi_pass
+  Host[:Puerto]</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*Con:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><font
+  class="font15">Host</font><font class="font12"><span
+  style='mso-spacerun:yes'>  </span>--&gt; se puede especificar un nombre de
+  host o su dirección IP o una ruta de acceso de socket Unix con el prefijo
+  unix:.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><font
+  class="font15">Puerto</font><font class="font12"><span
+  style='mso-spacerun:yes'>  </span>--&gt; opcional.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'>http
+  {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>    </span>include /etc/nginx/mime.types;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>    </span>index index.html index.htm;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>    </span>server {<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>listen 80 default;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>server_name beta;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>root<span style='mso-spacerun:yes'> 
+  </span>/usr/share/nginx/html/public;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>location @dyn {<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>            </span>fastcgi_pass www.local;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>}<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>location / {<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>            </span>try_files $uri $uri/ @dyn;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>        </span>}<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'>    </span>}<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1439 style='height:15.0pt;width:1079pt'>}</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1439 style='height:15.0pt;width:1079pt'><a
+  href="#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1439 style='width:1079pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

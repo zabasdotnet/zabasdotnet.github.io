@@ -1,0 +1,488 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../110.1.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(9);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../110.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl78>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1322 style='border-collapse:
+ collapse;table-layout:fixed;width:992pt'>
+ <col class=xl78 width=1274 style='mso-width-source:userset;mso-width-alt:46592;
+ width:956pt'>
+ <col class=xl78 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1274 style='height:15.0pt;width:956pt'><a
+  name="RANGE!A1">/etc/sudoers</a></td>
+  <td class=xl80 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>El fichero de configuración de
+  sudo es /etc/sudoers.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Es posible:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>- crear grupos de usuarios</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>- crear grupos de máquinas</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>- crear grupos de comandos</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>- forzar o no el uso de una
+  contraseña</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>- forzar la ejecución de un
+  comando bajo un usuario distinto de root.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Los grupos se llaman alias.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Para crear alias de usuarios,
+  utilice esta sintaxis:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>User_Alias<span
+  style='mso-spacerun:yes'>     </span>ADMINS = seb, esteban, enrique</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Si todos los administradores
+  deben poder utilizar el comando fsck, la línea se convierte en:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>ADMINS<span
+  style='mso-spacerun:yes'>    </span>ALL= /sbin/fsck</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Si los administradores sólo
+  pueden ejecutar estos comandos en determinadas máquinas, cree un alias de
+  máquinas:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Host_Alias<span
+  style='mso-spacerun:yes'>    </span>SERVERS= slyserver, eeepc</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>La línea sudo se convierte en:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>ADMINS<span
+  style='mso-spacerun:yes'>    </span>SERVERS= /sbin/fsck</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Es posible añadir varios
+  comandos unos tras otros, con o sin parámetros.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Si los ADMINS deben ejecutar
+  también el comando /sbin/dumpe2fs, la línea se convierte en lo siguiente:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>ADMINS<span
+  style='mso-spacerun:yes'>  </span>SERVERS=/sbin/fsck, /sbin/dumpe2fs</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>o, para saltar a la línea
+  siguiente, ponga una barra oblicua «\» en el final de línea:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>ADMINS<span
+  style='mso-spacerun:yes'>  </span>SERVERS=/sbin/fsck, \</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>            </span>/sbin/dumpe2fs</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Puede crear alias de comandos
+  para agruparlos:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Cmnd_Alias ADMCMD=/sbin/fsck,
+  /sbin/dume2fs</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>La línea sudo se convierte en:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>ADMINS<span
+  style='mso-spacerun:yes'>  </span>SERVERS=ADMCMD</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Para evitar la introducción de
+  la contraseña de un usuario, escriba NOPASSWD como a continuación:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>ADMINS<span
+  style='mso-spacerun:yes'>  </span>SERVERS=NOPASSWD: ADMCMD</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Los usuarios del alias ADMINS
+  ya no tendrán que teclear contraseña para introducir los comandos del alias
+  ADMCMD.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>También puede forzar la
+  utilización de una contraseña con PASSWD.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Añada así el comando mkfs:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>ADMINS<span
+  style='mso-spacerun:yes'>  </span>SERVERS=NOPASSWD: ADMCMD, PASSWD:/sbin/mkfs</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Para permitir que los ADMINS
+  inicien un comando con la identidad de otro usuario distinto de root, sitúe
+  el nombre del usuario (o alias) entre paréntesis, como a continuación:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>ADMINS<span
+  style='mso-spacerun:yes'>  </span>ALL=(esteban) PASSWD: /sbin/service</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>ADMINS podrá ejecutar
+  /sbin/service como Esteban introduciendo la contraseña de éste.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>El resultado del sudo -l
+  asociado es el siguiente:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>seb@slyserver:~&gt; sudo -l</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>User seb may run the following
+  commands on this host:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>    </span>(root) NOPASSWD: /sbin/fsck,
+  /sbin/dumpe2fs</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>    </span>(root) /sbin/mkfs</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>    </span>(esteban) /sbin/service</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Para iniciar el comando bajo
+  otro usuario, utilice el parámetro -u de sudo:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>seb@slyserver:~&gt; sudo -u
+  esteban /sbin/service</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Puede precisar varios
+  usuarios, pero también crear alias como para el resto:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Runas_Alias<span
+  style='mso-spacerun:yes'>    </span>LISTUSR=seb,esteban</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Puede utilizar este alias en
+  la línea sudo:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>ADMINS<span
+  style='mso-spacerun:yes'>  </span>ALL=(LISTUSR) PASSWD: /sbin/service</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Puede utilizar el alias ALL:
+  define el conjunto de usuarios, máquinas y comandos, según la posición donde
+  está escrito.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>La línea siguiente significa
+  que los ADMINS tienen permiso de ejecutar todos los comandos, en todas las
+  máquinas, sin contraseña:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>ADMINS ALL=NOPASSWD: ALL</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>El signo de exclamación
+  permite excluir a determinados usuarios, comandos, máquinas, de un alias o de
+  una lista.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>La línea siguiente da todos
+  los derechos sobre todos los programas sin contraseña a los ADMINS, salvo
+  sobre /sbin/mkfs, que requiere una contraseña, y /sbin/resize2fs, que está
+  prohibido:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>ADMINS<span
+  style='mso-spacerun:yes'>  </span>SERVERS=NOPASSWD: ALL, !/sbin/resize2fs,
+  PASSWD:/sbin/mkfs</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Si un ADMINS intenta iniciar
+  resize2fs, obtiene un error:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>seb@slyserver:~&gt; sudo
+  /sbin/resize2fs</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Sorry, user seb is not allowed
+  to execute ’/sbin/resize2fs’ as root on slyser-</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>ver.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>La regla siguiente, muy
+  peligrosa, autoriza a todo el mundo a ejecutar lo que quiera, en cualquier
+  sitio y sin contraseña, como cualquier usuario:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>ALL<span
+  style='mso-spacerun:yes'>        </span>ALL=(ALL) NOPASSWD: ALL</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>A continuación viene una línea
+  que se utiliza con frecuencia para autorizar a un usuario a hacerlo todo,
+  salvo iniciar shells o el comando su, con la condición de que los alias SU y
+  SHELLS estén completos:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>seb<span
+  style='mso-spacerun:yes'>        </span>ALL = ALL, !SU, !SHELLS</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Esta línea no garantiza que
+  &quot;seb&quot; pueda obtener derechos por medios indirectos, por ejemplo, si
+  se han vuelto a nombrar todos los comandos, o por rebotes de comandos
+  sucesivos.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl80 style='height:15.0pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+  <td class=xl78></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1274 style='width:956pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,662 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../104.3.htm">
+<link rel=File-List href=filelist.xml>
+<title>104.3 - Control mounting and unmounting filesystems</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../104.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=4464 style='border-collapse:
+ collapse;table-layout:fixed;width:3350pt'>
+ <col class=xl68 width=713 style='mso-width-source:userset;mso-width-alt:26075;
+ width:535pt'>
+ <col class=xl66 width=552 style='mso-width-source:userset;mso-width-alt:20187;
+ width:414pt'>
+ <col class=xl66 width=667 style='mso-width-source:userset;mso-width-alt:24393;
+ width:500pt'>
+ <col class=xl66 width=914 style='mso-width-source:userset;mso-width-alt:33426;
+ width:686pt'>
+ <col class=xl66 width=767 style='mso-width-source:userset;mso-width-alt:28050;
+ width:575pt'>
+ <col class=xl66 width=450 style='mso-width-source:userset;mso-width-alt:16457;
+ width:338pt'>
+ <col class=xl66 width=174 style='mso-width-source:userset;mso-width-alt:6363;
+ width:131pt'>
+ <col class=xl66 width=102 style='mso-width-source:userset;mso-width-alt:3730;
+ width:77pt'>
+ <col class=xl66 width=80 style='width:60pt'>
+ <col class=xl66 width=45 style='mso-width-source:userset;mso-width-alt:1645;
+ width:34pt'>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl66 width=713 style='height:90.0pt;width:535pt'><a
+  name="RANGE!A1">Este fichero es invocado siempre que se inicia el sistema, ya
+  que es aquí donde se especifican los periféricos y sus puntos de
+  montaje.<br>
+    <br>
+    Contiene seis campos.<br>
+    <font class="font5">periférico punto_de_montaje typefs opciones dump fsck</font><font
+  class="font0"><br>
+    Los espacios o las tabulaciones hacen de separadores de campos.</font></a></td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=713 style='height:15.0pt;width:535pt'></td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=713 style='height:15.0pt;width:535pt'>1)
+  periférico</td>
+  <td class=xl68 width=552 style='width:414pt'>2) punto de montaje</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=713 style='height:30.0pt;width:535pt'>El
+  periférico a montar. Se puede especificar como ruta de periférico (/dev/hda1
+  por ejemplo), como label de sistema de ficheros si existe (LABEL=/home), o
+  incluso como UUID (UUID=xxxx).</td>
+  <td class=xl66 width=552 style='width:414pt'>El directorio de acceso al
+  sistema de ficheros montado.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=713 style='height:15.0pt;width:535pt'></td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=713 style='height:15.0pt;width:535pt'>3)
+  typefs</td>
+  <td class=xl68 width=552 style='width:414pt'>4) opciones</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=713 style='height:15.0pt;width:535pt'>El tipo
+  (ext2, ext3, ext4, btrfs, reiser, vfat, etc.) del sistema de ficheros.</td>
+  <td class=xl66 width=552 style='width:414pt'>Opciones de montaje separadas
+  por comas.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=713 style='height:15.0pt;width:535pt'></td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=713 style='height:15.0pt;width:535pt'>5) dump</td>
+  <td class=xl68 width=552 style='width:414pt'>6) fsck</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=713 style='height:30.0pt;width:535pt'>Frecuencia
+  de volcado para las herramientas de copia de seguridad.</td>
+  <td class=xl66 width=552 style='width:414pt'>Frecuencia de verificación del
+  sistema de ficheros. 0=ignorar. 1=en primero, 2 en segundo, etc. Se verifican
+  en paralelo los sistemas que tienen el mismo número.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=713 style='height:15.0pt;width:535pt'></td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl66 width=713 style='height:90.0pt;width:535pt'>/dev/sda3<span
+  style='mso-spacerun:yes'>  </span>/<span style='mso-spacerun:yes'>        
+  </span>ext4<span style='mso-spacerun:yes'>   </span>acl,user_xattr<span
+  style='mso-spacerun:yes'>                              </span>1 1<br>
+    /dev/sda2<span style='mso-spacerun:yes'>  </span>/boot<span
+  style='mso-spacerun:yes'>     </span>ext4<span style='mso-spacerun:yes'>  
+  </span>acl,user_xattr<span
+  style='mso-spacerun:yes'>                              </span>1 2<br>
+    /dev/sdb1<span style='mso-spacerun:yes'>  </span>/home<span
+  style='mso-spacerun:yes'>     </span>ext4<span style='mso-spacerun:yes'>  
+  </span>acl,user_xattr<span
+  style='mso-spacerun:yes'>                              </span>1 2<br>
+    /dev/sda6<span style='mso-spacerun:yes'>  </span>/public<span
+  style='mso-spacerun:yes'>   </span>ext4<span style='mso-spacerun:yes'>  
+  </span>acl,user_xattr<span
+  style='mso-spacerun:yes'>                              </span>1 2<br>
+    /dev/sda1<span style='mso-spacerun:yes'>  </span>/windows<span
+  style='mso-spacerun:yes'>  </span>ntfs<span style='mso-spacerun:yes'>  
+  </span>noauto,users,gid=users,umask=0002,utf8=true 0 0<br>
+    /dev/sda5<span style='mso-spacerun:yes'>  </span>swap<span
+  style='mso-spacerun:yes'>      </span>swap<span style='mso-spacerun:yes'>  
+  </span>defaults<span
+  style='mso-spacerun:yes'>                                    </span>0 0</td>
+  <td class=xl66 width=552 style='width:414pt'>En vez de especificar nombres de
+  periféricos estáticos, puede ser preferible especificar una etiqueta (label,
+  volumen) o un UUID.<br>
+    <br>
+    LABEL=BOOT<span style='mso-spacerun:yes'>   </span>/boot<span
+  style='mso-spacerun:yes'>                        </span>ext4<span
+  style='mso-spacerun:yes'>    </span>acl,user_xattr<span
+  style='mso-spacerun:yes'>     </span>1 2<br>
+    UUID=f0bed37c-9ddc-4764-ae7f-133205c36b5d ext3<span
+  style='mso-spacerun:yes'>    </span>acl,user_xattr<span
+  style='mso-spacerun:yes'>     </span>1 2</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=713 style='height:15.0pt;width:535pt'></td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=400 style='height:300.0pt'>
+  <td height=400 class=xl68 width=713 style='height:300.0pt;width:535pt'>Si no
+  desea utilizar ninguna de estas soluciones, pero tiene que usar rutas, puede
+  valerse de los vínculos simbólicos presentes en cada /dev/disk/by-XXX, donde
+  xxx representa:<br>
+    </td>
+  <td class=xl66 width=552 style='width:414pt'>id: los identificadores de
+  controlador, hardware y partición de los diferentes volúmenes;<br>
+    label: los identificadores mediante etiqueta;<br>
+    uuid: los identificadores uuid;<br>
+    path: los identificadores por ruta física (bus, lun, etc.).<br>
+    </td>
+  <td class=xl66 width=667 style='width:500pt'>./by-id:<br>
+    lrwxrwxrwx 1 root root<span style='mso-spacerun:yes'>  </span>9 mar 20
+  08:16 ata-HDT722516DLA380_VDKD1CTCE25WSK -&gt; ../../sda<br>
+    lrwxrwxrwx 1 root root 10 mar 20 08:16 ata-HDT722516DLA380_VDKD1CTCE25WSK
+  -part1 -&gt; ../../sda1<br>
+    lrwxrwxrwx 1 root root 10 mar 20 08:16
+  ata-HDT722516DLA380_VDKD1CTCE25WSK-part2 -&gt; ../../sda2<br>
+    lrwxrwxrwx 1 root root 10 mar 20 08:16 ata-ST3160811AS_6PT1LX2M-part1 -&gt;
+  ../../sdb1<br>
+    <br>
+    ./by-label:<br>
+    lrwxrwxrwx 1 root root 10 mar 20 13:44 EXTERNE -&gt; ../../sdc1<br>
+    lrwxrwxrwx 1 root root 10 mar 20 08:16 ROOT -&gt; ../../sda3<br>
+    lrwxrwxrwx 1 root root 10 mar 20 08:16 BOOT -&gt; ../../sda2<br>
+    <br>
+    ./by-path:<br>
+    lrwxrwxrwx 1 root root<span style='mso-spacerun:yes'>  </span>9 mar 20
+  13:44 pci-0000:00:1a.7-usb-0:2:1.0-scsi-0:0:0:0 -&gt; ../../sdc<br>
+    lrwxrwxrwx 1 root root 10 mar 20 13:44
+  pci-0000:00:1a.7-usb-0:2:1.0-scsi-0:0:0:0-part1 -&gt; ../../sdc1<br>
+    lrwxrwxrwx 1 root root<span style='mso-spacerun:yes'>  </span>9 mar 20
+  08:16 pci-0000:00:1f.2-scsi-0:0:0:0 -&gt; ../../sda<br>
+    <br>
+    ./by-uuid:<br>
+    lrwxrwxrwx 1 root root 10 mar 20 08:16 02FCDA46FCDA339F -&gt;
+  ../../sda1<br>
+    lrwxrwxrwx 1 root root 10 mar 20 13:44 470E-63A6 -&gt; ../../sdc1<br>
+    lrwxrwxrwx 1 root root 10 mar 20 08:16 527585d3-1e52-4aba-b7fc-70f18388458d
+  -&gt; ../../sda6</td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=713 style='height:15.0pt;width:535pt'></td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=713 style='height:15.0pt;width:535pt'>Montaje
+  durante el arranque</td>
+  <td class=xl68 width=552 style='width:414pt'>Montaje manual</td>
+  <td class=xl68 width=667 style='width:500pt'>Montarlo todo</td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl66 width=713 style='height:60.0pt;width:535pt'>Durante
+  la secuencia de inicio, el fichero /etc/fstab es leído por uno de los
+  scripts, casi al principio del boot, entre la carga del núcleo y el inicio de
+  los servicios.</td>
+  <td class=xl66 width=552 style='width:414pt'>Se puede utilizar el contenido
+  de /etc/fstab después de la puesta en marcha del sistema para montar y
+  desmontar de manera puntual los sistemas de ficheros que no disponen, por
+  ejemplo, de la opción noauto, o los soportes masivos como los lectores
+  CD/DVD.</td>
+  <td class=xl66 width=667 style='width:500pt'>Si ha realizado modificaciones
+  importantes en la fstab, como el añadido de varios puntos de montaje, puede,
+  en vez de montar cada sistema de ficheros uno por uno, montarlos todos con el
+  parámetro -a de mount: # mount -a</td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=713 style='height:30.0pt;width:535pt'>Todos
+  aquellos sistemas de ficheros que no tengan configurada la opción noauto se
+  montan automáticamente porque el montaje automático está implícito.</td>
+  <td class=xl66 width=552 style='width:414pt'>En este caso, use el comando
+  mount pasándole simplemente la etiqueta, los puntos de montaje o el
+  periférico sin tener que volver a escribir toda la línea de comandos.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=713 style='height:15.0pt;width:535pt'>El
+  primero es el sistema de ficheros raíz /.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=552 style='width:414pt'>Mount buscará el resto de las
+  opciones en /etc/fstab.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl66 width=713 style='height:60.0pt;width:535pt'>Luego
+  vienen la swap y los demás sistemas de ficheros especificados (p. ej.: /home,
+  /usr, etc.) para terminar con los sistemas virtuales /proc, /sys , /dev/pts,
+  etc.</td>
+  <td class=xl66 width=552 style='width:414pt'>mount /home<br>
+    mount -L /u01<br>
+    mount LABEL=/boot<br>
+    mount /dev/hda5</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=713 style='height:15.0pt;width:535pt'></td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=713 style='height:15.0pt;width:535pt'>bind</td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=713 style='height:30.0pt;width:535pt'>La
+  opción particular bind puede ser muy práctica para montar una parte de
+  sistema de ficheros en varios puntos de montaje.</td>
+  <td class=xl66 width=552 style='width:414pt'>Permite evitar el uso de
+  vínculos simbólicos y sus defectos (modificación del fichero al que se señala
+  y nombre del propio vínculo).</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl66 width=713 style='height:45.0pt;width:535pt'>En el
+  ejemplo siguiente se relaciona el sistema de ficheros que tiene el label u01
+  con el directorio /u01.<br>
+    Luego se relaciona /u01/applis con el directorio /applis.<br>
+    </td>
+  <td class=xl66 width=552 style='width:414pt'>LABEL=/u01<span
+  style='mso-spacerun:yes'>     </span>/u01<span
+  style='mso-spacerun:yes'>            </span>ext3<span
+  style='mso-spacerun:yes'>    </span>defaults 1 2<br>
+    /u01/applis<span style='mso-spacerun:yes'>    </span>/applis<span
+  style='mso-spacerun:yes'>         </span>none<span
+  style='mso-spacerun:yes'>    </span>bind</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=713 style='height:15.0pt;width:535pt'></td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=713 style='height:15.0pt;width:535pt'>Los
+  CD-Rom, DVD-Rom y otros soportes de este tipo se montan como cualquier otro
+  soporte de bloques.</td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=713 style='height:15.0pt;width:535pt'>Los
+  CD-Rom y algunos DVD-Rom utilizan el sistema de ficheros iso9660.</td>
+  <td class=xl68 width=552 style='width:414pt'># mount -t iso9660 /dev/sr0
+  /media/cdrom</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=713 style='height:15.0pt;width:535pt'>La
+  mayoría de los DVD-Rom utilizan, sin embargo, el formato UDF (Universal Disk
+  Format).</td>
+  <td class=xl68 width=552 style='width:414pt'># mount -t udf /dev/sr1
+  /media/dvd</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=713 style='height:15.0pt;width:535pt'></td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl66 width=713 style='height:45.0pt;width:535pt'>Las
+  distribuciones Linux recientes se liberan del montaje manual de los soportes
+  externos, ya que se trate de un CD, DVD, clave USB o disco externo.</td>
+  <td class=xl66 width=552 style='width:414pt'>Los servicios udev se encargan
+  en el momento de la conexión o de la inserción del soporte de crear los
+  ficheros especiales asociados, y luego de montar y desmontar los soportes de
+  manera automática.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=713 style='height:15.0pt;width:535pt'></td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=713 style='height:15.0pt;width:535pt'>Un
+  fichero ISO es una imagen del contenido de un CD o DVD.</td>
+  <td class=xl66 width=552 style='width:414pt'>Es un sistema de ficheros
+  iso9660 o udf en un fichero.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=713 style='height:15.0pt;width:535pt'></td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=713 style='height:30.0pt;width:535pt'>Es
+  posible utilizar esta imagen como periférico con ayuda de la opción loop.</td>
+  <td class=xl66 width=552 style='width:414pt'>Esta técnica consiste en
+  relacionar la imagen con un periférico en modo loopback, y conseguir así que
+  las herramientas lo traten como un disco más.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=713 style='height:15.0pt;width:535pt'></td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=713 style='height:15.0pt;width:535pt'># mount
+  -o loop -t iso9660 image.iso /mnt/iso</td>
+  <td class=xl66 width=552 style='width:414pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=713 style='width:535pt'></td>
+  <td width=552 style='width:414pt'></td>
+  <td width=667 style='width:500pt'></td>
+  <td width=914 style='width:686pt'></td>
+  <td width=767 style='width:575pt'></td>
+  <td width=450 style='width:338pt'></td>
+  <td width=174 style='width:131pt'></td>
+  <td width=102 style='width:77pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=45 style='width:34pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

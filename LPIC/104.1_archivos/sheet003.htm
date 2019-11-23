@@ -1,0 +1,1123 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../104.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>104.1 - Create Partitions and filesystems</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../104.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=2900 style='border-collapse:
+ collapse;table-layout:fixed;width:2177pt'>
+ <col class=xl66 width=1434 style='mso-width-source:userset;mso-width-alt:52443;
+ width:1076pt'>
+ <col class=xl66 width=570 style='mso-width-source:userset;mso-width-alt:20845;
+ width:428pt'>
+ <col class=xl66 width=394 style='mso-width-source:userset;mso-width-alt:14409;
+ width:296pt'>
+ <col class=xl66 width=502 style='mso-width-source:userset;mso-width-alt:18358;
+ width:377pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'><a
+  name="RANGE!A1">Gdisk es una herramienta para particionar discos rígidos de
+  cualquier tamaño con una tabla de particiones GPT de GUID (Globally Unique
+  Identifier) imprescindible para los discos mayores de 2 TB.</a></td>
+  <td class=xl68 width=570 style='width:428pt'></td>
+  <td class=xl68 width=394 style='width:296pt'></td>
+  <td class=xl68 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Para
+  el caso de discos rígidos SSD, por defecto gdisk asegura que sus particiones
+  estén correctamente alineadas.</td>
+  <td class=xl68 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>El uso
+  de particiones GPT, elimina la necesidad de basarse en particiones primarias,
+  extendidas o lógicas propias del sistema MBR.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl68 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>GPT
+  puede soportar un número casi ilimitado de particiones y tiene solamente el
+  límite de la cantidad de espacio reservado para las entradas de las
+  particiones en el disco GPT, por defecto gdisk tiene un límite 128
+  particiones.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>El uso
+  de GPT en dispositivos USB/SSD pequeños, es contraproducente al reducir la
+  velocidad de transferencia de datos de un ordenador a otro, o de un sistema
+  operativo a otro sistema operativo.</td>
+  <td class=xl68 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Aclaraciones:
+  los términos &quot;UEFI&quot; y &quot;EFI&quot; son intercambiables y tienen
+  el mismo significado.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Los
+  discos rígidos con particionamiento GPT pueden usarse tanto en ordenadores de
+  32 como de 64 bit en Gnu/Linux.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>El
+  inicio con doble y triple sistema operativo en discos con particionamiento
+  GPT usando Gnu/Linux, BSD y Apple está soportado con EFI en 64 bit.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=1434 style='height:30.0pt;width:1076pt'>El
+  inicio con doble sistema operativo en discos con particionamiento GPT con
+  Gnu/Linux y MS Windows, esta soportado siempre que el sistema operativo MS
+  Windows pueda iniciar con discos con particionamiento GPT en modo UEFI en 64
+  bit.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Por el
+  momento no existen herramientas de partición conocidas GUI para usar en
+  particionamiento GPT</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>La
+  herramienta gdisk debe ser usada en una terminal, con permisos de
+  administrador, es conveniente ejecutar man gdisk para conocer todas sus
+  opciones.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Los
+  principales comandos de gdisk son</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>m
+  --&gt; para volver al menú principal</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>d
+  --&gt; para borrar una partición</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>n
+  --&gt; para crear una nueva partición</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>o
+  --&gt; para crear una nueva tabla de particiones GUID (GPT)</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>t
+  --&gt; para cambiar el tipo de partición</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Aclaración
+  sobre el comando n:</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=1434 style='height:30.0pt;width:1076pt'>Cuando
+  use el comando n , se debe pulsar Enter para dar a la partición el último
+  número libre y es necesario pulsar Enter otra vez para que acepte el sector
+  de arranque por defecto para la nueva partición antes de establecer el tamaño
+  que necesite para el último sector.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Gdisk
+  se utiliza con el path del disco:</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>gdisk
+  /dev/sda</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>El
+  mensaje inicial es un aviso de si el disco es o no nuevo o uno que ya esté
+  usando GPT:</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Al
+  actuar gdisk sobre un disco rígido tiene un particionado MBR no GPT, el
+  programa muestra un mensaje rodeado por asteriscos sobre la conversión de la
+  partición existente a GPT.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Esto
+  es para evitar que dé la orden gdisk en un disco erróneo por accidente o si
+  no sabe qué está haciendo.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Debe
+  dar una conformidad explícita al mensaje de aviso antes de proseguir.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Este
+  mensaje quiere evitar que dañe accidentalmente su disco de inicio.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Pulsando
+  ? se muestra una lista de todos los comandos disponibles:</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Command
+  (? for help):<span style='mso-spacerun:yes'>  </span>?<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>b
+  --&gt; back up GPT data to a file</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>c
+  --&gt; change a partition's name</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>d
+  --&gt; delete a partition</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>i
+  --&gt; show detailed information on a partition</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>l
+  --&gt; list known partition types</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>n
+  --&gt; add a new partition</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>o
+  --&gt; create a new empty GUID partition table (GPT)</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>p
+  --&gt; print the partition table</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>q
+  --&gt; quit without saving changes</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>r
+  --&gt; recovery and transformation options (experts only)</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>s
+  --&gt; sort partitions</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>t
+  --&gt; change a partition's type code</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>v
+  --&gt; verify disk</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>w
+  --&gt; write table to disk and exit</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>x
+  --&gt; extra functionality (experts only)</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>?
+  --&gt; print this menu</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Para
+  constatar que realmente está trabajando en el disco rígido en el que se
+  quiere hacerlo pulsar p</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>La
+  columna de código de la salida muestra el código del tipo de partición y la
+  de nombre muestra un texto que se puede modificar libremente.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Para
+  borrar una la tabla de particiones existente en el disco:</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>command
+  (? for help):<span style='mso-spacerun:yes'>  </span>d<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Para
+  establecer un inicio GPT-EFI o GPT-BIOS</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>El
+  inicio desde un disco con particionamiento GPT, tiene dos opciones para dar
+  formato al sector de arranque.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Las
+  opciones son:</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>- El
+  ordenador soporta U(EFI) mediante el BIOS, que está activado y seleccionado
+  para poder iniciar y se usa EFI para iniciar con un disco con
+  particionamiento GPT</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>- El
+  ordenador no soporta U(EFI) mediante el BIOS y se usa el BIOS para iniciar
+  con un disco con particionamiento GPT</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Inicio
+  EFI</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Es
+  necesario que el BIOS soporte EFI y que esté activado y seleccionado para el
+  inicio.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Si va
+  a usar EFI para el inicio es necesario tener un sistema de particiones EFI
+  formateado con FAT (tipo EF00 ) como primera partición.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Esta
+  partición contendrá el/los cargador(es) de arranque.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Crear
+  una partición de inicio EFI</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Se
+  escriben en el ejemplo n para crear una nueva partición y +200M para darle
+  200 megas de tamaño.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Pulsando
+  L aparecerá una lista de códigos:</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Hex
+  code or GUID (L to show codes, Enter = 8300):<span style='mso-spacerun:yes'> 
+  </span>L<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>0700
+  Microsoft basic data<span style='mso-spacerun:yes'>  </span>0c01 Microsoft
+  reserved<span style='mso-spacerun:yes'>    </span>2700 Windows RE<span
+  style='mso-spacerun:yes'>          </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>4200
+  Windows LDM data<span style='mso-spacerun:yes'>      </span>4201 Windows LDM
+  metadata<span style='mso-spacerun:yes'>  </span>7501 IBM GPFS<span
+  style='mso-spacerun:yes'>            </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>7f00
+  ChromeOS kernel<span style='mso-spacerun:yes'>       </span>7f01 ChromeOS
+  root<span style='mso-spacerun:yes'>         </span>7f02 ChromeOS
+  reserved<span style='mso-spacerun:yes'>   </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>8200
+  Linux swap<span style='mso-spacerun:yes'>            </span>8300 Linux
+  filesystem<span style='mso-spacerun:yes'>      </span>8301 Linux
+  reserved<span style='mso-spacerun:yes'>      </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>8e00
+  Linux LVM<span style='mso-spacerun:yes'>             </span>a500 FreeBSD
+  disklabel<span style='mso-spacerun:yes'>     </span>a501 FreeBSD boot<span
+  style='mso-spacerun:yes'>        </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>a502
+  FreeBSD swap<span style='mso-spacerun:yes'>          </span>a503 FreeBSD
+  UFS<span style='mso-spacerun:yes'>           </span>a504 FreeBSD ZFS<span
+  style='mso-spacerun:yes'>         </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>a505
+  FreeBSD Vinum/RAID<span style='mso-spacerun:yes'>    </span>a800 Apple
+  UFS<span style='mso-spacerun:yes'>             </span>a901 NetBSD swap<span
+  style='mso-spacerun:yes'>         </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>a902
+  NetBSD FFS<span style='mso-spacerun:yes'>            </span>a903 NetBSD
+  LFS<span style='mso-spacerun:yes'>            </span>a904 NetBSD
+  concatenated<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>a905
+  NetBSD encrypted<span style='mso-spacerun:yes'>      </span>a906 NetBSD
+  RAID<span style='mso-spacerun:yes'>           </span>ab00 Apple boot<span
+  style='mso-spacerun:yes'>          </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>af00
+  Apple HFS/HFS+<span style='mso-spacerun:yes'>        </span>af01 Apple
+  RAID<span style='mso-spacerun:yes'>            </span>af02 Apple RAID
+  offline<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>af03
+  Apple label<span style='mso-spacerun:yes'>           </span>af04 AppleTV
+  recovery<span style='mso-spacerun:yes'>      </span>be00 Solaris boot<span
+  style='mso-spacerun:yes'>        </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>bf00
+  Solaris root<span style='mso-spacerun:yes'>          </span>bf01 Solaris /usr
+  &amp; Mac Z<span style='mso-spacerun:yes'>  </span>bf02 Solaris swap<span
+  style='mso-spacerun:yes'>        </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>bf03
+  Solaris backup<span style='mso-spacerun:yes'>        </span>bf04 Solaris
+  /var<span style='mso-spacerun:yes'>          </span>bf05 Solaris /home<span
+  style='mso-spacerun:yes'>       </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>bf06
+  Solaris alternate se<span style='mso-spacerun:yes'>  </span>bf07 Solaris
+  Reserved 1<span style='mso-spacerun:yes'>    </span>bf08 Solaris Reserved
+  2<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>bf09
+  Solaris Reserved 3<span style='mso-spacerun:yes'>    </span>bf0a Solaris
+  Reserved 4<span style='mso-spacerun:yes'>    </span>bf0b Solaris Reserved
+  5<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>c001
+  HP-UX data<span style='mso-spacerun:yes'>            </span>c002 HP-UX
+  service<span style='mso-spacerun:yes'>         </span>ef00 EFI System<span
+  style='mso-spacerun:yes'>          </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>ef01
+  MBR partition scheme<span style='mso-spacerun:yes'>  </span>ef02 BIOS boot
+  partition<span style='mso-spacerun:yes'>   </span>fd00 Linux RAID</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Entre
+  ef00 para hacer la partición UEFI:</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Partición
+  de inicio BIOS</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=1434 style='height:30.0pt;width:1076pt'>Si el
+  sistema no soporta UEFI, se debe hacer una partición de arranque BIOS que
+  sustituya el sector de disco que en una unidad DOS está entre la tabla de
+  particiones y la primera partición en la que se escribe directamente GRUB.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Creación
+  de una partición de inicio BIOS</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Se
+  escriben en el ejemplo n para crear una nueva partición y +200M para darle
+  200 megas de tamaño.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>(La
+  razón de hacerlo de 200M, comparado con el convencional de 32M es tener una
+  partición del tamaño requerido por EFI por si alguna vez quisiera cambiar el
+  inicio a EFI).</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Escribir
+  ef02 para hacer una partición de arranque BIOS:</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>La
+  partición de inicio BIOS no debe ser formateada</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Crear
+  una partición de intercambio (swap)</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=1434 style='height:30.0pt;width:1076pt'>La
+  ubicación de la partición swap no debe ser descuidada, especialmente para
+  ordenadores portátiles y notebooks, ya que deben ser capaces de suspender su
+  funcionamiento cuando sea necesario, en estos ordenadores debe tener por lo
+  menos el doble de tamaño de la RAM, en ordenadores de escritorio el maximo
+  son 2 gigas.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Se
+  escriben en el ejemplo n para crear una nueva partición,+2G para darle 2
+  gigas de tamaño, y código 8200 el código de swap</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Crear
+  otras particiones para datos</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Se
+  escriben en el ejemplo n para crear una nueva partición y +4G para darle 4
+  gigas de tamaño.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>El
+  mismo procedimiento, se repite para todas las particiones que sean
+  necesarias.</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Para
+  visualizar las particiones creadas ejecutamos:</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Command
+  (? for help):<span style='mso-spacerun:yes'>  </span>p<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Para
+  darle un nombre a cada partición se usa el comando c</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Command
+  (? for help):<span style='mso-spacerun:yes'>  </span>c<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>La
+  orden w escribe sus cambios en el disco, mientras que la q sale sin guardar
+  sus cambios, es en este momento que se decide grabar la hecho o descartalos,
+  pues hasta aqui nada ha ocurrido en el disco rígido:</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Command
+  (? for help):<span style='mso-spacerun:yes'>  </span>w<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>gdisk
+  solo crea particiones y no sistemas de archivos, para dar formato a cada una
+  de ellas mediante el terminal, es neceario conocer los nombres de las
+  particiones para poderlas formatear correctamente:</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Para
+  dar formato al a partición UEFI, (No se la da formato a la partición de
+  arranque BIOS)</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>mkfs
+  -t vfat /dev/sda1</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Para
+  las particiones Gnu/Linux</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>mkfs
+  -t ext4 /dev/sda3</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'></td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>Para
+  la partición de intercambio swap :</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>mkswap
+  /dev/sda2</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1434 style='height:15.0pt;width:1076pt'>swapon
+  /dev/sda2</td>
+  <td class=xl66 width=570 style='width:428pt'></td>
+  <td class=xl66 width=394 style='width:296pt'></td>
+  <td class=xl66 width=502 style='width:377pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1434 style='width:1076pt'></td>
+  <td width=570 style='width:428pt'></td>
+  <td width=394 style='width:296pt'></td>
+  <td width=502 style='width:377pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

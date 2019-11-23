@@ -1,0 +1,252 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../200.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .25in .75in .25in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;
+	mso-page-orientation:landscape;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../200.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl65>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1363 style='border-collapse:
+ collapse;table-layout:fixed;width:1022pt'>
+ <col class=xl65 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl65 width=56 style='mso-width-source:userset;mso-width-alt:2048;
+ width:42pt'>
+ <col class=xl65 width=1211 style='mso-width-source:userset;mso-width-alt:44288;
+ width:908pt'>
+ <col class=xl65 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl65 width=440 style='mso-width-source:userset;mso-width-alt:16091;
+ width:330pt'>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'><a
+  name="RANGE!A1">200.2</a></td>
+  <td class=xl65 width=56 style='width:42pt'>W2</td>
+  <td class=xl65 width=1211 style='width:908pt'>Predict Future Resource Needs</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="../200.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl71 width=1211 style='width:908pt'>Candidates should be able to
+  monitor resource usage to predict future resource needs.</td>
+  <td class=xl78 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl67 width=1211 style='width:908pt'></td>
+  <td class=xl78 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl66 width=56 style='width:42pt'><a href="sheet002.htm#RANGE!A1"><span
+  style='font-weight:700'>collectd</span></a></td>
+  <td class=xl68 width=1211 style='width:908pt'>Es un programa open source de
+  recogida de datos de la actividad del sistema.</td>
+  <td class=xl79 width=48 style='width:36pt'>564, 568</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl80 width=56 style='width:42pt'><a href="sheet003.htm#RANGE!A1"><span
+  style='color:red;font-weight:700'>Nagios</span></a></td>
+  <td class=xl81 width=1211 style='width:908pt'>Es un sistema de monitorización
+  de redes que vigila los equipos (hardware) y servicios (software) que se
+  especifiquen, alertando cuando el comportamiento de los mismos no sea el
+  deseado.</td>
+  <td class=xl82 width=48 style='width:36pt'>???</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl80 width=56 style='width:42pt'><a href="sheet004.htm#RANGE!A1"><span
+  style='color:red;font-weight:700'>MRTG</span></a></td>
+  <td class=xl81 width=1211 style='width:908pt'>MRGT es una herramienta para
+  monitorizar la carga de tráfico de enlaces de red.</td>
+  <td class=xl82 width=48 style='width:36pt'>???</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl80 width=56 style='width:42pt'><a href="sheet005.htm#RANGE!A1"><span
+  style='color:red;font-weight:700'>Cacti</span></a></td>
+  <td class=xl81 width=1211 style='width:908pt'>Cacti es una solución gráfica
+  completa de red designada para aprovechar el poder del almacenamiento de
+  datos y la funcionalidad gráfica de las RRDTool's.</td>
+  <td class=xl82 width=48 style='width:36pt'>???</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'><a
+  href="../200.htm" target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl83 width=56 style='width:42pt'></td>
+  <td class=xl84 width=1211 style='width:908pt'><a href="../200.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl66 width=48 style='width:36pt'><a href="../200.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl66 width=56 style='width:42pt'></td>
+  <td class=xl65 width=1211 style='width:908pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=48 style='width:36pt'></td>
+  <td width=56 style='width:42pt'></td>
+  <td width=1211 style='width:908pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

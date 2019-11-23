@@ -1,0 +1,342 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../210.4.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(3);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../210.4.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl67>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1446 style='border-collapse:
+ collapse;table-layout:fixed;width:1085pt'>
+ <col class=xl67 width=1398 style='mso-width-source:userset;mso-width-alt:51126;
+ width:1049pt'>
+ <col class=xl67 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1398 style='height:15.0pt;width:1049pt'>El
+  servidor OpenLDAP</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'><font
+  class="font5">OpenLDAP</font><font class="font0"> es la implementación del
+  servidor </font><font class="font5">LDAP</font><font class="font0"> open
+  source más común en sistemas Linux.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Aunque
+  su facilidad de uso brilla por su ausencia en comparación con sus
+  equivalentes comerciales, no está menos extendido que estos en todo tipo de
+  implementaciones.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Van
+  desde la centralización de la autentificación a la gestión de cuentas y
+  libretas de direcciones de correo electrónico.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1398 style='height:15.0pt;width:1049pt'>a.
+  Gestión del servicio</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>El
+  servicio <font class="font5">openldap</font><font class="font0"> se
+  administra mediante un script estándar en el directorio </font><font
+  class="font5">/etc/init.d</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Su
+  nombre es variable y depende de la distribución.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'><a
+  name="RANGE!A10">La ambigüedad proviene del hecho de que el protocolo
+  aplicativo es LDAP, mientras que el nombre del <font class="font5">ejecutable</font><font
+  class="font0"> es </font><font class="font5">slapd</font><font class="font0">
+  y el nombre del producto aplicativo es </font><font class="font5">openldap</font><font
+  class="font0">.</font></a></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1398 style='height:15.0pt;width:1049pt'>b.
+  Configuración</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>En un
+  funcionamiento estándar, tal y como previene la certificación LPI, la
+  configuración inicial no representa una gran cantidad de trabajo.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Se
+  trata sobre todo de tener un contexto base: una especie de punto de partida
+  del árbol en el que se encontrarán todos los objetos creados en el
+  directorio.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'><a
+  name="RANGE!A15">La configuración se encuentra en el archivo <font
+  class="font14">slapd.conf</font><font class="font0">, generalmente ubicado en
+  el directorio </font><font class="font14">/etc/ldap</font><font class="font0">
+  o </font><font class="font14">/etc/openldap</font><font class="font0">.</font></a></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Este
+  archivo también incluye la declaración del administrador del directorio, así
+  como su contraseña.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1398 style='height:15.0pt;width:1049pt'>*Declaración
+  del contexto base en el archivo slapd.conf</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1398 style='height:15.0pt;width:1049pt'>suffix<span
+  style='mso-spacerun:yes'>      </span>&quot;dc=dominio&quot;</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Donde
+  dominio representa el contexto principal del árbol.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Este
+  valor se informa habitualmente en la instalación mediante los scripts
+  posteriores a la instalación de los paquetes.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Un
+  mismo directorio openldap puede administrar varios árboles.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1398 style='height:15.0pt;width:1049pt'>*Declaración
+  de la cuenta de administrador en el archivo slapd.conf</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1398 style='height:15.0pt;width:1049pt'>rootdn<span
+  style='mso-spacerun:yes'>    </span>&quot;cn=cuenta_admin,dc=dominio&quot;</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Donde
+  cuenta_admin representa la cuenta del administrador del directorio.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Atención,
+  a diferencia de otras implementaciones LDAP, no es obligatorio que la cuenta
+  de administrador sea también un objeto del directorio.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1398 style='height:15.0pt;width:1049pt'>*Declaración
+  de la contraseña del administrador en el archivo slapd.conf</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1398 style='height:15.0pt;width:1049pt'>rootpw
+  {método_de_encriptación}contraseña_encriptada</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Donde
+  método_de_encriptación representa el algoritmo de firma utilizado para cifrar
+  la contraseña (SHA1, MD5, crypt o texto sin encriptar).</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Para
+  simplificar la introducción de la contraseña, el comando slappasswd permite
+  generar la cadena de caracteres formada a partir de la contraseña cifrada con
+  el método de cifrado e insertarla directamente en slapd.conf.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1398 style='height:15.0pt;width:1049pt'>*Ejemplo
+  de utilización del comando slappasswd</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Ya que
+  el comando slappasswd envía su resultado por la salida estándar, hay que ser
+  un poco astuto para integrarlo en el archivo slapd.conf.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1398 style='height:15.0pt;width:1049pt'>[root@beta
+  openldap]# slappasswd -s contraseña<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1398 style='height:15.0pt;width:1049pt'>{SSHA}oW6wu+yUpFnaB6tg+4cMWnAa8OmDXV62<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1398 style='height:15.0pt;width:1049pt'>[root@beta
+  openldap]# echo &quot;rootpw $(slappasswd -s contraseña)&quot; &gt;&gt;
+  slapd.conf<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1398 style='height:15.0pt;width:1049pt'>[root@beta
+  openldap]#</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>En
+  este punto, el directorio es completamente funcional después de un reinicio
+  del servicio, pero aún estará vacío.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Ya
+  solo falta llenarlo con los clientes LDAP.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>Desde
+  la versión 2.4 de OpenLDAP, la configuración del servidor ya no se almacena
+  en el archivo slapd.conf, sino en el directorio slapd.d, que forma parte de
+  una rama del directorio activo.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'>El
+  archivo slapd.conf sigue estando disponible para su uso y puede convertirse
+  en el contexto de una actualización del software.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1398 style='height:15.0pt;width:1049pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1398 style='height:15.0pt;width:1049pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1398 style='width:1049pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

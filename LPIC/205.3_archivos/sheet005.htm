@@ -1,0 +1,315 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../205.3.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(4);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../205.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1838 style='border-collapse:
+ collapse;table-layout:fixed;width:1379pt'>
+ <col class=xl68 width=1790 style='mso-width-source:userset;mso-width-alt:65462;
+ width:1343pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1790 style='height:15.0pt;width:1343pt'><a
+  name="RANGE!A1">dmesg</a></td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'>El
+  sistema y las aplicaciones utilizan los servicios de un demonio de gestión de
+  registros, <font class="font5">syslogd</font><font class="font0"> (o uno de
+  sus derivados).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'>Se
+  puede encontrar numerosa información sobre el uso de recursos y sobre
+  posibles problemas consultando los archivos de registro generados por este
+  demonio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'>Al
+  arrancarse el sistema, el núcleo debe determinar los dispositivos de que
+  dispone.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'>Para
+  hacerlo, se activa un componente que se encarga de esta detección, <font
+  class="font5">udev</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1790 style='height:30.0pt;width:1343pt'>A
+  continuación muestra en la consola del sistema mensajes de informe de estas
+  detecciones y los almacena también en memoria, ya que el demonio de gestión
+  de los logs todavía no está activo y los sistemas de archivos no tienen por
+  qué estar todavía disponibles en modo escritura.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'>Esta
+  información de inicialización se puede leer posteriormente mediante el
+  comando <font class="font12">dmesg</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'>Sin
+  embargo, el búffer en el que se almacenan estos mensajes es un búffer
+  circular.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'>Puede
+  que los mensajes iniciales hayan desaparecido si el sistema está activo desde
+  hace mucho tiempo o si un controlador de dispositivo indica errores
+  recurrentes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'>La
+  mayor parte de estos mensajes son recuperados por <font class="font12">syslogd</font><font
+  class="font0"> cuando se inicia y los escribe en el archivo de log principal
+  (generalmente </font><font class="font12">/var/log/messages</font><font
+  class="font0">).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1790 style='height:15.0pt;width:1343pt'>*Ejemplo</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1790 style='height:15.0pt;width:1343pt'>[root@beta
+  ~]#dmesg | more<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>Initializing
+  cgroup subsys cpuset<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>Initializing
+  cgroup subsys cpu<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>Linux
+  version 2.6.32-431.20.3.el6.i686<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>(mockbuild@c6b9.bsys.dev.centos.org)
+  (gcc version 4.4.7 20120313<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>(Red
+  Hat 4.4.7-4) (GCC) ) #1 SMP Thu Jun 19 19<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>:51:30
+  UTC 2014<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>[...]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>137MB
+  HIGHMEM available.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>885MB
+  LOWMEM available.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>[...]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>Performance
+  Events: unsupported p6 CPU model 42 no PMU driver,<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>software
+  events only.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>Brought
+  up 1 CPUs<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>Total
+  of 1 processors activated (4022.77 BogoMIPS).<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>[...]<span
+  style='mso-spacerun:yes'>  </span>ata3: SATA link up 3.0 Gbps (SStatus 123
+  SControl 300)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>ata3.00:
+  ATA-6: VBOX HARDDISK, 1.0, max UDMA/133<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>ata3.00:
+  41943040 sectors, multi 128: LBA48 NCQ (depth 31/32)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>ata3.00:
+  configured for UDMA/133<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>[...]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>scsi
+  5:0:1:0: CD-ROM<span style='mso-spacerun:yes'>            </span>VBOX<span
+  style='mso-spacerun:yes'>     </span>CD-ROM<span
+  style='mso-spacerun:yes'>           </span>1.0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>PQ: 0
+  ANSI: 5<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1790 style='height:15.0pt;width:1343pt'>[...]</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'>Se
+  encuentra mucha información sobre los dispositivos detectados en el arranque
+  del sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1790 style='height:15.0pt;width:1343pt'>El
+  archivo de registro <font class="font13">/var/log/messages</font><font
+  class="font8"> también contiene información sobre el estado de los diferentes
+  recursos, sobre todo en caso de error.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1790 style='height:15.0pt;width:1343pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1790 style='height:15.0pt;width:1343pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1790 style='width:1343pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../103.5.htm">
+<link rel=File-List href=filelist.xml>
+<title>103.5 - Create, monitor and kill processes</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../103.5.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=2275 style='border-collapse:
+ collapse;table-layout:fixed;width:1706pt'>
+ <col class=xl66 width=1111 style='mso-width-source:userset;mso-width-alt:40630;
+ width:833pt'>
+ <col class=xl66 width=1164 style='mso-width-source:userset;mso-width-alt:42569;
+ width:873pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'><a
+  name="RANGE!A1">Dado que el entorno de trabajo es multitarea, hay un
+  determinado número de procesos que se ejecutan ya en su máquina sin que usted
+  lo vea.</a></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'>Del
+  mismo modo, el shell que utiliza es en sí misma un proceso.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'>Cuando
+  inserta un comando, el shell crea un nuevo proceso para ejecutarlo, este
+  proceso se convierte en un proceso hijo del shell.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'>Una vez
+  iniciado, hay que esperar al final de su ejecución para iniciar el siguiente
+  (excepto utilizando «;» para encadenar los comandos).</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=1111 style='height:30.0pt;width:833pt'>Nada
+  impide al shell esperar el mensaje del proceso terminado para dejar paso: de
+  hecho, una vez iniciado el comando, el shell puede autorizar la inserción de
+  un nuevo comando sin esperar el final de la ejecución del comando anterior.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'>Para
+  ello, basta insertar, después de haber tecleado el comando, el ampersand
+  «&amp;».<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'>En este
+  caso, el shell y el comando iniciado funcionarán en paralelo.</td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl66 width=1111 style='height:105.0pt;width:833pt'>$ ls
+  -R / &gt; ls.txt 2/dev/null &amp;<br>
+    [1] 21976<br>
+    $ [1]<span style='mso-spacerun:yes'>    </span>Done<span
+  style='mso-spacerun:yes'>                 </span>ls -l -R / &gt; ls.txt
+  2/dev/null<br>
+    $ ls<br>
+    fic1<span style='mso-spacerun:yes'>         </span>fic3<span
+  style='mso-spacerun:yes'>         </span>lista<span
+  style='mso-spacerun:yes'>        </span>ls.txt<span
+  style='mso-spacerun:yes'>       </span>dir1<span
+  style='mso-spacerun:yes'>         </span>users<br>
+    fic2<span style='mso-spacerun:yes'>         </span>fic4<span
+  style='mso-spacerun:yes'>         </span>lista2<span
+  style='mso-spacerun:yes'>       </span>mypass<span
+  style='mso-spacerun:yes'>       </span>pepito.tar.gz<br>
+    </td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'>Justo
+  después de la inserción, aparece una cifra.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'>Hay que
+  recordarlo, ya que se trata del PID del nuevo proceso iniciado en segundo
+  plano.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'>Después
+  de otra inserción, un línea Done indica que el tratamiento se da por
+  finalizado.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'>El
+  valor [1] es propio de un shell particular (ksh).</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'>Algunas
+  observaciones en cuanto al uso del inicio en segundo plano:</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'>El
+  proceso iniciado en segundo plano no debería esperar ser otro shell, dado que
+  se produciría confusión entre este comando y el propio shell.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'>El
+  proceso iniciado no debería mostrar resultados en la pantalla porque
+  entrarían en conflicto con los del shell (por ejemplo, aparición de una línea
+  en medio de una inserción).</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1111 style='height:15.0pt;width:833pt'>Finalmente,
+  cuando se sale del shell, se sale también de todos sus hijos: en este caso,
+  no abandone el shell en mitad de un procesamiento importante.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1111 style='width:833pt'></td>
+  <td width=1164 style='width:873pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

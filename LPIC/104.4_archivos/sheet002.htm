@@ -1,0 +1,289 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../104.4.htm">
+<link rel=File-List href=filelist.xml>
+<title>104.4 - Manage disk cuotas</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../104.4.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1688 style='border-collapse:
+ collapse;table-layout:fixed;width:1266pt'>
+ <col class=xl66 width=897 style='mso-width-source:userset;mso-width-alt:32804;
+ width:673pt'>
+ <col class=xl66 width=791 style='mso-width-source:userset;mso-width-alt:28928;
+ width:593pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'><a
+  name="RANGE!A1">Va a instalar los cuotas en la partición /home conforme a las
+  etapas siguientes:</a></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl66 width=897 style='height:45.0pt;width:673pt'>Modifique
+  las opciones de partición en /etc/fstab.<br>
+    Añada las opciones usrquota (usuario) o grpquota (grupo), o las dos.<br>
+    LABEL=/home /home ext3 defaults,usrquota 1 2</td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=897 style='height:30.0pt;width:673pt'>Monte de
+  nuevo el sistema de ficheros.<br>
+    # mount -o remount /home</td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl66 width=897 style='height:45.0pt;width:673pt'>Cree los
+  ficheros que contienen la información de cuota (base de datos de
+  cuotas).<br>
+    # cd /home <br>
+    # touch aquota.user aquota.group</td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=897 style='height:30.0pt;width:673pt'>Actualice
+  la base de datos con el comando quotacheck.<br>
+    # quotacheck -c /home</td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'>Inicie
+  (o pare) las cuotas.</td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'>Esta
+  operación no es necesaria después de un nuevo inicio de Linux, ya que la
+  implementación de cuotas está incluida en los scripts de inicio.</td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl66 width=897 style='height:45.0pt;width:673pt'><a
+  name="RANGE!A14">El comando quotaon inicia las cuotas para el sistema de
+  ficheros indicado (-a para todos).<br>
+    El comando quotaoff deshabilita las cuotas.<br>
+    quotaon /home</a></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl66 width=897 style='height:75.0pt;width:673pt'><a
+  name="RANGE!A16">Edite las cuotas para los usuarios o los grupos.<br>
+    Se utiliza el comando edquota.<br>
+    En la práctica, si va a establecer las mismas cuotas a todos los usuarios,
+  se crea un usuario lambda cuyas propiedades se copiarán para los demás.</a></td>
+  <td class=xl66 width=791 style='width:593pt'>Establecer las cuotas para
+  josé:<br>
+    # edquota josé # = edquota -u josé<br>
+    <br>
+    Las cuotas de arturo son idénticas a las de josé:<br>
+    # edquota -p josé arturo</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl66 width=897 style='height:45.0pt;width:673pt'>Establezca
+  el período de gracia.<br>
+    El plazo acepta las unidades «seconds», «minutes», «hours», «days»,
+  «weeks», «months».<br>
+    # edquota -t</td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=897 style='height:30.0pt;width:673pt'>Verifique
+  las cuotas. <br>
+    Los usuarios pueden comprobar el estado de sus cuotas con el comando quota.</td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'><a
+  name="RANGE!A22">El administrador puede generar un informe con repquota.</a></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=897 style='height:30.0pt;width:673pt'>Finalmente,
+  el comando warnquota, que puede ser programado con el cron, puede mandar un
+  mail a los usuarios para avisarles en caso de superación.</td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=160 style='height:120.0pt'>
+  <td height=160 class=xl66 width=897 style='height:120.0pt;width:673pt'>La
+  edición de las cuotas se hace con el editor por defecto del sistema, que
+  suele ser vi (se puede modificar el comportamiento vía las variables EDITOR y
+  VISUAL).<br>
+    Los bloques de cuotas son bloques de 1KB.<br>
+    <br>
+    # edquota josé<br>
+    Disk quotas for user josé (uid 502):<br>
+    Filesystem<span style='mso-spacerun:yes'>  </span>blocks<span
+  style='mso-spacerun:yes'>    </span>soft<span style='mso-spacerun:yes'>      
+  </span>hard<span style='mso-spacerun:yes'>       </span>inodes<span
+  style='mso-spacerun:yes'>    </span>soft<span style='mso-spacerun:yes'>    
+  </span>hard<br>
+    /dev/hda5<span style='mso-spacerun:yes'>   </span>1695256<span
+  style='mso-spacerun:yes'>   </span>2500000<span style='mso-spacerun:yes'>   
+  </span>3000000<span style='mso-spacerun:yes'>    </span>12345<span
+  style='mso-spacerun:yes'>     </span>0<span style='mso-spacerun:yes'>       
+  </span>0</td>
+  <td class=xl66 width=791 style='width:593pt'>Con el editor se pueden
+  modificar los valores soft y hard que corresponden a los límites suaves y
+  duros para el número de bloques y el número de inodos. Más arriba, se ha
+  establecido un límite suave de unos 2,4 GB (2500000 KB) y duro de unos 2,9 GB
+  (3000000 KB) de ocupación del sistema de ficheros para josé. No hay cuotas en
+  el número de inodos (valor a 0).</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=180 style='height:135.0pt'>
+  <td height=180 class=xl66 width=897 style='height:135.0pt;width:673pt'>El
+  contenido de los campos blocks e inodos es dinámico y no se debe tocar, ya
+  que de todas maneras no surte ningún efecto.<br>
+    # edquota -t<br>
+    Filesystem<span style='mso-spacerun:yes'>            </span>Block grace
+  period<span style='mso-spacerun:yes'>     </span>Inode grace period<br>
+    /dev/hda3<span style='mso-spacerun:yes'>                    
+  </span>7days<span style='mso-spacerun:yes'>                  </span>7days</td>
+  <td class=xl66 width=791 style='width:593pt'># repquota /home<br>
+    *** Report for user quotas on device /dev/hda5<br>
+    Block grace time: 7 days; Inode grace time: 7 days<br>
+    <span style='mso-spacerun:yes'>                         </span>Block
+  limits<span style='mso-spacerun:yes'>                      </span>File
+  limits<br>
+    User<span style='mso-spacerun:yes'>           </span>Used<span
+  style='mso-spacerun:yes'>     </span>soft<span style='mso-spacerun:yes'>     
+  </span>hard<span style='mso-spacerun:yes'>    </span>grace<span
+  style='mso-spacerun:yes'>    </span>used<span style='mso-spacerun:yes'>   
+  </span>soft<span style='mso-spacerun:yes'>    </span>hard<br>
+   
+  -----------------------------------------------------------------------<br>
+    root<span style='mso-spacerun:yes'>     </span>--<span
+  style='mso-spacerun:yes'>   </span>12345<span
+  style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>         </span>0<span
+  style='mso-spacerun:yes'>                </span>5<span
+  style='mso-spacerun:yes'>       </span>0<span style='mso-spacerun:yes'>      
+  </span>0<br>
+    roger<span style='mso-spacerun:yes'>    </span>-- 1695256<span
+  style='mso-spacerun:yes'>  </span>2500000<span style='mso-spacerun:yes'>  
+  </span>3000000<span style='mso-spacerun:yes'>            </span>12345<span
+  style='mso-spacerun:yes'>       </span>0<span style='mso-spacerun:yes'>      
+  </span>0<br>
+    </td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=897 style='height:30.0pt;width:673pt'>Finalmente,
+  se hace necesario utilizar de forma regular el comando quotacheck para
+  mantener la coherencia de la información de cuotas de los sistemas de
+  ficheros.</td>
+  <td class=xl66 width=791 style='width:593pt'>Efectivamente, al deshabilitar
+  las cuotas o detener el sistema de forma abrupta, resulta necesario verificar
+  y volver a actualizar la información.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=897 style='height:15.0pt;width:673pt'></td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=897 style='height:15.0pt;width:673pt'>#
+  quotacheck -avug</td>
+  <td class=xl66 width=791 style='width:593pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=897 style='width:673pt'></td>
+  <td width=791 style='width:593pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

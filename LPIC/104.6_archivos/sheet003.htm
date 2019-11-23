@@ -1,0 +1,324 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../104.6.htm">
+<link rel=File-List href=filelist.xml>
+<title>104.6 - Create and change bard and symbolic links</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../104.6.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl74>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1756 style='border-collapse:
+ collapse;table-layout:fixed;width:1317pt'>
+ <col class=xl74 width=1057 style='mso-width-source:userset;mso-width-alt:38656;
+ width:793pt'>
+ <col class=xl74 width=699 style='mso-width-source:userset;mso-width-alt:25563;
+ width:524pt'>
+ <col class=xl74 width=914 style='mso-width-source:userset;mso-width-alt:33426;
+ width:686pt'>
+ <col class=xl74 width=767 style='mso-width-source:userset;mso-width-alt:28050;
+ width:575pt'>
+ <col class=xl74 width=450 style='mso-width-source:userset;mso-width-alt:16457;
+ width:338pt'>
+ <col class=xl74 width=174 style='mso-width-source:userset;mso-width-alt:6363;
+ width:131pt'>
+ <col class=xl74 width=102 style='mso-width-source:userset;mso-width-alt:3730;
+ width:77pt'>
+ <col class=xl74 width=80 style='width:60pt'>
+ <col class=xl74 width=45 style='mso-width-source:userset;mso-width-alt:1645;
+ width:34pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'><a
+  name="RANGE!A1">Puede crear vínculos simbólicos, que son un poco como atajos
+  a un fichero.</a></td>
+  <td class=xl74 width=699 style='width:524pt'>Un vínculo es un fichero
+  especial que contiene como información la ruta hacia otro fichero. Es un tipo
+  de alias.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'></td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>Existen
+  dos tipos de vínculos:</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1057 style='height:15.0pt;width:793pt'><a
+  href="sheet002.htm#RANGE!A1">el vínculo duro (hard link).</a></td>
+  <td class=xl68 width=699 style='width:524pt'><a href="#RANGE!A1">el vínculo
+  simbólico (soft link).</a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 style='height:15.0pt'></td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1057 style='height:15.0pt;width:793pt'>Es
+  posible crear vínculos simbólicos hacia cualquier tipo de fichero, sea cual
+  sea y esté donde esté.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>El
+  comando de creación de vínculos simbólicos no comprueba la existencia del
+  fichero al que se apunta.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>Es
+  posible crear vínculos a ficheros que no existen.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>ln<span
+  style='mso-spacerun:yes'>  </span>-s fichero vínculo</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'></td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>Si
+  fuera necesario, el vínculo se comportará como el fichero al que se apunta,
+  con los mismos permisos y las mismas propiedades:</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1057 style='height:15.0pt;width:793pt'>- si el
+  fichero al que se apunta es un programa, ejecutar el vínculo lleva a ejecutar
+  el programa;</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1057 style='height:15.0pt;width:793pt'>- si el
+  fichero al que se apunta es un directorio, un cd sobre el vínculo entra en
+  este directorio;</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1057 style='height:15.0pt;width:793pt'>- si el
+  fichero al que se apunta es un fichero especial (periférico), se ve el
+  vínculo como periférico;</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl80 width=1057 style='height:15.0pt;width:793pt'></td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1057 style='height:15.0pt;width:793pt'>Sólo en
+  caso de que se elimine, el vínculo simbólico se «separa» del fichero al que
+  apunta.</td>
+  <td class=xl76 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1057 style='height:15.0pt;width:793pt'>La
+  supresión de un vínculo simbólico implica la supresión de este vínculo
+  únicamente, y no del fichero al que apunta.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1057 style='height:15.0pt;width:793pt'></td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>La
+  supresión del fichero al que se apunta no implica la supresión de los
+  vínculos simbólicos asociados.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>En este
+  caso, el vínculo apunta al vacío.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>$ touch
+  fic1</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>$ ln -s
+  fic1 vínculofic1</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>$ ls -l</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>-rw-r--r--
+  1 seb users<span style='mso-spacerun:yes'>    </span>0 mar<span
+  style='mso-spacerun:yes'>  </span>4 19:16 fic1</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>lrwxrwxrwx
+  1 seb users<span style='mso-spacerun:yes'>    </span>4 mar<span
+  style='mso-spacerun:yes'>  </span>4 19:17 vínculofic1 -&gt; fic1</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>$ ls -F</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1057 style='height:15.0pt;width:793pt'>fic1<span
+  style='mso-spacerun:yes'>  </span>vínculofic1@</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1057 style='height:15.0pt;width:793pt'>$ echo
+  titi&gt;fic1</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>$ cat
+  vínculofic1</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>titi</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'></td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>Este
+  ejemplo muestra que un vínculo simbólico es en realidad un fichero especial
+  de tipo «l» que apunta hacia otro fichero.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'></td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>Observe
+  en la lista detallada la presencia de una flecha que indica sobre qué fichero
+  apunta el vínculo.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>Se
+  distingue el carácter @ al indicar que se trata de un vínculo simbólico
+  durante la utilización del parámetro -F.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>Si
+  usted dispone de un terminal de color, es posible que el vínculo simbólico
+  aparezca en azul claro (por convención en Linux).</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>Si
+  aparece en rojo, es que apunta al vacío.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'></td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>Que un
+  vínculo apunte al vacío no significa que no apunte a nada.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>Quizá
+  esté hecho a propósito: es posible crear vínculos hacia puertos USB, o
+  CD-ROM, entre otros, detrás de los cuales hay sistemas de ficheros
+  removibles.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>En este
+  caso, el vínculo se vuelve activo cuando se inserta el soporte o se monta el
+  sistema de ficheros removido.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>El
+  efecto aquí es la escritura en el fichero fic1 de «titi».</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>El
+  comando cat visualiza el contenido de un fichero.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>Al
+  representar el vínculo fic1, la salida es la esperada.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'></td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>Cuidado,
+  los permisos indicados son los del fichero especial y no tienen otro
+  significado: no significa que todo el mundo tiene derechos en el fichero al
+  que se apunta.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1057 style='height:15.0pt;width:793pt'>Durante
+  su utilización, son los derechos del fichero o de la carpeta a los que se
+  apuntan los que prevalecen.</td>
+  <td class=xl74 width=699 style='width:524pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1057 style='width:793pt'></td>
+  <td width=699 style='width:524pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

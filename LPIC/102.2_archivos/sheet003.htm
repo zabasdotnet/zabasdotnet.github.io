@@ -1,0 +1,357 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../102.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>102.2 - Install a boot manager</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../102.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=2752 style='border-collapse:
+ collapse;table-layout:fixed;width:2064pt'>
+ <col class=xl68 width=1236 style='mso-width-source:userset;mso-width-alt:45202;
+ width:927pt'>
+ <col class=xl66 width=535 style='mso-width-source:userset;mso-width-alt:19565;
+ width:401pt'>
+ <col class=xl66 width=981 style='mso-width-source:userset;mso-width-alt:35876;
+ width:736pt'>
+ <col class=xl66 width=457 style='mso-width-source:userset;mso-width-alt:16713;
+ width:343pt'>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'><a
+  name="RANGE!A1">grub-install</a></td>
+  <td class=xl68 width=535 style='width:401pt'></td>
+  <td class=xl68 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>La
+  configuración de GRUB reside en /etc/grub.conf o /boot/grub/menu.lst (el
+  primero es un vínculo al otro).</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>El
+  binario GRUB puede estar instalado en el MBR (Master Boot Record, los
+  primeros 512 bytes de un disco) o un PBR (Partition Boot Record, los primeros
+  512 bytes de una partición).</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>Para
+  instalar o desinstalar GRUB en caso de que MBR esté corrompido, por ejemplo
+  en /dev/sda, utilice el comando grubinstall:</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>#
+  /sbin/grub-install /dev/sda</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Los
+  archivos de GRUB2 siempre se encuentran en /boot/grub.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>Los
+  nombres de módulos acaban con el sufijo .mod.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>La
+  configuración de las entradas de menú está en /boot/grub/menu.cfg.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>NO SE
+  DEBE modificar este archivo a mano, ya que debe generarse con el comando
+  updategrub.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>En la
+  ejecución de updategrub, se analizarán varios archivos para generar la
+  configuración:</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>/bot/grub/device.map,
+  si existe, para la correspondencia entre los nombres de los discos GRUB y
+  Linux.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>/etc/default/grub,
+  que contiene los parámetros por defecto de GRUB.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Todos
+  los archivos albergados en /etc/grub.d/, por orden de lista, que son los
+  scripts que permiten generar automáticamente los menús mostrados en el
+  arranque.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>Cada
+  modificación de estos archivos (o cada vez que se añada un nuevo núcleo o
+  script) debe seguirse inevitablemente de la ejecución del comando updategrub:</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>#
+  update-grub</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>El
+  archivo device.map puede editarse manualmente o generarse automáticamente con
+  el comando grubmkdevicemap.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>Si el
+  archivo device.map está ausente, la numeración de discos depende del orden de
+  detección de éstos por la BIOS.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>#
+  grub-mkdevicemap</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'># cat
+  /boot/grub/device.map</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>El
+  archivo /etc/default/grub contiene variables que definen las opciones de
+  GRUB2 y opciones por defecto de los núcleos Linux.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_DEFAULT=0</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_TIMEOUT=10</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_DEFAULT
+  Entrada del menú seleccionada por defecto (primera=0).</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_HIDDEN_TIMEOUT
+  Considerando una duración en segundos&#894; si esta variable está presente el
+  menú se oculta, permitiendo arrancar en el sistema predeterminado si no es
+  que hay uno solo.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>Durante
+  este intervalo de tiempo si el usuario pulsa [Esc] o [Shift] aparecerá el
+  menú por pantalla.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_TIMEOUT
+  Duración de la visualización del menú en segundos antes de que arranque la
+  entrada por defecto.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_HIDDEN_TIMEOUT_QUIET
+  Define si se visualiza o no el contador de timeout si GRUB_HIDDEN_TIMEOUT
+  está definido: true o false.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_DISTRIBUTOR
+  Línea de comandos que define la generación automática del texto en la entrada
+  del menú.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_CMDLINE_LINUX_DEFAULT
+  Parámetros pasados al núcleo Linux, únicamente para las entradas “normales”,
+  no las de recuperación.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_CMDLINE_LINUX
+  Parámetros por defecto para todos los núcleos LINUX.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_GFXMODE
+  Resolución utilizada por GRUB2 en modo gráfico, que puede modificarse por un
+  valor devuelto por el comando vbeinfo.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_TERMINAL
+  Sin comentar y con el valor console, se activa el modo texto.</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_DISTRIBUTOR=`lsb_release
+  -i -s 2&gt; /dev/null || echo Debian`</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_CMDLINE_LINUX_DEFAULT=”quiet
+  splash nomodeset”</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_CMDLINE_LINUX=””</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'>GRUB_GFXMODE=640x480&quot;</td>
+  <td class=xl66 width=535 style='width:401pt'></td>
+  <td class=xl66 width=981 style='width:736pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1236 style='width:927pt'></td>
+  <td width=535 style='width:401pt'></td>
+  <td width=981 style='width:736pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

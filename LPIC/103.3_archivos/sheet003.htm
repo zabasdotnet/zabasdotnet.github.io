@@ -1,0 +1,241 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../103.3.htm">
+<link rel=File-List href=filelist.xml>
+<title>103.3 - Perform basic file management</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../103.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1262 style='border-collapse:
+ collapse;table-layout:fixed;width:946pt'>
+ <col class=xl68 width=1119 style='mso-width-source:userset;mso-width-alt:40923;
+ width:839pt'>
+ <col class=xl68 width=143 style='mso-width-source:userset;mso-width-alt:5229;
+ width:107pt'>
+ <col class=xl66 width=597 style='mso-width-source:userset;mso-width-alt:21833;
+ width:448pt'>
+ <col class=xl66 width=457 style='mso-width-source:userset;mso-width-alt:16713;
+ width:343pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'><a
+  name="RANGE!A1">cpio</a></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1119 style='height:15.0pt;width:839pt'>El
+  comando cpio hace una copia de seguridad sobre la salida estándar de los
+  ficheros cuyos nombres están insertados en la entrada estándar, por defecto
+  la pantalla y el teclado.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>MODO
+  Archivar:</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1119 style='height:15.0pt;width:839pt'>La
+  sintaxis es:</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>cpio
+  -oL</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'></td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1119 style='height:15.0pt;width:839pt'>Los
+  parámetros son los siguientes:</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>-o:
+  output, creación de la copia de seguridad en salida.</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>-L:
+  copia los ficheros relacionados, y no los vínculos simbólicos.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>-v:
+  modo «verboso», información detallada.</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>-c:
+  copia atributos de los ficheros en forma ASCII (para el intercambio entre
+  varios SO).</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1119 style='height:15.0pt;width:839pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1119 style='height:15.0pt;width:839pt'>$ find
+  Desktop -print| cpio -ocv | gzip &gt; archive.cpio.gz</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>MODO
+  Listar:</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1119 style='height:15.0pt;width:839pt'>La
+  sintaxis es:</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>cpio
+  -it archivo</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'></td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1119 style='height:15.0pt;width:839pt'>Los
+  parámetros son los siguientes:</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>-i:
+  lectura del archivo en entrada.</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>-t:
+  como para tar, lista el contenido del archivo.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1119 style='height:15.0pt;width:839pt'>$ cat
+  archive.cpio.gz | gzip -cd | cpio -it</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>MODO
+  Restaurar</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1119 style='height:15.0pt;width:839pt'>La
+  sintaxis es:</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>cpio
+  -i[umd]</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'></td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>-u:
+  restauración incondicional, con borrado de los ficheros que ya existen.</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>-m: los
+  ficheros restaurados conservan su última fecha de modificación.</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>-d:
+  cpio reconstruye el árbol de directorios y subdirectorios que faltan.</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1119 style='height:15.0pt;width:839pt'></td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1119 style='height:15.0pt;width:839pt'>$ cat
+  archive.cpio.gz | gzip -cd | cpio -iuvd</td>
+  <td class=xl66 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1119 style='height:15.0pt;width:839pt'>Por
+  defecto no se restauran los ficheros si los que están presentes en el disco
+  tienen como fecha de última modificación la misma o posterior.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1119 style='width:839pt'></td>
+  <td width=143 style='width:107pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

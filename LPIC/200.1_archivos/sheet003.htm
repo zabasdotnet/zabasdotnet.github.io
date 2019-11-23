@@ -1,0 +1,600 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../200.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../200.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1467 style='border-collapse:
+ collapse;table-layout:fixed;width:1100pt'>
+ <col class=xl68 width=1419 style='mso-width-source:userset;mso-width-alt:51894;
+ width:1064pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1419 style='height:15.0pt;width:1064pt'><a
+  name="RANGE!A1">netstat</a></td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>El
+  comando <font class="font20">netstat</font><font class="font0"> permite
+  observar las conexiones establecidas con el sistema local.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>Estas
+  conexiones pueden ser de tipo <font class="font5">TCP</font><font
+  class="font0">, </font><font class="font5">UDP</font><font class="font0"> o </font><font
+  class="font5">socket</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>Las
+  conexiones TCP y UDP se establecen en general con sistemas remotos, mientras
+  que los sockets son archivos de un tipo particular que sirven de punto de
+  intercambio entre componentes de aplicación sin acceder a la red.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>Por
+  ejemplo, el servidor gráfico X, que era originalmente una aplicación
+  cliente/servidor, ahora utiliza un socket para las comunicaciones entre el
+  cliente X y su servidor situados en la misma máquina.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>Con el
+  objetivo de diagnosticar el funcionamiento de la red, son más interesantes
+  las conexiones TCP y UDP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1419 style='height:15.0pt;width:1064pt'>*Sintaxis
+  del comando netstat para ver las conexiones activas</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1419 style='height:15.0pt;width:1064pt'>netstat
+  -n</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>Donde
+  la opción <font class="font20">-n</font><font class="font0">, opcional,
+  impide la resolución inversa de las direcciones IP y de los puertos. La
+  visualización es más rápida.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1419 style='height:15.0pt;width:1064pt'>*Consulta
+  de los procesos responsables de las conexiones de red</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1419 style='height:15.0pt;width:1064pt'>netstat
+  -p</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1419 style='height:15.0pt;width:1064pt'>*Visualización
+  de la tabla de enrutamiento con el comando netstat</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1419 style='height:15.0pt;width:1064pt'>netstat
+  -nr</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>Donde
+  la opción <font class="font20">-r</font><font class="font0"> hace que el
+  comando muestre la tabla de enrutamiento y </font><font class="font20">-n</font><font
+  class="font0"> evita que se realice la resolución de nombres.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>El
+  comando <font class="font5">netstat</font><font class="font0"> tiene muchos
+  posibles usos, pero a menudo se utiliza en este simple contexto de consulta
+  de la tabla de enrutamiento.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>Este
+  comando dispone de numerosas opciones.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1419 style='height:15.0pt;width:1064pt'>Vamos
+  a presentar las más habituales en el ámbito de control de la actividad de
+  red.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1419 style='height:15.0pt;width:1064pt'>*Interfaces
+  de red</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1419 style='height:15.0pt;width:1064pt'>netstat
+  -i</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>Esta
+  opción muestra la actividad de todas las interfaces de red configuradas.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1419 style='height:15.0pt;width:1064pt'>[root@beta64
+  ~]# netstat -i<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>Kernel
+  Interface table<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>Iface<span
+  style='mso-spacerun:yes'>    </span>MTU Met<span style='mso-spacerun:yes'>   
+  </span>RX-OK RX-ERR RX-DRP RX-OVR<span style='mso-spacerun:yes'>   
+  </span>TX-OK TX-ERR TX-DRP TX-OVR Flg<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>eth0<span
+  style='mso-spacerun:yes'>    </span>1500<span style='mso-spacerun:yes'>  
+  </span>0<span style='mso-spacerun:yes'>    </span>74403<span
+  style='mso-spacerun:yes'>      </span>0<span style='mso-spacerun:yes'>     
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>    </span>74031<span style='mso-spacerun:yes'>     
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>      </span>0 BMRU<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>lo<span
+  style='mso-spacerun:yes'>      </span>16436<span style='mso-spacerun:yes'> 
+  </span>0<span style='mso-spacerun:yes'>       </span>76<span
+  style='mso-spacerun:yes'>     </span>0<span style='mso-spacerun:yes'>     
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>      </span>76<span style='mso-spacerun:yes'>    
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>      </span>0 LRU</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1419 style='height:15.0pt;width:1064pt'>*Tabla
+  de enrutamiento</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1419 style='height:15.0pt;width:1064pt'>netstat
+  -r</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>Esta
+  opción muestra la tabla de enrutamiento.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1419 style='height:15.0pt;width:1064pt'>[root@beta64
+  ~]# netstat -r<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>Kernel
+  IP routing table<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>Destination<span
+  style='mso-spacerun:yes'>     </span>Gateway<span
+  style='mso-spacerun:yes'>         </span>Genmask<span
+  style='mso-spacerun:yes'>         </span>Flags<span
+  style='mso-spacerun:yes'>   </span>MSS Window<span style='mso-spacerun:yes'> 
+  </span>irtt Iface<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>192.168.0.0<span
+  style='mso-spacerun:yes'>     </span>*<span
+  style='mso-spacerun:yes'>               </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>        
+  </span>0 0<span style='mso-spacerun:yes'>          </span>0 eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>link-local<span
+  style='mso-spacerun:yes'>      </span>*<span
+  style='mso-spacerun:yes'>               </span>255.255.0.0<span
+  style='mso-spacerun:yes'>     </span>U<span style='mso-spacerun:yes'>        
+  </span>0 0<span style='mso-spacerun:yes'>          </span>0 eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>default<span
+  style='mso-spacerun:yes'>         </span>192.168.0.254<span
+  style='mso-spacerun:yes'>   </span>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>UG<span
+  style='mso-spacerun:yes'>        </span>0 0<span
+  style='mso-spacerun:yes'>          </span>0 eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>[root@beta64
+  ~]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1419 style='height:15.0pt;width:1064pt'>*Conexiones
+  y servidores</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1419 style='height:15.0pt;width:1064pt'>netstat
+  -a</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>Esta
+  opción muestra todas las conexiones en curso, así como los servidores en
+  espera y su número de puerto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>El
+  comando sustituye, si es posible, las direcciones y números de puerto por sus
+  nombres lógicos (<font class="font20">-n</font><font class="font0"> para
+  dejar la visualización numérica).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1419 style='height:15.0pt;width:1064pt'>[root@beta64
+  ~]# netstat -a | more<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>Active
+  Internet connections (servers and established)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>Proto
+  Recv-Q Send-Q Local Address<span style='mso-spacerun:yes'>       
+  </span>Foreign Address<span style='mso-spacerun:yes'>          
+  </span>State<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>tcp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:sunrpc<span style='mso-spacerun:yes'>             </span>*:*<span
+  style='mso-spacerun:yes'>                       </span>LISTEN<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>tcp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:ssh<span style='mso-spacerun:yes'>                </span>*:*<span
+  style='mso-spacerun:yes'>                       </span>LISTEN<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>tcp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 localhost:ipp<span style='mso-spacerun:yes'>        </span>*:*<span
+  style='mso-spacerun:yes'>                       </span>LISTEN<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>tcp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 localhost:smtp<span style='mso-spacerun:yes'>       </span>*:*<span
+  style='mso-spacerun:yes'>                       </span>LISTEN<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>tcp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:49786<span style='mso-spacerun:yes'>              </span>*:*<span
+  style='mso-spacerun:yes'>                       </span>LISTEN<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>tcp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:iscsi-target<span style='mso-spacerun:yes'>        </span>*:*<span
+  style='mso-spacerun:yes'>                      </span>LISTEN<span
+  style='mso-spacerun:yes'>   </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>tcp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 beta64:ssh<span style='mso-spacerun:yes'>              
+  </span>192.168.0.4:50738<span style='mso-spacerun:yes'>         
+  </span>ESTABLISHED<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>tcp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>    
+  </span>52 beta64:ssh<span style='mso-spacerun:yes'>              
+  </span>192.168.0.4:51398<span style='mso-spacerun:yes'>         
+  </span>ESTABLISHED<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>tcp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:45839<span style='mso-spacerun:yes'>               </span>*:*<span
+  style='mso-spacerun:yes'>                      </span>LISTEN<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>tcp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:sunrpc<span style='mso-spacerun:yes'>              </span>*:*<span
+  style='mso-spacerun:yes'>                      </span>LISTEN<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>tcp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:ssh<span style='mso-spacerun:yes'>                 </span>*:*<span
+  style='mso-spacerun:yes'>                      </span>LISTEN<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>tcp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 localhost:ipp<span style='mso-spacerun:yes'>         </span>*:*<span
+  style='mso-spacerun:yes'>                      </span>LISTEN<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>tcp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 localhost:smtp<span style='mso-spacerun:yes'>        </span>*:*<span
+  style='mso-spacerun:yes'>                      </span>LISTEN<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>tcp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:iscsi-target<span style='mso-spacerun:yes'>        </span>*:*<span
+  style='mso-spacerun:yes'>                      </span>LISTEN<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>udp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:sunrpc<span style='mso-spacerun:yes'>              </span>*:*<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>udp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:ipp<span style='mso-spacerun:yes'>                 </span>*:*<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>udp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:659<span style='mso-spacerun:yes'>                 </span>*:*<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>udp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:40751<span style='mso-spacerun:yes'>               </span>*:*<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>udp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:agentx<span style='mso-spacerun:yes'>              </span>*:*<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>udp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:bootpc<span style='mso-spacerun:yes'>              </span>*:*<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>udp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:sunrpc<span style='mso-spacerun:yes'>              </span>*:*<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>udp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:659<span style='mso-spacerun:yes'>                 </span>*:*<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1419 style='height:15.0pt;width:1064pt'>udp<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>0 *:41013<span style='mso-spacerun:yes'>               </span>*:*</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1419 style='height:15.0pt;width:1064pt'>*Ejemplo
+  de uso del comando netstat</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>A
+  continuación se presenta el comando <font class="font20">netstat</font><font
+  class="font0"> en una sección de código en la que es llamado cada segundo
+  para supervisar la conexión con una aplicación del sistema local.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>El
+  ejemplo es un script que se compone de un bucle infinito en el que todos los
+  comandos se han escrito en una sola línea.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'>Si se
+  necesita este script reiteradas veces, se deberá crear un archivo de script.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1419 style='height:15.0pt;width:1064pt'>while
+  true ; do clear ; netstat -an | head -20 ; sleep 1 ; done</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1419 style='height:15.0pt;width:1064pt'>Se
+  puede salir de este bucle con la combinación de teclas [Ctrl] C.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1419 style='height:15.0pt;width:1064pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1419 style='height:15.0pt;width:1064pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1419 style='width:1064pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

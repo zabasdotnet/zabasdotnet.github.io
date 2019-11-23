@@ -1,0 +1,256 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../103.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>103.1 - Work on the command line</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(3);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../103.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1193 style='border-collapse:
+ collapse;table-layout:fixed;width:895pt'>
+ <col class=xl66 width=1193 style='mso-width-source:userset;mso-width-alt:43629;
+ width:895pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1193 style='height:15.0pt;width:895pt'><a
+  name="RANGE!A1">export</a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>El
+  comando export permite exportar una variable de manera que su contenido sea
+  visible por los scripts y otros subshells.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>Se
+  pueden modificar las variables exportadas en el script, pero estas
+  modificaciones sólo se aplican al script o al subshell.<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>Además
+  de las variables que el usuario puede definir por sí mismo, se inicia el
+  shell con un cierto número de variables predefinidas útiles para ciertos
+  comandos y accesibles por el usuario.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>Se
+  puede modificar el contenido de estas variables de sistema, pero hay que ser
+  cuidadoso, ya que algunas tienen una incidencia directa sobre el
+  comportamiento del sistema.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>HOME
+  --&gt; Ruta de acceso del directorio de usuario. Directorio por defecto en
+  caso de uso de CD.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>PATH
+  --&gt; Lista de directorios, separados por:, donde el shell va a buscar los
+  comandos externos y otros scripts y binarios. La búsqueda se hace en el orden
+  de los directorios insertados.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>PS1
+  --&gt; Prompt String 1, cadena que representa el prompt estándar visualizado
+  en la pantalla por el shell en espera de inserción de comando.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>PS2
+  --&gt; Prompt String 2, cadena que representa un prompt secundario en caso de
+  que se deba completar la inserción.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>IFS
+  --&gt; Internal Field Separator, lista de los caracteres que separan las
+  palabras en una línea de comandos. Por defecto se trata del espacio, de la
+  tabulación y del salto de línea.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>MAIL
+  --&gt; Ruta y fichero que contiene los mensajes del usuario.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>SHELL
+  --&gt; Ruta completa del shell en curso de ejecución.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>LANG
+  --&gt; Definición del idioma a utilizar, así como del juego de caracteres.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>USER
+  --&gt; Nombre del usuario en curso.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>LOGNAME
+  --&gt; Nombre del login utilizado durante la conexión.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>HISTFILE
+  --&gt; Nombre del fichero del historial, en general $HOME/.sh_history.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>HISTSIZE
+  --&gt; Tamaño en número de líneas del historial.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>OLDPWD
+  --&gt; Ruta de acceso del directorio al que se ha accedido anteriormente.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>PS3
+  --&gt; Define la línea de comandos para escribir un select.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>PWD
+  --&gt; Ruta actual.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>RANDOM
+  --&gt; Genera y contiene un número aleatorio entre 0 y 32767.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>Existen
+  variables especiales accesibles únicamente para lectura y cuyo contenido
+  suele ser contextual.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>$?
+  --&gt; Código de retorno del último comando ejecutado.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>$$
+  --&gt; PID del shell activo.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>$!
+  --&gt; PID del último proceso iniciado en segundo plano.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>$-
+  --&gt; Las opciones del shell.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>Es
+  posible obtener la longitud de una cadena con el carácter #.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>Linux
+  cuenta con dos medios para declarar una tabla: la utilización de los
+  corchetes [ ] y la creación global.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>El
+  primer elemento es 0; el último, 1023.<span style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>Para
+  acceder al contenido de la tabla, hay que poner la variable Y el elemento
+  entre llaves {}.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>Las
+  variables tipadas pueden ser de tipo numérico entero (integer) con el comando
+  typeset -i.<span style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>La
+  ventaja es que permite efectuar cálculos y comparaciones sin pasar por
+  expr.<span style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>El
+  comando let o ((...)) permite cálculos sobre variables.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>+ - * /
+  --&gt; Operaciones sencillas</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>%
+  --&gt; Módulo</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>&lt;
+  &gt; &lt;= &gt;= --&gt; Comparaciones, 1 si verdadero, 0 si falso</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>== !=
+  --&gt; Igual o diferente</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>&amp;&amp;
+  || --&gt; Comparaciones relacionadas con un operador lógico</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1193 style='height:15.0pt;width:895pt'>&amp; |
+  ^ --&gt; Lógico binario AND OR XOR</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1193 style='width:895pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

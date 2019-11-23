@@ -1,0 +1,845 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../207.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../207.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1329 style='border-collapse:
+ collapse;table-layout:fixed;width:997pt'>
+ <col class=xl68 width=1281 style='mso-width-source:userset;mso-width-alt:46848;
+ width:961pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>Configuración
+  básica del servidor</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>1.
+  Funcionamiento del servidor BIND</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>El
+  servidor <font class="font5">DNS BIND</font><font class="font0"> se basa en
+  un </font><font class="font5">ejecutable named</font><font class="font0"> y
+  en un </font><font class="font5">archivo de configuración named.conf</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>a.
+  Estructura del archivo named.conf y sus principales elementos de
+  configuración</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>A
+  continuación se muestra un ejemplo genérico del archivo <font class="font5">named.conf</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Según
+  el caso, se puede encontrar en una forma completa y monolítica, pero es<font
+  class="font9"> frecuente encontrarlo disperso</font><font class="font0"> en
+  varias partes por razones de legibilidad.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Los <font
+  class="font5">subarchivos</font><font class="font0"> se llaman mediante la </font><font
+  class="font5">directiva include</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>La
+  función principal de este archivo es declarar las zonas que administrará este
+  servidor y especificar todos los elementos de configuración.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'><a
+  name="RANGE!A12">*Formato simplificado de named.conf</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>include
+  &quot;/ruta/archivo&quot;;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>options
+  {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>        </span>directory
+  &quot;/ruta/directoriodetrabajo&quot;;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>        </span>forwarders { A.B.C.D };<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>        </span>};<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>zone
+  &quot;NOMBREDEZONA1&quot; {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>        </span>type tipo;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>        </span>file
+  &quot;/RUTA/NOMBREARCHIVO1&quot;;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>        </span>};<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>zone
+  &quot;NOMBREDEZONA2&quot; {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>        </span>type tipo;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>        </span>file
+  &quot;/RUTA/NOMBREARCHIVO2&quot;;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>        </span>};</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>*Archivo
+  named.conf: directivas principales utilizadas</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>*include</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Indica
+  el nombre de un «subarchivo» de configuración.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Evita
+  tener un archivo named.conf demasiado grande para administrarlo cómodamente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>*options</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Contenedor
+  para algunas palabras clave, especialmente directory y forwarders.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>*directory</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Se usa
+  en directivas option.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Indica
+  el directorio utilizado para almacenar en disco datos de caché del servidor.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>*forwarders</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Ubicado
+  en una directiva option para las configuraciones simples <font class="font11">(redirección
+  incondicional)</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Si el
+  servidor no dispone en sus archivos de la resolución solicitada, devuelve la
+  petición al servidor cuya dirección IP es la dada junto a esta directiva.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>*zone</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Contenedor
+  para el nombre de una zona DNS administrada por el servidor.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>*type</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Se usa
+  en directivas zone.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Indica
+  el tipo de zona almacenada.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1281 style='height:15.0pt;width:961pt'>Los
+  valores principales son:</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl69 height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1281 style='height:15.0pt;width:961pt'><font
+  class="font11">hint</font><font class="font10"> (servidores raíz), </font><font
+  class="font11">master</font><font class="font10"> (servidor maestro de una
+  zona) y </font><font class="font11">slave</font><font class="font10">
+  (réplica de un servidor master).</font></td>
+  <td class=xl69 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>*file</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Se usa
+  en directivas zone. Indica el archivo que contendrá la información de zona.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>b.
+  Archivos de definición de zona preinstalados</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Según
+  la implementación, algunas zonas se proporcionan por defecto en la
+  instalación del servidor para habilitar un funcionamiento estándar y permitir
+  las resoluciones de nombre comunes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Por
+  ejemplo, la zona localhost que permite resolver el nombre localhost a
+  127.0.0.1 incluida en el interior del servicio DNS y no solo en el archivo
+  hosts.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Estos
+  archivos de zona se crean durante la instalación y se les hace referencia en
+  el archivo <font class="font16">named.conf</font><font class="font0">.<span
+  style='mso-spacerun:yes'> </span></font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>*Ejemplo
+  de archivo named.conf en una distribución Debian:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Observe
+  que se incluye la declaración de las zonas por defecto, así como la llamada a
+  dos subarchivos de configuración llamados mediante la directiva include.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>include
+  &quot;/etc/bind/named.conf.options&quot;;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>zone
+  &quot;.&quot; {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>  </span>type hint;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>  </span>file &quot;/etc/bind/db.root&quot;;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>};<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>zone
+  &quot;localhost&quot; {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>  </span>type master;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>  </span>file &quot;/etc/bind/db.local&quot;;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>};<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>zone
+  &quot;127.in-addr.arpa&quot; {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>  </span>type master;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>  </span>file &quot;/etc/bind/db.127&quot;;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>};<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>zone
+  &quot;0.in-addr.arpa&quot; {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>  </span>type master;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>  </span>file &quot;/etc/bind/db.0&quot;;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>};<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>zone
+  &quot;255.in-addr.arpa&quot; {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>  </span>type master;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>  </span>file &quot;/etc/bind/db.255&quot;;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>};<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>include
+  &quot;/etc/bind/named.conf.local&quot;;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Observe
+  que las directivas include devuelven dos archivos vacíos en la instalación
+  (solo contienen comentarios).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>El
+  resto de la configuración finaliza con la declaración de las zonas, de las
+  cuales la única realmente requerida para la resolución de nombres públicos es
+  la zona «.», que está escrita en primer lugar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl68 width=1281 style='height:15.75pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl68 width=1281 style='height:15.75pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>2.
+  Servidor de caché</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Un
+  servidor DNS de caché proporciona también la resolución de nombres, pero no
+  contiene ningún dato de resolución local y requiere una infraestructura ya
+  existente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Se
+  limita a reenviar las peticiones a otros servidores.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>De este
+  modo, el servidor pondrá en caché durante un tiempo determinado todas las
+  resoluciones que ha reenviado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl88 height=20 style='height:15.0pt'>
+  <td height=20 class=xl88 width=1281 style='height:15.0pt;width:961pt'>Por
+  definición, un servidor de caché no dispone localmente de zonas DNS
+  personalizadas.</td>
+  <td class=xl88 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Es
+  decir, que no proporcionará por sí mismo ninguna resolución de tipo «¿Qué
+  dirección IP le corresponde al nombre www.sitiogenial.com?»</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>No
+  guarda este tipo de información y deberá responder a las peticiones
+  dirigiéndose a otros servidores mejor informados.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>a.
+  Configuración del servidor de caché</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl69 height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1281 style='height:15.0pt;width:961pt'>Esta es
+  la buena noticia: <font class="font11">un servidor BIND recién instalado es
+  de forma natural un servidor de caché</font><font class="font10">.</font></td>
+  <td class=xl69 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Por lo
+  tanto, no hay que realizar ningún tipo de configuración particular.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1281 style='height:15.0pt;width:961pt'>Cuando
+  se habla de instalar y configurar un servidor de caché como uno de los
+  objetivos de la certificación LPI, se trata simplemente de instalar un
+  servidor en funcionamiento sin información de zona local.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>b.
+  Redirección</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Como ya
+  se ha dicho, un servidor de caché no alberga de forma local registros de
+  recursos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Si
+  tiene que hacer una resolución, <font class="font5">se dirigirá</font><font
+  class="font0"> a los únicos servidores que conoce, que son </font><font
+  class="font5">los servidores raíz</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Este
+  método de resolución obviamente no es el más rápido y se podría desear
+  aprovechar la caché de servidores ya en funcionamiento, como los de un
+  servicio de hospedaje o de un ISP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Para
+  ello, hay que indicar a nuestro servidor la dirección de otros servidores a
+  los que podrá redirigir sus peticiones.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Este
+  tipo de redirección se llama <font class="font11">incondicional</font><font
+  class="font0">, ya que se redirigen </font><font class="font11">todas las
+  resoluciones no pesadas</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>*Configuración
+  de la redirección en named.conf</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>options
+  {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>    </span>forwarders {<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>      </span>A.B.C.D;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'><span
+  style='mso-spacerun:yes'>    </span>};<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1281 style='height:15.0pt;width:961pt'>};</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>*Archivo
+  named.conf: directivas utilizadas para la redirección</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'><font
+  class="font5">*options -- &gt; </font><font class="font0">Anuncia la sección
+  option en el archivo </font><font class="font16">named.conf</font><font
+  class="font22">.</font><font class="font0"> Las redirecciones </font><font
+  class="font5">condicionales </font><font class="font0">se establecen en una
+  sección </font><font class="font5">options.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'><font
+  class="font5">*forwarders --&gt;</font><font class="font0"> Se usa en
+  directivas options. Establece la dirección o las direcciones IP del </font><font
+  class="font11">redirector</font><font class="font0"> o redirectores.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>3. El
+  comando de control rndc</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Como
+  todos los servicios Unix o Linux, <font class="font5">BIND</font><font
+  class="font0"> se inicia o se para mediante un </font><font class="font5">script</font><font
+  class="font0"> que está en </font><font class="font5">/etc/init.d</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Para
+  gestionar al detalle el servicio, hay disponible un <font class="font16">comando
+  de control: rndc</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'>Este
+  comando junto con algunas palabras clave permite transmitir al servidor una
+  gran variedad de instrucciones.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1281 style='height:15.0pt;width:961pt'>No es
+  obligatorio usar rndc en la administración del día a día.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1281 style='height:15.0pt;width:961pt'>Pero
+  entonces cualquier modificación realizada en el archivo de configuración
+  requerirá el reinicio completo del servicio y, por tanto, su interrumpción
+  temporal.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1281 style='height:15.0pt;width:961pt'>De este
+  modo, rndc debería usarse sistemáticamente, sobre todo si el servidor
+  gestiona una gran cantidad de zonas, como el caso de un alojamiento web, por
+  ejemplo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>*Sintaxis</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl74 height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1281 style='height:15.0pt;width:961pt'>rndc
+  accion [parámetro]</td>
+  <td class=xl74 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'>Comando
+  rndc: posibles acciones</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'><font
+  class="font16">*reload --&gt;</font><font class="font5"> </font><font
+  class="font0">Recarga los archivos de configuración y la información de zona.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'><font
+  class="font16">*reload zone zona --&gt;</font><font class="font5"> </font><font
+  class="font0">Recarga los archivos de una sola zona.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'><font
+  class="font16">*reconfig --&gt;</font><font class="font5"> </font><font
+  class="font0">Carga los archivos de configuración solamente para las nuevas
+  zonas.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'><font
+  class="font16">*flush --&gt;</font><font class="font5"> </font><font
+  class="font0">Borra la caché del servidor.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'><font
+  class="font16">*flush zona --&gt;</font><font class="font5"> </font><font
+  class="font0">Borra la caché del servidor para una zona específica.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1281 style='height:15.0pt;width:961pt'><font
+  class="font16">*status --&gt;</font><font class="font5"> </font><font
+  class="font0">Muestra el estado del servidor.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1281 style='height:15.0pt;width:961pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1281 style='height:15.0pt;width:961pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1281 style='width:961pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

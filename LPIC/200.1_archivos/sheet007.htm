@@ -1,0 +1,471 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../200.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(6);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../200.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1045 style='border-collapse:
+ collapse;table-layout:fixed;width:784pt'>
+ <col class=xl68 width=997 style='mso-width-source:userset;mso-width-alt:36461;
+ width:748pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=997 style='height:15.0pt;width:748pt'><a
+  name="RANGE!A1">vmstat</a></td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'>Este
+  comando proporciona información sobre la memoria y su uso desde el arranque
+  del sistema (y también sobre las entradas-salidas y la actividad de CPU).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'>Si se le
+  indica un intervalo de tiempo t y un número de medidas n, también muestra la
+  actividad durante cada intervalo, con n medidas cada t segundos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'>La
+  opción <font class="font20">-S</font><font class="font0"> unidad permite
+  elegir la unidad de visualización (k miles de bytes, K KB, m millón de bytes,
+  M MB).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=997 style='height:15.0pt;width:748pt'>*Ejemplo:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl81 width=997 style='height:15.0pt;width:748pt'>root@alpha:~#
+  vmstat -S M<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=997 style='height:15.0pt;width:748pt'>procs
+  -----------memory------- -swap -io---- -system- ----cpu----<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'> </span>r b swpd<span style='mso-spacerun:yes'>  
+  </span>free<span style='mso-spacerun:yes'>   </span>buff<span
+  style='mso-spacerun:yes'>  </span>cache si so<span style='mso-spacerun:yes'> 
+  </span>bi<span style='mso-spacerun:yes'>  </span>bo in<span
+  style='mso-spacerun:yes'>  </span>cs us sy id wa<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'> </span>1 0<span style='mso-spacerun:yes'>   
+  </span>0<span style='mso-spacerun:yes'>    </span>186<span
+  style='mso-spacerun:yes'>     </span>86<span style='mso-spacerun:yes'>   
+  </span>531<span style='mso-spacerun:yes'>  </span>0<span
+  style='mso-spacerun:yes'>  </span>0<span style='mso-spacerun:yes'> 
+  </span>27<span style='mso-spacerun:yes'>  </span>12 68 327<span
+  style='mso-spacerun:yes'>  </span>2 13 85<span style='mso-spacerun:yes'> 
+  </span>1</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'>Información
+  de un sistema con muy poca carga de trabajo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=997 style='height:15.0pt;width:748pt'>La
+  información visualizada corresponde a la actividad promedio desde el arranque
+  del sistema y está clasificada por <font class="font25">categorías</font><font
+  class="font9">:</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=997 style='height:15.0pt;width:748pt'>*Procesos</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>r --&gt;
+  <font class="font14">En espera del procesador (runnable).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>b --&gt;
+  <font class="font14">Dormido (espera ininterruptible).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=997 style='height:15.0pt;width:748pt'>*Memoria</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>swpd
+  --&gt; <font class="font14">Memoria virtual utilizada.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>free
+  --&gt; <font class="font14">Memoria física disponible.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>buff
+  --&gt; <font class="font14">Memoria utilizada por los búffers.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>cache
+  --&gt; <font class="font14">Tamaño de la caché de entradas-salidas.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=997 style='height:15.0pt;width:748pt'>*Swap</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>si
+  --&gt; <font class="font14">Tamaño de la memoria leída desde la zona de swap
+  de disco.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>so
+  --&gt; <font class="font14">Tamaño de la memoria almacenada en la zona de
+  swap de disco.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=997 style='height:15.0pt;width:748pt'>*Entradas-salidas</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>bi
+  --&gt; <font class="font14">Número de bloques/segundo de lectura.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>bo
+  --&gt; <font class="font14">Número de bloques/segundo de escritura.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=997 style='height:15.0pt;width:748pt'>*Sistema</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>in
+  --&gt; <font class="font14">Número de interrupciones por segundo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>cs
+  --&gt; <font class="font14">Número de cambios de contexto por segundo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=997 style='height:15.0pt;width:748pt'>*Procesador(es)</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>us
+  --&gt; <font class="font14">% de tiempo en modo usuario.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>sy
+  --&gt;<font class="font14"> % de tiempo en modo núcleo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>id
+  --&gt;<font class="font14"> % de tiempo inactivo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>wa
+  --&gt; <font class="font14">% de tiempo en espera de entradas-salidas.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=997 style='height:15.0pt;width:748pt'>La
+  opción <font class="font24">-s</font><font class="font12"> muestra una tabla
+  resumen del uso de la memoria desde el arranque del sistema.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=997 style='height:15.0pt;width:748pt'>[root@beta
+  vm]# vmstat -s -S M<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>         </span>3766 M total memory<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>          </span>538 M used memory<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>          </span>159 M active memory<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>          </span>169 M inactive memory<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>         </span>3228 M free memory<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>           </span>79 M buffer memory<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>          </span>227 M swap cache<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>         </span>3903 M total swap<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>            </span>0 M used swap<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>         </span>3903 M free swap<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>         </span>8663 non-nice user cpu ticks<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>          </span>258 nice user cpu ticks<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>        </span>16413 system cpu ticks<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>     </span>11147568 idle cpu ticks<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>        </span>30382 IO-wait cpu ticks<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>           </span>42 IRQ cpu ticks<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>           </span>47 softirq cpu ticks<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>            </span>0 stolen cpu ticks<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>       </span>306675 pages paged in<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>        </span>84857 pages paged out<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>            </span>0 pages swapped in<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>            </span>0 pages swapped out<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>      </span>3218102 interrupts<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>      </span>4693665 CPU context switches<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>   </span>1405337311 boot time<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=997 style='height:15.0pt;width:748pt'><span
+  style='mso-spacerun:yes'>         </span>6222 forks</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=997 style='height:15.0pt;width:748pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=997 style='height:15.0pt;width:748pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=997 style='width:748pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

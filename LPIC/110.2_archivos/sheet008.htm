@@ -1,0 +1,422 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../110.2.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(7);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../110.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl70>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1437 style='border-collapse:
+ collapse;table-layout:fixed;width:1078pt'>
+ <col class=xl70 width=1389 style='mso-width-source:userset;mso-width-alt:50797;
+ width:1042pt'>
+ <col class=xl70 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1389 style='height:15.0pt;width:1042pt'>Los
+  tcp_wrappers</td>
+  <td class=xl72 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Las envolturas TCP o
+  simplemente tcp_wrappers permiten la comprobación de los accesos a un
+  servicio de red determinado (service, xinetd, portmapper).</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Cada programa que utiliza los
+  tcp_wrappers se compila con la librería libwrap de manera estática (el
+  comando ldd no permite ver la librería).</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Para saber si un servicio de
+  red está compilado con libwrap, se introduce el comando siguiente:</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>strings -f &lt;binario&gt; |
+  grep hosts_access</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Aquí tenemos un ejemplo con
+  xinetd, que utiliza las tcp_wrappers:</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'># strings -f /usr/sbin/xinetd
+  |grep hosts_access</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>/usr/sbin/xinetd: hosts_access</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Si no se devuelve ninguna
+  línea, el programa no utiliza las tcp_wrappers.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Entre los servicios que
+  utilizan las tcp_wrappers, encontramos:</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>* sendmail (incluyendo
+  postfix),</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>* sshd (ssh),</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>* xinetd (y por lo tanto de
+  manera indirecta todos los servicios asociados),</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>* vsftpd (ftp),</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>* portmap (y por lo tanto nis,
+  nfs),</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>* in.telnetd (telnet), así
+  como la mayoría de los servicios soportados por xinetd, dovecot (imap, pop).</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>La comprobación de acceso a un
+  servicio envuelto TCP se hace en tres etapas:</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>1 - ¿se autoriza el acceso de
+  manera explícita?</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>2 - si no es el caso, ¿se
+  prohíbe el acceso de manera explícita?</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>3 - si no es el caso, por
+  defecto, se autoriza el acceso.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 style='height:15.0pt'><a name="RANGE!A27">Los
+  ficheros de configuración son /etc/hosts.allow y /etc/hosts.deny.</a></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>La sintaxis es común:</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>daemon_list: client_list
+  [:options]</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>daemon_list: lista de los
+  ejecutables (NO DE LOS SERVICIOS) separados por comas. Puede poner ALL para
+  especificar todos los servicios. Si se dispone de varias interfaces red, se
+  puede usar la sintaxis con @: servicio@ip.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>in.telnetd: ...</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>sshd, portmap: ...</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>sshd@192.168.1.7: ...</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>client_list: clientes
+  autorizados o prohibidos para este servicio. Se puede especificar la
+  dirección IP, el nombre, la máscara de red, el nombre de la red, etc.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>... : 192.168.1.7, 192.168.1.8</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>... : 192.168.1.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>... : puesto1, puesto2</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>... :
+  192.168.1.0/255.255.255.0</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>... : .midominio.org</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>La lista de clientes admite
+  una sintaxis avanzada:</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>ALL: correspondencia
+  sistemática.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>LOCAL: todos los anfitriones
+  cuyo nombre no contiene punto (puesto1, puesto2, etc.).</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>UNKNOWN: anfitrión cuyo nombre
+  no se puede resolver.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>KNOWN: anfitrión cuyo nombre
+  se puede resolver.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>PARANOID: anfitrión cuyo
+  nombre no se puede resolver o cuyo IP no tiene resolución inversa.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>EXCEPT: permite excluir
+  ciertos anfitriones.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>ALL EXCEPT puesto10</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Para verificar una regla, el
+  sistema lee primero /etc/hosts.allow, luego /etc/hosts.deny.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>La búsqueda se detiene a la
+  primera correspondencia encontrada.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Una línea en hosts.allow
+  autoriza la conexión.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Una línea en hosts.deny
+  prohibe la conexión.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Si no se deniega de manera
+  explícita el acceso, se autoriza: la petición no corresponde a ningún
+  criterio.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>En el ejemplo siguiente:</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Sólo los miembros de la subred
+  192.168.1.0 tienen permiso para conectarse al servidor ftp (prohibido para
+  todos los demás).</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Los anfitriones puesto 1 y
+  puesto 2 tienen acceso a telnet y portmap.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Los anfitriones de
+  baddominio.org, excepto trusted, no tienen conexión alguna posible.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Se prohíbe el servicio
+  pop/imap a todos los de la red 192.168.0.0, salvo 192.168.1.5.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'># /etc/hosts.allow</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>vsftpd:<span
+  style='mso-spacerun:yes'>            </span>192.168.1.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>in.telnetd, portmap:<span
+  style='mso-spacerun:yes'>    </span>puesto1, puesto2</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'># /etc/hosts.deny</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>ALL: .baddominio.org except
+  trusted.baddominio.org</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>vsftpd,in.telnetd,portmap: ALL</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>dovecot : 192.168.0. EXCEPT
+  192.168.1.5</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 style='height:15.0pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+  <td class=xl70></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1389 style='width:1042pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

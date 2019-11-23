@@ -1,0 +1,375 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../105.2.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(3);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../105.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl75>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1115 style='border-collapse:
+ collapse;table-layout:fixed;width:836pt'>
+ <col class=xl75 width=1067 style='mso-width-source:userset;mso-width-alt:39021;
+ width:800pt'>
+ <col class=xl75 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1067 style='height:15.0pt;width:800pt'><a
+  name="RANGE!A1">test</a></td>
+  <td class=xl76 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>El programa test permite
+  evaluar escenarios de programación.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Se puede recuperar el
+  resultado de una condición con la variable $? (código retorno).</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Si el resultado es 0, entonces
+  se ha cumplido la condición.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Se puede sustituir la palabra
+  test por los corchetes abiertos y cerrados [...].</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Hay que colocar un espacio
+  antes y otro después de los corchetes.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>El bash (y el ksh) integra un
+  comando interno que viene a sustituir al programa test.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>En la práctica, el comando
+  interno es completamente compatible con el comando externo, pero mucho más
+  rápido, ya que no requiere la creación de un nuevo proceso.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Para forzar el uso del comando
+  interno, utilice los dobles corchetes [[...]].&quot;</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Pruebas en una cadena</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>test -z
+  &quot;&quot;variable&quot;&quot;: cero, retorno OK si la variable está vacía
+  (p. ej.: test -z &quot;&quot;$a&quot;&quot;).</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>test -n
+  &quot;&quot;variable&quot;&quot;: no cero, retorno OK si la variable no está
+  vacía (texto cualquiera).</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>test
+  &quot;&quot;variable&quot;&quot; = cadena: OK si las dos cadenas son
+  idénticas.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>test
+  &quot;&quot;variable&quot;&quot; != cadena: OK si las dos cadenas son
+  diferentes.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Se deben convertir las cadenas
+  en valores numéricos para poder evaluarlas.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Bash sólo gestiona valores
+  enteros.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>La sintaxis es test valor1
+  opción valor2<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Opciones:</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-eq Equal: igual</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-ne Not Equal: diferente</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-lt Less than: inferior</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-gt Greater than: superior</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-le Less or equal: inferior o
+  igual</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-ge Greater or equal: superior
+  o igual</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Pruebas sobre todos los
+  ficheros</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>La sintaxis es prueba opción
+  nombre_fichero:</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Opciones:</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-f Fichero normal.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-d Un directorio.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-c Fichero en modo carácter</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-b Fichero en modo bloque.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-p Tubería nombrada (named
+  pipe).</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-r Permiso de lectura.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-w Permiso de escritura.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-x Permiso de ejecución.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-s Fichero no vacío (al menos
+  un carácter).</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-e El fichero existe.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-L El fichero es un vínculo
+  simbólico.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-u El fichero existe, SUID-Bit
+  activado.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-g El fichero existe, SGID-Bit
+  activado.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Puede efectuar varias pruebas
+  con una sola instrucción.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Las opciones de combinación
+  son las mismas que para el comando find.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-a AND, Y lógico</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-o OR, O lógico</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>! NOT, NO lógico</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>(...) agrupación de las
+  combinaciones.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Se deben cerrar los paréntesis
+  \(...\).</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 style='height:15.0pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+  <td class=xl75></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1067 style='width:800pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../102.4.htm">
+<link rel=File-List href=filelist.xml>
+<title>102.4 - Use Debian package management</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../102.4.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1755 style='border-collapse:
+ collapse;table-layout:fixed;width:1316pt'>
+ <col class=xl66 width=1755 style='mso-width-source:userset;mso-width-alt:64182;
+ width:1316pt'>
+ <col class=xl66 width=783 style='mso-width-source:userset;mso-width-alt:28635;
+ width:587pt'>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1755 style='height:15.0pt;width:1316pt'><a
+  name="RANGE!A1">aptitude</a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>aptitude
+  es una interfaz para APT.<span style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>Muestra
+  una lista de paquetes de software y permite al usuario elegir de modo
+  interactivo cuáles desea instalar o eliminar.<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>Dispone
+  un sistema de búsqueda que utiliza patrones de búsqueda flexibles</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>En un
+  principio, se diseñó para distribuciones GNU/Linux Debian, pero hoy día
+  también se puede utilizar en distribuciones basadas en paquetes RPM.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>aptitude
+  se basa en una biblioteca ncurses, mediante la cual provee una interfaz, que
+  tiene fama de resolver mejor las dependencias que apt-get y eliminar paquetes
+  inútiles e incorpora algunos elementos comunes a otras interfaces gráficas,
+  como son los menús desplegables.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1755 style='height:15.0pt;width:1316pt'>Actualiza
+  la lista de paquetes disponibles en los repositorios:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>#
+  aptitude update</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1755 style='height:15.0pt;width:1316pt'>Actualiza
+  los paquetes que tengan disponibles nuevas versiones:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>#
+  aptitude safe-upgrade</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1755 style='height:15.0pt;width:1316pt'>Actualiza
+  paquetes, incluso si eso significa que debe desinstalar otros (útil si
+  aparece una nueva versión de su distribución):</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>#
+  aptitude full-upgrade</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1755 style='height:15.0pt;width:1316pt'>Busca
+  un paquete (aplicación) en los repositorios:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>#
+  aptitude search &lt;nombre_paquete&gt;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1755 style='height:15.0pt;width:1316pt'>Muestra
+  información del paquete:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>#
+  aptitude show &lt;nombre_paquete&gt;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1755 style='height:15.0pt;width:1316pt'>Instala
+  paquetes:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>#
+  aptitude install &lt;nombre_paquete&gt;<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1755 style='height:15.0pt;width:1316pt'>Elimina
+  (desinstala) paquetes y sus archivos de configuración:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>#
+  aptitude purge &lt;nombre_paquete&gt;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1755 style='height:15.0pt;width:1316pt'>Elimina
+  (desinstala) paquetes:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>#
+  aptitude remove &lt;nombre_paquete&gt;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1755 style='height:15.0pt;width:1316pt'>Elimina
+  ficheros descargados de cuando se instaló software en el sistema:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>#
+  aptitude clean</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1755 style='height:15.0pt;width:1316pt'>Elimina
+  paquetes deb obsoletos:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>#
+  aptitude autoclean</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1755 style='height:15.0pt;width:1316pt'>Fuerza
+  a que un paquete permanezca en su versión actual, y no se actualice:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1755 style='height:15.0pt;width:1316pt'>#
+  aptitude hold &lt;nombre_paquete&gt;</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1755 style='width:1316pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

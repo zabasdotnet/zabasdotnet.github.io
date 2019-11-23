@@ -1,0 +1,169 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../103.7.htm">
+<link rel=File-List href=filelist.xml>
+<title>103.7 - Search text files using regular expressions</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../103.7.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1875 style='border-collapse:
+ collapse;table-layout:fixed;width:1406pt'>
+ <col class=xl66 width=711 style='mso-width-source:userset;mso-width-alt:26002;
+ width:533pt'>
+ <col class=xl66 width=1164 style='mso-width-source:userset;mso-width-alt:42569;
+ width:873pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=711 style='height:15.0pt;width:533pt'><a
+  name="RANGE!A1">grep [Opciones] modelo [Fichero1...]</a></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=711 style='height:15.0pt;width:533pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=711 style='height:15.0pt;width:533pt'>El
+  modelo se compone de criterios de búsqueda que se debe interpretar con el
+  comando grep, y no con el shell.</td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=711 style='height:15.0pt;width:533pt'>Por lo
+  tanto, hace falta cerrar todos los caracteres.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=711 style='height:15.0pt;width:533pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=711 style='height:15.0pt;width:533pt'>$ cat
+  fic4</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=711 style='height:15.0pt;width:533pt'>Cerdo</td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=711 style='height:15.0pt;width:533pt'>Ternera</td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=711 style='height:15.0pt;width:533pt'>Buey</td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=711 style='height:15.0pt;width:533pt'>rata</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=711 style='height:15.0pt;width:533pt'>Rata</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=711 style='height:15.0pt;width:533pt'>buey</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=711 style='height:15.0pt;width:533pt'>$ grep
+  &quot;^[bB]&quot; fic4</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=711 style='height:15.0pt;width:533pt'>Buey</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=711 style='height:15.0pt;width:533pt'>buey</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=711 style='height:15.0pt;width:533pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=711 style='height:15.0pt;width:533pt'>El
+  comando grep también puede tomar algunas opciones interesantes.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=711 style='height:15.0pt;width:533pt'>-v
+  efectúa la búsqueda inversa: se visualizan todas las líneas que no
+  corresponden a los criterios.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=711 style='height:15.0pt;width:533pt'>-c sólo
+  devuelve el número de líneas encontradas, sin mostrarlas.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=711 style='height:15.0pt;width:533pt'>-i no
+  diferencia las mayúsculas de las minúsculas.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=711 style='height:15.0pt;width:533pt'>-n
+  indica el número de línea para cada línea encontrada.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=711 style='height:15.0pt;width:533pt'>-l en el
+  caso de ficheros múltiples, indica en qué fichero se ha encontrado la línea.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=711 style='height:15.0pt;width:533pt'>$ grep
+  -i &quot;^b&quot; fic4 Buey buey</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=711 style='width:533pt'></td>
+  <td width=1164 style='width:873pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

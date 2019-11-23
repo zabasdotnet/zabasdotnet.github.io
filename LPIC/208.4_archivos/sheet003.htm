@@ -1,0 +1,682 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../208.4.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../208.4.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1284 style='border-collapse:
+ collapse;table-layout:fixed;width:963pt'>
+ <col class=xl68 width=1236 style='mso-width-source:userset;mso-width-alt:45202;
+ width:927pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1236 style='height:15.0pt;width:927pt'>Hosts
+  virtuales de un servidor Nginx</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Igual
+  que un servidor Apache, un servidor <font class="font5">Nginx</font><font
+  class="font0"> puede albergar varios sitios web diferentes: los </font><font
+  class="font15">hosts virtuales</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1236 style='height:15.0pt;width:927pt'>1.
+  Configuración global</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Se
+  deberá modificar el archivo de configuración.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Cada
+  host virtual tendrá sus elementos de configuración específicos en un bloque
+  server.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Si un
+  servidor <font class="font5">Nginx</font><font class="font0"> gestiona varios
+  hosts virtuales, se podrá configurar uno de ellos como servidor por defecto.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1236 style='height:15.0pt;width:927pt'>2.
+  Configuración de hosts virtuales</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Existen
+  dos técnicas de implementación de hosts virtuales:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><font
+  class="font15">1) los hosts virtuales en direcciones IP/número de puerto</font><font
+  class="font12">, donde el servidor proporciona un contenido diferente según
+  la dirección IP o el número de puerto por el que se realiza la conexión.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><font
+  class="font15">2) los hosts virtuales por nombres de host,</font><font
+  class="font12"> donde el servidor proporciona un contenido diferente en
+  función del nombre de host que haya en la URI con la que se hace la conexión.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1236 style='height:15.0pt;width:927pt'>a.
+  Hosts virtuales en direcciones IP/número de puerto</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>En esta
+  configuración, el servidor dispone de diferentes direcciones IP y/o varios
+  números de puerto y responde en función de en qué interfaz de red y por qué
+  puerto reciba las consultas HTTP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1236 style='height:15.0pt;width:927pt'>Se debe
+  utilizar un bloque server para cada dirección IP/número de puerto utilizado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>El
+  bloque contiene la declaración del directorio raíz del servidor, a partir del
+  cual se cargarán las páginas del sitio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1236 style='height:15.0pt;width:927pt'>Gracias
+  a la directiva de inclusión <font class="font10">include,</font><font
+  class="font5"> se pueden ubicar las configuraciones de los servidores
+  virtuales en archivos separados.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1236 style='height:15.0pt;width:927pt'>*Declaración
+  de dos sitios virtuales en el archivo de configuración de Nginx</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'>server
+  {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>  </span>listen 80 default;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>  </span>server_name localhost;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>  </span>root<span style='mso-spacerun:yes'> 
+  </span>/usr/share/nginx/html/public;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>  </span>}<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>   </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'>server
+  {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>  </span>listen 8080;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>  </span>server_name localhost;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>  </span>root<span style='mso-spacerun:yes'> 
+  </span>/usr/share/nginx/html/admin;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>  </span>}</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>En este
+  ejemplo, el servidor Nginx gestiona dos servidores virtuales:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>- El
+  servidor por defecto escucha el puerto 80 de todas las direcciones del
+  equipo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Está
+  asociado a las peticiones dirigidas al nombre de host localhost y sus páginas
+  se encuentran en el directorio raíz /usr/share/nginx/html/public.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>- Otro
+  servidor escucha en el puerto 8080 de todas las direcciones del equipo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Está
+  asociado a las peticiones dirigidas al nombre de host localhost y sus páginas
+  se encuentran en el directorio raíz /usr/share/nginx/html/admin.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1236 style='height:15.0pt;width:927pt'>*Archivo
+  de configuración: declaración de hosts virtuales</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1236 style='height:15.0pt;width:927pt'>server <font
+  class="font12">--&gt; Declaración de un host virtual: todo lo que está en el
+  bloque afecta al host virtual.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1236 style='height:15.0pt;width:927pt'>listen
+  [direcciónX] [:puertoY] [default] [ssl] <font class="font12">--&gt; El host
+  virtual es accesible a las peticiones que lleguen por la dirección IP
+  direcciónX y el puerto puertoY.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>                                                                                                
+  </span>La opción default identifica el servidor por defecto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>                                                                                                
+  </span>La opción SSL especifica que el servidor utiliza el protocolo SSL.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1236 style='height:15.0pt;width:927pt'>server_name
+  nom1 nomN <font class="font12">--&gt; Nombre(s) asociado(s) al servidor.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1236 style='height:15.0pt;width:927pt'>root
+  ruta_acceso <font class="font12">--&gt; Define el directorio raíz de un
+  servidor o de una ubicación, según el bloque donde se encuentre la directiva.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1236 style='height:15.0pt;width:927pt'>index
+  fic1 [...] ficN <font class="font12">--&gt; Orden de búsqueda de la página de
+  inicio por defecto para la ubicación o el servidor, según el bloque donde se
+  encuentre la directiva.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1236 style='height:15.0pt;width:927pt'>b.
+  Hosts virtuales en nombre de host</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>El
+  soporte de <font class="font12">hosts virtuales </font><font class="font0">por
+  </font><font class="font15">nombre</font><font class="font0"> de host se basa
+  en la </font><font class="font22">directiva</font><font class="font0"> </font><font
+  class="font10">server_name</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Cuando
+  el servidor <font class="font5">Nginx</font><font class="font0"> recibe una
+  petición de un cliente, examina el campo de encabezado Host y a continuación
+  lo compara con los nombres declarados por los diferentes servidores
+  virtuales.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Selecciona
+  el primer bloque server cuya directiva server_name incluya el nombre del
+  host.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Si
+  ninguna directiva corresponde al nombre, el servidor <font class="font5">Nginx</font><font
+  class="font0"> utiliza la directiva listen para determinar si la
+  dirección/puerto corresponde a un servidor.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>La
+  directiva <font class="font10">server_name</font><font class="font0"> acepta
+  varios nombres de servidores.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'> </span>Se pueden utilizar caracteres comodín (*) y
+  expresiones regulares.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>En este
+  último caso, hay que colocar en el patrón el prefijo ~.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1236 style='height:15.0pt;width:927pt'>*Ejemplos
+  de directivas server_name</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'>server_name
+  localhost ;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'>server_name
+  localhost ;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'>server_name
+  www.masoc.es ;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'>server_name
+  www.*.masoc.es;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'>server_name
+  www.masoc.es www.empresa.com masoc.org ;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'>server_name<span
+  style='mso-spacerun:yes'>  </span>~[mtl]asoc\..*$;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'>server_name
+  www.soc.com &quot;&quot; ;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1236 style='height:15.0pt;width:927pt'>*Ejemplo
+  de declaración de sitios virtuales por nombre de host</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>        </span>server {<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>          </span>listen 80;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>          </span>server_name
+  www.conta.masoc.com;<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>          </span>root<span
+  style='mso-spacerun:yes'>  </span>/usr/share/nginx/html/public/conta;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>          </span>}<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>        </span>server {<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>          </span>listen 80;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>          </span>server_name
+  www.marketing.masoc.com;<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>          </span>root<span
+  style='mso-spacerun:yes'>  </span>/usr/share/nginx/html/public/mkg;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>          </span>}<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>        </span>server {<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>          </span>listen 80 default;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>          </span>server_name beta;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>          </span>root<span
+  style='mso-spacerun:yes'>  </span>/usr/share/nginx/html/public;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>          </span>}</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>En este
+  ejemplo, el servidor Nginx gestiona tres servidores virtuales:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>- El
+  primer servidor escucha en el puerto 80 de todas las direcciones del equipo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Está
+  asociado a las peticiones dirigidas al nombre de host www.conta.masoc.com y
+  sus páginas están en el directorio raíz /usr/share/nginx/html/public/conta.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>- El
+  segundo servidor escucha en el puerto 80 de todas las direcciones del equipo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Está
+  asociado a las peticiones dirigidas al nombre de host www.marketing.masoc.com
+  y sus páginas están en el directorio raíz /usr/share/nginx/html/public/mkg.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>- El
+  último servidor escucha en el puerto 80 de todas las direcciones del equipo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Está
+  asociado a las peticiones dirigidas al nombre de host beta y sus páginas
+  están en el directorio raíz /usr/share/nginx/html/public/.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Se
+  trata del servidor por defecto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'>Se le
+  dirigirá cualquier petición enviada sin nombre de host o a otro nombre que no
+  sea www.conta.masoc.com o www.marketing.masoc.com.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1236 style='height:15.0pt;width:927pt'>*Archivo
+  de configuración: declaración de hosts virtuales por nombre</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1236 style='height:15.0pt;width:927pt'>server <font
+  class="font12">--&gt; Declaración de un host virtual: todo lo que está en el
+  bloque afecta al host virtual.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1236 style='height:15.0pt;width:927pt'>listen
+  [direcciónX] [:puertoY] [default] [ssl] <font class="font12">--&gt; El host
+  virtual es accesible a las peticiones que lleguen por la dirección IP
+  direcciónX y el puerto puertoY.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>                                                                                                
+  </span>La opción default identifica el servidor por defecto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1236 style='height:15.0pt;width:927pt'><span
+  style='mso-spacerun:yes'>                                                                                                
+  </span>La opción SSL especifica que el servidor utiliza el protocolo SSL.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1236 style='height:15.0pt;width:927pt'>server_namenombre1
+  nombreN <font class="font12">--&gt; Nombre(s) asociado(s) al servidor. Se
+  pueden especificar varios nombres, utilizar caracteres comodín o expresiones
+  regulares (con el prefijo ~).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1236 style='height:15.0pt;width:927pt'>root
+  ruta_acceso <font class="font12">--&gt; Define el directorio raíz de un
+  servidor o de una ubicación, según el bloque donde se encuentre la directiva.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1236 style='height:15.0pt;width:927pt'>index
+  fic1 [...] ficN <font class="font12">--&gt; Orden de búsqueda de la página de
+  inicio para la ubicación o el servidor, según dónde esté la directiva.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1236 style='height:15.0pt;width:927pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1236 style='height:15.0pt;width:927pt'><a
+  href="#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1236 style='width:927pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../101.3.htm">
+<link rel=File-List href=filelist.xml>
+<title>101.3 - Change runlevels - boot targets and shutdown or reboot system</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(6);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../101.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=917 style='border-collapse:
+ collapse;table-layout:fixed;width:688pt'>
+ <col class=xl66 width=917 style='mso-width-source:userset;mso-width-alt:33536;
+ width:688pt'>
+ <col class=xl66 width=783 style='mso-width-source:userset;mso-width-alt:28635;
+ width:587pt'>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=917 style='height:15.0pt;width:688pt'><a
+  name="RANGE!A1">systemctl</a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'>El
+  comando systemctl permite controlar la ejecución de servicios.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=917 style='height:15.0pt;width:688pt'>Todas
+  las unidades activas:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'>#
+  systemctl</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=917 style='height:15.0pt;width:688pt'>Todas
+  las unidades:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'>#
+  systemctl --all</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=917 style='height:15.0pt;width:688pt'>Parada y
+  reinicio:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'>#
+  systemctl stop cups.service</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'>#
+  systemctl start cups.service</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'>#
+  systemctl restart cups.service</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'>#
+  systemctl reload cups.service</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=917 style='height:15.0pt;width:688pt'>Cambiar
+  niveles de ejecución:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'>#
+  systemctl isolate runlevel5.target</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=917 style='height:15.0pt;width:688pt'>Averiguar
+  el nivel de ejecución actual:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'>#
+  systemctl list-units -type=target</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=917 style='height:15.0pt;width:688pt'>El
+  comando systemadm inicia la interfaz gráfica de systemd.<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=917 style='height:15.0pt;width:688pt'>En
+  Fedora, se encuentra en el paquete systemdgtk.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=917 style='height:15.0pt;width:688pt'>Esta
+  interfaz permite controlar el conjunto de unidades systemd y permite realizar
+  todas las acciones del comando systemctl en varias unidades.</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=917 style='width:688pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

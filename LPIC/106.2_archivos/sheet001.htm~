@@ -1,0 +1,140 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../106.2.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../106.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl67>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1411 style='border-collapse:
+ collapse;table-layout:fixed;width:1059pt'>
+ <col class=xl65 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl65 width=86 style='mso-width-source:userset;mso-width-alt:3145;
+ width:65pt'>
+ <col class=xl67 width=1229 style='mso-width-source:userset;mso-width-alt:44946;
+ width:922pt'>
+ <col class=xl65 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl67 width=440 style='mso-width-source:userset;mso-width-alt:16091;
+ width:330pt'>
+ <tr class=xl65 height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'>106.2</td>
+  <td class=xl65 width=86 style='width:65pt'>W1</td>
+  <td class=xl65 width=1229 style='width:922pt'>Setup a display manager</td>
+  <td class=xl66 width=48 style='width:36pt'><a
+  href="../../../../../../../zabas/DOCUMENTOS/CURSO/EXAMENES/102/web/106.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr class=xl67 height=180 style='height:135.0pt'>
+  <td height=180 class=xl65 width=48 style='height:135.0pt;width:36pt'></td>
+  <td class=xl65 width=86 style='width:65pt'>lightdm</td>
+  <td class=xl67 width=1229 style='width:922pt'>LightDM es un gestor de
+  sesiones para X Window System, creado con el objetivo de ser ligero, rápido,
+  adaptable a las necesidades del usuario y que funcione con diversos entornos
+  de escritorio.<br>
+    <br>
+    Con LightDM pueden desarrollarse interfaces para inicio de sesión basadas
+  en HTML, debido a que utiliza WebKit.<br>
+    LightDM ofrece funcionalidades similares a las encontradas en GDM, el
+  gestor de sesiones de GNOME;<br>
+    sin embargo su código fuente es mucho más pequeño, lo que facilita su mantenimiento.<br>
+    <br>
+    Además, LightDM no necesita utilizar las bibliotecas de GNOME para
+  funcionar, lo que permite que distribuciones que utilizan escritorios
+  diferentes de GNOME también puedan utilizar LightDM.<br>
+    <br>
+    Por esta razón, LightDM ha sido elegido como el gestor de sesiones
+  predeterminado en Ubuntu4 y Xubuntu5 11.10, reemplazando a GDM.</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl68 width=86 style='width:65pt'>/etc/lightdm</td>
+  <td class=xl67 width=1229 style='width:922pt'>Directorio que almacena los
+  ficheros de configuración de LightDM <font class="font5">(/etc/lightdm/lightdm.conf)</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=86 style='width:65pt'></td>
+  <td class=xl67 width=1229 style='width:922pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=86 style='width:65pt'></td>
+  <td class=xl67 width=1229 style='width:922pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=86 style='width:65pt'></td>
+  <td class=xl67 width=1229 style='width:922pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=86 style='width:65pt'></td>
+  <td class=xl67 width=1229 style='width:922pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'><a
+  href="../../../../../../../zabas/DOCUMENTOS/CURSO/EXAMENES/102/web/106.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl65 width=86 style='width:65pt'></td>
+  <td class=xl65 width=1229 style='width:922pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=48 style='width:36pt'></td>
+  <td width=86 style='width:65pt'></td>
+  <td width=1229 style='width:922pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

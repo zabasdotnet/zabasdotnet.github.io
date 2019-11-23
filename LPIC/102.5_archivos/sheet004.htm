@@ -1,0 +1,336 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../102.5.htm">
+<link rel=File-List href=filelist.xml>
+<title>102.5 - Use RPM and YUM package management</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(3);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../102.5.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1301 style='border-collapse:
+ collapse;table-layout:fixed;width:976pt'>
+ <col class=xl68 width=1158 style='mso-width-source:userset;mso-width-alt:42349;
+ width:869pt'>
+ <col class=xl68 width=143 style='mso-width-source:userset;mso-width-alt:5229;
+ width:107pt'>
+ <col class=xl66 width=597 style='mso-width-source:userset;mso-width-alt:21833;
+ width:448pt'>
+ <col class=xl66 width=457 style='mso-width-source:userset;mso-width-alt:16713;
+ width:343pt'>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'><a
+  name="RANGE!A1">rpm</a></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'>RPM
+  (Red Hat Package Manager) es un gestor de paquetes desarrollado por Red Hat
+  que luego ha sido adoptado de manera masiva por muchas otras
+  distribuciones.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'>Se basa
+  en comandos (p. ej.: rpm), una base de datos local y paquetes en formato rpm
+  (extensión rpm).</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>La base
+  de datos está colocada en /var/lib/rpm.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'>Se
+  facilita cada programa en forma de paquete con formato RPM.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>El rpm
+  responde a una nomenclatura precisa.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>nombre-versión-edición.arquitectura.rpm</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'>por
+  ejemplo:</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'>php-4.1.2-2.1.8.i586.rpm</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>La
+  edición es un identificador de versión del paquete RPM propio del editor.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'>Aquí
+  tenemos la versión 2.1.8 del paquete PHP versión 4.1.2.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>La
+  arquitectura es i586 (Intel Pentium).</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'>También
+  se puede encontrar i386, i686, x86_64 (64 bits), ppc64, s390x o noarch.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>Un
+  paquete noarch no contiene programas o librerías binarias, sino código
+  independiente como scripts, documentación, imágenes, sonido, vídeo, etc.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>Se
+  instala un paquete rpm con el parámetro -i.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'>rpm -i
+  php-4.1.2-2.1.8.i586.rpm</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>Dado
+  que es posible utilizar comodines (rpm -i *.rpm), puede necesitar visualizar
+  el nombre del paquete durante la instalación; use el parámetro -v.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>El
+  parámetro -h visualiza caracteres # para indicar la progresión de la
+  instalación.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>La
+  instalación no funcionará si no se resuelven las dependencias.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>La
+  actualización de un producto hacia una versión superior desde un paquete se
+  hace con el parámetro -U.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'>En este
+  caso, todos los ficheros se actualizan con los de la nueva versión: se
+  suprimen los antiguos y los nuevos los sustituyen.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>Se
+  guardan los antiguos ficheros de configuración con la extensión
+  .rpmsave.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'>Si el
+  paquete no está instalado, la actualización asume el papel de
+  instalación.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>Cuidado
+  con este parámetro: instala el paquete incluso si la versión que actualiza no
+  está instalada.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>rpm
+  -Uvh php-4.1.3-1.i586.rpm</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>La
+  actualización es también posible con -F.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'>Pero si
+  el paquete no está instalado, tampoco se instalará durante la actualización,
+  al contrario que con -U.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>Así, si
+  dispone de todos los paquetes de actualización del sistema y usted sólo desea
+  actualizar los que realmente están instalados, entonces puede teclear:</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'>rpm
+  -Fvh *.rpm</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>La
+  supresión se efectúa con el parámetro -e.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>Sin
+  embargo, cuidado: debe pasar como argumento el nombre del paquete, y no el
+  nombre del fichero de paquete.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'>rpm -e
+  php</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'>Cuenta
+  con varias opciones:</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>--force:
+  en caso de conflicto con otro paquete (el caso más habitual es el de dos
+  paquetes que proponen el mismo fichero en el mismo sitio), esta opción fuerza
+  la instalación.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>--nodeps:
+  si el paquete rechaza instalarse por culpa de un problema de dependencias.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1158 style='height:15.0pt;width:869pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1158 style='height:15.0pt;width:869pt'>En la
+  medida de lo posible, evite utilizar estas opciones, que pueden romper
+  algunas dependencias, en particular si utiliza un sistema de metapaquete
+  (yum, apt, zypper, urpmi, etc.).</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1158 style='width:869pt'></td>
+  <td width=143 style='width:107pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

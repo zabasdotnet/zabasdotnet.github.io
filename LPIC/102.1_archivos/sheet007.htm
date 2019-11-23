@@ -1,0 +1,187 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../102.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>102.1 - Design hard disk layout</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(6);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../102.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1428 style='border-collapse:
+ collapse;table-layout:fixed;width:1071pt'>
+ <col class=xl66 width=1428 style='mso-width-source:userset;mso-width-alt:52224;
+ width:1071pt'>
+ <col class=xl66 width=1165 style='mso-width-source:userset;mso-width-alt:42605;
+ width:874pt'>
+ <tr class=xl70 height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'><a
+  name="RANGE!A1">partitions</a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1428 style='height:15.0pt;width:1071pt'>Una
+  partición es una división lógica del disco.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1428 style='height:15.0pt;width:1071pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'>Existen
+  tres tipos:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'>1) Las
+  particiones primarias, en un total de cuatro, son las descritas en el MBR.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'>2) Las
+  particiones extendidas (primarias extendidas), una sola por disco (aunque en
+  teoría sea posible crear particiones extendidas dentro de otras particiones
+  extendidas).</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'>3) Las
+  particiones lógicas.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1428 style='height:15.0pt;width:1071pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1428 style='height:15.0pt;width:1071pt'>Un
+  disco puede contener hasta 63 particiones en IDE, 15 en SCSI (es un límite de
+  la implementación oficial del SCSI) o mediante la librería libata.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1428 style='height:15.0pt;width:1071pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1428 style='height:15.0pt;width:1071pt'>Para
+  superar el límite de las 15 particiones, es posible utilizar el «device
+  mapper» de Linux, que requiere en particular la gestión del LVM (Logical
+  Volume Management).</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1428 style='height:15.0pt;width:1071pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'>El LVM
+  permite agrupar varios discos (Physical Volumes) en una sola unidad (Volume
+  Group) vista por el sistema como un enorme disco único que usted puede cortar
+  en particiones (Logical Volumes) sin limitación de número.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1428 style='height:15.0pt;width:1071pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1428 style='height:15.0pt;width:1071pt'>Además,
+  puede añadir discos en el grupo después, aumentar o reducir el tamaño de las
+  particiones sin preocuparse de su ubicación física real</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1428 style='height:15.0pt;width:1071pt'>Se
+  numeran las particiones de 1 a n (15 o 63).<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1428 style='height:15.0pt;width:1071pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'>Una
+  partición con un valor superior o igual a 5 indica que se trata
+  obligatoriamente de una partición lógica.<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'>Como
+  sólo puede haber cuatro particiones primarias, se suele crear la última (la
+  4) como extendida:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1428 style='height:15.0pt;width:1071pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'>1)
+  Particiones 1 a 3: --&gt; primarias</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'>2)
+  Partición 4: --&gt; extendida</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'>3)
+  Particiones 5 a n: --&gt; lógicas</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1428 style='height:15.0pt;width:1071pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1428 style='height:15.0pt;width:1071pt'>El
+  número de la partición aparece a continuación del nombre del fichero
+  periférico de disco:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'>-
+  hda1: primera partición primaria del primer disco IDE&#894;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'>-
+  hdb5: quinta partición, primera partición lógica del segundo disco IDE&#894;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'>-
+  sda3: tercera partición primaria del primer disco SCSI / libata&#894;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1428 style='height:15.0pt;width:1071pt'>-
+  sdc8: octava partición, o sea, cuarta partición lógica del tercer disco
+  SCSI/libata.</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1428 style='width:1071pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

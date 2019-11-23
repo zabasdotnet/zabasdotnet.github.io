@@ -1,0 +1,104 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../101.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>101.1 - Determine and configure hardware settings</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../101.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple>
+
+<table border=0 cellpadding=0 cellspacing=0 width=2313 style='border-collapse:
+ collapse;table-layout:fixed;width:1735pt'>
+ <col width=1216 style='mso-width-source:userset;mso-width-alt:44470;
+ width:912pt'>
+ <col width=908 style='mso-width-source:userset;mso-width-alt:33206;width:681pt'>
+ <col width=189 style='mso-width-source:userset;mso-width-alt:6912;width:142pt'>
+ <tr class=xl71 height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1216 style='height:15.0pt;width:912pt'><a
+  name="RANGE!A1">modprobe</a></td>
+  <td class=xl71 width=908 style='width:681pt'></td>
+  <td class=xl71 width=189 style='width:142pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1216 style='height:15.0pt;width:912pt'>Carga
+  el módulo dado, así como todas sus dependencias y parámetros contenidos en <font
+  class="font5">/etc/modprobe.conf.</font></td>
+  <td></td>
+  <td class=xl66>modprobe vfat</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 style='height:15.0pt'>El parámetro <font
+  class="font5">-r</font><font class="font0"> permite descargar un módulo y los
+  que dependen de él (si no están en uso).</font></td>
+  <td class=xl67 width=908 style='width:681pt'></td>
+  <td class=xl66></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1216 style='height:15.0pt;width:912pt'>Puede
+  pasar opciones al módulo</td>
+  <td class=xl66></td>
+  <td class=xl67 width=189 style='width:142pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 style='height:15.0pt'>En ese caso, debe comprobar si una línea
+  «install» que corresponde al módulo existe en el fichero modprobe.conf y
+  modificarla para que acepte los parámetros, o utilizar una línea«opciones».</td>
+  <td colspan=2 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 colspan=3 style='height:15.0pt;mso-ignore:colspan'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 style='height:15.0pt'>modprobe vfat</td>
+  <td colspan=2 style='mso-ignore:colspan'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1216 style='width:912pt'></td>
+  <td width=908 style='width:681pt'></td>
+  <td width=189 style='width:142pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

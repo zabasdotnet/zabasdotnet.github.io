@@ -1,0 +1,343 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../205.3.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .25in .75in .25in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;
+	mso-page-orientation:landscape;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../205.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl65>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1425 style='border-collapse:
+ collapse;table-layout:fixed;width:1069pt'>
+ <col class=xl65 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl72 width=306 style='mso-width-source:userset;mso-width-alt:11190;
+ width:230pt'>
+ <col class=xl65 width=1000 style='mso-width-source:userset;mso-width-alt:36571;
+ width:750pt'>
+ <col class=xl65 width=71 style='mso-width-source:userset;mso-width-alt:2596;
+ width:53pt'>
+ <col class=xl65 width=440 style='mso-width-source:userset;mso-width-alt:16091;
+ width:330pt'>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'><a
+  name="RANGE!A1">205.3</a></td>
+  <td class=xl72 width=306 style='width:230pt'>W4</td>
+  <td class=xl65 width=1000 style='width:750pt'>Troubleshooting Network Issues</td>
+  <td class=xl66 width=71 style='width:53pt'><a href="../205.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=220 style='height:165.0pt'>
+  <td height=220 class=xl65 width=48 style='height:165.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl69 width=1000 style='width:750pt'>Candidates should be able to
+  identify and correct common network setup issues, to include knowledge of
+  locations for basic configuration files and commands.<br>
+    <br>
+    Key Knowledge Areas:<br>
+    - Location and content of access restriction files<br>
+    - Utilities to configure and manipulate ethernet network interfaces<br>
+    - Utilities to manage routing tables<br>
+    - Utilities to list network states.<br>
+    - Utilities to gain information about the network configuration<br>
+    - Methods of information about the recognized and used hardware
+  devices<br>
+    - System initialization files and their contents (SysV init process)<br>
+    - Awareness of NetworkManager and its impact on network configuration</td>
+  <td class=xl79 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl67 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl66 width=306 style='width:230pt'><a href="sheet002.htm#RANGE!A106"><span
+  style='font-weight:700'>/sbin/ifconfig</span></a></td>
+  <td class=xl68 width=1000 style='width:750pt'>Permite obtener la lista de
+  todas las interfaces de red que existen en un sistema.</td>
+  <td class=xl80 width=71 style='width:53pt'>161</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl66 width=306 style='width:230pt'><a href="sheet004.htm#RANGE!A26"><span
+  style='font-weight:700'>/sbin/route</span></a></td>
+  <td class=xl68 width=1000 style='width:750pt'>Permite definir rutas estáticas
+  y también proporciona elementos de diagnóstico.</td>
+  <td class=xl80 width=71 style='width:53pt'>163, 423</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl81><a href="sheet004.htm#RANGE!A66"><span style='font-weight:
+  700'>/bin/netstat</span></a></td>
+  <td class=xl68 width=1000 style='width:750pt'>Permite observar las conexiones
+  establecidas con el sistema local.</td>
+  <td class=xl80 width=71 style='width:53pt'>171, 424, 558</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl82><a href="sheet002.htm#RANGE!A202"><span style='color:red;
+  font-weight:700'>/etc/network/, /etc/sysconfig/network-scripts/</span></a></td>
+  <td class=xl77 width=1000 style='width:750pt'>Scripts de configuración de
+  red.</td>
+  <td class=xl83 width=71 style='width:53pt'>???</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl81><a href="sheet004.htm#RANGE!A3"><span style='font-weight:700'>/bin/ping</span></a></td>
+  <td class=xl68 width=1000 style='width:750pt'>Permite comprobar la
+  conectividad IP de extremo a extremo, comprobar la resolución DNS nativa y
+  las rutas.</td>
+  <td class=xl80 width=71 style='width:53pt'>170</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl81><a href="sheet004.htm#RANGE!A134"><span style='font-weight:
+  700'>/var/log/syslog &amp; /var/log/messages</span></a></td>
+  <td class=xl68 width=1000 style='width:750pt'>Archivos de log del sistema.</td>
+  <td class=xl80 width=71 style='width:53pt'>173</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl82><a href="sheet002.htm#RANGE!A138"><span style='color:red;
+  font-weight:700'>/etc/resolv.conf</span></a></td>
+  <td class=xl77 width=1000 style='width:750pt'>Archivo de configuración del
+  cliente DNS llamado resolver.</td>
+  <td class=xl83 width=71 style='width:53pt'>???</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl82>/etc/hosts</td>
+  <td class=xl77 width=1000 style='width:750pt'>Este fichero se utiliza para
+  obtener una relación entre un nombre de máquina y una dirección IP.</td>
+  <td class=xl83 width=71 style='width:53pt'>???</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl82><a href="sheet002.htm#RANGE!A194"><span style='color:red;
+  font-weight:700'>/etc/hostname, /etc/HOSTNAME</span></a></td>
+  <td class=xl77 width=1000 style='width:750pt'>Archivos de configuración que
+  guardar el nombre asignado a la máquina.</td>
+  <td class=xl83 width=71 style='width:53pt'>???</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl82><a href="sheet002.htm#RANGE!A182"><span style='color:red;
+  font-weight:700'>/bin/hostname</span></a></td>
+  <td class=xl77 width=1000 style='width:750pt'>Permite asignar dinámicamente
+  el nombre de host de la máquina.</td>
+  <td class=xl83 width=71 style='width:53pt'>???</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl81><a href="sheet004.htm#RANGE!A50"><span style='font-weight:
+  700'>/usr/sbin/traceroute</span></a></td>
+  <td class=xl68 width=1000 style='width:750pt'>Permite comprobar la
+  conectividad con un sistema remoto devolviendo el conjunto de routers que
+  permiten encaminar el paquete.</td>
+  <td class=xl80 width=71 style='width:53pt'>164</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl81><a href="sheet005.htm#RANGE!A1"><span style='font-weight:700'>/bin/dmesg</span></a></td>
+  <td class=xl68 width=1000 style='width:750pt'>Permite leer los logs del
+  sistema.</td>
+  <td class=xl80 width=71 style='width:53pt'>172</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl81><a href="sheet002.htm#RANGE!A338"><span style='font-weight:
+  700'>/etc/hosts.allow, /etc/hosts.deny</span></a></td>
+  <td class=xl77 width=1000 style='width:750pt'>Archivos de control de acceso a
+  los servicios.</td>
+  <td class=xl80 width=71 style='width:53pt'>167</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl75></td>
+  <td class=xl68 width=1000 style='width:750pt'></td>
+  <td class=xl83 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl75></td>
+  <td class=xl68 width=1000 style='width:750pt'></td>
+  <td class=xl83 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'><a
+  href="../205.htm" target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl84 width=1000 style='width:750pt'><a href="../205.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl66 width=71 style='width:53pt'><a href="../205.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl73 width=306 style='width:230pt'></td>
+  <td class=xl65 width=1000 style='width:750pt'></td>
+  <td class=xl65 width=71 style='width:53pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=48 style='width:36pt'></td>
+  <td width=306 style='width:230pt'></td>
+  <td width=1000 style='width:750pt'></td>
+  <td width=71 style='width:53pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

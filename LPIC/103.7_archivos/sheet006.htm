@@ -1,0 +1,517 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../103.7.htm">
+<link rel=File-List href=filelist.xml>
+<title>103.7 - Search text files using regular expressions</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(5);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../103.7.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=6290 style='border-collapse:
+ collapse;table-layout:fixed;width:4719pt'>
+ <col class=xl68 width=281 style='mso-width-source:userset;mso-width-alt:10276;
+ width:211pt'>
+ <col class=xl66 width=1570 style='mso-width-source:userset;mso-width-alt:57417;
+ width:1178pt'>
+ <col class=xl66 width=1790 span=2 style='mso-width-source:userset;mso-width-alt:
+ 65462;width:1343pt'>
+ <col class=xl66 width=859 style='mso-width-source:userset;mso-width-alt:31414;
+ width:644pt'>
+ <tr height=220 style='height:165.0pt'>
+  <td height=220 class=xl68 width=281 style='height:165.0pt;width:211pt'><a
+  name="RANGE!A1">El punto &quot;.&quot;<span style='mso-spacerun:yes'> </span></a></td>
+  <td class=xl66 width=1570 style='width:1178pt'>El punto se interpreta por el
+  motor de búsqueda como &quot;cualquier carácter&quot;, es decir, busca
+  cualquier<span style='mso-spacerun:yes'>  </span>carácter SIN incluir los
+  saltos de línea.<br>
+    Los motores de Expresiones regulares tienen una opción de configuración que
+  permite modificar este comportamiento.<br>
+    En .Net Framework se utiliza la opción RegexOptions.Singleline para
+  especificar la opción de que busque todos los caracteres incluidos el salto
+  de línea (\n).<br>
+    <br>
+    El punto se utiliza de la siguiente forma: Si se le dice al motor de RegEx
+  que busque &quot;g.t&quot; en la cadena &quot;el gato de piedra en la gótica
+  puerta de getisboro goot&quot; el motor de búsqueda encontrará
+  &quot;gat&quot;, &quot;gót&quot; y por último &quot;get&quot;.<br>
+    Nótese que el motor de búsqueda no encuentra &quot;goot&quot;; esto es
+  porque el punto representa un solo carácter y únicamente uno.<br>
+    Si es necesario que el motor encuentre también la expresión
+  &quot;goot&quot;, será necesario utilizar repeticiones, las cuales se
+  explican más adelante.<br>
+    <br>
+    Aunque el punto es muy útil para encontrar caracteres que no conocemos, es
+  necesario recordar que corresponde a cualquier carácter y que muchas veces
+  esto no es lo que se requiere.<br>
+    Es muy diferente buscar cualquier carácter que buscar cualquier carácter
+  alfanumérico o cualquier dígito o cualquier no-dígito o cualquier
+  no-alfanumérico. <br>
+    Se debe tomar esto en cuenta antes de utilizar el punto y obtener
+  resultados no deseados.</td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl68 width=281 style='height:60.0pt;width:211pt'>La
+  admiración &quot;!&quot;</td>
+  <td class=xl66 width=1570 style='width:1178pt'>Se utiliza para realizar una
+  &quot;búsqueda anticipada negativa&quot;. <br>
+    La construción de la expresión regular es con el par de paréntesis, el
+  paréntesis de apertura seguida de un signo de interrogación y un signo de
+  exclamación. <br>
+    Dentro de la búsqueda tenemos la expresión regular. <br>
+    Por ejemplo, para excluir exactamente una palabra, habrá que utilizar
+  &quot;^(palabra.+|(?!palabra).*)$&quot;</td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=380 style='height:285.0pt'>
+  <td height=380 class=xl68 width=281 style='height:285.0pt;width:211pt'>La
+  barra inversa o antibarra &quot;\&quot;</td>
+  <td class=xl66 width=1570 style='width:1178pt'>Se utiliza para
+  &quot;marcar&quot; el siguiente carácter de la expresión de búsqueda de forma
+  que este adquiera un significado especial o deje de tenerlo.<br>
+    O sea, la barra inversa no se utiliza nunca por sí sola, sino en
+  combinación con otros caracteres.<br>
+    Al utilizarlo por ejemplo en combinación con el punto &quot;\.&quot; este
+  deja de tener su significado normal y se comporta como un carácter
+  literal.<br>
+    <br>
+    De la misma forma, cuando se coloca la barra inversa seguida de cualquiera de
+  los caracteres especiales, estos dejan de tener su significado especial y se
+  convierten en caracteres de búsqueda literal.<br>
+    <br>
+    La barra inversa también puede darle significado especial a caracteres que
+  no lo tienen.<br>
+    A continuación hay una lista de algunas de estas combinaciones:</td>
+  <td class=xl66 width=1790 style='width:1343pt'>\t — Representa un
+  tabulador.<br>
+    \r — Representa el &quot;retorno de carro&quot; o &quot;regreso al
+  inicio&quot; o sea el lugar en que la línea vuelve a iniciar.<br>
+    \n — Representa la &quot;nueva línea&quot; el carácter por medio del cual
+  una línea da inicio. Es necesario recordar que en Windows es necesaria una
+  combinación de \r\n para comenzar una nueva línea, mientras que en Unix
+  solamente se usa \n y en Mac_OS clásico se usa solamente \r.<br>
+    \a — Representa una &quot;campana&quot; o &quot;beep&quot; que se produce
+  al imprimir este carácter.<br>
+    \e — Representa la tecla &quot;Esc&quot; o &quot;Escape&quot;<br>
+    \f — Representa un salto de página<br>
+    \v — Representa un tabulador vertical<br>
+    \x — Se utiliza para representar caracteres ASCII o ANSI si conoce su
+  código. De esta forma, si se busca el símbolo de derechos de autor y la
+  fuente en la que se busca utiliza el conjunto de caracteres Latin-1 es
+  posible encontrarlo utilizando &quot;\xA9&quot;.<br>
+    \u — Se utiliza para representar caracteres Unicode si se conoce su código.
+  &quot;\u00A2&quot; representa el símbolo de centavos. No todos los motores de
+  Expresiones Regulares soportan Unicode. El .Net Framework lo hace, pero el
+  EditPad Pro no, por ejemplo.<br>
+    \d — Representa un dígito del 0 al 9.<br>
+    \w — Representa cualquier carácter alfanumérico.<br>
+    \s — Representa un espacio en blanco.<br>
+    \D — Representa cualquier carácter que no sea un dígito del 0 al 9.<br>
+    \W — Representa cualquier carácter no alfanumérico.<br>
+    \S — Representa cualquier carácter que no sea un espacio en blanco.<br>
+    \A — Representa el inicio de la cadena. No un carácter sino una
+  posición.<br>
+    \Z — Representa el final de la cadena. No un carácter sino una posición.<br>
+    \b — Marca la posición de una palabra limitada por espacios en blanco,
+  puntuación o el inicio/final de una cadena.<br>
+    \B — Marca la posición entre dos caracteres alfanuméricos o dos
+  no-alfanuméricos.</td>
+  <td class=xl66 width=1790 style='width:1343pt'>Utilidades como Charmap.exe de
+  Windows o gucharmap de GNOME permiten encontrar los códigos
+  ASCII/ANSI/UNICODE para utilizarlos en Expresiones Regulares.<br>
+    Algunos lenguajes, como Java, asignan su propio significado a la barra
+  invertida, por lo que deberá repetirse para que sea considerada una expresión
+  regular.<br>
+    (ej.) --&gt; String expresion=&quot;\\d.\\d&quot; para indicar el patrón
+  \d.\d).<br>
+    </td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=160 style='height:120.0pt'>
+  <td height=160 class=xl68 width=281 style='height:120.0pt;width:211pt'>Los
+  corchetes &quot;[ ]&quot;</td>
+  <td class=xl66 width=1570 style='width:1178pt'>La función de los corchetes en
+  el lenguaje de las expresiones regulares es representar &quot;clases de
+  caracteres&quot;, o sea, agrupar caracteres en grupos o clases.<br>
+    Son útiles cuando es necesario buscar uno de un grupo de caracteres. <br>
+    Dentro de los corchetes es posible utilizar el guion &quot;-&quot; para
+  especificar rangos de caracteres. Adicionalmente, los metacaracteres pierden
+  su significado y se convierten en literales cuando se encuentran dentro de
+  los corchetes. <br>
+    <br>
+    Por ejemplo, &quot;\d&quot; nos es útil para buscar cualquier carácter que
+  represente un dígito. <br>
+    Sin embargo esta denominación no incluye el punto &quot;.&quot; que divide
+  la parte decimal de un número.<br>
+    Para buscar cualquier carácter que representa un dígito o un punto podemos
+  utilizar la expresión regular &quot;[\d.]&quot;.</td>
+  <td class=xl66 width=1790 style='width:1343pt'>Dentro de los corchetes, el
+  punto representa un carácter literal y no un metacarácter, por lo que no es
+  necesario antecederlo con la barra inversa.<br>
+    <br>
+    El único carácter que es necesario anteceder con la barra inversa dentro de
+  los corchetes es la propia barra inversa.<br>
+    <br>
+    La expresión regular &quot;[\dA-Fa-f]&quot; nos permite encontrar dígitos
+  hexadecimales.<br>
+    <br>
+    Los corchetes nos permiten también encontrar palabras aún si están escritas
+  de forma errónea, por ejemplo, la expresión regular &quot;expresi[oó]n&quot;
+  permite encontrar en un texto la palabra &quot;expresión&quot; aunque se haya
+  escrito con o sin tilde.<br>
+    </td>
+  <td class=xl66 width=1790 style='width:1343pt'>Es necesario aclarar que sin
+  importar cuantos caracteres se introduzcan dentro del grupo por medio de los
+  corchetes, el grupo sólo le dice al motor de búsqueda que encuentre un solo
+  carácter a la vez, es decir, que &quot;expresi[oó]n&quot; no encontrará &quot;expresion&quot;
+  o &quot;expresión&quot;.</td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl68 width=281 style='height:75.0pt;width:211pt'>La
+  barra &quot;|&quot;</td>
+  <td class=xl66 width=1570 style='width:1178pt'>Sirve para indicar una de
+  varias opciones.<br>
+    <br>
+    Por ejemplo, la expresión regular &quot;a|e&quot; encontrará cualquier
+  &quot;a&quot; o &quot;e&quot; dentro del texto.<br>
+    La expresión regular &quot;este|oeste|norte|sur&quot; permitirá encontrar
+  cualquiera de los nombres de los puntos cardinales.<br>
+    La barra se utiliza comúnmente en conjunto con otros caracteres especiales.</td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=281 style='height:30.0pt;width:211pt'>El signo
+  de dólar &quot;$&quot;</td>
+  <td class=xl66 width=1570 style='width:1178pt'>Representa el final de la
+  cadena de caracteres o el final de la línea, si se utiliza el modo
+  multi-línea. No representa un carácter en especial sino una posición.<br>
+    Si se utiliza la expresión regular &quot;\.$&quot; el motor encontrará
+  todos los lugares donde un punto finalice la línea, lo que es útil para
+  avanzar entre párrafos.</td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl68 width=281 style='height:45.0pt;width:211pt'>El
+  acento circunflejo &quot;^&quot;</td>
+  <td class=xl66 width=1570 style='width:1178pt'>Este carácter tiene una doble
+  funcionalidad, que difiere cuando se utiliza individualmente y cuando se
+  utiliza en conjunto con otros caracteres especiales.</td>
+  <td class=xl66 width=1790 style='width:1343pt'>En primer lugar su
+  funcionalidad como carácter individual: el carácter &quot;^&quot; representa
+  el inicio de la cadena (de la misma forma que el signo de dólar &quot;$&quot;
+  representa el final de la cadena).<br>
+    Por tanto, si se utiliza la expresión regular &quot;^[a-z]&quot; el motor
+  encontrará todos los párrafos que den inicio con una letra minúscula.</td>
+  <td class=xl66 width=1790 style='width:1343pt'>Cuando se utiliza en conjunto
+  con los corchetes de la siguiente forma &quot;[^\w ]&quot; permite encontrar
+  cualquier carácter que NO se encuentre dentro del grupo indicado.<br>
+    La expresión indicada permite encontrar, por ejemplo, cualquier carácter que
+  no sea alfanumérico o un espacio, es decir, busca todos los símbolos de
+  puntuación y demás caracteres especiales.<br>
+    La utilización en conjunto de los caracteres especiales &quot;^&quot; y
+  &quot;$&quot; permite realizar validaciones en forma sencilla.</td>
+  <td class=xl66 width=859 style='width:644pt'>Por ejemplo &quot;^\d$&quot;
+  permite asegurar que la cadena a verificar representa un único dígito
+  &quot;^\d\d/\d\d/\d\d\d\d$&quot; permite validar una fecha en formato corto,
+  aunque no permite verificar si es una fecha válida, ya que 99/99/9999 también
+  sería válido en este formato; la validación completa de una fecha también es
+  posible mediante expresiones regulares.</td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl68 width=281 style='height:45.0pt;width:211pt'>Los
+  paréntesis &quot;()&quot;</td>
+  <td class=xl66 width=1570 style='width:1178pt'>De forma similar que los
+  corchetes, los paréntesis sirven para agrupar caracteres, sin embargo existen
+  varias diferencias fundamentales entre los grupos establecidos por medio de
+  corchetes y los grupos establecidos por paréntesis. <br>
+    Utilizados en conjunto con otros caracteres especiales ofrece funcionalidad
+  adicional.</td>
+  <td class=xl66 width=1790 style='width:1343pt'>Los caracteres especiales
+  conservan su significado dentro de los paréntesis.<br>
+    Los grupos establecidos con paréntesis establecen una &quot;etiqueta&quot;
+  o &quot;punto de referencia&quot; para el motor de búsqueda que puede ser
+  utilizada posteriormente como se denota más adelante.</td>
+  <td class=xl66 width=1790 style='width:1343pt'>Utilizados en conjunto con la
+  barra &quot;|&quot; permite hacer búsquedas opcionales.<br>
+    Por ejemplo la expresión regular &quot;al (este|oeste|norte|sur) de&quot;
+  permite buscar textos que den indicaciones por medio de puntos cardinales,
+  mientras que la expresión regular &quot;este|oeste|norte|sur&quot;
+  encontraría &quot;este&quot; en la palabra &quot;esteban&quot;, no pudiendo
+  cumplir con este propósito.</td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl68 width=281 style='height:75.0pt;width:211pt'>El
+  signo de interrogación &quot;?&quot;</td>
+  <td class=xl66 width=1570 style='width:1178pt'>Tiene varias funciones dentro
+  del lenguaje de las expresiones regulares.<br>
+    La primera de ellas es especificar que una parte de la búsqueda es
+  opcional.<br>
+    Por ejemplo, la expresión regular &quot;ob?scuridad&quot; permite encontrar
+  tanto &quot;oscuridad&quot; como &quot;obscuridad&quot;.<br>
+    En conjunto con los paréntesis redondos permite especificar que un conjunto
+  mayor de caracteres es opcional; por ejemplo
+  &quot;Nov(\.|iembre|ember)?&quot; permite encontrar tanto &quot;Nov&quot;
+  como &quot;Nov.&quot;, &quot;Noviembre&quot; y &quot;November&quot;.<br>
+    Nos permiten establecer un &quot;punto de referencia&quot; para el motor de
+  búsqueda.</td>
+  <td class=xl66 width=1790 style='width:1343pt'>Sin embargo, algunas veces, no
+  se desea utilizarlos con este propósito, como en el ejemplo anterior
+  &quot;Nov(\.|iembre|ember)?&quot;.<br>
+    En este caso el establecimiento de este punto de referencia representa una
+  inversión inútil de recursos por parte del motor de búsqueda.<br>
+    Para evitarlo se puede utilizar el signo de pregunta de la siguiente forma:
+  &quot;Nov(?:\.|iembre|ember)?&quot;. Aunque el resultado obtenido será el
+  mismo, el motor de búsqueda no realizará una inversión inútil de recursos en
+  este grupo, sino que lo ignorará.<br>
+    Cuando no sea necesario reutilizar el grupo, es aconsejable utilizar este
+  formato.<br>
+    </td>
+  <td class=xl66 width=1790 style='width:1343pt'>De forma similar, es posible
+  utilizar el signo de pregunta con otro significado:<br>
+    Los paréntesis definen grupos &quot;anónimos&quot;, sin embargo el signo de
+  pregunta en conjunto con los paréntesis triangulares &quot;&lt;&gt;&quot;
+  permite &quot;nombrar&quot; estos grupos de la siguiente forma:
+  &quot;^(?&lt;Día&gt;\d\d)\/(?&lt;Mes&gt;\d\d)\/(?&lt;Año&gt;\d\d\d\d)$&quot;;
+  Con lo cual se le especifica al motor de búsqueda que los primeros dos
+  dígitos encontrados llevarán la etiqueta &quot;Día&quot;, los segundos la
+  etiqueta &quot;Mes&quot; y los últimos cuatro dígitos llevarán la etiqueta
+  &quot;Año&quot;.<br>
+    </td>
+  <td class=xl66 width=859 style='width:644pt'>NOTA: a pesar de la complejidad
+  y flexibilidad dada por los caracteres especiales estudiados hasta ahora, en
+  su mayoría nos permiten encontrar solamente un carácter a la vez, o un grupo
+  de caracteres a la vez. Los metacaracteres enumerados en adelante permiten
+  establecer repeticiones.<br>
+    </td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl68 width=281 style='height:60.0pt;width:211pt'>Las
+  llaves &quot;{}&quot;</td>
+  <td class=xl66 width=1570 style='width:1178pt'>Comúnmente las llaves son
+  caracteres literales cuando se utilizan por separado en una expresión
+  regular.<br>
+    Para que adquieran su función de metacaracteres es necesario que encierren
+  uno o varios números separados por coma y que estén colocados a la derecha de
+  otra expresión regular de la siguiente forma:<br>
+    &quot;\d{2}&quot;</td>
+  <td class=xl66 width=1790 style='width:1343pt'>Esta expresión le dice al
+  motor de búsqueda que encuentre dos dígitos contiguos.<br>
+    Utilizando esta fórmula podríamos convertir el ejemplo
+  &quot;^\d\d/\d\d/\d\d\d\d$&quot; que servía para validar un formato de fecha
+  en &quot;^\d{2}/\d{2}/\d{4}$&quot; para una mayor claridad en la lectura de
+  la expresión.</td>
+  <td class=xl66 width=1790 style='width:1343pt'>&quot;\d{2,4}&quot; Esta forma
+  añade un segundo número separado por una coma, el cuál indica al motor de
+  búsqueda que como máximo debe aparecer 4 veces la expresión regular \d. Los
+  posibles valores son:<br>
+    &quot;^\d\d$&quot; (mínimo 2 repeticiones)<br>
+    &quot;^\d\d\d$&quot;(tiene 3 repeticiones, por lo tanto entra en el rango
+  2-4)<br>
+    &quot;^\d\d\d\d$&quot; (máximo 4 repeticiones)</td>
+  <td class=xl66 width=859 style='width:644pt'>Nota: aunque esta forma de
+  encontrar elementos repetidos es muy útil, algunas veces no se conoce con
+  claridad cuantas veces se repite lo que se busca o su grado de repetición es
+  variable. En estos casos los siguientes metacaracteres son útiles.</td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl68 width=281 style='height:60.0pt;width:211pt'>El
+  asterisco &quot;*&quot;</td>
+  <td class=xl66 width=1570 style='width:1178pt'>El asterisco sirve para
+  encontrar algo que se encuentra repetido 0 o más veces.<br>
+    Por ejemplo, utilizando la expresión &quot;[a-zA-Z]\d*&quot; será posible
+  encontrar tanto &quot;H&quot; como &quot;H1&quot;, &quot;H01&quot;,
+  &quot;H100&quot; y &quot;H1000&quot;, es decir, una letra seguida de un
+  número indefinido de dígitos.<br>
+    <br>
+    Es necesario tener cuidado con el comportamiento del asterisco, ya que
+  éste, por defecto, trata de encontrar la mayor cantidad posible de caracteres
+  que correspondan con el patrón que se busca.</td>
+  <td class=xl66 width=1790 style='width:1343pt'>De esta forma si se utiliza
+  &quot;\(.*\)&quot; para encontrar cualquier cadena que se encuentre entre
+  paréntesis y se lo aplica sobre el texto &quot;Ver (Fig. 1) y (Fig. 2)&quot;
+  se esperaría que el motor de búsqueda encuentre los textos &quot;(Fig. 1)&quot;
+  y &quot;(Fig. 2)&quot;, sin embargo, debido a esta característica, en su
+  lugar encontrará el texto &quot;(Fig. 1) y (Fig. 2)&quot;.</td>
+  <td class=xl66 width=1790 style='width:1343pt'>Esto sucede porque el
+  asterisco le dice al motor de búsqueda que llene todos los espacios posibles
+  entre los dos paréntesis.<br>
+    <br>
+    Para obtener el resultado deseado se debe utilizar el asterisco en conjunto
+  con el signo de interrogación de la siguiente forma: &quot;\(.*?\)&quot;</td>
+  <td class=xl66 width=859 style='width:644pt'>Esto es equivalente a decirle al
+  motor de búsqueda que &quot;Encuentre un paréntesis de apertura y luego
+  encuentre cualquier secuencia de caracteres hasta que encuentre un paréntesis
+  de cierre&quot;.</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=281 style='height:30.0pt;width:211pt'>El signo
+  de suma &quot;+&quot;</td>
+  <td class=xl66 width=1570 style='width:1178pt'>Se utiliza para encontrar una
+  cadena que se encuentre repetida una o más veces.<br>
+    A diferencia del asterisco, la expresión &quot;[a-zA-Z]\d+&quot; encontrará
+  &quot;H1&quot; pero no encontrará &quot;H&quot;.</td>
+  <td class=xl66 width=1790 style='width:1343pt'>También es posible utilizar
+  este metacarácter en conjunto con el signo de interrogación para limitar
+  hasta donde se efectúa la repetición.</td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=281 style='height:15.0pt;width:211pt'></td>
+  <td class=xl66 width=1570 style='width:1178pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=281 style='height:15.0pt;width:211pt'></td>
+  <td class=xl66 width=1570 style='width:1178pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=281 style='height:15.0pt;width:211pt'></td>
+  <td class=xl66 width=1570 style='width:1178pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=281 style='height:15.0pt;width:211pt'></td>
+  <td class=xl66 width=1570 style='width:1178pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=281 style='height:15.0pt;width:211pt'></td>
+  <td class=xl66 width=1570 style='width:1178pt'></td>
+  <td class=xl68 width=1790 style='width:1343pt'></td>
+  <td class=xl68 width=1790 style='width:1343pt'></td>
+  <td class=xl68 width=859 style='width:644pt'></td>
+ </tr>
+ <tr class=xl66 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=281 style='height:15.0pt;width:211pt'></td>
+  <td class=xl66 width=1570 style='width:1178pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=281 style='height:15.0pt;width:211pt'></td>
+  <td class=xl66 width=1570 style='width:1178pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=281 style='height:15.0pt;width:211pt'></td>
+  <td class=xl66 width=1570 style='width:1178pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=281 style='height:15.0pt;width:211pt'></td>
+  <td class=xl66 width=1570 style='width:1178pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=281 style='height:15.0pt;width:211pt'></td>
+  <td class=xl66 width=1570 style='width:1178pt'></td>
+  <td class=xl68 width=1790 style='width:1343pt'></td>
+  <td class=xl68 width=1790 style='width:1343pt'></td>
+  <td class=xl68 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=281 style='height:15.0pt;width:211pt'></td>
+  <td class=xl66 width=1570 style='width:1178pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=281 style='height:15.0pt;width:211pt'></td>
+  <td class=xl66 width=1570 style='width:1178pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=281 style='height:15.0pt;width:211pt'></td>
+  <td class=xl66 width=1570 style='width:1178pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=1790 style='width:1343pt'></td>
+  <td class=xl66 width=859 style='width:644pt'></td>
+ </tr>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=281 style='height:15.0pt;width:211pt'></td>
+  <td class=xl66 width=1570 style='width:1178pt'></td>
+  <td class=xl68 width=1790 style='width:1343pt'></td>
+  <td class=xl68 width=1790 style='width:1343pt'></td>
+  <td class=xl68 width=859 style='width:644pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=281 style='width:211pt'></td>
+  <td width=1570 style='width:1178pt'></td>
+  <td width=1790 style='width:1343pt'></td>
+  <td width=1790 style='width:1343pt'></td>
+  <td width=859 style='width:644pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>
