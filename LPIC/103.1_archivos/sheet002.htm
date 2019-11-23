@@ -1,0 +1,641 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../103.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>103.1 - Work on the command line</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../103.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1641 style='border-collapse:
+ collapse;table-layout:fixed;width:1231pt'>
+ <col class=xl66 width=1498 style='mso-width-source:userset;mso-width-alt:54784;
+ width:1124pt'>
+ <col class=xl68 width=143 style='mso-width-source:userset;mso-width-alt:5229;
+ width:107pt'>
+ <col class=xl66 width=597 style='mso-width-source:userset;mso-width-alt:21833;
+ width:448pt'>
+ <col class=xl66 width=457 style='mso-width-source:userset;mso-width-alt:16713;
+ width:343pt'>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1498 style='height:15.0pt;width:1124pt'><a
+  name="RANGE!A1">bash</a></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>El
+  intérprete de comandos, o simplemente intérprete, permite ejecutar
+  instrucciones vía teclado o en un script y devuelve los resultados.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Este
+  intérprete es un programa comúnmente llamado shell.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Es una
+  interfaz que funciona en modo texto entre el núcleo de Linux y los usuarios
+  (avanzados) o las aplicaciones.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>A
+  continuación le presentamos una lista exhaustiva de intérpretes de comandos
+  que puede encontrar en Linux:</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>sh:
+  Thompson Shell (ya no existe);</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>sh:
+  Bourne Shell (sustituyó al anterior);</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>bash:
+  Bourne Again Shell;</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>ksh:
+  Korn Shell;</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>csh: C
+  Shell;</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>zsh: Z
+  Shell;</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>tcsh:
+  Tenex C Shell;</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>ash: A
+  Shell;</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>dash:
+  Debian Almquist Shell.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>La
+  lista de los shells actualmente presentes en su instalación de Linux se
+  encuentra en el fichero /etc/shells.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>El
+  bash es un derivado de Bourne Shell.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Bourne
+  es el nombre del principal programador de este shell.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>La
+  expresión «Bourne Again» es un guiño a los orígenes del bash (Bourne) y un
+  juego de palabras en «I born again», lo que significa «he nacido otra vez» o
+  «reencarnado».<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>El
+  bash retoma sh pero también funcionalidades de ksh o chs.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>El
+  bash no está presente únicamente bajo Linux.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Al ser
+  un programa libre, se puede compilar o ejecutar en numerosas
+  plataformas.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Es el
+  shell de referencia en los sistemas MacOS y existe también para Windows.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>El
+  shell funciona en un terminal.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Originalmente,
+  un terminal es una verdadera máquina que sólo dispone de lo necesario para
+  entrar instrucciones (el teclado) y visualizar los resultados (una pantalla o
+  incluso hace mucho tiempo una simple impresora con papel listado).<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Aunque
+  en la actualidad aún existan terminales físicos, en máquinas corrientes han
+  sido sustituidos por programas que emulan terminales.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Se
+  distinguen dos tipos de ellos en Linux:</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>- las
+  consolas virtuales de texto, el modo por defecto de Linux cuando arranca o
+  funciona bajo entorno gráfico;</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>- las
+  consolas o terminales gráficos, como xterm, eterm o konsole, que son
+  emuladores de terminales en el seno de ventanas gráficas.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>El
+  shell funciona en un terminal.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Espera
+  entradas por teclado en la consola o la ventana, y visualiza sus resultados
+  en el mismo lugar.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Cualquier
+  usuario avanzado de Linux o Unix en general tiene al menos un terminal
+  abierto casi permanentemente.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>La
+  apertura de un terminal (o consola, en este caso estas palabras son
+  sinónimas) ejecuta automáticamente el shell por defecto.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>El
+  shell espera entradas por el teclado en una línea llamada línea de comandos o
+  prompt.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Un
+  cursor, representado por un rectángulo fijo, intermitente o un carácter
+  subrayado, indica la posición actual de su entrada.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>La
+  línea (prompt) proporciona información en el terminal y su posición en el
+  sistema de ficheros.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>seb@slyserver:/home/public&gt;</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>En
+  esta clásica línea, obtiene cuatro datos:</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>- seb:
+  es el nombre de conexión o login del usuario actualmente conectado al
+  terminal;</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>-
+  slyserver: es el nombre de anfitrión (hostname), el nombre lógico de la
+  máquina conectada al terminal;</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>-
+  /home/public: es la posición actual del shell en el sistema de ficheros;</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>-
+  &gt;: es la terminación estándar del bash para un usuario sin privilegios.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Esta
+  línea le informa de que es el usuario sin privilegios de administración seb
+  quien utiliza el terminal (está conectado) en la máquina slyserver y que se
+  encuentra actualmente en /home/public.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>El
+  carácter de terminación puede tener otros significados:</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>$
+  indica que el usuario no tiene privilegios particulares, como con &gt;.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>#
+  indica que el usuario es el administrador root que tiene todos los
+  privilegios.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>La
+  ruta puede variar:</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>seb@slyserver:~&gt;:
+  el carácter tilde ~ indica que se encuentra en su directorio personal.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>seb@slyserver:~/test&gt;:
+  al combinarse con ~ (su directorio personal), indica que está en el
+  subdirectorio test de éste.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Para
+  cualquier otra ruta se suele sustituir la línea de comandos por un simple
+  símbolo de dólar, $, con el fin de ganar espacio.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>En el
+  terminal, el teclado se utiliza de forma intuitiva.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Puede
+  desplazarse en la línea con las flechas de derecha e izquierda del teclado y
+  borrar caracteres con las teclas [Tab] y [Supr].<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Ejecute
+  el comando que ha introducido presionando la tecla [Intro].</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Los
+  comandos o instrucciones (las dos palabras son sinónimas en este caso) GNU
+  tienen a menudo una sintaxis con la misma estructura:</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Comando
+  [parámetros] [argumentos]</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Un
+  comando puede no tener ni parámetros ni argumentos.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>En
+  este caso, ejecuta la acción por defecto para la cual se programó, o muestra
+  un mensaje de error, de haberlo.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Un
+  parámetro es una opción del comando.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Las
+  dos palabras son sinónimas aquí.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>A
+  menudo es una simple letra o una simple cifra precedida de un guión: -l, -p,
+  -s, etc.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Si el
+  comando acepta varios parámetros, usted los puede introducir unos tras otros
+  separándolos por espacio: -l -r -t, o escribiendo un solo guión y luego todos
+  los parámetros: -lrt.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Se
+  aceptan las dos sintaxis: producen el mismo resultado.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Simplemente,
+  la segunda es más corta.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>En
+  ciertos casos, un parámetro necesita un argumento, por ejemplo un nombre de
+  fichero.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>En
+  este caso, es preferible separar este parámetro de los demás: -lrt -f
+  mifichero.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Los
+  argumentos son los valores en los que un comando debe ejecutar su
+  acción.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>El
+  tipo de valor (fichero, texto, números) depende del comando.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Puede
+  ejecutar varios comandos en una sola línea, los unos tras los otros. Para
+  ello, basta con separarlos con un punto y coma.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>$
+  date;pwd;cal</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Existen
+  dos tipos de comandos:</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>- Los
+  comandos externos son programas binarios presentes como ficheros en su disco
+  duro (o cualquier otro soporte de datos).</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Cuando
+  ejecuta el comando, se carga este fichero en memoria y se inicia como
+  proceso.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>- Los
+  comandos internos son internos al shell y se ejecutan en el interior de él.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Estos
+  comandos forman parte del programa shell, el bash.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Los
+  comandos cd o pwd son dos ejemplos de comandos internos.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Cuando
+  los ejecuta, el shell ejecuta las funciones definidas en su interior que les
+  corresponden.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Puede
+  distinguir un comando interno de un comando externo con la ayuda del comando
+  interno type.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Así,
+  date es un comando externo.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Puede
+  observar que es un fichero presente en /bin, mientras que pwd es interno al
+  shell.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>También
+  puede encontrar otros tipos, como los alias de comandos que son atajos de
+  comandos propios del shell.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Así el
+  shell bash de ciertas distribuciones Linux proponen alias como ll, que
+  corresponde en realidad a ls -l.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>$ type
+  ll</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>Se
+  deben conocer algunas secuencias de atajos de comandos:</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>[Ctrl]
+  C: interrupción del programa: se termina.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>[Ctrl]
+  Z: para el programa (ver los procesos).</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1498 style='height:15.0pt;width:1124pt'>[Ctrl]
+  D: interrumpe una introducción de datos en un prompt &gt;.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1498 style='width:1124pt'></td>
+  <td width=143 style='width:107pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

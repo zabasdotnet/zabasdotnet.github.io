@@ -1,0 +1,212 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../103.3.htm">
+<link rel=File-List href=filelist.xml>
+<title>103.3 - Perform basic file management</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../103.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1366 style='border-collapse:
+ collapse;table-layout:fixed;width:1024pt'>
+ <col class=xl68 width=663 style='mso-width-source:userset;mso-width-alt:24246;
+ width:497pt'>
+ <col class=xl68 width=703 style='mso-width-source:userset;mso-width-alt:25709;
+ width:527pt'>
+ <col class=xl66 width=597 style='mso-width-source:userset;mso-width-alt:21833;
+ width:448pt'>
+ <col class=xl66 width=457 style='mso-width-source:userset;mso-width-alt:16713;
+ width:343pt'>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=663 style='height:15.0pt;width:497pt'><a
+  name="RANGE!A1">cp</a></td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=663 style='height:15.0pt;width:497pt'>El
+  comando cp (copy) copia uno o varios ficheros en otro fichero o en un
+  directorio.</td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt'>Por lo tanto, es posible
+  utilizar las redirecciones. cpio no comprime los archivos.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 style='height:15.0pt'></td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=663 style='height:15.0pt;width:497pt'>cp fic1
+  [fic2 ... ficn] Destino</td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'></td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'>En el
+  primer caso, se vuelve a copiar fic1 en Destino.</td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'>Si
+  Destino existe, se sobreescribe sin aviso según el parámetro pasado y según
+  los permisos.</td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'></td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'>En el
+  segundo caso, se copian de nuevo fic1, fic2 y así sucesivamente en el
+  directorio Destino.</td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'>Las
+  rutas pueden ser absolutas o relativas.</td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'></td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=663 style='height:15.0pt;width:497pt'>El
+  comando puede tomar, entre otras, las opciones siguientes:</td>
+  <td class=xl66 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=663 style='height:15.0pt;width:497pt'>-i
+  --&gt; Pide confirmación de copia para cada fichero.</td>
+  <td class=xl66 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=663 style='height:15.0pt;width:497pt'>-r
+  --&gt; Recursivo: copia un directorio y todo su contenido.</td>
+  <td class=xl66 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=663 style='height:15.0pt;width:497pt'>-p
+  --&gt; Se preservan los permisos y fechas.</td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=663 style='height:15.0pt;width:497pt'>-f
+  --&gt; Forzar la copia.</td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=663 style='height:15.0pt;width:497pt'></td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'>Le debe
+  de llamar la atención el funcionamiento de cp con las copias de
+  directorios.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'>El
+  funcionamiento es diferente según exista o no el directorio de destino.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'>En el
+  primer caso, dir2 no existe.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'>Se copia
+  el directorio dir1 en dir2.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'>Al final
+  dir2 es una copia exacta de dir1.</td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=663 style='height:15.0pt;width:497pt'></td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'>Si dir2
+  existe, no será sobreescrito, como cabía esperar.</td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'>El
+  comando determina que, al ser dir2 el destino, se debe copiar dir1 en el
+  destino: se copia dir1 en dir2.</td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'>$ cp -r
+  dir1 dir2</td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'>$ ls
+  dir2</td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=663 style='height:15.0pt;width:497pt'>dir1</td>
+  <td class=xl68 width=703 style='width:527pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=663 style='width:497pt'></td>
+  <td width=703 style='width:527pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,443 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../108.2.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../108.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl67>
+
+<table border=0 cellpadding=0 cellspacing=0 width=2541 style='border-collapse:
+ collapse;table-layout:fixed;width:1907pt'>
+ <col class=xl67 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl65 width=181 style='mso-width-source:userset;mso-width-alt:6619;
+ width:136pt'>
+ <col class=xl67 width=733 style='mso-width-source:userset;mso-width-alt:26806;
+ width:550pt'>
+ <col class=xl67 width=504 style='mso-width-source:userset;mso-width-alt:18432;
+ width:378pt'>
+ <col class=xl67 width=633 style='mso-width-source:userset;mso-width-alt:23149;
+ width:475pt'>
+ <col class=xl67 width=442 style='mso-width-source:userset;mso-width-alt:16164;
+ width:332pt'>
+ <col class=xl67 width=430 style='mso-width-source:userset;mso-width-alt:15725;
+ width:323pt'>
+ <tr class=xl65 height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'>108.2</td>
+  <td class=xl65 width=181 style='width:136pt'>W3</td>
+  <td class=xl65 width=733 style='width:550pt'>System logging</td>
+  <td class=xl66 width=504 style='width:378pt'><a href="../108.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl65 width=633 style='width:475pt'></td>
+  <td class=xl65 width=442 style='width:332pt'></td>
+ </tr>
+ <tr height=260 style='height:195.0pt'>
+  <td height=260 class=xl65 width=48 style='height:195.0pt;width:36pt'></td>
+  <td class=xl65 width=181 style='width:136pt'>syslog.conf</td>
+  <td class=xl67 width=733 style='width:550pt'>El fichero de configuración <font
+  class="font5">/etc/syslog.conf</font><font class="font0"> permite definir el
+  origen, la importancia y el destino de cada mensaje, en forma de dos
+  campos.<br>
+    <br>
+    El origen define de hecho un conjunto de sistemas y de subsistemas (núcleo,
+  servicios).<br>
+    La lista, extensible, se compone en el origen de los elementos
+  siguientes.<br>
+    El asterisco define el conjunto de los subsistemas.</font></td>
+  <td class=xl67 width=504 style='width:378pt'>auth/authpriv --&gt; Servicio de
+  seguridad y autenticación.<br>
+    cron --&gt; Servicio cron.<br>
+    daemon --&gt; Los demonios del sistema.<br>
+    kern --&gt; El núcleo.<br>
+    lpr --&gt; El servicio de impresión.<br>
+    mail --&gt; La mensajería.<br>
+    news --&gt; La red.<br>
+    syslog --&gt; El propio Syslog.<br>
+    user --&gt; Mensajes de los procesos de los usuarios.<br>
+    uucp --&gt; Unix to Unix CoPy.<br>
+    local0-&gt;7 --&gt; Mensajes procedentes de klogd, la cifra representa el
+  nivel.</td>
+  <td class=xl67 width=633 style='width:475pt'>La importancia o nivel define el
+  nivel de gravedad del mensaje.<br>
+    El asterisco define el conjunto de todos los niveles.<br>
+    Los niveles emitidos por klogd y syslogd son equivalentes.<br>
+    <br>
+    emerg --&gt; No se puede utilizar el sistema.<br>
+    alert --&gt; Una intervención inmediata es indispensable.<br>
+    crit --&gt; Error crítico para el subsistema.<br>
+    err --&gt; Error de funcionamiento.<br>
+    warning --&gt; Aviso.<br>
+    notice --&gt; Evento normal que merece ser señalado.<br>
+    info --&gt; Sólo como información.<br>
+    debug --&gt; Mensaje mandado para el ajuste.<br>
+    none --&gt; Ignorar los mensajes.</td>
+  <td class=xl67 width=442 style='width:332pt'>El destino o la acción puede ser
+  un fichero, un mensaje a un usuario, la consola, una lista de
+  usuarios...<br>
+    El asterisco indica todo el mundo.<br>
+    Se inscriben los mensajes syslog en los ficheros <font class="font5">/var/log/messages</font><font
+  class="font0"> y </font><font class="font5">/var/log/syslog</font><font
+  class="font0"> o en cualquier otro fichero configurado en </font><font
+  class="font5">/etc/syslog.conf</font><font class="font0">.<br>
+    Usted mismo puede mandar, directamente o en sus scripts, mensajes a syslogd
+  mediante el comando logger.</font></td>
+ </tr>
+ <tr height=200 style='height:150.0pt'>
+  <td height=200 class=xl65 width=48 style='height:150.0pt;width:36pt'></td>
+  <td class=xl65 width=181 style='width:136pt'>syslogd</td>
+  <td class=xl67 width=733 style='width:550pt'>Cuando el sistema se inicia, se
+  pone en marcha y efectúa cualquier tipo de acción, se registran sus acciones
+  y las de la mayoría de sus servicios en diferentes ficheros.<br>
+    Dos servicios están especializados en la recepción de los mensajes que
+  tienen como destino estos ficheros:<br>
+    <font class="font5">- klogd</font><font class="font0">: kernel log daemon,
+  encargado de la gestión de la información emitida por el núcleo.<br>
+    </font><font class="font5">- syslogd</font><font class="font0">: system log
+  daemon, encargado de la gestión de la información emitida por cualquier tipo
+  de servicio y, si procede, del núcleo.</font></td>
+  <td class=xl67 width=504 style='width:378pt'>Ciertas distribuciones utilizan
+  ahora syslog-ng o rsyslog, cuyas reglas de tratamiento de los mensajes,
+  basadas en expresiones regulares, han evolucionado considerablemente.<br>
+    Sin embargo, el principio sigue siendo exactamente el mismo.<br>
+    Desde un punto de vista histórico, el servicio syslogd gestionaba también
+  los mensajes emitidos por el núcleo.<br>
+    Todavía es capaz de hacerlo, pero la cantidad de mensajes emitidos, los
+  diferentes niveles de gravedad y los nuevos métodos de acceso a los mensajes
+  del núcleo hacen que parezca importante y pertinente separar la gestión de
+  los mensajes del núcleo, y la de los emitidos por los servicios.</td>
+  <td class=xl67 width=633 style='width:475pt'>Los mensajes importantes
+  emitidos por un componente del sistema deberían pasar por el servicio
+  syslogd.<br>
+    Esto no impide, al contrario, que un servicio pueda gestionar sus propias
+  entradas en sus propios ficheros.<br>
+    No se deberían colocar entradas de aplicaciones en el registro del
+  sistema.<br>
+    Las trazas de acceso a las páginas Web de un servidor Apache no tienen nada
+  que hacer ahí.<br>
+    En cambio, las de conexión al sistema (mediante la consola, ssh, telnet,
+  etc.) tienen mucho interés y deben estar presentes en los ficheros logs del
+  sistema.</td>
+  <td class=xl65 width=442 style='width:332pt'>Las entradas en el registro se
+  llaman &quot;logs&quot;.</td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl65 width=48 style='height:60.0pt;width:36pt'></td>
+  <td class=xl65 width=181 style='width:136pt'>klogd</td>
+  <td class=xl67 width=733 style='width:550pt'>El servicio klogd devuelve los
+  mensajes de nivel 0 a 6 a syslogd, que los redirigirá a los ficheros de logs
+  y si es preciso a las consolas correspondientes.<br>
+    Por defecto, no se traza la información de depuración de nivel 7.</td>
+  <td class=xl67 width=504 style='width:378pt'>El servicio syslogd (o
+  syslog-ng) recibe los mensajes procedentes de los servicios y también de
+  klogd.<br>
+    Luego los reparte según el transmisor, la gravedad, en ficheros, en
+  consolas, en forma de mails a los usuarios del sistema (root, por ejemplo), etc.</td>
+  <td class=xl67 width=633 style='width:475pt'></td>
+  <td class=xl67 width=442 style='width:332pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=181 style='width:136pt'></td>
+  <td class=xl67 width=733 style='width:550pt'></td>
+  <td class=xl67 width=504 style='width:378pt'></td>
+  <td class=xl67 width=633 style='width:475pt'></td>
+  <td class=xl67 width=442 style='width:332pt'></td>
+ </tr>
+ <tr height=280 style='height:210.0pt'>
+  <td height=280 class=xl65 width=48 style='height:210.0pt;width:36pt'></td>
+  <td class=xl65 width=181 style='width:136pt'>/var/log/</td>
+  <td class=xl67 width=733 style='width:550pt'>Por convención se ubican los
+  logs del sistema en <font class="font5">/var/log.</font><font class="font0"><br>
+    No todos los logs de este directorio provienen de </font><font class="font5">syslogd</font><font
+  class="font0">. <br>
+    Es el caso, por ejemplo, de la información de conexión.<br>
+    Unos servicios pueden decidir, sin pasar por syslogd, concentrar y escribir
+  sus mensajes en esta estructura.<br>
+    <br>
+    Se inscriben los mensajes syslog en los ficheros </font><font class="font5">/var/log/messages</font><font
+  class="font0"> y </font><font class="font5">/var/log/syslog</font><font
+  class="font0"> o en cualquier otro fichero configurado en </font><font
+  class="font5">/etc/syslog.conf</font><font class="font0">.</font></td>
+  <td class=xl67 width=504 style='width:378pt'><font class="font5">/var/log/messages</font><font
+  class="font0"><br>
+    <br>
+    Sea cual sea la distribución empleada, </font><font class="font5">/var/log/messages</font><font
+  class="font0"> es el fichero central de los mensajes del sistema, provengan
+  del núcleo o de los servicios.<br>
+    El contenido de este fichero, gestionado por </font><font class="font5">syslog</font><font
+  class="font0">, refleja el estado global del sistema (y no únicamente del
+  núcleo) durante su utilización.<br>
+    En un sistema clásico, su contenido retoma el procedente del comando dmesg
+  y el de varios servicios.<br>
+    <br>
+    Las líneas tienen una firma temporal.<br>
+    Sin que se produzca alguna acción especial (ver logrotate), el fichero
+  crece en el tiempo y no es purgado.<br>
+    Un fichero de mensajes puede contener varios miles de líneas, ¡sobre todo
+  si se producen problemas!</font></td>
+  <td class=xl67 width=633 style='width:475pt'># wc -l &lt; messages<br>
+    8453<br>
+    <br>
+    # tail -100 /var/log/messages | grep fglrx<br>
+    <br>
+    En algunas distribuciones el archivo messages puede estar vacío.<br>
+    Esto significará que los mensajes asociados han sido distribuidos en otros archivos
+  por el comando syslog.</td>
+  <td class=xl67 width=442 style='width:332pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=181 style='width:136pt'>logger</td>
+  <td class=xl67 width=733 style='width:550pt'>Usted mismo puede mandar,
+  directamente o en sus scripts, mensajes a syslogd mediante el comando logger.</td>
+  <td class=xl67 width=504 style='width:378pt'></td>
+  <td class=xl67 width=633 style='width:475pt'></td>
+  <td class=xl67 width=442 style='width:332pt'></td>
+ </tr>
+ <tr height=160 style='height:120.0pt'>
+  <td height=160 class=xl65 width=48 style='height:120.0pt;width:36pt'></td>
+  <td class=xl65 width=181 style='width:136pt'>logrotate</td>
+  <td class=xl67 width=733 style='width:550pt'>Los logs pueden crecer hasta
+  llenar la partición donde se encuentran y bloquear el sistema.<br>
+    <br>
+    logrotate se encarga de rotar estos ficheros para poderlos gestionar con
+  facilidad y tener un control casi completo sobre ellos.<br>
+    Cada cierto tiempo o condiciones, se creará un fichero sobre el que se
+  escribirá y el que teníamos pasará a ser un histórico.<br>
+    <br>
+    La ruta por defecto donde están los logs es /var/log.</td>
+  <td class=xl67 width=504 style='width:378pt'>En esa misma ruta los ficheros
+  rotados tendrán una nomenclatura como :<br>
+    secure<br>
+    secure.1<br>
+    secure.2<br>
+    <br>
+    En donde el primero que no tiene número es sobre el que estamos escribiendo
+  actualmente, el siguiente secure.1 es el anterior, y el secure.2 es el
+  anterior a secure.1 con lo que lo leemos del más reciente al más viejo.</td>
+  <td class=xl67 width=633 style='width:475pt'></td>
+  <td class=xl67 width=442 style='width:332pt'></td>
+ </tr>
+ <tr height=180 style='height:135.0pt'>
+  <td height=180 class=xl65 width=48 style='height:135.0pt;width:36pt'></td>
+  <td class=xl65 width=181 style='width:136pt'>/etc/logrotate.conf</td>
+  <td class=xl67 width=733 style='width:550pt'>El fichero de configuración
+  principal es /etc/logrotate.conf<br>
+    <br>
+    De las entradas que nos salen tenemos estas:<br>
+    weekly -&gt; Por defecto se rotará cada semana, otras opciones son daily y
+  monthly.<br>
+    rotate 4 -&gt; Cuanto tiempo se conservan los antiguos, por defecto son
+  cuatro semanas, algunos ficheros pueden ser muy importantes y que los
+  conservemos todos.<br>
+    create -&gt; Para que se cree un fichero al rotar, en donde se guardará la
+  información otra vez.<br>
+    <br>
+    La configuración de este fichero es una principal, y luego como vemos tiene
+  un include al fichero /etc/logrotate.d</td>
+  <td class=xl67 width=504 style='width:378pt'>Otras opciones interesantes para
+  poner son:<br>
+    compress -&gt; Hace que logrotate comprima los ficheros de registro para
+  ahorrar espacio,<br>
+    size -&gt; Los ruta cuando el tamaño máximo de un fichero sea la cantidad
+  que se ponga, en formato size 4096k , size 256M.<br>
+    prerotate/postrotate -&gt; antes o después de rotar, puede hacer alguna
+  acción como ejecutar un script o unos comandos.<br>
+    <br>
+    Al rotar los logs los irá renombrando añadiendo números.</td>
+  <td class=xl67 width=633 style='width:475pt'></td>
+  <td class=xl65 width=442 style='width:332pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=181 style='width:136pt'>/etc/logrotate.d/</td>
+  <td class=xl67 width=733 style='width:550pt'>Es importante saber que en esta
+  ruta se ejecuta todo</td>
+  <td class=xl67 width=504 style='width:378pt'></td>
+  <td class=xl67 width=633 style='width:475pt'></td>
+  <td class=xl65 width=442 style='width:332pt'></td>
+ </tr>
+ <tr height=320 style='height:240.0pt'>
+  <td height=320 class=xl65 width=48 style='height:240.0pt;width:36pt'></td>
+  <td class=xl65 width=181 style='width:136pt'>journalctl</td>
+  <td class=xl67 width=733 style='width:550pt'>Desde la versión 38, systemd
+  tiene un sistema de registro («log») propio llamado <font class="font5">journal.</font><font
+  class="font0"><br>
+    <br>
+    Por tanto, ya no es necesario hacer funcionar el demonio syslog.<br>
+    <br>
+    Para leer el registro, utilice </font><font class="font5">journalctl</font><font
+  class="font0"><br>
+    journalctl le permite filtrar los resultados por campos específicos.<br>
+    Tenga en cuenta que si hay muchos mensajes para mostrar o el filtrado que
+  hay que hacer abarca mucho tiempo, la salida de esta orden puede retrasarse
+  durante bastante tiempo.</font></td>
+  <td class=xl67 width=504 style='width:378pt'>Ejemplos:<br>
+    Mostrar todos los mensajes del arranque:<br>
+    <font class="font5"># journalctl -b</font><font class="font0"><br>
+    <br>
+    Sin embargo, a veces a uno le interesan no los mensajes actuales, sino los
+  mensajes desde el arranque anterior (por ejemplo, si ocurrió un fallo del
+  sistema irrecuperable).<br>
+    Esto es posible pasando el </font><font class="font5">parámetro -b</font><font
+  class="font0">: journalctl -b -0 muestra los mensajes del arranque actual,
+  journalctl -b -1 muestra los mensajes del arranque anterior, journalctl -b -2
+  muestra los mensajes desde los dos últimos arranques y así
+  sucesivamente.<br>
+    <br>
+    Véase man 1 journalctl para una descripción completa, dado que los
+  argumentos que se pueden pasar a la orden hacen que el filtrado pueda ser
+  mucho más potente.</font></td>
+  <td class=xl67 width=633 style='width:475pt'>Seguir los mensajes
+  nuevos:<br>
+    # journalctl -f<br>
+    <br>
+    Mostrar todos los mensajes de un ejecutable específico:<br>
+    # journalctl /usr/lib/systemd/systemd<br>
+    <br>
+    Mostrar todos los mensajes de un proceso específico:<br>
+    # journalctl _PID=1<br>
+    <br>
+    Mostrar todos los mensajes por una unidad específica:<br>
+    # journalctl -u netcfg<br>
+    <br>
+    Mostrar búfer circular del kernel:<br>
+    # journalctl _TRANSPORT=kernel<br>
+    <br>
+    Véase man 1 journalctl, man 7 systemd.journal-fields</td>
+  <td class=xl65 width=442 style='width:332pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl68 width=181 style='width:136pt'>/etc/systemd/journald.conf</td>
+  <td class=xl67 width=733 style='width:550pt'>El es fichero principal del
+  configuración de journalctl.</td>
+  <td class=xl67 width=504 style='width:378pt'></td>
+  <td class=xl67 width=633 style='width:475pt'></td>
+  <td class=xl67 width=442 style='width:332pt'></td>
+ </tr>
+ <tr height=180 style='height:135.0pt'>
+  <td height=180 class=xl67 width=48 style='height:135.0pt;width:36pt'></td>
+  <td class=xl68 width=181 style='width:136pt'>/var/log/journal</td>
+  <td class=xl67 width=733 style='width:550pt'>Por defecto, (cuando Storage=
+  está definido como auto en <font class="font5">/etc/systemd/journald.conf</font><font
+  class="font0">), journal escribe en </font><font class="font5">/var/log/journal/</font><font
+  class="font0">.<br>
+    Si el directorio</font><font class="font5"> /var/log/journal/ </font><font
+  class="font0">no existe (por ejemplo, si lo ha eliminado usted o algún
+  programa), systemd no lo crea de forma automática, sino que escribe los
+  registros en </font><font class="font5">/run/systemd/journal</font><font
+  class="font0">. <br>
+    Esto significa que los registros se perderán al reiniciar.<br>
+    <br>
+    Sugerencia: Si /var/log/journal/ reside en un sistema de archivos btrfs
+  debería considerar la opción de desactivar Copy-on-Write para el
+  directorio:<br>
+    # chattr +C /var/log/journal</font></td>
+  <td class=xl67 width=504 style='width:378pt'>Si journal se ha creado como
+  permanente (no volátil), el límite de su tamaño se establece con un valor
+  predeterminado correspondiente al 10% del tamaño del sistema de
+  archivos.<br>
+    Por ejemplo, con /var/log/journal alojado en una partición raíz de 50 GiB,
+  esto permitiría almacenar hasta 5 GiB de datos en journal.<br>
+    El tamaño máximo del journal permanente puede ser controlado por
+  SystemMaxUse en /etc/systemd/journald.conf, por lo que, para limitarlo, por
+  ejemplo, a 50 MiB, descomente y modifique la correspondiente línea a:<br>
+    SystemMaxUse=50M</td>
+  <td class=xl67 width=633 style='width:475pt'></td>
+  <td class=xl67 width=442 style='width:332pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl68 width=181 style='width:136pt'></td>
+  <td class=xl67 width=733 style='width:550pt'></td>
+  <td class=xl67 width=504 style='width:378pt'></td>
+  <td class=xl67 width=633 style='width:475pt'></td>
+  <td class=xl67 width=442 style='width:332pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl68 width=181 style='width:136pt'></td>
+  <td class=xl67 width=733 style='width:550pt'></td>
+  <td class=xl67 width=504 style='width:378pt'></td>
+  <td class=xl67 width=633 style='width:475pt'></td>
+  <td class=xl67 width=442 style='width:332pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl68 width=181 style='width:136pt'></td>
+  <td class=xl67 width=733 style='width:550pt'></td>
+  <td class=xl67 width=504 style='width:378pt'></td>
+  <td class=xl67 width=633 style='width:475pt'></td>
+  <td class=xl67 width=442 style='width:332pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl69 width=181 style='width:136pt'></td>
+  <td class=xl70 width=733 style='width:550pt'></td>
+  <td class=xl67 width=504 style='width:378pt'></td>
+  <td class=xl67 width=633 style='width:475pt'></td>
+  <td class=xl67 width=442 style='width:332pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'><a
+  href="../108.htm" target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl65 width=181 style='width:136pt'></td>
+  <td class=xl65 width=733 style='width:550pt'></td>
+  <td class=xl65 width=504 style='width:378pt'></td>
+  <td class=xl65 width=633 style='width:475pt'></td>
+  <td class=xl65 width=442 style='width:332pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=48 style='width:36pt'></td>
+  <td width=181 style='width:136pt'></td>
+  <td width=733 style='width:550pt'></td>
+  <td width=504 style='width:378pt'></td>
+  <td width=633 style='width:475pt'></td>
+  <td width=442 style='width:332pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

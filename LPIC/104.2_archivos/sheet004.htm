@@ -1,0 +1,188 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../104.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>104.2 - Maintain the integrity of filesystems</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(3);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../104.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=2058 style='border-collapse:
+ collapse;table-layout:fixed;width:1544pt'>
+ <col class=xl66 width=894 style='mso-width-source:userset;mso-width-alt:32694;
+ width:671pt'>
+ <col class=xl66 width=1164 style='mso-width-source:userset;mso-width-alt:42569;
+ width:873pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'><a
+  name="RANGE!A1">El comando du (disk usage) facilita la información relativa
+  al espacio ocupado por una estructura (un directorio y todo su contenido).</a></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>Si no se
+  especifica nada, se utiliza el directorio corriente.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>Los
+  parámetros -k (Kb) y -m (MB) determinan la unidad.</td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>Se
+  facilita el tamaño para cada elemento (incluso redondeado).</td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'></td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>El
+  tamaño total de la estructura está en la última línea.</td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'># du -m
+  LIBRO_ALGO</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>1<span
+  style='mso-spacerun:yes'>      
+  </span>LIBRO_ALGO/BACKUP/capítulo7/codigo_java</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>2<span
+  style='mso-spacerun:yes'>       </span>LIBRO_ALGO/BACKUP/capítulo7</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>1<span
+  style='mso-spacerun:yes'>       </span>LIBRO_ALGO/BACKUP/Introducción</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>1<span
+  style='mso-spacerun:yes'>      
+  </span>LIBRO_ALGO/BACKUP/capítulo4/ilustraciones</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>...</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>42<span
+  style='mso-spacerun:yes'>      </span>LIBRO_ALGO/</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>Para
+  obtener el total, y no todos los detalles, utilice -s.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'># du -ks
+  LIBRO_ALGO</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>42696<span
+  style='mso-spacerun:yes'>   </span>LIBRO_ALGO/</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>Observe
+  que no se limita du a un único sistema de ficheros y sigue calculando si
+  encuentra un punto de montaje en la estructura que analiza.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>Si
+  quiere limitar el cálculo al sistema de ficheros corriente sin entrar en los
+  puntos de montaje presentes en la estructura, especifique -x.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'># du
+  -msx /</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'>1064<span
+  style='mso-spacerun:yes'>    </span>/</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=894 style='height:15.0pt;width:671pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=894 style='height:15.0pt;width:671pt'>El
+  parametro -h nos devuelve los tamaños en formato leíble por los humanos (1K,
+  234M, 2G)</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=894 style='width:671pt'></td>
+  <td width=1164 style='width:873pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

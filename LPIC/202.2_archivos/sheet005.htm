@@ -1,0 +1,2995 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../202.2.htm">
+<link rel=File-List href=filelist.xml>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+x\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(4);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../202.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1532 style='border-collapse:
+ collapse;table-layout:fixed;width:1149pt'>
+ <col class=xl68 width=1484 style='mso-width-source:userset;mso-width-alt:54272;
+ width:1113pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'><a
+  name="RANGE!A1">El gestor de arranque GRUB</a></td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1484 style='height:15.0pt;width:1113pt'>Si el
+  proceso init es el primero que se ejecuta en un sistema Linux es gracias a
+  que el kernel lo llama sistemáticamente en el arranque.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>Ahora
+  solo falta saber quién invoca al kernel: es la función del gestor de
+  arranque.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>El
+  gestor de arranque es un pequeño programa que se encuentra generalmente en el
+  <font class="font5">MBR (Master Boot Record)</font><font class="font0"> y
+  cuya función es la de provocar la carga del kernel.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Para
+  ello hay que conocer la ubicación del archivo del kernel (incluyendo su
+  partición) y la partición que se montará en /, la raíz del sistema de
+  archivos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Aunque
+  hay varios programas que cumplen esta función, <font class="font5">GRUB
+  (GRand Unified Boot loader)</font><font class="font0"> es el que se encuentra
+  hoy en día en la práctica totalidad de distribuciones Linux.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>El
+  gestor de arranque más extendido antes de GRUB era <font class="font5">LILO
+  (LInux LOader)</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>LILO
+  mostraba sus cuatro letras en el arranque y según el avance de su carga.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Con
+  ello se podía saber, en caso de error, hasta dónde había podido llegar el
+  sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font10">GRUB hoy en día se despliega generalmente en su versión 2</font><font
+  class="font0">, pero, ya que los fundamentos base de GRUB 1 (de hecho, 0.99)
+  siguen siendo importantes, el conocimiento de ambas versiones es necesario
+  para obtener la certificación LPI.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>a.
+  Configuración de GRUB 1</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'><a
+  name="RANGE!A18">GRUB lee su configuración en el archivo<font class="font5">
+  /boot/grub/menu.lst.</font></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Para
+  arrancar el kernel, este archivo hace referencia a algunos elementos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Según
+  el sistema, la configuración principal puede realizarse también en el archivo
+  <font class="font5">/boot/grub/grub.conf</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>El
+  archivo menu.lst, entonces, es solo un enlace a este archivo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Formato
+  típico de una sección de declaración de kernel en menu.lst:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>title
+  título<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>root
+  partición_kernel<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>kernel
+  /ruta/kernel ro root=partición_raíz opciones<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>initrd/ruta/imagen_módulos</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Archivo
+  /boot/grub/menu.lst:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font18">título --&gt;</font><font class="font12"> Como GRUB ofrece al
+  usuario varios kernels para que elija uno de ellos, la sección título sirve
+  para identificar el kernel que se va a cargar.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font18">partición_kernel --&gt;</font><font class="font12"> La
+  partición que alberga el kernel, en formato (hdx,y) donde x representa el
+  número de disco duro e y el número de la partición. La numeración comienza
+  con el cero.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font18">kernel --&gt;</font><font class="font12"> El archivo
+  ejecutable del kernel. Expresado en relación con la partición designada por
+  el parámetro root.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font18">partición_raíz --&gt;</font><font class="font12"> La partición
+  que se montará en «/», expresada en formato Linux tradicional (/dev/hda1),
+  con la etiqueta o, incluso, con el UUID.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font18">opciones --&gt; </font><font class="font12">Algunas opciones,
+  separadas por espacios que modifican el comportamiento del kernel. Opción
+  común: ro (read only).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font18">imagen_módulos --&gt;</font><font class="font12"> El archivo
+  de imagen que permite montar un ramdisk que contenga todos los módulos del
+  kernel que se cargarán. Expresado en relación con la partición definida por
+  el parámetro root.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Ejemplo
+  de menu.lst en ubuntu 10.04:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Observe
+  que los periféricos se representan con sus respectivos uuid.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>default<span
+  style='mso-spacerun:yes'>    </span>0<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>timeout<span
+  style='mso-spacerun:yes'>    </span>10<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>title<span
+  style='mso-spacerun:yes'>      </span>Ubuntu 9.10, kernel
+  2.6.31-16-generic<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>kernel<span
+  style='mso-spacerun:yes'>     </span>/boot/vmlinuz-2.6.31-16-generic
+  root=UUID=52200c0b-aee8-4ae0-9492<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>-1f488051e4a3
+  ro quiet splash<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>initrd<span
+  style='mso-spacerun:yes'>      </span>/boot/initrd.img-2.6.31-16-generic<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>quiet</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>La
+  directiva <font class="font10">default</font><font class="font8"> en el
+  archivo de configuración de GRUB indica el kernel que se cargará si el
+  usuario no realiza ninguna acción.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>El <font
+  class="font10">timeout</font><font class="font8"> indica al cabo de cuánto
+  tiempo cargar el kernel por defecto.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>La
+  opción <font class="font10">ro</font><font class="font8"> para el montaje de
+  la partición raíz (la que se montará en barra) permite ejecutar las
+  herramientas de diagnóstico sin que se dañe durante la fase de inicio en caso
+  de fallo del sistema de archivos.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>La
+  opción <font class="font10">quiet</font><font class="font8"> impide que el
+  kernel sea demasiado locuaz en el arranque.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Si
+  fuera necesario, el comando <font class="font18">rdev</font><font
+  class="font0"> permite comprobar cuál es la </font><font class="font24">partición
+  montada en /</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Históricamente,
+  este comando también permitía en las arquitecturas i386 parchear una imagen
+  de kernel escribiendo los valores específicos que representaban la partición
+  adecuada.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1484 style='height:15.0pt;width:1113pt'>Este
+  comando no debería usarse salvo en última instancia.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Determinar
+  la partición raíz con rdev</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>alfa:~#
+  rdev<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>/dev/sda1
+  /<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>alfa:~#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>b.
+  Configuración de GRUB 2</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>GRUB
+  en su versión 2 utiliza el archivo de configuración <font class="font18">/boot/grub/grub.cfg</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Tal y
+  como se indica en el comienzo del archivo, no se debe modificar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Las
+  primeras versiones de GRUB 2 publicaban este archivo incluso en modo de solo
+  lectura.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>El
+  archivo <font class="font10">grub.cfg</font><font class="font8"> se genera
+  automáticamente mediante el comando </font><font class="font22">update-grub</font><font
+  class="font8">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Este
+  comando se basa en scripts preinstalados en <font class="font18">/etc/grub.d</font><font
+  class="font0"> que automáticamente hacen el inventario de los sistemas
+  arrancables.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>La <font
+  class="font5">actualización</font><font class="font0"> del archivo</font><font
+  class="font5"> grub.cfg</font><font class="font0"> se realiza con los
+  comandos </font><font class="font18">update-grub</font><font class="font0"> o
+  </font><font class="font18">grub-mkconfig</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Las
+  opciones modificables por parte del usuario (visualización del menú, tiempos
+  de espera de arranque, etc.) se centralizan en el archivo <font class="font5">/etc/default/grub.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Los
+  datos de este archivo se integrarán entonces en el archivo grub.cfg generado
+  por los comandos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Ejemplo
+  de uso del comando update-grub:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>root@alfa:/boot/grub#
+  update-grub<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>Generating
+  grub.cfg...<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>Found
+  linux image: /boot/vmlinuz-2.6.32-5-686<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>Found
+  initrd image: /boot/initrd.img-2.6.32-5-686<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>done<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>root@alfa:/boot/grub#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Como
+  se puede observar, el comando realiza la búsqueda de todos los elementos
+  arrancables para integrarlos en el archivo de configuración.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Ejemplo
+  de uso del comando grub-mkconfig:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>root@alfa:~#
+  grub-mkconfig -o testmenu.cfg<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>Generating
+  grub.cfg...<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>Found
+  linux image: /boot/vmlinuz-2.6.32-5-686<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>Found
+  initrd image: /boot/initrd.img-2.6.32-5-686<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>done<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>root@alfa:~#
+  ls<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>testmenu.cfg<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>root@alfa:~#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>c.
+  Funcionamiento de GRUB</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>GRUB
+  propone en el arranque la carga del kernel del sistema Linux.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Si
+  coexisten varias versiones del kernel, GRUB ofrecerá simplemente la lista de
+  los kernels que se pueden cargar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Esta
+  lista se muestra a partir de un conjunto de declaraciones de kernels o
+  sistemas arrancables en el archivo <font class="font18">/boot/grub/menu.lst</font><font
+  class="font5"> para la versión 1 o </font><font class="font18">/boot/grub/grub.cfg</font><font
+  class="font5"> para la versión 2</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Para
+  el usuario, basta con esperar unos segundos para empezar la carga del kernel
+  declarado por defecto en el archivo menu.lst o bien <font class="font10">seleccionar
+  con las flechas de dirección y la tecla [Enter] el kernel que desea cargar</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 width=1484 style='height:15.0pt;width:1113pt' align=left
+  valign=top><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+   o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+   stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Imagen_x0020_1" o:spid="_x0000_s2050" type="#_x0000_t75"
+   style='position:absolute;margin-left:0;margin-top:14.25pt;width:442.5pt;
+   height:271.5pt;z-index:1;visibility:visible' o:gfxdata="UEsDBBQABgAIAAAAIQBamK3CDAEAABgCAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbJSRwU7DMAyG
+70i8Q5QralM4IITW7kDhCBMaDxAlbhvROFGcle3tSdZNgokh7Rjb3+8vyWK5tSObIJBxWPPbsuIM
+UDltsK/5x/qleOCMokQtR4dQ8x0QXzbXV4v1zgOxRCPVfIjRPwpBagArqXQeMHU6F6yM6Rh64aX6
+lD2Iu6q6F8phBIxFzBm8WbTQyc0Y2fM2lWcTjz1nT/NcXlVzYzOf6+JPIsBIJ4j0fjRKxnQ3MaE+
+8SoOTmUi9zM0GE83SfzMhtz57fRzwYF7S48ZjAa2kiG+SpvMhQ4kvFFxEyBNlf/nZFFLhes6o6Bs
+A61m8ih2boF2XxhgujS9Tdg7TMd0sf/X5hsAAP//AwBQSwMEFAAGAAgAAAAhAAjDGKTUAAAAkwEA
+AAsAAABfcmVscy8ucmVsc6SQwWrDMAyG74O+g9F9cdrDGKNOb4NeSwu7GltJzGLLSG7avv1M2WAZ
+ve2oX+j7xL/dXeOkZmQJlAysmxYUJkc+pMHA6fj+/ApKik3eTpTQwA0Fdt3qaXvAyZZ6JGPIoiol
+iYGxlPymtbgRo5WGMqa66YmjLXXkQWfrPu2AetO2L5p/M6BbMNXeG+C934A63nI1/2HH4JiE+tI4
+ipr6PrhHVO3pkg44V4rlAYsBz3IPGeemPgf6sXf9T28OrpwZP6phof7Oq/nHrhdVdl8AAAD//wMA
+UEsDBBQABgAIAAAAIQD0GCJ82wIAAHsHAAASAAAAZHJzL3BpY3R1cmV4bWwueG1srFXbjpswEH2v
+1H9AfmcxWXIBLVmlkFQrbduoaj/AMSZYBRvZzmVV9d87NpCLtlKrTfMSX8ZnjmfOMQ+Px6b29kxp
+LkWKwjuMPCaoLLjYpuj7t5U/Q542RBSkloKl6IVp9Dh//+7hWKiECFpJ5QGE0AkspKgypk2CQNOK
+NUTfyZYJ2C2laoiBqdoGhSIHAG/qYITxJNCtYqTQFWMm73bQ3GGbg8xYXS+6FKzgZqFTBBzsah9T
+Ktl00VTWc/wQWFJ26BBg8KUsL5btzO0oeZiHuI+3k2HVRoQzHE/HHRbsuUMO+JzNyFOGC/jTmj0y
+noSAcqZ0nTuMT/hXuePx6E+Zh3wtp1242K85Xas+4+f9Wnm8SNEIeYI00KWnhmyZ8EIUnEO6AyQB
+kGdJf+i+beQNTWsIF5BKZhURW7bQLaMGxHOxpKBylW2sXQYSXWeAaMfCTa8usal5u+I1tI4kdnwz
+u06U/yRJWZacslzSXcOE6XSpWE0MeEJXvNXIUwlrNgxKrJ6KENRHEnY0z9r0I2+neIp+jmYLjOPR
+Bz8b48yP8HTpL+Jo6k/xchrhaBZmYfbLng6jZKcZtIHUecuHu4bRq140nCqpZWnuqGyCjuhgISAa
+4qDrxZ7UKcKu0o4aVPxMEYa2pJarVvQrNGvI+Crf3w3r8kFHAcsoZmh1K5aFKqHzlpdVygm4V81Z
+GdbdugWtbw6fZAEyJzsjXTOOpWr+Bw8osHe0hfReQLjx6N4+Bbaqrpgehb3e2MijEHIfRTM8Hupu
+WdjQVmnzkcmbGXkWCCQHhXG3JHtQXFeiIYVNJ6Q1zq3XHy4JKW6FGsrVmSLG8XK2nEV+NJoswRR5
+7i9WWeRPVuF0nN/nWZaHgykqXhRMXF7n7Z6wLLSseTE8K1ptN1mtPOeVlfv1hrkIC6w3zzQGHw3/
+zvLu9bJC7BV6epZpzeEByYkhtktWrldfsX6t+2rOfwMAAP//AwBQSwMEFAAGAAgAAAAhAKomDr68
+AAAAIQEAAB0AAABkcnMvX3JlbHMvcGljdHVyZXhtbC54bWwucmVsc4SPQWrDMBBF94XcQcw+lp1F
+KMWyN6HgbUgOMEhjWcQaCUkt9e0jyCaBQJfzP/89ph///Cp+KWUXWEHXtCCIdTCOrYLr5Xv/CSIX
+ZINrYFKwUYZx2H30Z1qx1FFeXMyiUjgrWEqJX1JmvZDH3IRIXJs5JI+lnsnKiPqGluShbY8yPTNg
+eGGKyShIk+lAXLZYzf+zwzw7TaegfzxxeaOQzld3BWKyVBR4Mg4fYddEtiCHXr48NtwBAAD//wMA
+UEsDBBQABgAIAAAAIQA+e5pPEAEAAIcBAAAPAAAAZHJzL2Rvd25yZXYueG1sbFBdS8MwFH0X/A/h
+Cr65tIXOtTYdQ6z4pO2m4GNo0w/WJCWJa/XXezcnRfDpcs695+ScJOtJ9uQgjO20YuAvPCBClbrq
+VMPgdZfdrIBYx1XFe60Eg09hYZ1eXiQ8rvSoCnHYuoagibIxZ9A6N8SU2rIVktuFHoTCXa2N5A6h
+aWhl+IjmsqeB5y2p5J3CF1o+iPtWlPvth2Tw8Pjuv+1yKotg/zLmeZdlRdEzdn01be6AODG5+fis
+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
+CMmdd965YEEtj5psly5ddt55DdIp//3vf1evXj169Og1a9bcd9+W78fz588PqgL8kElKStq4cePR
+Rx8dFrHFixdffPHFYaNtqQj77LNPdbXbV7ylMg6Zz8svvzxmzJh6F3PSSScVFhbWOzkJCwoKhg4d
+GjSHAw44IDk5OWzm9KXjjjsubLR6RGB8vfTSS/VIGDZJWlraXnvtFTZaqAgMohNPPDHor3vvvXeT
+Jk3C5jxnzpxrrrkmaDQ0yf/9n/+MtlmzZnvssUfYbE877TSGTGC0XXbZBaaMj9yss6y//vorUIyw
+AmiE/wkCUF19Zm0RyopONGrR/fnII4/86KOPXn/99a+++urkk2snxXSyd9999/nnn0e1Pf744x5F
+dOrUadSoUTvttNOqVas+/PDDyy+/3ERm+szDgw8+mOfm4ZVXXvnWW2+R8yeffNK7d29v4Z977rnT
+Tz+9V69exx577Ntve13F1r59+08//RRpX3zxRZPnLbfc8swzz3CnKBJSR/floojx5ptvlpeXR0IV
+jDo3Yh4yE624mKt1rAcffBDhJeall15qqty3b1+eJCQkfPfddwceeKBEAHmjiUDm1VdfJT7VSQzl
+dbJwWsbSQNDq5MmT33vvvccee8xI9cgjj/CEHEAYFekhLfkTk+LeeeedV155xcS8+eab33jjDWkj
+gHXngORVVVwftCmQnJgEdw5UmbQ02ddffy0qD/A//vhjOAaVRKH33BPERDCZ7r777j///HPTprUu
+u8MOO+ybb77h19TU1IqKivXr11922WVPPMHtfHXEGDFihFta4P3iiy/A4csvvzz77LMlanR0NG0E
+29Gj6ADe3W/gwIHITNWoyEUXXSSR6WBXX311hw4dyJxRIw+HDx8+cuRIDAsEoLPtueeePIR3f/jh
+h379+lFrIoOqRGZeaPoG4wU0vMXYbbfdmKcCgjvaQw89RBtRBTpPmzZtvHOgyrAdczW/QUS2TD56
+9NjkFRgwYACivvbaazExMcxpjjrqKJMzOQwZMuSzz9gfVycIpO5HDPlHH330oIMOcj986qmnmLMO
+Hjz4mGOOASv5iV7BeImKiqLQQw89VB5SKWj1999/B15SmUzoM9LZ0Cduej7//POlKf16pjcm+uv/
+GIGtt1b39NNP//JLreuJUff3339TVVgkLy/viCOO4HOXLl2YYe288858njhxIsOgdevWbdu2Xbhw
+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
+">
+   <v:imagedata src="image003.png" o:title=""/>
+   <x:ClientData ObjectType="Pict">
+    <x:SizeWithCells/>
+    <x:CF>Bitmap</x:CF>
+    <x:AutoPict/>
+   </x:ClientData>
+  </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+  position:absolute;z-index:1;margin-left:0px;margin-top:19px;width:590px;
+  height:362px'><img width=590 height=362 src=image006.png v:shapes="Imagen_x0020_1"></span><![endif]><span
+  style='mso-ignore:vglayout2'>
+  <table cellpadding=0 cellspacing=0>
+   <tr>
+    <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+   </tr>
+  </table>
+  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>2.
+  Utilización de GRUB 1 en modo interactivo</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>a.
+  Edición de las secciones ya escritas</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>GRUB
+  ofrece una característica muy apreciada: la edición interactiva de las
+  secciones ya escritas en el archivo de configuración.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Para
+  ello, basta con que en el periodo temporizado, antes de que se cargue un
+  kernel, <font class="font10">el usuario se sitúe en el kernel que desea
+  modificar y </font><font class="font22">pulse la tecla e</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>GRUB
+  pasará entonces al modo edición y mostrará las líneas de la sección de
+  declaración del kernel, que se encuentran en su archivo de configuración.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Se
+  puede desplazar por cada una de estas líneas y <font class="font22">modificarlas
+  pulsando de nuevo la tecla e</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Cuando
+  quede satisfecho con los cambios realizados,<font class="font10"> puede
+  probar la carga del kernel </font><font class="font22">pulsando la tecla b
+  (boot)</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Este
+  modo de funcionamiento representa sin lugar a dudas una de las mayores
+  ventajas de GRUB.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>En
+  efecto, es desesperante encontrarse con un sistema que no tiene medios para
+  arrancar ni presenta posibilidad de interacción alguna.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>b.
+  Carga de un kernel no listado</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Si no
+  se dispone de entradas que se puedan modificar en GRUB (en caso de pérdida
+  del archivo menu.lst, por ejemplo), se puede indicar directamente al gestor
+  de arranque el conjunto de elementos necesarios.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Bastará
+  con que durante el periodo temporizado se pulse la tecla c para abrir una
+  consola interactiva.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>A
+  continuación, hay que introducir una a una todas las líneas que gestionan la
+  carga del kernel, como si estuvieran configuradas de manera normal en el
+  archivo /boot/grub/menu.lst.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Procedimiento
+  de carga de un kernel no listado:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>1)
+  Pulsar «c» durante el periodo temporizado de GRUB.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>2)
+  Introducir «root (hdx,y)», donde x representa el número de disco duro e y el
+  número de partición que alberga el kernel (la numeración empieza con el 0).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>3)
+  Introducir «kernel /ruta/kernel root=partición ro quiet», donde partición es
+  la partición que deberá montarse en «/», identificada con su archivo especial
+  de bloque en /dev, o bien con su etiqueta o con su uuid.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>4)
+  Introducir «initrd /ruta/imagen» donde imagen es el archivo de imagen de los
+  módulos presente en principio con el archivo del kernel.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>5)
+  Introducir finalmente «boot» para provocar la carga de su kernel.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Ejemplo
+  de carga manual de un kernel:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>c
+  (durante el periodo temporizado, antes del arranque)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>root
+  (hd0,0)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>kernel
+  /boot/vmlinuz-2.6.26-2-686 root=/dev/hda1 ro quiet<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>initrd
+  /boot/initrd.img-2.6.26-2-686<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>boot</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>No es
+  necesario decir que este proceso requiere un conocimiento preciso del esquema
+  de partición del sistema, así como los nombres de los archivos de kernel y de
+  las imágenes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>La
+  adquisición de estos elementos no será un problema si se es capaz de arrancar
+  de una forma u otra, pero será más complicado en caso contrario.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>En
+  estas condiciones, la recuperación de estos elementos se deberá realizar a
+  través de un tercero, como con un live CD, por ejemplo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'><a
+  name="RANGE!A158">3. Reinstalación de GRUB</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>a.
+  Reinstalación simple desde un sistema activo</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>El
+  comando <font class="font18">grub-install</font><font class="font0">
+  reinstala GRUB en un sistema con mucha facilidad.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>En
+  cambio, este método no siempre es eficaz y funciona perfectamente en
+  caliente, justo después de un borrado accidental del gestor de arranque, por
+  ejemplo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Instalación
+  de GRUB 1 con grub-install:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>grub-install
+  --root-directory=dir_kernel disco_destino</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*
+  Opciones y parámetros:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font18">dir_kernel --&gt;</font><font class="font12"> Opcional: si el
+  kernel no está en el sistema de archivos principal, identifica el directorio
+  de montaje donde se encuentra el kernel.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font18">disco_destino --&gt;</font><font class="font12"> El archivo
+  especial de bloque que representa el disco en el MBR del cual se debe
+  instalar GRUB. --&gt;<span style='mso-spacerun:yes'> </span></font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl82 width=1484 style='height:15.0pt;width:1113pt'>*Instalación
+  de GRUB 2 con grub-install:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>grub-install
+  dispositivo</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Donde
+  dispositivo representa el disco en el que GRUB deberá instalarse.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>El
+  periférico se representa con su archivo de bloques especial.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Ejemplo
+  de uso del comando grub-install en versión 2:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>root@alfa:~#
+  grub-install /dev/sda<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>Installation
+  finished. No error reported.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>root@alfa:~#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>b.
+  Reinstalación desde un sistema que no arranca</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>La
+  solución más fiable para reinstalar un gestor de arranque GRUB en un sistema
+  que no puede arrancar consiste en cargar en el ordenador un live CD y
+  realizar la reinstalación de GRUB desde este.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>La
+  distribución que se elija para el live CD importa poco, Knoppix o Ubuntu
+  cumplirán muy bien con el cometido.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>A
+  continuación, después de entrar en el modo interactivo de GRUB (basta con
+  introducir grub en un terminal), hay que definir el disco que deberá albergar
+  el gestor de arranque.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Luego
+  hay que ejecutar el comando setup que realizará la instalación propiamente
+  dicha del gestor.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Instalación
+  de GRUB 1:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>1)Desde
+  un terminal del live CD activo, ejecute GRUB en modo interactivo tecleando
+  «grub».</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>2)En
+  el shell de GRUB, defina la partición que alberga el archivo del kernel
+  tecleando «root (hdx,y)» donde x representa el número de disco e y el número
+  de partición (la numeración empieza con el 0).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>3) A
+  continuación, introduzca «setup (hdx)», donde x representa el número de disco
+  duro en el que GRUB debe instalarse.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>4)
+  Introduzca «quit» para salir del modo interactivo de GRUB.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>5)
+  Según el caso, compruebe o cree el archivo /boot/grub/menu.lst para que haga
+  referencia correctamente al kernel o kernels que se deberán cargar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Instalación
+  de GRUB 2</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>La
+  instalación de GRUB 2 en un sistema no arrancable se realiza mediante el
+  comando grub-install desde un live CD, como para la reinstalación en un
+  sistema activo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>La
+  configuración automática de GRUB 2 facilita en gran manera la tarea.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>4.
+  Mantenimiento y modo monousuario</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>a.
+  Paso a modo monousuario simplificado</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>El
+  modo monousuario permite realizar operaciones de mantenimiento de un sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>En
+  este modo se puede conectar al sistema con la cuenta root y casi ningún
+  servicio está en ejecución.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Por
+  tanto, el sistema está en el estado más estable posible y ninguna interacción
+  perjudicial podrá producirse, ya que el administrador trabaja solo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Paso
+  a modo monousuario</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>telinit
+  1</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>b.
+  Apertura de una consola en caso de error en el arranque</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Se
+  puede pasar un parámetro al kernel indicándole un proceso para que lo inicie.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Si
+  este proceso se inicia en un shell, permitirá abrir una sesión interactiva,
+  modificar archivos locales y reiniciar manualmente servicios.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1484 style='height:15.0pt;width:1113pt'>Basta
+  con editar la línea de carga del kernel en GRUB y añadir el <font
+  class="font22">parámetro init=/bin/bash</font><font class="font10">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Apertura
+  de un shell directamente en el arranque</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>kernel
+  archivo_kernel root=fs_raíz ro init=/bin/bash</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Donde
+  archivo_kernel representa el kernel que normalmente se carga y fs_raíz
+  representa el sistema de archivos raíz que normalmente se carga.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Solamente
+  el parámetro <font class="font18">init=/bin/bash</font><font class="font0">
+  debe añadirse en la línea de comandos.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Procedimiento
+  de apertura del shell en el arranque</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>1)
+  Arrancar físicamente el sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>2)
+  Modificar la carga por defecto pulsando la tecla «e» desde la lista de
+  sistemas disponibles.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>3)
+  Añadir el parámetro init=/bin/bash al final de la línea kernel.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>4)
+  Cargar el kernel pulsando la tecla «b».</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>La
+  llamada directa a un shell desde el kernel permite el acceso al sistema sin
+  tener que autentificarse. Este procedimiento demuestra que el acceso físico a
+  una máquina sensible siempre tiene que protegerse.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Se
+  puede proteger GRUB de la edición mediante una contraseña, pero el acceso al
+  sistema de archivos con un medio extraíble sigue siendo un peligro.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>5. El
+  resto de los métodos de carga del núcleo</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Aparte
+  de GRUB, existen otras formas de cargar un núcleo Linux.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Los
+  principales son:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font18">LILO:</font><font class="font12"> antiguo programa de Linux de
+  carga del núcleo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font18">ISOLINUX:</font><font class="font12"> para cargar Linux desde
+  un CD/DVD o una llave USB.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font18">PXE:</font><font class="font12"> para cargar un nuevo sistema
+  operativo desde un servidor de red.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>a.
+  LILO</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font5">LILO (LInux LOader)</font><font class="font0"> es el programa
+  original de carga del núcleo Linux.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Hace
+  tiempo era el cargador por defecto de las diferentes distribuciones, antes de
+  ser sustituido progresivamente por GRUB, más flexible y potente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Sin
+  embargo, todavía es posible encontrarlo funcionando en servidores de
+  producción antiguos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Se
+  desaconseja utilizarlo en nuevas instalaciones, excepto en casos concretos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>La
+  configuración de LILO se realiza en un archivo de texto, generalmente <font
+  class="font18">/etc/lilo.conf</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>En
+  este archivo se especifican algunas opciones generales (disco de arranque,
+  tiempo antes del arranque por defecto, posible contraseña), así como los
+  diferentes núcleos que se pueden cargar, con sus opciones de carga.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>LILO
+  permite cargar otros sistemas diferentes de Linux.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Se
+  puede proteger la carga de una o todas las imágenes con una contraseña,
+  obligatoria o necesaria solo en caso de modificación de las opciones de
+  carga.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1484 style='height:15.0pt;width:1113pt'>Cada
+  vez que el archivo de configuración se modifique, hay que actualizar los
+  archivos reales utilizados por la carga mediante el comando <font
+  class="font22">/sbin/lilo</font><font class="font10"> que modificará el
+  cargador real en el sector de arranque del disco de inicio.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>En el
+  arranque, LILO muestra, según su configuración, una línea de comandos, un
+  menú de arranque en modo texto o un menú en modo gráfico.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Es
+  posible modificar, a nivel de línea de comandos, las opciones de arranque
+  específicas (en algunos casos con la condición de introducir la contraseña).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl82 width=1484 style='height:15.0pt;width:1113pt'>*archivo
+  /etc/lilo.conf:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>#
+  Opciones generales:<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>#
+  Disco utilizado para el arranque<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>boot =
+  /dev/sda<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'># Modo
+  de gestión del arranque: con el símbolo de elección<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>prompt<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>#
+  Imagen por defecto<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>default
+  = linux<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>#
+  Espera antes de arranque por defecto, de décimas de segundo<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>timeout
+  = 30<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'><span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>#
+  Selección del menú de imágenes<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>#
+  Archivo núcleo a cargar<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>image
+  = /boot/vmlinxxxxz<span style='mso-spacerun:yes'>   </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>#
+  Etiqueta del menú<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>label
+  = linuxvXXXX<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>#
+  Partición raíz<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>root =
+  /dev/sda2<span style='mso-spacerun:yes'>   </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'># Otra
+  imagen que se puede cargar<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>image
+  = /boot/vmlinyyyyz<span style='mso-spacerun:yes'>   </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>label
+  = linuxvYYYY<span style='mso-spacerun:yes'>   </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>root =
+  /dev/sda2</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>b.
+  ISOLINUX</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1484 style='height:15.0pt;width:1113pt'>ISOLINUX
+  se utiliza para crear CD/DVD de arranque, en el formato estándar ISO9660.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Forma
+  parte del <font class="font5">paquete syslinux</font><font class="font0">,
+  que es un conjunto de componentes que gestionan métodos de carga del núcleo
+  alternativos (CD/DVD, PXE, etc.).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>La
+  idea es preparar en un directorio los diferentes archivos que se han de
+  almacenar en la imagen ISO de arranque, y a continuación <font class="font5">generar
+  esta imagen mediante el comando </font><font class="font18">mkisofs</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>El
+  archivo resultante se puede grabar en un CD/DVD.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Se
+  puede montar este archivo para comprobar su contenido mediante el comando
+  mount especificando como tipo de sistema de archivos iso9660.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>También
+  es posible crear llaves USB de arranque, copiando el archivo imagen ISO
+  obtenido en la llave.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Lo más
+  sencillo es partir de una imagen ISO de arranque que ya exista (un CD de
+  instalación Linux por ejemplo), montarlo en el sistema de archivos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>A
+  continuación, modificar su contenido en función de nuestras necesidades y
+  generar la nueva imagen con el comando mkisofs.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>c.
+  Arranque PXE</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font5">PXE (Pre-boot eXecution Environment) </font><font class="font0">es
+  un protocolo de arranque de un sistema a través de la red.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>Para
+  poder utilizarlo, la tarjeta de red tiene que ser compatible con este
+  protocolo (la mayoría de las tarjetas modernas lo son) y que se active esta
+  funcionalidad en la BIOS del equipo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Este
+  método de arranque necesita un servicio <font class="font5">DHCP</font><font
+  class="font0"> y un servicio </font><font class="font5">TFTP (Trivial File
+  Transfer Protocol)</font><font class="font0"> activos en la red y
+  configurados para la descarga remota de un núcleo Linux.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Linux
+  puede jugar estos dos roles, permitiendo así arrancar equipos desde la red.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>A
+  menudo esta técnica se utiliza para hacer instalaciones de sistemas a través
+  de la red.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Principios
+  básicos:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>Hay
+  que configurar un servidor DHCP con dos opciones para los clientes TFTP,
+  especificando el nombre del archivo de arranque en el servidor TFTP, así como
+  la dirección de este servidor TFTP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>A
+  nivel del servidor TFTP, hay que copiar en su directorio de trabajo los
+  archivos necesarios para el arranque del cliente, comenzando por el archivo
+  indicado en las opciones del servidor DHCP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>Instalación
+  de una distribución Debian a través de la red:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*
+  Equipo que se ha de instalar</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Configurar
+  la BIOS para arrancar desde la red (modo PXE).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*
+  Servidor DHCP</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Crear
+  o modificar un ámbito de direcciones para los equipos que se han de instalar
+  en PXE, con dos opciones suplementarias:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>next-server
+  w.x.y.z ; #Dirección IP del servidor TFTP<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>filename
+  &quot;pxelinux.0&quot;; # Archivo de arranque en el servidor TFTP</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*
+  Servidor TFTP</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Descargar
+  desde un sitio Debian el archivo de instalación de red Debian: <font
+  class="font18">netboot/netboot.tar.gz</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Descomprimir
+  este archivo en el directorio de trabajo del servidor.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Deberían
+  estar los archivos y directorios siguientes:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>debian-installer</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>pxelinux.0</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>pxelinux.cfg</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1484 style='height:15.0pt;width:1113pt'>version.info</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*
+  Equipo en el que se ha de instalar</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Arrancar
+  la máquina.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>Debería:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>-
+  Pedir y obtener una concesión del servidor DHCP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>-
+  Pedir el archivo pxelinux.0 al servidor TFTP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>-
+  Cargar el archivo pxelinux.0 en memoria y ejecutarlo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>-
+  Pedir el resto de los archivos al servidor TFTP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>-
+  Mostrar el menú de instalación.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl81 width=1484 style='height:15.0pt;width:1113pt'>*Proceso
+  de inicio de GRUB</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1484 style='height:30.0pt;width:1113pt'>- El
+  BIOS busca un dispositivo de inicio (como el disco duro) y de ahí pasa el
+  control al primer sector físico del dispositivo conocido como master boot
+  record, son los primeros 512 bytes (primer sector) del disco duro y que
+  forman la fase 1 de GRUB.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>- La
+  fase 1 de GRUB carga la siguiente fase de GRUB, ubicada físicamente en
+  cualquier parte del disco duro.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>- La
+  fase 1 puede cargar ya sea la fase 1.5 o, directamente, la 2.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>- La
+  fase 1.5 de GRUB, ubicada en los siguientes 30 kilobytes del disco duro,
+  carga la fase 2. (en GRUB 2 esta fase ha dejado de existir)</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>- La
+  fase 2 de GRUB (cargada por las fases 1 ó 1.5) recibe el control, y presenta
+  al usuario el menú de inicio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>- GRUB
+  carga el kernel seleccionado por el usuario, en la memoria y le pasa el
+  control.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1484 style='height:15.0pt;width:1113pt'>En el
+  caso de ordenadores con sistema de arranque EFI, el firmware carga el
+  ejecutable de GRUB directamente (fase 2), siempre y cuando esté correctamente
+  instalado en la partición EFI y configurado en la NVRAM.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1484 style='height:15.0pt;width:1113pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1484 style='width:1113pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

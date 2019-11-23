@@ -1,0 +1,2510 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../212.1.htm">
+<link rel=File-List href=filelist.xml>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+x\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../212.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1387 style='border-collapse:
+ collapse;table-layout:fixed;width:1040pt'>
+ <col class=xl68 width=1339 style='mso-width-source:userset;mso-width-alt:48969;
+ width:1004pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>Enrutamiento
+  y filtrado</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>1.
+  Configuración de un servidor Linux como router</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>La
+  función de enrutamiento se integra de <font class="font5">forma</font><font
+  class="font0"> </font><font class="font5">nativa</font><font class="font0">
+  en el núcleo de </font><font class="font5">Linux</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Por lo
+  tanto, hay pocas preguntas que hacerse, cualquier máquina Linux es un <font
+  class="font5">router</font><font class="font0"> en </font><font class="font5">potencia</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Sin
+  embargo, esta función <font class="font5">no está activada por defecto</font><font
+  class="font0"> tras el arranque.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Por
+  tanto, hay que configurarla antes de realizar cualquier operación de
+  enrutamiento.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>a.
+  Activación del enrutamiento en un servidor Linux</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Sabemos
+  que cualquier sistema Linux presenta un sistema de archivos virtual<font
+  class="font5"> /proc </font><font class="font0">que permite observar en
+  directo un cierto número de componentes y parámetros.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'><a
+  name="RANGE!A12">La <font class="font5">activación</font><font class="font0">
+  del enrutamiento se realiza modificando el contenido del archivo </font><font
+  class="font16">/proc/sys/net/ipv4/ip_forward</font><font class="font0">.</font></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Este
+  archivo <font class="font5">contiene</font><font class="font0"> </font><font
+  class="font5">un</font><font class="font0"> </font><font class="font5">solo</font><font
+  class="font0"> </font><font class="font5">carácter</font><font class="font0">
+  que por defecto es </font><font class="font5">0</font><font class="font0">
+  para indicar que el enrutamiento está </font><font class="font5">inactivo</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*Modificación
+  del archivo ip_forward para activar el enrutamiento</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>echo 1
+  &gt; /proc/sys/net/ipv4/ip_forward</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Una
+  vez se ha realizado el cambio, la máquina Linux está lista para enrutar
+  paquetes que lleguen a sus interfaces.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Este <font
+  class="font5">parámetro</font><font class="font0"> es </font><font
+  class="font5">volátil</font><font class="font0"> y se perderá una vez que la
+  máquina se detenga.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Sin
+  embargo, se puede anular el enrutamiento realizando la operación inversa.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*Modificación
+  del archivo ip_forward para desactivar el enrutamiento</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>echo 0
+  &gt; /proc/sys/net/ipv4/ip_forward</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Otra <font
+  class="font5">posibilidad</font><font class="font0"> es usar el comando </font><font
+  class="font16">sysctl</font><font class="font0">, que permite </font><font
+  class="font5">modificar</font><font class="font0"> </font><font class="font5">dinámicamente</font><font
+  class="font0"> los </font><font class="font5">parámetros</font><font
+  class="font0"> funcionales del </font><font class="font5">núcleo</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'><font
+  class="font16">sysctl</font><font class="font0"> permite </font><font
+  class="font5">modificar</font><font class="font0"> directamente </font><font
+  class="font5">todos</font><font class="font0"> los </font><font class="font5">archivos</font><font
+  class="font0"> que se encuentran en la estructura de directorios que cuelga
+  de </font><font class="font16">/proc/sys</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*Activación
+  del enrutamiento con sysctl</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>sysctl
+  net.ipv4.ip_forward=1</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Estos
+  comandos son <font class="font5">efectivos</font><font class="font0"> durante
+  toda la </font><font class="font5">sesión</font><font class="font0"> y deben </font><font
+  class="font5">volver</font><font class="font0"> a </font><font class="font5">introducirse</font><font
+  class="font0"> después de cada </font><font class="font5">reinicio</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Por
+  supuesto, se pueden poner en un script de servicio llamado en el arranque o
+  modificar el archivo <font class="font16">/etc/sysctl.conf</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*Activación
+  permanente del enrutamiento en el archivo /etc/sysctl.conf</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1339 style='height:15.0pt;width:1004pt'>net.ipv4.ip_forward
+  = 1</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>b.
+  Consulta de la tabla de enrutamiento</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>En
+  este punto, el router Linux es perfectamente capaz de enrutar paquetes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Sin
+  embargo, solo podrá hacerlo a redes conocidas, es decir, referenciadas en su
+  tabla de enrutamiento.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>La <font
+  class="font5">tabla</font><font class="font0"> de </font><font class="font5">enrutamiento</font><font
+  class="font0"> se mantiene en </font><font class="font5">memoria</font><font
+  class="font0">, pero se puede consultar usando varios comandos.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*Visualización
+  de la tabla de enrutamiento con el comando route</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>route
+  -n</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>El
+  parámetro <font class="font16">-n</font><font class="font0"> es </font><font
+  class="font13">opcional</font><font class="font0">, pero sirve para ahorrar
+  mucho tiempo en la visualización, ya que </font><font class="font5">no</font><font
+  class="font0"> fuerza a que el comando intente </font><font class="font5">resolver</font><font
+  class="font0"> los </font><font class="font5">nombres</font><font
+  class="font0"> de las redes devueltas.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Además,
+  si la dirección en cuestión no se informa en una zona DNS inversa, esta
+  petición se realiza en vano y hay que esperar varios segundos para que se
+  muestre la salida del comando.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*Visualización
+  de la tabla de enrutamiento con el comando netstat</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>netstat
+  -nr</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Donde
+  la opción <font class="font16">-r</font><font class="font0"> hace que el
+  comando </font><font class="font13">muestre</font><font class="font0"> la
+  tabla de </font><font class="font13">enrutamiento</font><font class="font0">
+  y </font><font class="font16">-n</font><font class="font0"> </font><font
+  class="font13">evita</font><font class="font0"> que se realice la resolución
+  de </font><font class="font13">nombres.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>El
+  comando <font class="font13">netstat</font><font class="font0"> tiene muchos
+  posibles usos, pero a menudo se utiliza en este simple contexto de consulta
+  de la tabla de enrutamiento.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*Ejemplo
+  de visualización de la tabla de enrutamiento</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>A
+  menudo, la visualización de la tabla de enrutamiento es el único método
+  sencillo para consultar el valor de la puerta de enlace predeterminada.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1339 style='height:15.0pt;width:1004pt'>beta:~#
+  route -n<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>Kernel
+  IP routing table<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>Destination<span
+  style='mso-spacerun:yes'>     </span>Gateway<span
+  style='mso-spacerun:yes'>        </span>Genmask<span
+  style='mso-spacerun:yes'>         </span>Flags Metric Ref<span
+  style='mso-spacerun:yes'>    </span>Use Iface<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>192.168.1.0<span
+  style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>        </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>    
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>        </span>0 eth1<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>192.168.0.0<span
+  style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>        </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>    
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>        </span>0 eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>192.168.0.1<span
+  style='mso-spacerun:yes'>    </span>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>UG<span style='mso-spacerun:yes'>   
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>        </span>0 eth0</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>c.
+  Gestión de rutas estáticas</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Las <font
+  class="font5">únicas</font><font class="font0"> entradas </font><font
+  class="font5">presentes</font><font class="font0"> de forma </font><font
+  class="font5">automática</font><font class="font0"> en la tabla de
+  enrutamiento son las </font><font class="font5">redes</font><font
+  class="font0"> a las que el router está </font><font class="font5">conectado</font><font
+  class="font0"> directamente, así como la </font><font class="font5">puerta</font><font
+  class="font0"> de </font><font class="font5">enlace</font><font class="font0">
+  predeterminada.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Por
+  tanto, el router puede usar estas entradas de la tabla de enrutamiento sin
+  necesidad de otra configuración.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Si el
+  router tiene que enrutar paquetes a otras redes, habrá que añadir de forma
+  manual las rutas en la tabla de enrutamiento.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*
+  Agregar rutas estáticas en la tabla de enrutamiento</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>route
+  add -net red_objetivo netmask máscara gw router</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*Agregar
+  rutas estáticas: opciones y parámetros</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1339 style='height:15.0pt;width:1004pt'>-net <font
+  class="font13">--&gt; La ruta incluida es una red. (El objetivo podría ser un
+  solo host, aunque es menos frecuente.)</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1339 style='height:15.0pt;width:1004pt'>red_objetivo
+  <font class="font13">--&gt; La dirección de red que la nueva ruta permitirá
+  alcanzar.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1339 style='height:15.0pt;width:1004pt'>máscara
+  <font class="font13">--&gt; La máscara de subred asociada a la nueva ruta.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1339 style='height:15.0pt;width:1004pt'>gw
+  router <font class="font13">--&gt; Indica el router que se utilizará para
+  alcanzar la red objetivo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*Añadir
+  una puerta de enlace por defecto</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>route
+  add default gw router<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>route
+  add -net 0.0.0.0 gw router</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>En la
+  segunda sintaxis, 0.0.0.0 representa la ruta por defecto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Esta
+  representación de la ruta por defecto es universal y se puede aplicar en casi
+  la totalidad de sistemas que usen un tabla de enrutamiento IP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Por
+  supuesto, también se pueden eliminar las rutas estáticas que ya no sean
+  necesarias o que estén guardadas por error.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*Eliminación
+  de rutas estáticas de la tabla de enrutamiento</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>route
+  del -net red_objetivo netmask máscara</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*Ejemplo
+  de adición de rutas</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1339 style='height:15.0pt;width:1004pt'>beta:~#
+  route -n<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>Kernel
+  IP routing table<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>Destination<span
+  style='mso-spacerun:yes'>     </span>Gateway<span
+  style='mso-spacerun:yes'>         </span>Genmask<span
+  style='mso-spacerun:yes'>         </span>Flags Metric Ref<span
+  style='mso-spacerun:yes'>    </span>Use Iface<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>192.168.1.0<span
+  style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>    
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>        </span>0 eth1<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>192.168.0.0<span
+  style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>    
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>        </span>0 eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>192.168.0.1<span
+  style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>UG<span style='mso-spacerun:yes'>   
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>        </span>0 eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>beta:~#
+  route add -net 10.0.0.0 netmask 255.0.0.0 gw 192.168.1.99<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>beta:~#
+  route -n<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>Kernel
+  IP routing table<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>Destination<span
+  style='mso-spacerun:yes'>     </span>Gateway<span
+  style='mso-spacerun:yes'>         </span>Genmask<span
+  style='mso-spacerun:yes'>         </span>Flags Metric Ref<span
+  style='mso-spacerun:yes'>    </span>Use Iface<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>192.168.1.0<span
+  style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>    
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>        </span>0 eth1<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>192.168.0.0<span
+  style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>    
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>        </span>0 eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>10.0.0.0<span
+  style='mso-spacerun:yes'>        </span>192.168.1.99<span
+  style='mso-spacerun:yes'>    </span>255.0.0.0<span
+  style='mso-spacerun:yes'>       </span>UG<span style='mso-spacerun:yes'>   
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>        </span>0 eth1<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>192.168.0.1<span
+  style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>UG<span style='mso-spacerun:yes'>   
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>        </span>0 eth0</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1339 style='height:15.0pt;width:1004pt'>*Ejemplo
+  de eliminación de rutas</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1339 style='height:15.0pt;width:1004pt'>beta:~#
+  route del -net 10.0.0.0 netmask 255.0.0.0<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1339 style='height:15.0pt;width:1004pt'>beta:~#
+  route -n<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>Kernel
+  IP routing table<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>Destination<span
+  style='mso-spacerun:yes'>     </span>Gateway<span
+  style='mso-spacerun:yes'>         </span>Genmask<span
+  style='mso-spacerun:yes'>         </span>Flags Metric Ref<span
+  style='mso-spacerun:yes'>    </span>Use Iface<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>192.168.1.0<span
+  style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>    
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>        </span>0 eth1<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>192.168.0.0<span
+  style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>    
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>        </span>0 eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>192.168.0.1<span
+  style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>UG<span style='mso-spacerun:yes'>   
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>        </span>0 eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>beta:~#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>2.
+  iptables</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1339 style='height:15.0pt;width:1004pt'><a
+  name="RANGE!A119"><font class="font16">Iptables</font><font class="font20">
+  se utiliza para gestionar el </font><font class="font15">filtrado</font><font
+  class="font20"> de </font><font class="font15">paquetes</font><font
+  class="font20"> IP en un sistema Linux.</font></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1339 style='height:15.0pt;width:1004pt'>Usa un
+  solo comando: <font class="font16">iptables</font><font class="font20">, y se
+  configura mediante la aplicación de reglas de gestión de paquetes.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'><font
+  class="font16">Iptables</font><font class="font0"> puede </font><font
+  class="font5">filtrar</font><font class="font0"> el tráfico que transita por
+  un router Linux, pero </font><font class="font5">también</font><font
+  class="font0"> el tráfico entrante y saliente de </font><font class="font5">cualquier</font><font
+  class="font0"> </font><font class="font5">servidor</font><font class="font0">
+  o estación de trabajo en una sola interfaz.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Aunque
+  <font class="font16">iptables</font><font class="font0"> constituye una
+  herramienta muy potente de gestión del tráfico, esta ventaja hace que su
+  archivo de configuración sea todo excepto intuitivo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Sin
+  embargo, con una aproximación estructurada se puede aprender su
+  funcionamiento bastante rápido.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Los
+  siguientes párrafos exponen los conceptos fundamentales de iptables, para
+  utilizarlos más tarde en configuraciones de cortafuegos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>a.
+  Tablas</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'><font
+  class="font16">Iptables</font><font class="font0"> se </font><font
+  class="font5">basa</font><font class="font0"> en </font><font class="font16">tablas</font><font
+  class="font0"> asociadas a un modo funcional.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Según
+  el tipo de regla que se desea añadir en el funcionamiento de <font
+  class="font16">iptables</font><font class="font0">, se precisará la tabla
+  asociada.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Las
+  tablas <font class="font5">principales</font><font class="font0"> utilizadas
+  son </font><font class="font16">filter</font><font class="font0"> para </font><font
+  class="font5">filtrar</font><font class="font0"> paquetes y </font><font
+  class="font16">nat</font><font class="font0"> para la </font><font
+  class="font5">traducción</font><font class="font0"> de direcciones entre una
+  red </font><font class="font5">privada</font><font class="font0"> y una red </font><font
+  class="font5">pública</font><font class="font0">.<span
+  style='mso-spacerun:yes'> </span></font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>La <font
+  class="font21">tabla</font><font class="font0"> </font><font class="font16">filter</font><font
+  class="font0"> es la </font><font class="font21">tabla por defecto</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Por
+  ello, cuando se establece una regla de <font class="font16">iptables</font><font
+  class="font0"> con el objetivo de filtrar paquetes, se sobreentiende y, por
+  consiguiente, no se detalla.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>La <font
+  class="font21">tabla</font><font class="font0"> </font><font class="font16">nat</font><font
+  class="font0"> sirve para </font><font class="font13">traducir</font><font
+  class="font0"> </font><font class="font13">direcciones</font><font
+  class="font0"> y debe precisarse sistemáticamente cuando se invoca.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>b.
+  Cadenas</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Una <font
+  class="font16">cadena</font><font class="font0"> de </font><font class="font5">iptables</font><font
+  class="font0"> representa un tipo de </font><font class="font16">tráfico</font><font
+  class="font0"> desde el punto de vista de su </font><font class="font5">circulación</font><font
+  class="font0"> por una </font><font class="font5">máquina</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Las <font
+  class="font16">cadenas</font><font class="font0"> permiten especificar si una
+  </font><font class="font5">regla</font><font class="font0"> debe </font><font
+  class="font5">aplicarse</font><font class="font0"> al </font><font
+  class="font5">tráfico</font><font class="font0"> que </font><font
+  class="font16">entra</font><font class="font0"> en una máquina, que </font><font
+  class="font16">sale</font><font class="font0"> o que la </font><font
+  class="font16">cruza</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>La
+  cadena <font class="font16">INPUT</font><font class="font0"> identifica el
+  tráfico </font><font class="font16">entrante.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>La
+  cadena <font class="font16">OUTPUT</font><font class="font0"> identifica el
+  tráfico </font><font class="font16">saliente</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>La
+  cadena <font class="font16">FORWARD</font><font class="font0"> identifica el
+  tráfico que </font><font class="font16">atraviesa</font><font class="font0">
+  la máquina, entrando por una interfaz y saliendo por otra.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1339 style='height:15.0pt;width:1004pt'>Atención,
+  aunque un paquete que <font class="font12">atraviesa</font><font class="font9">
+  el router es, desde un punto de vista </font><font class="font12">físico</font><font
+  class="font9">, respectivamente entrante, encaminado y saliente, </font><font
+  class="font17">iptables</font><font class="font9"> lo considera solamente
+  como encaminado (cadena </font><font class="font17">FORWARD</font><font
+  class="font9">).</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Las
+  cadenas <font class="font16">INPUT</font><font class="font0"> y </font><font
+  class="font16">OUTPUT</font><font class="font0"> se reservan al tráfico con </font><font
+  class="font5">origen</font><font class="font0"> o </font><font class="font5">destino</font><font
+  class="font0"> </font><font class="font10">explícito</font><font class="font0">
+  el host al que se le aplican las reglas.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>También
+  hay otra cadena llamada <font class="font10">POSTROUTING</font><font
+  class="font0">, que se utiliza en la configuración de </font><font
+  class="font10">NAT</font><font class="font0"> y tiene como objetivo tratar
+  paquetes </font><font class="font5">después</font><font class="font0"> de una
+  operación de </font><font class="font5">enrutamiento</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Las <font
+  class="font16">cadenas</font><font class="font0"> </font><font class="font10">siempre</font><font
+  class="font0"> se indican en </font><font class="font5">mayúsculas</font><font
+  class="font0"> en la </font><font class="font5">sintaxis</font><font
+  class="font0"> de iptables.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>c.
+  Acciones</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Cuando
+  se <font class="font5">satisface</font><font class="font0"> una </font><font
+  class="font5">regla</font><font class="font0">, el sistema genera una </font><font
+  class="font16">acción</font><font class="font0"> sobre el paquete comprobado.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Las <font
+  class="font13">acciones</font><font class="font0"> principales son </font><font
+  class="font16">ACCEPT</font><font class="font0">, que </font><font
+  class="font22">permite</font><font class="font0"> el </font><font
+  class="font5">paso</font><font class="font0"> del paquete, y </font><font
+  class="font16">DROP</font><font class="font13">,</font><font class="font0">
+  que lo </font><font class="font11">destruye</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>En la <font
+  class="font22">sintaxis</font><font class="font0"> de </font><font
+  class="font16">iptables</font><font class="font0">, la </font><font
+  class="font16">acción</font><font class="font0"> (target en el manual en
+  línea) se anuncia con el parámetro</font><font class="font16"> -j</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Las <font
+  class="font16">acciones</font><font class="font0"> </font><font class="font10">siempre</font><font
+  class="font0"> se escriben en </font><font class="font5">mayúsculas</font><font
+  class="font0"> según la </font><font class="font5">sintaxis</font><font
+  class="font0"> de iptables.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>d.
+  Tratamiento de reglas</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 width=1339 style='height:15.0pt;width:1004pt' align=left
+  valign=top><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+   o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+   stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Imagen_x0020_1" o:spid="_x0000_s1026" type="#_x0000_t75"
+   style='position:absolute;margin-left:1.5pt;margin-top:5.25pt;width:442.5pt;
+   height:333pt;z-index:1;visibility:visible' o:gfxdata="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
+YB8un8/qZSlhBIcqVAMyytd3c1M01rFqjb79pvAnvnJWM2f3hGOqW9hOAr3ErKrKY5AQx/EkOk5+
+meGDiATwg22wZ3FC6/4RD8V48kcdxfdJIo56fsmVpQQuR8x+AAAA//8DAFBLAwQKAAAAAAAAACEA
+DuCSVnzzAAB88wAAFAAAAGRycy9tZWRpYS9pbWFnZTEucG5niVBORw0KGgoAAAANSUhEUgAAAk4A
+AAG8CAIAAACnib0tAAAAAXNSR0IArs4c6QAAAAlwSFlzAAAOxAAADsMB2mqY3AAA8yFJREFUeF7s
+3Qd4LUXZB3AuvV96770KCKjYO9hFxS4iiIDYKyoKdlH8QESxYO+9N8SKAoKo9CogvVcpUr9f7h/H
+ZU/KSXKSnCQzz7155szOzs6+uzv/efuc73//+2edddZiiy12zz33zFdLpUClQKVApUDvKDD/ddfN
+ufHGu9ddd/4rrpjvjjvmW3jhObfd5uecW2+dc9NNrnPv0kvfu/jiI1/w9tsXuPxyI9yz6qpOmf+i
+i4xzz+qr37vkkkOee8cdC1x6qVPuXWyx+RZb7N6FFpr/+usHfs6de88qq3SeZT5zbrjhnpVWuu9C
+K6880OIqueIVVwzcyNprz7fookNdMX0cdYPudL7/znmg/t+ZD3KueV5wwT0rr3zvMstkhHtXXDHj
+ZPJlDq1z0XBE0s0///y33XbbJptsMuf//u//Xv/6149M6NqjUqBSoFKgUmCUFLj18stv+uc/l3vA
+AxZaYokbzjrrlksvXWqdde65806VBech3F233rrcllsuvuqqwwx8x003XXfKKc2e995995XHHTf/
+wguv9KAHDXPiVSeccMcNN2T81JdYffVlN998qFMybPNCOctUNS68zDLDX+4/11139V//uthKKy2/
+9datOWecFbbZZtEVV+y8+vWnnx6ClKuU667y8IfffvXViyy3nLPmLLDAKMk/nyn9+6KLvvKjHy2w
+44477rDDDqM9v/avFKgUqBSoFBiRAgsttdSdN9/873/965ZLLllq7bX9vPs//7Gsg40VHvjApddb
+7+7bb7/1ssuWXGutoYbqxLmBRX/++W+94op77rhjmBN1A2y3X3uttR7imkZwzup/8/nnw4/5F1xw
+QQxfoxh2/oUWuu2qq/yFWI4susIKei605JJLrLbacltskb6mZBD30przjWeffdctt7ipe++9t4XN
+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
+Qz2aY445pujnqtyyRy9wHaZSoFKgUmAUFGgFd2aTSZ6JsWOZKTyYf/NffnmFuiEJWtDu9a9//aBR
+ofFzj3zkI51f+blRvJW1a6VApUClQE8p0AruDOHEvcTYJZzYQKSVhReuUDccyZt6uxZv19TPVX6u
+p+9tHaxSoFKgUmAUFGgFd5674YYLLbWU8/kh+BubzAmBurvuuuueeeXuu+8exXzv31XsiTvvvHPM
+p/fqxOKB0OTtin7u4IMPrjjXK1LXcSoFKgUqBcZGgWZwZ1o64EeGSZJ58wUXCJg53x139B7qRNgS
+olDcW0X0JoGXxhZq63nPe94DHvCAUd32u971rjPOOGNUp3TTmQeCWCp6upFvfOMb5513XvRzcO6N
+b3xjNyPUPpUClQKVApUCE0qBWKn859pr/3P99S60wgMfOP9CCxFmQr57587tPdRdeumlT3va0/Bk
+119//W233faVr3yFouvoo48e7U2Olink/f3e9773hhtuGO2FuukvHnS8ywXz3XDDDVU++tGPVpzr
+hnS1T6VApUClwKRRYJHll4dtIoeJBP2feXaYNHb3rLJK76HOLa266qr+LrPMMosuuuiLX/zihRde
+OHlQFYF6pSrdfPPNDz/88ObNEwOuu+667373u//85z+/5CUvcUiceNxh+hxyyCFOweQxAOkkGUB1
+RZJGh5ZbbrnODj/60Y/++Mc//uAHP9hoo41e8IIXNOWiwppssMEGT3ziEy+88MLhHwbejr1l+vBA
+eMMb3jBpD69eqFKgUqBSoFKgGwokuZ0ImRzM77njDno7ss35r7higDvBgfWwbLrppvvuu29zQPP7
+6U9/qiW83e67737ggQeqAKd0k5DFz/e///077bSTCoTTuNtuu8E2lSc96Uka3zmvqGjvnO0tt9yC
+C3T073//e+fRZC145jOfGUNKl0uf1VZbzc8PfOADEUiec845I9LhS1/60n777Tdit9qhUqBSoFKg
+UmCqKMDB7j833piry3hw6Cte0XuoS+63rbbaCqKss8466s997nNzyblz537mM58pN+/QTTfddPLJ
+J6uURifKMe3ny172skDdAQcc8K9//SsdyAxXWGGFochnnBNPPLHz6FOe8pRyicT90ocJZfO6cq88
+6EEPGvHBBB3Z3YzYs3aoFKgUqBSoFJhaCkhBfvkxxxzy2tf2XoB5B55x7tydd94ZwDzrWc8iMyQ/
+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
+k0+BCnXD0bzwdoOiXeXnJv99rVesFKgUqBQYAwUq1I1ANGgnS2f+Nrs++9nPjn6O3LLyc2N48+op
+lQKVApUCk0aBnkHdKaecsueee+6xxx4vf/nLZWcWHkmorTHchjRyb3/720d14pVXXjmq/qPtTIZJ
+knnBBRcUvZ184t///veNc8MNN1ScGy09a/9KgUqBSoFJpkDPoO573/vekUceed555/39738/9dRT
+pYoWauukk04a7f385S9/+eAHP9jlWa985SvFHlxllVX8/dSnPtXlWWPoVvR2D3/4w1/2spd9+9vf
+Dj83d+7cMYxWT6kUqBSoFKgUmEwK9Azq7rnnnhVWWOEPf/gDeFPuuuuujTfeeJ999ik3o8Mll1zS
+eW+XXXZZgu3K0O1vi0nCNl166aWDUuQLX/jCEUccceyxx8pJ/dnPfta1zjrrrGFoZ0qdQ91+++0X
+X3xxNxSPNeaf//znL37xi/rfeOONlZ/rhm61T6VApUClwJRToGdQh68COc372W677eQ0Scsb3/hG
+cd/XXHNN3T7/+c+nUTRkicdWX331BRdckNgTUmpccsklyyArrbQS8/011lhjUKYNzm2++eY77LCD
+/k43VJitzgKT9t9//wy10EILgbf0eeYzn7nYYotJR278X/3qV2ls3UVzNMLVRzziEeLWu6+ll156
+yh9enUClQKVApUClQDcU6BnULbLIIjfffLNL0pzhz7B3X/va1w4//HAtZJsCS2OqoIj0K/R5OCTt
+QO4hD3mIRuXHP/5xppukKspee+119dVX5+ihhx7aZBDT4de//vXJJ5+c+k033YRrfOxjHzvoPePA
+vvGNb5ieoUzjHe94h27vf//7f/SjH+EpNe6333477bTTnXfeqX34DNdPe9rTdtxxxyWWWKIb4tY+
+lQKVApUClQL9QIGeQR2tlaSU0Zzhzx796Ecz5Qj2fOADH8B7XXTRRYSNK664opbPfe5z/uoP+UKF
+RNVqlk9/+tNhsDBhg0o+XTG4+KUvfUn9xS9+MUXaUDT9xCc+kUMPeMADrrrqKpUPfehDb3nLW1Zd
+dVX1aAczq+ELmPzyl798yy23jNSxHq8UqBSoFKgU6BcK9AzqcHJkemHCFCwUk8VAyBVXXHHccccx
+1n/Ywx626aabakkgEhWiy1Biq622apEEIJE3LrroolDzmGOOGZRgl19+OQaLwecPfvCDr3zlK8MQ
+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
+wx9e/cc/Xv2vf1168MFLv/nNywy03jtnv/1u+ta3rv3Zz64+5pirjjzy+p13XlH7uecu9NSnrvLV
+r17zl79c9YtfXH322Zc/8pF3rLbagGfl4ovLG3z3j350zU9+cvXvf3/1F75w3S67rDTRt1DHrxSo
+FOg5BWYd1JFbfulLn0HHSeDnmk8r6e7o7VZfvVqpDPca//CHP0y2+nGUOXfcMSenL774fEcddRW0
+U19yyXvnAeF9Zbvtbp9vvoFub3jD3Kc85d877vifcuiII6675557f/3rRVdY4X5uDQ9+8B1O6VtX
+h3FQrJ5aKTDDKTC7oA4/V+xQJoef60S7yy6rVirDfVQyxb/1rW+dM2fOIx/5yK9//eu33w6QRl2a
+aPTIR8KwAUhbeul7Tj11wXPPXZAajzLvyU9eaffdb9Z+7LGLPPnJ7atsu+2dxx+/yBJL3KPDX/9K
+w7fwUUct+vCHr/TMZ968QB/FI/sfZY499thRk2mUJ5x00kn//ve/c9Jvf/vbc889tzmAlltvvXWU
+Q05g99NPP/2KK64Y/gK/+93vrr322gmcRI+GPuuss84555weDTauYbwDF1544biGmKKTZ1FgMPxc
+cE7aHUnmpqqsvfaArcriiy//iU8csuCC819xxeX34CDmlamaUj9cF7YtsMACq6+++uc+97nf/OY3
+zSm9+tWvPuyww0rLYYcd9Pzn77fS0HLEOXPWOe+8i9df/z6G7JJLFlhzzTXuvfdfT3nKCqxRdt75
+thtvnP8b31j6gAOuO/DAGw279tqr7brrLe9970C9lA03XOX1r//3059+65prrvXSl950661z7rxz
+zk473bbXXrcMQ64f/Wi+5ZY7/RGPmOx0Tv/617/WWWed6667btlll524p+kZfepTn9prr73e//73
+77///mDvK1/5yh//+Ec7Ehd19Be/+MVOO+00cRMY1ciLLbbYC17wgs9//vNDnbX55pufccYZv/zl
+L3fccccuR37LW97irj/5yYF0zZNZ1l9//SWXXPLkk08e50VtHDfaaKNTTz11rih2YyqmsfPOO3vu
+Yzp7yk4SLWW+j370o1lnZ3Z56UtfETLzK4ApU/sP2ikrrrhWaA7q7rzzzjtmfbn77rtRA0uXJwX2
+3vOe99jPtt7Mj33sQ1deOdwTBF4XXrhAecR77rnseuut4ufWW6+y//5z0/65zy2x0UYDjf4dcMDc
+RRddvflKXHstLnCdm26a/29/W2i++dbs/m354Q/n++MfT5/8T+nyyy9HMUzVhF7aJb785S+7xHe+
+851caI899rAKT+hFxzz4yiuv/PrXv36Y093O2WefParxn/jEJz7sYQ8b1Sk96Xz11Vdfc8014x/K
+OuOub7755vEPNb1GAHOzAuoKzuHnul+2JrTnuusOrOYy/kyvN2YSZvulL33pFa94hW97qGt1AXXr
+UrORYV588YKvec0ykO+88waQb+WVV9t772XKY33gA1d62tNWyM+11lp1iy1WOfnkha6/fn6CysUX
+X2OffZbT/pOfsLdcp/s3Yaqg7krgP9989uwtopE1bbzxfdHp9txzz06SPu95z/vZz362zTbbOH27
+7ba77bbb0odkz/5d49prr01QmUY/v/rVr6rglnA2uajyhCc8QeMKK6yA7VCBH7Yp2jGaJpBz3/3u
+d6fzKquscvzxx7dm8pOf/OQNb3jDxz/+8fT59Kc/XTqYYRrf/OY3p/Evf/nL3nvvDXQ1Xnrppc2h
+0qh85CMfWWuttbCeOfq0pz2ttKflMY95TFr+/Oc/+/mSl7wkP9/+9reXAf/whz8stdRSGrfffnuN
+RURsND/BBtjLWUcccUTrjvw0t0022cRR1LjgggvSAXHWmGfzDYmPO+64Yc7CeOE408GW4lWvelXq
+z3/+83PRd73rXeV0gpDF6aXnm+9BD3qQPbP2F73oRUhXOmD3TzjhhEc/+tE5F2Pn0Jve9Kb89JRP
+O+20zsm8973vTQcb0EK3D3zgA6kDfodw84QuacHW77vvvu973/u0r7vuuoTDnlRG+P3vf68DKTch
+DdlAGj3xcoNu1rZp11131fKNb3yDjEeHhzzkITfddFPnxEbbMiugrq/4ueaimWR4q6++wWgf2yzv
+PyLUPehBK22zzcrbb7/SttuuvOuuy1111fwh+wtesPxhhy1ZHgHWbcstVzn//AHfO//e976lH/rQ
+lbfeeuUnPGHFH/xg8TRys9tuu5WmL9R5wR7wgAeceeaZv/rVr9StQa2XJysO8Q78WHTRRZdYYgkd
+ooyxtpLvgTH1nKXyta99TQWKBDjJsqzj5WiWS90sx86FnTmXUFqF1Ouf//ynU8qAZTIBua233tpy
+nOX1Rz/6kaPBEpDzgx/8QMUqqfF73/ueOkFcSyIFs7W/853v/Nvf/vbQhz60rKQEleuttx4iZJAD
+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
+SwUGAAAAAAYABgCEAQAAMvsAAAAA
+">
+   <v:imagedata src="image001.png" o:title=""/>
+   <x:ClientData ObjectType="Pict">
+    <x:SizeWithCells/>
+    <x:CF>Bitmap</x:CF>
+    <x:AutoPict/>
+   </x:ClientData>
+  </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+  position:absolute;z-index:1;margin-left:2px;margin-top:7px;width:590px;
+  height:444px'><img width=590 height=444 src=image003.png v:shapes="Imagen_x0020_1"></span><![endif]><span
+  style='mso-ignore:vglayout2'>
+  <table cellpadding=0 cellspacing=0>
+   <tr>
+    <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+   </tr>
+  </table>
+  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Se
+  aplican las reglas una por una para cada paquete filtrado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Si se
+  satisface una regla, se genera una acción sobre el paquete y finaliza su
+  tratamiento.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Si no
+  se satisface, se comprueba la siguiente regla.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>En
+  caso de que ninguna regla se haya satisfecho, el paquete recibe un
+  tratamiento por defecto configurado con una regla específica llamada <font
+  class="font5">«política»</font><font class="font0"> </font><font class="font5">(policy)</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Se
+  pueden mostrar las reglas aplicadas en orden para cada una de las cadenas.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*Visualización
+  de reglas efectivas</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>iptables
+  -L</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*Ejemplo
+  de visualización de reglas</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Este
+  ejemplo muestra las reglas activas en un sistema Linux sin configurar. Se ve
+  la política aplicada para cada una de las cadenas y se comprueba la ausencia
+  de reglas de filtrado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1339 style='height:15.0pt;width:1004pt'>alfa:~#
+  iptables -L<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>Chain
+  INPUT (policy ACCEPT)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>target<span
+  style='mso-spacerun:yes'>     </span>prot opt source<span
+  style='mso-spacerun:yes'>               </span>destination<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>Chain
+  FORWARD (policy ACCEPT)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>target<span
+  style='mso-spacerun:yes'>     </span>prot opt source<span
+  style='mso-spacerun:yes'>               </span>destination<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>Chain
+  OUTPUT (policy ACCEPT)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>target<span
+  style='mso-spacerun:yes'>     </span>prot opt source<span
+  style='mso-spacerun:yes'>               </span>destination</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>El
+  comando <font class="font16">iptables -L</font><font class="font0"> muestra
+  la interpretación de las </font><font class="font22">reglas activas</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>Si se
+  desea saber quién tiene <font class="font10">permisos</font><font
+  class="font0"> para establecer estas reglas, se recomienda usar la opción </font><font
+  class="font16">-S</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1339 style='height:15.0pt;width:1004pt'>*Ejemplo
+  de visualización de reglas según la sintaxis</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'>La
+  opción <font class="font5">-S</font><font class="font0"> es particularmente
+  útil cuando se enfrenta a un sistema configurado por otra persona y no sabe
+  qué comandos se han introducido para llegar a esa configuración.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1339 style='height:15.0pt;width:1004pt'>alfa:~#
+  iptables -S<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>-P
+  INPUT ACCEPT<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>-P
+  FORWARD ACCEPT<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>-P
+  OUTPUT ACCEPT<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1339 style='height:15.0pt;width:1004pt'>alfa:~#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1339 style='height:15.0pt;width:1004pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1339 style='height:15.0pt;width:1004pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1339 style='width:1004pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

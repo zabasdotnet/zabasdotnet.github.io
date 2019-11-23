@@ -1,0 +1,380 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../104.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>104.1 - Create Partitions and filesystems</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../104.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=2032 style='border-collapse:
+ collapse;table-layout:fixed;width:1524pt'>
+ <col class=xl66 width=868 style='mso-width-source:userset;mso-width-alt:31744;
+ width:651pt'>
+ <col class=xl66 width=1164 style='mso-width-source:userset;mso-width-alt:42569;
+ width:873pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'><a
+  name="RANGE!A1">fdisk es la más antigua y más utilizada de las herramientas
+  de particionamiento.</a></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>No tiene
+  relación con el fdisk de Microsoft.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Se basa
+  en menús y atajos textuales.</td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Hay que
+  tener privilegios de root para poder usar fdisk.</td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>fdisk
+  [-l] [disco]</td>
+  <td class=xl68 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Cada
+  parámetro es opcional.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Iniciado
+  tal cual, fdisk se sitúa en el primer disco del sistema.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>El
+  parámetro -l permite listar las particiones del disco dado o de todos los
+  discos.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>La
+  información obtenida es la misma que en modo interactivo con la entrada p
+  (print) del menú.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'># fdisk
+  -l /dev/sda</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=868 style='height:30.0pt;width:651pt'>Sólo se
+  tienen en cuenta las operaciones efectuadas con fdisk al final, una vez que
+  haya guardado usted sus modificaciones, y no al mismo tiempo.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Si
+  piensa que se ha equivocado, no dude en salir sin guardar o en hacer un
+  [Ctrl] C.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Se
+  perderán sus modificaciones, pero habrá salvado sus particiones.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Verifique
+  primero la existencia de particiones con la tecla p (print), luego [Intro].</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=868 style='height:30.0pt;width:651pt'>Para
+  suprimir una partición, utilice la tecla d (delete); luego, si hay varias
+  particiones, el número de partición (sdbX, siendo X el número).</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Si hay
+  una única partición, se coge por defecto.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Para
+  crear una partición, utilice la tecla n (new).</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Luego
+  debe elegir el tipo de partición: primaria o extendida.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'><span
+  style='mso-spacerun:yes'>   </span>e<span style='mso-spacerun:yes'>  
+  </span>extendida</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'><span
+  style='mso-spacerun:yes'>   </span>p<span style='mso-spacerun:yes'>  
+  </span>partición primaria (1-4)</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Como el
+  MBR contiene cuatro entradas, puede elegir el número de partición a crear.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Es
+  perfectamente posible crear la partición sdb2 antes de la sdb1.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>El
+  primer cilindro corresponde a la posición de principio de su partición.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Por
+  defecto, fdisk se coloca en el primer cilindro disponible desde el principio
+  del disco.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Es
+  perfectamente posible crear particiones primarias en la mitad de un disco.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Para el
+  tamaño de la partición es preferible utilizar una unidad legible, como los KB
+  o MB.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Por
+  ejemplo, para una partición de 1 GB, es decir, de 1024 MB, use +1024M.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Salga de
+  fdisk guardando su tabla de las particiones con la tecla w (write).</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Fdisk
+  escribe la nueva tabla de las particiones en el MBR o los EBR.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>#
+  partprobe /dev/sdb</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Verifique
+  si se reconoce la partición.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Se
+  pueden usar los comandos de parted como mkpart, rm o resize para trabajar con
+  las particiones.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>El
+  comando partx también permite notificar al núcleo las modificaciones
+  realizadas a las tablas de partición.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Modificar
+  el tipo</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Como la
+  modificación del tipo de una partición no implica la modificación de su
+  tamaño, puede hacerlo en cualquier momento.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=868 style='height:30.0pt;width:651pt'>Le
+  presentamos a continuación el modo de proceder para pasar del tipo por
+  defecto Linux al tipo FAT para que Windows reconozca la partición.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Ejecute
+  fdisk y pulse t (tipo).</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Seleccione
+  la partición, la 5 para la primera partición lógica.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Puede
+  visualizar todos los tipos pulsando L, que le facilita la misma lista
+  mencionada más arriba.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Utilice
+  el tipo c W95 FAT32 (LBA) para estar tranquilo.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Guarde
+  con w.</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'></td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>Los
+  tipos de particiones más utilizados para Linux son los siguientes:</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>83:
+  Partición de tipo Linux (datos)</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>82:
+  Partición de tipo swap</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>fd:
+  Partición de tipo RAID</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=868 style='height:15.0pt;width:651pt'>8e:
+  Partición de tipo LVM</td>
+  <td class=xl66 width=1164 style='width:873pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=868 style='width:651pt'></td>
+  <td width=1164 style='width:873pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

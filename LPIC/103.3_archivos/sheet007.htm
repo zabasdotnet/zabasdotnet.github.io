@@ -1,0 +1,490 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../103.3.htm">
+<link rel=File-List href=filelist.xml>
+<title>103.3 - Perform basic file management</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(6);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../103.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=3062 style='border-collapse:
+ collapse;table-layout:fixed;width:2298pt'>
+ <col class=xl66 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl66 width=93 style='mso-width-source:userset;mso-width-alt:3401;
+ width:70pt'>
+ <col class=xl66 width=233 style='mso-width-source:userset;mso-width-alt:8521;
+ width:175pt'>
+ <col class=xl66 width=719 style='mso-width-source:userset;mso-width-alt:26294;
+ width:539pt'>
+ <col class=xl66 width=1078 style='mso-width-source:userset;mso-width-alt:39424;
+ width:809pt'>
+ <col class=xl66 width=522 style='mso-width-source:userset;mso-width-alt:19090;
+ width:392pt'>
+ <col class=xl66 width=305 style='mso-width-source:userset;mso-width-alt:11154;
+ width:229pt'>
+ <col class=xl66 width=64 style='mso-width-source:userset;mso-width-alt:2340;
+ width:48pt'>
+ <col class=xl66 width=89 style='mso-width-source:userset;mso-width-alt:3254;
+ width:67pt'>
+ <col class=xl66 width=638 style='mso-width-source:userset;mso-width-alt:23332;
+ width:479pt'>
+ <col class=xl66 width=631 style='mso-width-source:userset;mso-width-alt:23076;
+ width:473pt'>
+ <col class=xl66 width=464 style='mso-width-source:userset;mso-width-alt:16969;
+ width:348pt'>
+ <col class=xl66 width=591 style='mso-width-source:userset;mso-width-alt:21613;
+ width:443pt'>
+ <col class=xl66 width=71 style='mso-width-source:userset;mso-width-alt:2596;
+ width:53pt'>
+ <col class=xl66 width=203 style='mso-width-source:userset;mso-width-alt:7424;
+ width:152pt'>
+ <col class=xl66 width=629 style='mso-width-source:userset;mso-width-alt:23003;
+ width:472pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'><a
+  name="RANGE!A1">&nbsp;</a></td>
+  <td class=xl69 width=93 style='width:70pt'>&nbsp;</td>
+  <td class=xl69 width=233 style='width:175pt'>&nbsp;</td>
+  <td class=xl69 width=719 style='width:539pt'>&nbsp;</td>
+  <td class=xl69 width=1078 style='width:809pt'>&nbsp;</td>
+  <td class=xl69 width=522 style='width:392pt'>&nbsp;</td>
+  <td class=xl69 width=305 style='width:229pt'>&nbsp;</td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl68 width=93 style='width:70pt'>comando</td>
+  <td class=xl68 width=233 style='width:175pt'>Criterios de búsqueda</td>
+  <td class=xl66 width=719 style='width:539pt'></td>
+  <td class=xl66 width=1078 style='width:809pt'></td>
+  <td class=xl66 width=522 style='width:392pt'></td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl69 width=48 style='height:45.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl68 width=93 style='width:70pt'>find</td>
+  <td class=xl74 width=233 style='width:175pt'>-name</td>
+  <td class=xl71 width=719 style='width:539pt'>Permite una selección por
+  nombres de ficheros.<br>
+    Es posible utilizar los comodines ya vistos.<br>
+    Se coloca el criterio entre comillas.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl71 width=1078 style='width:809pt'>Aquí se visualiza la lista de
+  todos los ficheros desde la ubicación actual y que empiezan por «fic».<br>
+    $ find . -name &quot;fic*&quot; -print</td>
+  <td class=xl71 width=522 style='width:392pt'></td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl69 width=48 style='height:30.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'>-type</td>
+  <td class=xl71 width=719 style='width:539pt'>Permite una selección por tipo
+  de ficheros.<br>
+    Además de los vínculos, los directorios y los ficheros simples, están
+  presentes otros tipos de ficheros.</td>
+  <td class=xl74 width=1078 style='width:809pt'>-type b --&gt; Fichero especial
+  en modo bloque</td>
+  <td class=xl71 width=522 style='width:392pt'>Se visualizan todos los
+  directorios cuyo nombre empieza por «re».<br>
+    $ find . -name &quot;re*&quot; -type d -print</td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'></td>
+  <td class=xl71 width=719 style='width:539pt'></td>
+  <td class=xl74 width=1078 style='width:809pt'>-type c --&gt; Fichero especial
+  en modo carácter</td>
+  <td class=xl71 width=522 style='width:392pt'></td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'></td>
+  <td class=xl71 width=719 style='width:539pt'></td>
+  <td class=xl74 width=1078 style='width:809pt'>-type d --&gt; Directorio
+  (directory)</td>
+  <td class=xl71 width=522 style='width:392pt'></td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'></td>
+  <td class=xl71 width=719 style='width:539pt'></td>
+  <td class=xl74 width=1078 style='width:809pt'>-type f --&gt; Fichero
+  ordinario</td>
+  <td class=xl71 width=522 style='width:392pt'></td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'></td>
+  <td class=xl71 width=719 style='width:539pt'></td>
+  <td class=xl74 width=1078 style='width:809pt'>-type l --&gt; Vínculo
+  simbólico</td>
+  <td class=xl71 width=522 style='width:392pt'></td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'></td>
+  <td class=xl71 width=719 style='width:539pt'></td>
+  <td class=xl74 width=1078 style='width:809pt'>-type p --&gt; Tubería con
+  nombre (pipe)</td>
+  <td class=xl71 width=522 style='width:392pt'></td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'></td>
+  <td class=xl71 width=719 style='width:539pt'></td>
+  <td class=xl74 width=1078 style='width:809pt'>-type s --&gt; Socket (Conexión
+  de red)</td>
+  <td class=xl71 width=522 style='width:392pt'></td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl69 width=48 style='height:45.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'>-user y -group</td>
+  <td class=xl71 width=719 style='width:539pt'>Permiten una búsqueda sobre el
+  propietario y el grupo de pertenencia de los ficheros.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl71 width=1078 style='width:809pt'>Es posible precisar el nombre
+  (usuario, grupo) o la ID (UID, GID).<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl71 width=522 style='width:392pt'>El ejemplo siguiente busca todos
+  los ficheros ordinarios que pertenecen a seb y al grupo users.<br>
+    $ find . -tipo f -user seb -group users -print</td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl69 width=48 style='height:90.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'>-size</td>
+  <td class=xl71 width=719 style='width:539pt'>Permite precisar el tamaño de
+  los ficheros buscados.<br>
+    Su sintaxis es particular, ya que trabaja por defecto en bloques si usted
+  no precisa nada.<br>
+    Puede resultar sorprendente a veces; tanto más cuanto el bloque, que aquí
+  tiene un tamaño de 512 bytes, es una unidad un poco virtual (con ciertos
+  comandos, un bloque puede ser de 1 KB o más).<br>
+    <br>
+    Los caracteres b, c, w o k pueden aparecer tras el valor colocado después
+  del criterio.</td>
+  <td class=xl74 width=1078 style='width:809pt'>b --&gt; Por defecto, si no
+  está precisado, es un bloque de 512 bytes.<br>
+    c --&gt; Es un carácter en el sentido ASCII; por lo tanto, 1 byte.<br>
+    w --&gt; Es una palabra (en el sentido antiguo) de 2 bytes.<br>
+    k --&gt; 1 KB (1024 bytes).<br>
+    El valor puede ir precedido de un + o un - que significan «más de» o «menos
+  de». <br>
+    Sin esta indicación, el tamaño buscado debe corresponderse EXACTAMENTE.</td>
+  <td class=xl74 width=522 style='width:392pt'>-size 5: busca los ficheros de
+  un tamaño de 5 bloques (512 bytes por bloque, o sea, aquí 2560 bytes).<br>
+    -size 152c: busca los ficheros de un tamaño de 152 caracteres
+  (bytes).<br>
+    -size 10k: busca los ficheros de un tamaño de 10 KB (10*1024 bytes = 10240
+  bytes).<br>
+    -size +5000k: los ficheros de más de 5000 KB.<br>
+    -size -100k: los ficheros de menos de 100 KB.</td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl69 width=48 style='height:30.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'>-atime</td>
+  <td class=xl71 width=719 style='width:539pt'>Busca en la fecha del último
+  acceso (access time).<br>
+    Un acceso puede ser la lectura del fichero, pero también el simple hecho de
+  listarlo de manera específica.</td>
+  <td class=xl71 width=1078 style='width:809pt'>La fecha de modificación del
+  fichero corresponde a la fecha en la cual se modificó por última vez la
+  información relacionada con el inodo: modificación del nombre,
+  desplazamiento, cambio de derechos, del tamaño, etc.</td>
+  <td class=xl71 width=522 style='width:392pt'></td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl69 width=48 style='height:60.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'>-mtime</td>
+  <td class=xl71 width=719 style='width:539pt'>Busca en la fecha de la última
+  modificación (modification time). <br>
+    Se trata de la modificación del contenido.</td>
+  <td class=xl71 width=1078 style='width:809pt'>Estos tres criterios sólo
+  trabajan con días (periodos de 24 horas).<br>
+    0 es el mismo día; 1, ayer; 2, antes de ayer, etc. <br>
+    El valor n colocado después del criterio corresponde, por lo tanto, a n*24
+  horas. <br>
+    Este rango no es fijo, ya que «ayer» significa entre 24 y 48 horas...</td>
+  <td class=xl71 width=522 style='width:392pt'>$ find . -mtime -1</td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl69 width=48 style='height:60.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'>-ctime</td>
+  <td class=xl71 width=719 style='width:539pt'>Busca en la fecha de
+  modificación (change time, en realidad la fecha de última modificación del
+  número de inodo).</td>
+  <td class=xl74 width=1078 style='width:809pt'>Los signos + o - permiten
+  precisar los términos «de más» y «de menos»:<br>
+    -mtime 1: ficheros modificados ayer (entre 24 y 48 horas).<br>
+    -mtime -3: ficheros modificados hace menos de tres días (72 horas).<br>
+    -atime +4: ficheros modificados hace más de cuatro días (más de 96 horas).</td>
+  <td class=xl71 width=522 style='width:392pt'></td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'>-newer, -anewer y -cnewer</td>
+  <td class=xl71 width=719 style='width:539pt'>Los criterios -newer, -anewer y
+  -cnewer, toman un fichero como parámetro.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl71 width=1078 style='width:809pt'>En este caso, find busca los
+  ficheros que son más recientes que el designado.</td>
+  <td class=xl71 width=522 style='width:392pt'></td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl69 width=48 style='height:45.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'>-perm</td>
+  <td class=xl71 width=719 style='width:539pt'>Permite efectuar búsquedas en
+  las autorizaciones de acceso (derechos, SUID, SGID, Sticky). <br>
+    Se deben precisar los derechos en base 8 (valor octal) y completos.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl71 width=1078 style='width:809pt'>El carácter - colocado antes
+  del valor octal significa que los ficheros buscados deben tener al menos los
+  permisos establecidos.</td>
+  <td class=xl71 width=522 style='width:392pt'>En el ejemplo siguiente, se
+  buscan los directorios sobre los cuales todo el mundo (user, group, others)
+  tiene permiso de ejecución (permiso x, o sea 1).<br>
+    $ find -type d -perm -111</td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl69 width=48 style='height:45.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'>-links</td>
+  <td class=xl71 width=719 style='width:539pt'>Permite una búsqueda por nombre
+  de hard links. <br>
+    Puede precisar los signos + o - (más de n vínculos y menos de n
+  vínculos).<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl71 width=1078 style='width:809pt'>Un fichero normal único posee 1
+  vínculo. <br>
+    Un directorio, 2 vínculos (la entrada en el catálogo al cual pertenece y en
+  el punto). <br>
+    </td>
+  <td class=xl71 width=522 style='width:392pt'>Para una búsqueda de vínculos
+  simbólicos, habrá que utilizar la opción -type I.<br>
+    $ find . -type f -links +2 -print</td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl69 width=48 style='height:30.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl74 width=233 style='width:175pt'>-inum</td>
+  <td class=xl71 width=719 style='width:539pt'>Para una búsqueda de vínculos
+  simbólicos, habrá que utilizar la opción -type I.<br>
+    $ find . -type f -links +2 -print</td>
+  <td class=xl71 width=1078 style='width:809pt'>El número de inodo puede verse
+  mediante la opción -i del comando ls.</td>
+  <td class=xl71 width=522 style='width:392pt'>$ ls -i</td>
+  <td class=xl66 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl70 width=93 style='width:70pt'>&nbsp;</td>
+  <td class=xl70 width=233 style='width:175pt'>Comandos</td>
+  <td class=xl69 width=719 style='width:539pt'>&nbsp;</td>
+  <td class=xl69 width=1078 style='width:809pt'>&nbsp;</td>
+  <td class=xl69 width=522 style='width:392pt'>&nbsp;</td>
+  <td class=xl69 width=305 style='width:229pt'>&nbsp;</td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl69 width=48 style='height:30.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl75 width=233 style='width:175pt'>-ls</td>
+  <td class=xl73 width=719 style='width:539pt'>El criterio muestra información
+  detallada en los ficheros encontrados que corresponden al criterio, en lugar
+  del simple nombre de fichero.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl73 width=1078 style='width:809pt'>La salida corresponde a un
+  comando ls con los parámetros d, i, l y s (tamaño en bloques de 1 KB).<br>
+    $ find -size +500000k -ls</td>
+  <td class=xl73 width=522 style='width:392pt'></td>
+  <td class=xl73 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl69 width=48 style='height:105.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl75 width=233 style='width:175pt'>-exec</td>
+  <td class=xl73 width=719 style='width:539pt'>El criterio -exec va a ejecutar
+  el comando colocado justo después con cada coincidencia encontrada. <br>
+    Es necesario hacer algunas observaciones:<br>
+    -exec debe ser obligatoriamente la última opción del comando find.<br>
+    El comando ejecutado por -exec debe terminarse con un «;».</td>
+  <td class=xl73 width=1078 style='width:809pt'>Este carácter especial debe
+  escribirse con \; para que el shell no lo interprete.<br>
+    Con el fin de pasar como parámetro para el comando el fichero encontrado
+  por find, hay que escribir {} (sustitución del fichero).</td>
+  <td class=xl73 width=522 style='width:392pt'>Ejemplo para borrar todos los
+  ficheros que terminan por «.mp3»:<br>
+    $ find . -type f -name &quot;*.mp3&quot; -exec rm -f {} \;</td>
+  <td class=xl73 width=305 style='width:229pt'>El sistema no espera la
+  finalización del comando find para ejecutar el comando rm. <br>
+    Lo ejecuta en cuanto find encuentra un fichero. <br>
+    Así, si el comando anterior le ha mostrado n ficheros antes de que usted
+  pensara interrumpirlo, estos n ficheros ya han sido borrados.</td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl69 width=48 style='height:30.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl75 width=233 style='width:175pt'>-ok</td>
+  <td class=xl73 width=719 style='width:539pt'>El criterio -ok es idéntico a la
+  opción -exec, pero, para cada coincidencia, se le requiere una confirmación
+  al usuario.</td>
+  <td class=xl73 width=1078 style='width:809pt'>$ find . -inum 95 -ok rm -f {}
+  \;</td>
+  <td class=xl73 width=522 style='width:392pt'></td>
+  <td class=xl73 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl70 width=93 style='width:70pt'>&nbsp;</td>
+  <td class=xl70 width=233 style='width:175pt'>Criterios</td>
+  <td class=xl69 width=719 style='width:539pt'>&nbsp;</td>
+  <td class=xl69 width=1078 style='width:809pt'>&nbsp;</td>
+  <td class=xl69 width=522 style='width:392pt'>&nbsp;</td>
+  <td class=xl69 width=305 style='width:229pt'>&nbsp;</td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl76 width=233 style='width:175pt'>-a, -and</td>
+  <td class=xl72 width=719 style='width:539pt'>AND, Y lógico, por defecto.</td>
+  <td class=xl77 width=1078 style='width:809pt'>Ejemplo con todos los ficheros
+  que no contienen fic en su nombre, y todos los ficheros que no son ni
+  normales ni directorios.</td>
+  <td class=xl72 width=522 style='width:392pt'></td>
+  <td class=xl72 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl76 width=233 style='width:175pt'>-o, -or</td>
+  <td class=xl72 width=719 style='width:539pt'>OR, O lógico</td>
+  <td class=xl77 width=1078 style='width:809pt'>$ find . ! -name
+  &quot;*fic*&quot; -print</td>
+  <td class=xl72 width=522 style='width:392pt'></td>
+  <td class=xl72 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl66 width=93 style='width:70pt'></td>
+  <td class=xl76 width=233 style='width:175pt'>!</td>
+  <td class=xl72 width=719 style='width:539pt'>Negación del criterio</td>
+  <td class=xl77 width=1078 style='width:809pt'>$ find . ! \( -type f -o -type
+  d \) -ls</td>
+  <td class=xl72 width=522 style='width:392pt'></td>
+  <td class=xl72 width=305 style='width:229pt'></td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=48 style='height:15.0pt;width:36pt'>&nbsp;</td>
+  <td class=xl69 width=93 style='width:70pt'>&nbsp;</td>
+  <td class=xl69 width=233 style='width:175pt'>&nbsp;</td>
+  <td class=xl69 width=719 style='width:539pt'>&nbsp;</td>
+  <td class=xl69 width=1078 style='width:809pt'>&nbsp;</td>
+  <td class=xl69 width=522 style='width:392pt'>&nbsp;</td>
+  <td class=xl69 width=305 style='width:229pt'>&nbsp;</td>
+  <td class=xl69 width=64 style='width:48pt'>&nbsp;</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=48 style='width:36pt'></td>
+  <td width=93 style='width:70pt'></td>
+  <td width=233 style='width:175pt'></td>
+  <td width=719 style='width:539pt'></td>
+  <td width=1078 style='width:809pt'></td>
+  <td width=522 style='width:392pt'></td>
+  <td width=305 style='width:229pt'></td>
+  <td width=64 style='width:48pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

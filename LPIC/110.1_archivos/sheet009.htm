@@ -1,0 +1,297 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../110.1.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(8);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../110.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl78>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1263 style='border-collapse:
+ collapse;table-layout:fixed;width:947pt'>
+ <col class=xl78 width=1183 style='mso-width-source:userset;mso-width-alt:43264;
+ width:887pt'>
+ <col class=xl78 width=80 style='width:60pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1183 style='height:15.0pt;width:887pt'><a
+  name="RANGE!A1">sudo</a></td>
+  <td class=xl80 width=80 style='width:60pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>El comando sudo permite
+  asignar el derecho a ejecutar comandos de administrador a uno o varios
+  usuarios, en una o varias máquinas.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>En la práctica, para que un
+  usuario pueda ejecutar un comando que, en principio, sólo puede ejecutar
+  root, debe añadirse un derecho sudo a este usuario para este comando.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>El fichero de configuración de
+  sudo es /etc/sudoers.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Es posible editarlo a mano o
+  con el comando visudo.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Este último comando comprueba
+  la sintaxis del fichero en el momento de guardar.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>La clásica sintaxis de una
+  línea sudo es la siguiente:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>user<span
+  style='mso-spacerun:yes'>       </span>machine = (user2) comando</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>- user: el usuario (o alias)
+  al cual se aplica la regla.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>- máquina: la máquina (o el
+  alias) en la cual se aplica la regla.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>- user2: la cuenta con la cual
+  el usuario ejecutará el comando.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>- comando: el comando que se
+  va a ejecutar.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Por ejemplo, la línea
+  siguiente va a autorizar al usuario &quot;seb&quot; a ejecutar el comando
+  fsck y sus parámetros con los derechos root sobre cualquier máquina (donde
+  esté presente esta regla):</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>seb<span
+  style='mso-spacerun:yes'>        </span>ALL = /sbin/fsck</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Para utilizar fsck, seb debe
+  usar el comando sudo como a continuación:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>seb@slyserver:~/handbrake&gt;
+  sudo /sbin/fsck</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>seb’s password:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>fsck 1.41.1 (01-Sep-2008)</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>e2fsck 1.41.1 (01-Sep-2008)</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>...</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Por defecto, se pide la
+  contraseña del usuario &quot;seb&quot; antes de proseguir.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>El usuario puede obtener la
+  lista de sus derechos sudo:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>seb@slyserver:~/handbrake&gt;
+  sudo -l</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>User seb may run the following
+  commands on this host:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>    </span>(root) /sbin/fsck</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Por defecto, se autentica el
+  usuario una primera vez; luego, no se vuelve a pedir su contraseña mientras
+  continúe en la misma sesión (mientras no cierre su consola o su entorno).</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>La ventaja de sudo, además de
+  asignar derechos puntuales a un grupo de personas determinadas, es la
+  trazabilidad.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Se transmiten los mensajes de
+  sudo a syslog, que los puede volver a dirigir a un fichero.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Puede ser /var/log/messages:</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>May<span
+  style='mso-spacerun:yes'>  </span>8 14:39:08 slyserver sudo:<span
+  style='mso-spacerun:yes'>      </span>seb</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>: TTY=pts/3 ; PWD=/home/seb ;
+  USER=root ; COMMAND=/sbin/fsck</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>May<span
+  style='mso-spacerun:yes'>  </span>8 14:40:14 slyserver sudo:<span
+  style='mso-spacerun:yes'>      </span>seb</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>: TTY=pts/3 ; PWD=/home/seb ;
+  USER=root ; COMMAND=list</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'>Se puede establecer el
+  registro de destino mediante syslog.conf o syslog_ng.conf.</td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 style='height:15.0pt'></td>
+  <td class=xl78></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl80 style='height:15.0pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+  <td class=xl78></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1183 style='width:887pt'></td>
+  <td width=80 style='width:60pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

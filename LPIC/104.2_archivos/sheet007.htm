@@ -1,0 +1,326 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../104.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>104.2 - Maintain the integrity of filesystems</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(6);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../104.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=5337 style='border-collapse:
+ collapse;table-layout:fixed;width:4005pt'>
+ <col class=xl68 width=1356 style='mso-width-source:userset;mso-width-alt:49590;
+ width:1017pt'>
+ <col class=xl66 width=782 style='mso-width-source:userset;mso-width-alt:28598;
+ width:587pt'>
+ <col class=xl66 width=667 style='mso-width-source:userset;mso-width-alt:24393;
+ width:500pt'>
+ <col class=xl66 width=914 style='mso-width-source:userset;mso-width-alt:33426;
+ width:686pt'>
+ <col class=xl66 width=767 style='mso-width-source:userset;mso-width-alt:28050;
+ width:575pt'>
+ <col class=xl66 width=450 style='mso-width-source:userset;mso-width-alt:16457;
+ width:338pt'>
+ <col class=xl66 width=174 style='mso-width-source:userset;mso-width-alt:6363;
+ width:131pt'>
+ <col class=xl66 width=102 style='mso-width-source:userset;mso-width-alt:3730;
+ width:77pt'>
+ <col class=xl66 width=80 style='width:60pt'>
+ <col class=xl66 width=45 style='mso-width-source:userset;mso-width-alt:1645;
+ width:34pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'><a
+  name="RANGE!A1">El comando fsck permite comprobar y arreglar un sistema de
+  ficheros.</a></td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1356 style='height:15.0pt;width:1017pt'>fsck
+  -t typefs periférico</td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1356 style='height:15.0pt;width:1017pt'></td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'>El
+  sistema de ficheros que se quiere comprobar o arreglar no debería estar
+  montado, o, como mucho, montado en modo de sólo lectura.</td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'></td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'>De la
+  misma forma que mkfs, fsck invoca a otro comando teniendo en cuenta el tipo
+  del sistema de ficheros para comprobar: esos otros comandos más
+  especializados son fsck.ext2, fsck.ext3, etc.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'>Cada
+  uno puede presentar opciones particulares.</td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'>Si
+  fsck no reconoce la opción que se le proporciona, la transmite al programa
+  correspondiente.</td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'>Si
+  usted no indica un tipo, fsck intenta determinarlo por sí mismo.</td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'></td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'>Para
+  este ejemplo, se pasa el parámetro -f a fsck para forzar la comprobación, así
+  como el parámetro -V para facilitar todos los detalles.</td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'></td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'># fsck
+  -fV /dev/sda2</td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=1356 style='height:30.0pt;width:1017pt'>Cuando
+  el sistema de ficheros está dañado, fsck inicia una batería de preguntas por
+  cada acción necesaria. Puede pasar el parámetro -p para intentar una
+  reparación automática, o también -y para forzar las respuestas a sí.</td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'></td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'>Durante
+  el inicio del sistema, éste comprueba desde hace cuánto tiempo, o después de
+  cuántos montajes, no se ha comprobado el sistema de ficheros.</td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'>Si el
+  intervalo de tiempo es demasiado importante, entonces ejecutará un fsck en el
+  sistema de ficheros correspondientes.</td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1356 style='height:15.0pt;width:1017pt'>Se
+  pueden modificar los intervalos mediante el comando tune2fs.</td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1356 style='width:1017pt'></td>
+  <td width=782 style='width:587pt'></td>
+  <td width=667 style='width:500pt'></td>
+  <td width=914 style='width:686pt'></td>
+  <td width=767 style='width:575pt'></td>
+  <td width=450 style='width:338pt'></td>
+  <td width=174 style='width:131pt'></td>
+  <td width=102 style='width:77pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=45 style='width:34pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

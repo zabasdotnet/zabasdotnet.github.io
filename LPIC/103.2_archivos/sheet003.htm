@@ -1,0 +1,179 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../103.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>103.2 - Process text streams using filters</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../103.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=842 style='border-collapse:
+ collapse;table-layout:fixed;width:632pt'>
+ <col class=xl66 width=842 style='mso-width-source:userset;mso-width-alt:30793;
+ width:632pt'>
+ <col class=xl66 width=535 style='mso-width-source:userset;mso-width-alt:19565;
+ width:401pt'>
+ <col class=xl66 width=981 style='mso-width-source:userset;mso-width-alt:35876;
+ width:736pt'>
+ <col class=xl66 width=457 style='mso-width-source:userset;mso-width-alt:16713;
+ width:343pt'>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=842 style='height:15.0pt;width:632pt'><a
+  name="RANGE!A1">cut</a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'>El
+  comando cut permite seleccionar columnas y campos en un fichero.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'>La
+  sintaxis para las columnas es la siguiente:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=842 style='height:15.0pt;width:632pt'>cut
+  -cColumnas [fic1...]</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'>Una
+  columna es la posición de un carácter en la línea.<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=842 style='height:15.0pt;width:632pt'>El
+  primer carácter es la columna 1&#894; el segundo, la columna 2, y así
+  sucesivamente.<span style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'>Una
+  línea de 80 caracteres dispone de 80 columnas.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=842 style='height:15.0pt;width:632pt'>La
+  numeración empieza a 1.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'>El
+  formato de selección de columna es el siguiente:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=842 style='height:15.0pt;width:632pt'>- una
+  columna sola (p. ej. c2 para la columna 2)&#894;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=842 style='height:15.0pt;width:632pt'>- un
+  intervalo (p. ej. c24 para las columnas 2, 3 y 4)&#894;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=842 style='height:15.0pt;width:632pt'>- una
+  lista de columnas (p. ej. c1,3,6 para las columnas 1, 3 y 6)&#894;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=842 style='height:15.0pt;width:632pt'>- los
+  tres a la vez (p. ej. c13,5,6,12).</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'>El
+  comando cut también permite seleccionar campos.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'>Se deben
+  delimitar estos campos por defecto por una tabulación, pero el parámetro -d
+  permite seleccionar otro carácter (espacio, &#894;).<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'>El
+  carácter separador debe ser único.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'>No es
+  posible poner ni dos, ni tres, ni una cadena de separadores.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=842 style='height:15.0pt;width:632pt'>Para
+  eliminar los caracteres múltiples, utilice tr.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=842 style='height:15.0pt;width:632pt'>El
+  separador por defecto es la tabulación.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'>Por
+  defecto se sustituyen las tabulaciones con espacios dentro de los editores...</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=842 style='height:15.0pt;width:632pt'>cut -dc
+  -fCampos [fic1...]</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=842 style='height:15.0pt;width:632pt'>Si no
+  hay delimitador (tabulación u otro) en una línea, cut muestra toda la línea.</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=842 style='width:632pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

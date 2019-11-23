@@ -1,0 +1,2067 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../201.3.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(6);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../201.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1646 style='border-collapse:
+ collapse;table-layout:fixed;width:1235pt'>
+ <col class=xl68 width=1598 style='mso-width-source:userset;mso-width-alt:58441;
+ width:1199pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>kernel</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Desde
+  el punto de vista de la compilación, el kernel (también llamado <font
+  class="font18">núcleo</font><font class="font0">) es casi como una aplicación
+  más, con su </font><font class="font18">código fuente, un procedimiento de
+  compilación y un procedimiento de instalación</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>1. Los
+  componentes del kernel.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>El
+  kernel Linux es el responsable de la <font class="font18">gestión del
+  hardware</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1598 style='height:15.0pt;width:1199pt'>El
+  concepto de controlador de dispositivo no existe directamente en entornos
+  Linux debido a que los elementos que permiten comunicarse correctamente con
+  un periférico están incluidos en el código del kernel.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Uno se
+  acostumbra muy rápido a la comodidad de esta situación: el kernel recién
+  incluido en una distribución Linux puede gestionar directamente el conjunto
+  de dispositivos de un sistema sin tener que instalar controladores
+  adicionales.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Por el
+  contrario, el código del kernel tiene la tendencia cada vez más a ser más
+  pesado para gestionar el conjunto de dispositivos existente y su carga total
+  provocaría un consumo de memoria excesivo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Por
+  esta razón, el kernel tiene una estructura modular y solo se cargan en
+  memoria los módulos necesarios para el correcto funcionamiento del sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>a. El
+  corazón del kernel</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Se
+  puede llamar «corazón del kernel» a la parte irreductible del kernel, que es
+  la que se carga en su totalidad en memoria.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Solo
+  contiene elementos de los que se está seguro que se necesitarán.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>El
+  corazón del kernel es un archivo que se encuentra en el directorio <font
+  class="font18">/boot</font><font class="font0"> y cuyo tamaño es de algunos
+  MB.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>b.
+  Módulos</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Los
+  módulos tienen un papel primordial ya que muchas de las funciones básicas se
+  gestionan en forma de módulos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Si un
+  kernel no dispone de los módulos necesarios para el funcionamiento del
+  sistema, las funciones simplemente no estarán disponibles.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Intento
+  de carga de un recurso no soportado:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Este
+  ejemplo se realiza en un sistema cuyo kernel no soporta el formato de sistema
+  de archivos ext3.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>light:/mnt#
+  mount /dev/hda3 partition<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>mount:
+  unknown filesystem type ’ext3’<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>light:/mnt#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Los
+  módulos son archivos con la <font class="font18">extensión .ko</font><font
+  class="font0"> que se cargan en memoria en función de las necesidades.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Existe
+  a nuestra disposición una serie de comandos que permiten listar los módulos
+  cargados, retirarlos de memoria o cargar otros nuevos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1598 style='height:15.0pt;width:1199pt'>Los
+  kernels de versiones antiguas (2.4 especialmente) usan archivos de módulos
+  con la <font class="font19">extensión «.o»</font><font class="font9">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Visualización
+  de módulos cargados en memoria:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>lsmod</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'><a
+  name="RANGE!A39">*Visualización de los módulos disponibles en el sistema</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>modprobe
+  -l</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Los
+  archivos que corresponden a estos módulos se encuentran normalmente en el
+  directorio <font class="font18">/lib/modules</font><font class="font0">,
+  dentro de una estructura de directorios cuyo directorio principal es el
+  nombre del kernel actual, tal y como se obtiene con el comando </font><font
+  class="font18">uname -r</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'><a
+  name="RANGE!A44">*Quitar un módulo cargado en memoria:</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>rmmod
+  nombre_módulo</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>o</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>modprobe
+  -r nombre_módulo</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'><a
+  name="RANGE!A49">Donde nombre_módulo representa el nombre del módulo presente
+  en memoria tal y como se muestra con el comando <font class="font18">lsmod</font><font
+  class="font0">.</font></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Ambos
+  comandos (<font class="font18">rmmod </font><font class="font20">y</font><font
+  class="font18"> modprobe -r</font><font class="font0">) producen el mismo
+  resultado.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'><a
+  name="RANGE!A52">*Carga de un módulo en memoria:</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>insmod
+  archivo_módulo</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>o</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>modprobe
+  nombre_módulo</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Donde
+  nombre_módulo representa el nombre del módulo tal y como será mostrado por el
+  comando lsmod y archivo_módulo representa el nombre del archivo de módulo
+  presente en disco.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>De
+  hecho, el nombre del módulo se obtiene retirando la <font class="font18">extensión
+  .ko</font><font class="font0"> al nombre del archivo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Carga
+  de un módulo:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>La
+  carga manual del módulo que faltaba anteriormente hace posible que se pueda
+  montar la partición ext3.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1598 style='height:15.0pt;width:1199pt'>light:/mnt#
+  insmod /lib/modules/2.6.26-2-686/kernel/fs/ext3/ext3.ko<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1598 style='height:15.0pt;width:1199pt'>light:/mnt#
+  mount /dev/hda3 partition<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1598 style='height:15.0pt;width:1199pt'>light:/mnt#
+  mount<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>/dev/hda1
+  on / type ext2 (rw,errors=remount-ro)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>(...)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>/dev/hda3
+  on /mnt/partition type ext3 (rw)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1598 style='height:15.0pt;width:1199pt'>light:/mnt#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Carga
+  forzada de un módulo:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Los
+  módulos se cargan en principio durante el arranque en función del hardware
+  que se haya detectado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Sin
+  embargo, se puede forzar la carga de un módulo rellenando un archivo de
+  configuración de módulos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Cualquier
+  módulo mencionado en el archivo <font class="font18">/etc/modules</font><font
+  class="font0"> se cargará por defecto en el arranque.<span
+  style='mso-spacerun:yes'> </span></font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Configuración
+  de módulos:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>El
+  archivo <font class="font18">/etc/modules.conf</font><font class="font0">
+  permite configurar algunos módulos y especialmente definir asociaciones
+  forzadas entre dispositivos y módulos.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Ejemplo
+  de archivo /etc/modules.conf:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>#
+  Asociación forzada del controlador tg3 con la tarjeta de red<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>alias
+  eth0 tg3</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'><a
+  name="RANGE!A82">A título de comprobación, o para ver si las asociaciones
+  entre el hardware y los módulos han sido realizadas correctamente, se puede
+  mostrar información acerca de los módulos cargados con el comando <font
+  class="font18">modinfo</font><font class="font0">.</font></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Visualización
+  de la información relacionada con un módulo:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Se ve
+  especialmente el archivo .ko que contiene el código del módulo, alguna
+  información relativa al entorno y los alias gestionados dinámicamente por el
+  sistema para el hardware ligado a este módulo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1598 style='height:15.0pt;width:1199pt'>root@servidor:/boot$
+  modinfo r8169<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>filename:<span
+  style='mso-spacerun:yes'>      
+  </span>/lib/modules/2.6.32-24-generic/kernel/drivers/net/r8169.ko<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>version:<span
+  style='mso-spacerun:yes'>        </span>2.3LK-NAPI<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>license:<span
+  style='mso-spacerun:yes'>        </span>GPL<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>description:<span
+  style='mso-spacerun:yes'>    </span>RealTek RTL-8169 Gigabit Ethernet
+  driver<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>author:<span
+  style='mso-spacerun:yes'>         </span>Realtek and the Linux r8169 crew
+  &lt;netdev@vger.kernel.org&gt;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>srcversion:<span
+  style='mso-spacerun:yes'>     </span>D37E06388C6313C1D062CC3<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>alias:<span
+  style='mso-spacerun:yes'>         
+  </span>pci:v00000001d00008168sv*sd00002410bc*sc*i*<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>alias:<span
+  style='mso-spacerun:yes'>         
+  </span>pci:v00001737d00001032sv*sd00000024bc*sc*i*<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>alias:<span
+  style='mso-spacerun:yes'>         
+  </span>pci:v000016ECd00000116sv*sd*bc*sc*i*<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>alias:<span
+  style='mso-spacerun:yes'>         
+  </span>pci:v00001259d0000C107sv*sd*bc*sc*i*<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>alias:<span
+  style='mso-spacerun:yes'>         
+  </span>pci:v00001186d00004300sv*sd*bc*sc*i*<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>alias:<span
+  style='mso-spacerun:yes'>         
+  </span>pci:v000010ECd00008169sv*sd*bc*sc*i*<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>alias:<span
+  style='mso-spacerun:yes'>         
+  </span>pci:v000010ECd00008168sv*sd*bc*sc*i*<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>alias:<span
+  style='mso-spacerun:yes'>         
+  </span>pci:v000010ECd00008167sv*sd*bc*sc*i*<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>alias:<span
+  style='mso-spacerun:yes'>         
+  </span>pci:v000010ECd00008136sv*sd*bc*sc*i*<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>alias:<span
+  style='mso-spacerun:yes'>         
+  </span>pci:v000010ECd00008129sv*sd*bc*sc*i*<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>depends:<span
+  style='mso-spacerun:yes'>        </span>mii<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>vermagic:<span
+  style='mso-spacerun:yes'>       </span>2.6.32-24-generic SMP mod_unload
+  modversions<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>parm:<span
+  style='mso-spacerun:yes'>           </span>rx_copybreak:Copy breakpoint for
+  copy-only-tiny-frames (int)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>parm:<span
+  style='mso-spacerun:yes'>           </span>use_dac:Enable PCI DAC. Unsafe on
+  32 bit PCI slot. (int)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>parm:<span
+  style='mso-spacerun:yes'>           </span>debug:Debug verbosity level
+  (0=none, ..., 16=all) (int)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1598 style='height:15.0pt;width:1199pt'>root@servidor:/boot$</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>c.
+  Alrededor del kernel</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Ya se
+  ha explicado que el kernel se constituye de una entidad indivisible y de
+  módulos cargados en memoria bajo demanda.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>En la
+  fase de arranque, el gestor de arranque carga el kernel, así como los módulos
+  correspondientes a la configuración de hardware del sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Para
+  acelerar la fase de detección del hardware y la carga de módulos asociada, la
+  mayoría de los sistemas modernos usan un <font class="font18">ramdisk</font><font
+  class="font0"> (</font><font class="font21">disco virtual cuyo soporte físico
+  es la memoria principal</font><font class="font0">) que contiene el conjunto
+  de módulos.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Este
+  ramdisk se genera una vez se ha compilado el kernel y se llama directamente
+  por el gestor de arranque.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>d.
+  Gestión de versiones del kernel</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>El
+  kernel lleva un número de versión de tipo A.B.C, por ejemplo 2.6.15.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>«A»
+  determina la versión principal del kernel: hasta hace poco la versión 2.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>«B»
+  representa la versión actual del kernel. Este valor es sistemáticamente par
+  en las versiones estables e impar en las versiones de desarrollo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Finalmente,
+  «C» se incrementa en función de las evoluciones menores del kernel,
+  básicamente correcciones de errores y actualizaciones de nuevo hardware.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>En
+  julio de 2011, el núcleo alcanzó la versión 3.0 teniendo como cambio
+  principal, según su creador, Linus Torvalds: «nada, absolutamente nada».</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Este
+  cambio se recibió como una especie de capricho, más o menos para celebrar los
+  veinte años del núcleo de Linux.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>La
+  evolución de esta versión, la más espectacular, para el gran público ha sido
+  el soporte a los periféricos Kinect de Microsoft.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Una
+  adición entre tantas otras, soporte de nuevo hardware, correcciones varias y
+  otras evoluciones menores.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Las
+  distribuciones actuales no buscan especialmente proporcionar la última
+  versión disponible del núcleo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>El
+  número de funciones implementadas por el núcleo hace que la validación de una
+  versión antes de su distribución sea difícil y compleja.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Los
+  sistemas Linux orientados al gran público son más bien vanguardistas e
+  intentan proporcionar las últimas versiones del núcleo, mientras que las
+  destinadas al mundo empresarial premian la estabilidad y liberan núcleos en
+  versiones más antiguas.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>En
+  junio de 2012, Red Hat ofrecía un núcleo en versión 2.6.32, Ubuntu 3.2.0,
+  mientras que el último núcleo estable disponible en el sitio web de
+  kernel.org estaba en versión 3.4.4.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>El
+  comando <font class="font18">uname -r</font><font class="font0"> permite
+  visualizar la versión del kernel en ejecución.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Visualización
+  de la versión del kernel actual:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1598 style='height:15.0pt;width:1199pt'>toto@servidor:~$
+  uname -r<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>2.6.32-24-generic<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1598 style='height:15.0pt;width:1199pt'>toto@servidor:~$</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>2.
+  Procedimiento de compilación y de utilización.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>El
+  procedimiento de compilación siempre debe consultarse en el archivo <font
+  class="font18">README</font><font class="font0"> presente con las fuentes del
+  kernel.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Los
+  elementos específicos del kernel están documentados en el directorio <font
+  class="font18">Documentation</font><font class="font0"> proporcionado con las
+  fuentes.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>El
+  archivo <font class="font18">README</font><font class="font22"> solo
+  documenta el procedimiento de compilación</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>a.
+  Obtención de fuentes</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>El
+  código fuente del kernel se puede descargar de forma gratuita desde el sitio
+  web <font class="font11">http://www.kernel.org</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Los
+  enlaces «<font class="font11">Full source</font><font class="font0">»
+  permiten descargar el </font><font class="font11">código fuente completo</font><font
+  class="font0"> del kernel.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>El
+  kernel se libera en forma de <font class="font18">archivo tar.bz2</font><font
+  class="font0">, por lo que primeramente hay que descomprimirlo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Como
+  para cualquier compilación de aplicación, la mayor parte del trabajo se
+  realizará en el directorio creado en la extracción del archivo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1598 style='height:15.0pt;width:1199pt'>Si se
+  trabaja sobre las fuentes del kernel copiadas en la instalación del sistema,
+  el directorio de trabajo debería ser /usr/src/linux/.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1598 style='height:15.0pt;width:1199pt'>Naturalmente,
+  la documentación se encontrará entonces en /usr/src/linux/Documentation.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>En
+  caso de trabajar con fuentes nuevas, se recomienda utilizar un directorio
+  neutro.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>b.
+  Generación del archivo de configuración</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>La
+  compilación se realiza en función de la información albergada en el <font
+  class="font18">archivo .config</font><font class="font0"> que se encuentra en
+  la</font><font class="font11"> raíz del directorio de fuentes</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Este
+  archivo indica para cada elemento del kernel si debe estar presente en el
+  corazón del kernel, presente en forma de módulo o ausente del kernel
+  compilado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Según
+  el sistema usado, hay varios medios a nuestra disposición para generar este
+  archivo de configuración.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Generación
+  del archivo de configuración: comandos posibles:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><font
+  class="font18">make config --&gt; </font><font class="font13">Va realizando
+  preguntas al usuario para cada uno de los módulos.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><font
+  class="font18">make menuconfig --&gt;</font><font class="font13"> Presenta
+  una interfaz de texto mejorada.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><font
+  class="font18">make xconfig --&gt;</font><font class="font13"> Presenta una
+  interfaz gráfica.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><font
+  class="font18">make gconfig --&gt;</font><font class="font13"> Presenta una
+  interfaz gráfica.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><font
+  class="font18">make defconfig --&gt;</font><font class="font13"> Genera un
+  archivo de configuración basándose en todos los valores de compilación por
+  defecto.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><font
+  class="font18">make oldconfig --&gt;</font><font class="font13"> Genera un
+  archivo de configuración basándose en un archivo .config ya utilizado para
+  una versión más antigua del kernel.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Aunque
+  la compilación del kernel no presenta ninguna dificultad particular, informar
+  el archivo de configuración requiere una gran capacidad y el conocimiento
+  preciso del hardware.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Ejemplo
+  de creación del archivo de configuración:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>La
+  compilación detallada del núcleo requiere el conocimiento de todas las
+  tecnologías de hardware gestionadas por este núcleo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>[root@beta
+  linux-2.6.34.4]# make config<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>HOSTCC<span style='mso-spacerun:yes'> 
+  </span>scripts/basic/fixdep<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>HOSTCC<span style='mso-spacerun:yes'> 
+  </span>scripts/basic/docproc<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>HOSTCC<span style='mso-spacerun:yes'> 
+  </span>scripts/basic/hash<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>HOSTCC<span style='mso-spacerun:yes'> 
+  </span>scripts/kconfig/conf.o<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>(...)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>PentiumPro
+  memory ordering errata workaround (X86_PPRO_FENCE) [Y/n/?] y<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>HPET
+  Timer Support (HPET_TIMER) [Y/n/?] y<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>Maximum
+  number of CPUs (NR_CPUS) [8] (NEW) 8<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>SMT
+  (Hyperthreading) scheduler support (SCHED_SMT) [Y/n/?] y<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>Multi-core
+  scheduler support (SCHED_MC) [Y/n/?] y<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>Preemption
+  Model<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>1. No Forced Preemption (Server)
+  (PREEMPT_NONE)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>&gt;
+  2. Voluntary Kernel Preemption (Desktop) (PREEMPT_VOLUNTARY)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>3. Preemptible Kernel (Low-Latency Desktop)
+  (PREEMPT)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>choice[1-3]:
+  2<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>Reroute
+  for broken boot IRQs (X86_REROUTE_FOR_BROKEN_BOOT_IRQS) [N/y/?] (NEW) n<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>Machine
+  Check / overheating reporting (X86_MCE) [Y/n/?] n<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>Toshiba
+  Laptop support (TOSHIBA) [M/n/y/?] n<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>Dell
+  laptop support (I8K) [M/n/y/?] m<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>Enable
+  X86 board specific fixups for reboot (X86_REBOOTFIXUPS) [N/y/?] n<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>(...)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CRC-CCITT
+  functions (CRC_CCITT) [M/y/?] m<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CRC16
+  functions (CRC16) [M/y/?] m<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CRC
+  calculation for the T10 Data Integrity Field (CRC_T10DIF) [N/m/y/?] (NEW)
+  m<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CRC
+  ITU-T V.41 functions (CRC_ITU_T) [M/y/?] m<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CRC32
+  functions (CRC32) [Y/?] y<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CRC7
+  functions (CRC7) [N/m/y/?] (NEW) n<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CRC32c
+  (Castagnoli, et al) Cyclic Redundancy-Check (LIBCRC32C) [Y/m/?] y<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>#<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>#
+  configuration written to .config<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>#<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>[root@beta
+  linux-2.6.34.4]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Primeras
+  líneas del archivo de configuración:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>[root@beta
+  linux-2.6.34.4]# head -15 .config<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>#<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>#
+  Automatically generated make config: don’t edit<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>#
+  Linux kernel version: 2.6.34.4<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'># Mon
+  Aug 8 13:21:04 2011<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>#<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>#
+  CONFIG_64BIT is not set<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_X86_32=y<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>#
+  CONFIG_X86_64 is not set<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_X86=y<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_OUTPUT_FORMAT=&quot;elf32-i386&quot;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_ARCH_DEFCONFIG=&quot;arch/x86/configs/i386_defconfig&quot;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_GENERIC_TIME=y<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_GENERIC_CMOS_UPDATE=y<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_CLOCKSOURCE_WATCHDOG=y<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_GENERIC_CLOCKEVENTS=y<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>[root@beta
+  linux-2.6.34.4]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Tamaño
+  indicativo del archivo de configuración</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>[root@beta
+  linux-2.6.34.4]# wc -l .config<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>3641
+  .config<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>[root@beta
+  linux-2.6.34.4]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>La
+  configuración de los módulos para una versión de kernel instalada se
+  encuentra en el archivo <font class="font18">config-versión</font><font
+  class="font0"> en el directorio </font><font class="font18">/boot</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Visualización
+  de los archivos de configuración de los kernels:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1598 style='height:15.0pt;width:1199pt'>root@servidor:/boot$
+  ls config*<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>config-2.6.27-11-generic<span
+  style='mso-spacerun:yes'>  </span>config-2.6.32-21-generic<span
+  style='mso-spacerun:yes'>  </span>config-2.6.32-24-generic<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>config-2.6.28-16-generic<span
+  style='mso-spacerun:yes'>  </span>config-2.6.32-22-generic<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>config-2.6.31-21-generic<span
+  style='mso-spacerun:yes'>  </span>config-2.6.32-23-generic<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>root@servidor:/boot$
+  cat config-2.6.32-24-generic<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>#<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>#
+  Automatically generated make config: don’t edit<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>#
+  Linux kernel version: 2.6.32-24-generic<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'># Thu
+  Aug 19 01:38:31 2010<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>#<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_64BIT=y<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>#
+  CONFIG_X86_32 is not set<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_X86_64=y<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_X86=y<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_OUTPUT_FORMAT=&quot;elf64-x86-64&quot;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_ARCH_DEFCONFIG=&quot;arch/x86/configs/x86_64_defconfig&quot;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_GENERIC_TIME=y<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_GENERIC_CMOS_UPDATE=y<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>CONFIG_CLOCKSOURCE_WATCHDOG=y<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1598 style='height:15.0pt;width:1199pt'>(...)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1598 style='height:15.0pt;width:1199pt'>root@servidor:/boot$</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>c.
+  Compilación del kernel y de los módulos</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>La
+  compilación se realiza de la forma más trivial, simplemente tecleando el
+  comando <font class="font18">make</font><font class="font0"> desde el </font><font
+  class="font11">directorio raíz de las fuentes</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>La
+  duración de la operación depende de la potencia de la máquina en la que se
+  realiza, pero una buena hora es a menudo necesaria.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Para
+  un kernel con versión 2.6, el comando make provoca la compilación del kernel
+  y sus módulos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1598 style='height:15.0pt;width:1199pt'>Tardará
+  alrededor de una hora o dos...</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>[root@beta
+  linux-2.6.34.4]# make<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>scripts/kconfig/conf
+  -s arch/x86/Kconfig<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>CHK<span style='mso-spacerun:yes'>    
+  </span>include/linux/version.h<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>UPD<span style='mso-spacerun:yes'>    
+  </span>include/linux/version.h<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>CHK<span style='mso-spacerun:yes'>    
+  </span>include/generated/utsrelease.h<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>UPD<span style='mso-spacerun:yes'>    
+  </span>include/generated/utsrelease.h<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>CC<span style='mso-spacerun:yes'>     
+  </span>kernel/bounds.s<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>GEN<span style='mso-spacerun:yes'>    
+  </span>include/generated/bounds.h<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>CC<span style='mso-spacerun:yes'>     
+  </span>arch/x86/kernel/asm-offsets.s<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>(...)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>CC<span style='mso-spacerun:yes'>     
+  </span>arch/x86/kernel/cpu/cpufreq/speedstep-lib.o<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>CC<span style='mso-spacerun:yes'>     
+  </span>arch/x86/kernel/cpu/cpufreq/speedstep-smi.o<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>LD<span style='mso-spacerun:yes'>     
+  </span>arch/x86/kernel/cpu/cpufreq/built-in.o<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>CC [M]<span style='mso-spacerun:yes'> 
+  </span>arch/x86/kernel/cpu/cpufreq/powernow-k8.o<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>CC [M]<span style='mso-spacerun:yes'> 
+  </span>arch/x86/kernel/cpu/cpufreq/acpi-cpufreq.o<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>CC [M]<span style='mso-spacerun:yes'> 
+  </span>arch/x86/kernel/cpu/cpufreq/speedstep-centrino.o<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>CC [M]<span style='mso-spacerun:yes'> 
+  </span>arch/x86/kernel/cpu/cpufreq/p4-clockmod.o<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>CC<span style='mso-spacerun:yes'>     
+  </span>arch/x86/kernel/cpu/mcheck/mce.o<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>CC<span style='mso-spacerun:yes'>     
+  </span>arch/x86/kernel/cpu/mcheck/mce-severity.o<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'>  </span>CC<span style='mso-spacerun:yes'>     
+  </span>arch/x86/kernel/cpu/mcheck/mce_intel.o<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>(...)</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>La
+  ejecución del comando <font class="font19">make</font><font class="font0">
+  provoca la compilación del kernel y de sus módulos.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>También
+  invoca el comando <font class="font18">depmod</font><font class="font0">, que
+  genera el archivo </font><font class="font18">modules.dep</font><font
+  class="font0"> de dependencia de módulos.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>d.
+  Instalación de módulos</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Los
+  módulos se instalan con el comando específico <font class="font18">make
+  modules_install</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Se
+  copian en el directorio <font class="font18">/lib/modules</font><font
+  class="font0">, en un directorio correspondiente a la versión del kernel.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Visualización
+  de los directorios que contienen los módulos:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Cada
+  versión de kernel instalado tiene su directorio de módulos correspondiente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>root@servidor:~$
+  ls /lib/modules/<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>2.6.27-11-generic<span
+  style='mso-spacerun:yes'>  </span>2.6.28-16-generic<span
+  style='mso-spacerun:yes'>  </span>2.6.32-22-generic<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>2.6.27-7-generic<span
+  style='mso-spacerun:yes'>   </span>2.6.31-21-generic<span
+  style='mso-spacerun:yes'>  </span>2.6.32-23-generic<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>2.6.27-9-generic<span
+  style='mso-spacerun:yes'>   </span>2.6.32-21-generic<span
+  style='mso-spacerun:yes'>  </span>2.6.32-24-generic<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>root@servidor:~$</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>e.
+  Instalación del kernel</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>El
+  kernel sin módulos se encuentra en el directorio de fuentes en la ruta
+  relativa <font class="font18">arch/x86/boot</font><font class="font0"> para
+  las versiones de </font><font class="font5">32 bits</font><font class="font0">
+  o </font><font class="font18">arch/ia64/boot</font><font class="font0"> para
+  las versiones de </font><font class="font5">64 bits</font><font class="font0">
+  con el nombre </font><font class="font18">bzImage</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Su
+  instalación en el sistema en producción se realiza copiando simplemente este
+  archivo en el directorio <font class="font18">/boot</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Se
+  puede usar perfectamente el nombre por defecto (bzImage), pero es
+  recomendable renombrarlo para tener en cuenta la versión compilada.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1598 style='height:15.0pt;width:1199pt'>Las
+  compilaciones que se realicen con versiones antiguas de kernel pueden generar
+  un archivo zImage y no un bzImage.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1598 style='height:15.0pt;width:1199pt'>El
+  prefijo z o bz indica si el formato de compresión del archivo de kernel es
+  gzip (z) o bzip2 (bz).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1598 style='height:15.0pt;width:1199pt'>Un
+  kernel recién compilado siempre debe instalarse añadiéndose al kernel
+  existente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1598 style='height:15.0pt;width:1199pt'>Nunca
+  reemplace un kernel que funciona por un kernel nuevo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1598 style='height:15.0pt;width:1199pt'>Las
+  buenas prácticas recomiendan que el archivo de kernel tenga un nombre
+  estándar que refleje su versión.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>root@servidor#
+  cp arch/x86/boot/bzImage /boot/vmlinuz-2.6.15<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>root@servidor#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>f.
+  Creación del ramdisk de módulos</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Hay
+  que dejar a disposición del kernel un <font class="font18">ramdisk</font><font
+  class="font0"> que contenga el conjunto de módulos compilados para la nueva
+  versión.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Este <font
+  class="font18">ramdisk</font><font class="font0"> necesita un </font><font
+  class="font11">archivo de imagen</font><font class="font0">, que puede
+  construirse con dos comandos distintos en función de la generación del
+  sistema usado.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>El
+  comando tradicional es <font class="font18">mkinitrd</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Este
+  tiende a desaparecer en beneficio del comando <font class="font18">mkinitramfs</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Creación
+  de un ramdisk con el comando mkinitrd:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>mkinitrd
+  nombre_imagen versión</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Creación
+  de un ramdisk con el comando mkinitramfs:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>mkinitramfs
+  -o nombre_imagen versión</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Donde
+  nombre_imagen representa el nombre del archivo de imagen de ramdisk que se
+  desea crear y versión el número de versión del kernel.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Este
+  número se corresponde de hecho con el directorio de módulos albergado en <font
+  class="font18">/lib/modules</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>-
+  Ejemplo de creación de un ramdisk:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>root@servidor:/boot$
+  mkinitrd /boot/initrd-2.6.28.img 2.6.28<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1598 style='height:15.0pt;width:1199pt'>root@servidor:/boot$
+  file initrd-2.6.28.img<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>initrd.img-2.6.32-24-generic:
+  gzip compressed data, from Unix, last modified: Fri<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>Aug 20
+  07:54:31 2010<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>root@servidor:/boot$</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>El
+  archivo ramdisk es de hecho un <font class="font18">archivo cpio</font><font
+  class="font0"> comprimido en </font><font class="font11">formato gzip</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Los
+  comandos de creación de <font class="font18">ramdisk</font><font class="font0">
+  generan directamente sus archivos en este formato.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Un
+  sistema reciente solo debería ofrecer el comando <font class="font18">mkinitramfs</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1598 style='height:15.0pt;width:1199pt'>Sin
+  embargo, si <font class="font19">mkinitrd</font><font class="font9"> también
+  está disponible, no debería usarse.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl75 height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=1598 style='height:15.0pt;width:1199pt'><font
+  class="font10">mkinitrd</font><font class="font15"> se basa en </font><font
+  class="font10">devfs</font><font class="font15"> y no en </font><font
+  class="font10">udev</font><font class="font15">, y no soporta los discos
+  sata.</font></td>
+  <td class=xl75 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>g.
+  Configuración del gestor de arranque</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>No
+  basta con tener compilado el kernel y haberlo puesto en el sitio adecuado,
+  todavía falta por configurar el gestor de arranque para que sea capaz de
+  cargar este kernel.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Por
+  consiguiente, hay que añadir su entrada al gestor de arranque.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Atención,
+  no hay que quitar nada de lo que ya haya en la configuración del gestor de
+  arranque: no se toca lo que ya funciona.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>Basta
+  con añadir una entrada en el archivo de configuración del gestor basándose,
+  si fuera necesario, en las entradas ya existentes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1598 style='height:15.0pt;width:1199pt'>*Añadir
+  una entrada en el gestor de arranque:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'>La
+  conservación de entradas existentes siempre permitirá poder arrancar usando
+  una configuración estable.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>#
+  kernel operativo original<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>title<span
+  style='mso-spacerun:yes'>           </span>Debian GNU/Linux, kernel
+  2.6.26-2-686<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>root<span
+  style='mso-spacerun:yes'>            </span>(hd0,0)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>kernel<span
+  style='mso-spacerun:yes'>          </span>/boot/vmlinuz-2.6.26-2-686
+  root=/dev/hda1 ro quiet<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>initrd<span
+  style='mso-spacerun:yes'>          </span>/boot/initrd.img-2.6.26-2-686<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>#
+  kernel añadido para probar<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>title<span
+  style='mso-spacerun:yes'>           </span>PRUEBA - módulos estáticos<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>root<span
+  style='mso-spacerun:yes'>            </span>(hd0,0)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>kernel<span
+  style='mso-spacerun:yes'>          </span>/boot/vmlinuz-2.6.20 root=/dev/hda1
+  ro quiet<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1598 style='height:15.0pt;width:1199pt'>initrd<span
+  style='mso-spacerun:yes'>          </span>/boot/initrd.img-2.6.20</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1598 style='height:15.0pt;width:1199pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1598 style='height:15.0pt;width:1199pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1598 style='width:1199pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

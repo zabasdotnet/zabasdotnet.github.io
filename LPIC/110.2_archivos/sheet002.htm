@@ -1,0 +1,162 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../110.2.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../110.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl70>
+
+<table border=0 cellpadding=0 cellspacing=0 width=760 style='border-collapse:
+ collapse;table-layout:fixed;width:570pt'>
+ <col class=xl70 width=680 style='mso-width-source:userset;mso-width-alt:24868;
+ width:510pt'>
+ <col class=xl70 width=80 style='width:60pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=680 style='height:15.0pt;width:510pt'><a
+  name="RANGE!A1">/etc/nologin</a></td>
+  <td class=xl72 width=80 style='width:60pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Antes de pasar por un
+  seudoshell de conexión, los módulos PAM permiten aplicar numerosas
+  limitaciones.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Entre ellas, el módulo
+  pam_nologin, que le permite prohibir la conexión de los usuarios excepto
+  root.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Este módulo monitoriza si un
+  usuario intenta conectarse al fichero /etc/nologin.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Es útil para tareas de
+  mantenimiento, ya que sólo root se puede conectar.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>$ pwd</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>/etc/pam.d</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>$ grep nologin *</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>login:auth<span
+  style='mso-spacerun:yes'>       </span>requisite<span
+  style='mso-spacerun:yes'>      </span>pam_nologin.so</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>ppp:auth<span
+  style='mso-spacerun:yes'>         </span>required<span
+  style='mso-spacerun:yes'>       </span>pam_nologin.so</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>sshd:auth<span
+  style='mso-spacerun:yes'>        </span>requisite<span
+  style='mso-spacerun:yes'>      </span>pam_nologin.so</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'>Piense también que puede
+  prohibir el acceso de una cuenta dada vía el módulo PAM pam_listfile.</td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 style='height:15.0pt'></td>
+  <td class=xl70></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 style='height:15.0pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+  <td class=xl70></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=680 style='width:510pt'></td>
+  <td width=80 style='width:60pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

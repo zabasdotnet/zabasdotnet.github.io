@@ -1,0 +1,1102 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../201.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../201.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1606 style='border-collapse:
+ collapse;table-layout:fixed;width:1205pt'>
+ <col class=xl68 width=1558 style='mso-width-source:userset;mso-width-alt:56978;
+ width:1169pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>Procedimiento
+  de compilación GNU</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>En la
+  mayoría de las situaciones, la compilación es una operación que pertenece al
+  desarrollador: el desarrollador escribe su programa, lo compila y libera el
+  código ejecutable listo para usar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Por
+  tanto, el gran público desconoce las habilidades necesarias para compilar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>El
+  mundo open source cambia un poco el concepto: por definición, el código
+  fuente de todos los programas está disponible y puede ser frecuente que el
+  usuario final tenga que compilar él mismo su aplicación.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>De
+  este modo, se ha definido un procedimiento de compilación estándar para que
+  cualquier usuario pueda realizar esta operación.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>a.
+  Obtención de las fuentes</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Por
+  definición, el código fuente de una aplicación open source está siempre
+  disponible, generalmente en un sitio web adjunto al proyecto de desarrollo de
+  la aplicación.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Particularmente,
+  el sitio web sourceforge.net se dedica a albergar muchos proyectos de
+  desarrollo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Una
+  vez que se han descargado las fuentes, basta con extraerlas de su archivo e
+  irse al directorio que se ha extraído.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Todas
+  las operaciones relacionadas con la compilación se realizarán desde la raíz
+  de este directorio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>b.
+  Configuración de la compilación</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>La
+  compilación tiene una serie de requisitos:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1558 style='height:15.0pt;width:1169pt'>- la
+  existencia del compilador.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1558 style='height:15.0pt;width:1169pt'>- la
+  posible presencia de librerías necesarias para compilar el programa.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1558 style='height:15.0pt;width:1169pt'>- un
+  archivo de respuesta que será leído por el compilador en la compilación.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>En el
+  procedimiento estándar de compilación GNU, debe haber un script llamado <font
+  class="font24">configure</font><font class="font0"> en el directorio raíz de
+  las fuentes y este script es el que se encarga de </font><font class="font25">realizar
+  estas tres operaciones.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>El
+  desarrollador del programa es su autor y lo libera con las fuentes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Durante
+  la ejecución, posiblemente con opciones de compilación, este script
+  comprobará el entorno y devolverá un mensaje de error en caso de que se
+  produzca una ausencia en el entorno de compilación (compilador y librerías
+  necesarias).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Si
+  todo va bien, este script acabará generando archivos como resultado (uno por
+  cada subdirectorio existente en el directorio de los fuentes) llamados <font
+  class="font24">Makefile</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Estos
+  archivos se crean a partir de las opciones que se han facilitado al script de
+  configuración y de un archivo plantilla <font class="font24">Makefile.ini</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Aunque
+  una curiosidad justificada incita a la lectura del contenido de estos
+  archivos, no es en absoluto necesaria para seguir con las operaciones.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>*Ejecución
+  del script configure sin opciones:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Se
+  ejecuta el script de configuración desde el directorio raíz de las fuentes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Se
+  puede comprobar que ha terminado con la <font class="font8">línea «creating
+  Makefile»</font><font class="font0">, que constituye el último paso del
+  script.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]# ./configure<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  for gcc... gcc<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  for C compiler default output file name... a.out<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  whether the C compiler works... yes<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  whether we are cross compiling... no<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>(...)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  for setmntent... yes<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  build system type... i686-redhat-linux-gnu<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  host system type... i686-redhat-linux-gnu<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>configure:
+  creating ./config.status<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>config.status:
+  creating Makefile<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>*Gestión
+  de fallos por el script de configuración:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>El
+  script de configuración detecta en este ejemplo la ausencia de librerías que
+  son necesarias para el proyecto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Lejos
+  de ser genéricos, se tiene la suerte de que el script devuelve consejos
+  precisos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]# ./configure<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  for gcc... gcc<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  for C compiler default output file name... a.out<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  whether the C compiler works... yes<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  whether we are cross compiling... no<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  for suffix of executables...<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>(...)<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  for inttypes.h... yes<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  for stdint.h... yes<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  for unistd.h... yes<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  whether byte ordering is bigendian... no<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  for X... no<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>ERROR:
+  Could not find X Window System headers/libraries.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>Probably
+  you need to install the libx11-dev package.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>To
+  specify paths manually, use the options --x-includes and --x-libraries.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>c.
+  Personalización de programas compilados</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>El
+  desarrollador puede indicar opciones de compilación en la redacción de su
+  script de configuración.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>El
+  archivo <font class="font24">Makefile</font><font class="font0"> se generará
+  entonces en función de las opciones añadidas en la invocación del script
+  configure.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>La
+  lista de opciones está disponible tecleando el comando <font class="font24">./configure
+  --help</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>*Ejecución
+  del script configurado con opciones:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Para
+  empezar, se ejecuta el script con la opción --help para saber qué opciones
+  hay disponibles.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Después,
+  se vuelve a ejecutar con las opciones elegidas.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]# ./configure<span style='mso-spacerun:yes'> 
+  </span>--help<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>`configure’
+  configures rdesktop 1.6.0 to adapt to many kinds of systems.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>Usage:
+  ./configure [OPTION]... [VAR=VALUE]...<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>To
+  assign environment variables (e.g., CC, CFLAGS...), specify them as<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>VAR=VALUE.<span
+  style='mso-spacerun:yes'>  </span>See below for descriptions of some of the
+  useful variables.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>Defaults
+  for the options are specified in brackets.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>Configuration:<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'>  </span>-h, --help<span
+  style='mso-spacerun:yes'>              </span>display this help and exit<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'>      </span>--help=short<span
+  style='mso-spacerun:yes'>        </span>display options specific to this
+  package<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'>      </span>--help=recursive<span
+  style='mso-spacerun:yes'>    </span>display the short help of all the
+  included packages<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'>  </span>-V, --version<span
+  style='mso-spacerun:yes'>           </span>display version information and
+  exit<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'>  </span>-q, --quiet, --silent<span
+  style='mso-spacerun:yes'>   </span>do not print `checking...’ messages<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'>      </span>--cache-file=FILE<span
+  style='mso-spacerun:yes'>   </span>cache test results in FILE [disabled]<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'>  </span>-C, --config-cache<span
+  style='mso-spacerun:yes'>      </span>alias for
+  `--cache-file=config.cache’<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'>  </span>-n, --no-create<span
+  style='mso-spacerun:yes'>         </span>do not create output files<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'>      </span>--srcdir=DIR<span
+  style='mso-spacerun:yes'>        </span>find the sources in DIR [configure
+  dir or `..’]<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>(...)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]#<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]# ./configure --with-ipv6<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>checking
+  for gcc... gcc<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>(...)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>configure:
+  creating ./config.status<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>config.status:
+  creating Makefile<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'><a
+  name="RANGE!A104">d. Compilación</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>La
+  compilación se realiza simplemente con el comando <font class="font24">make</font><font
+  class="font0">, sin parámetros ni opciones desde el directorio raíz de las
+  fuentes donde se encuentran los archivos </font><font class="font24">Makefile</font><font
+  class="font0"> y </font><font class="font24">Makefile.ini</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Esta
+  operación suele ser bastante larga y desemboca, si todo va bien, en la
+  generación de archivos binarios compilados.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1558 style='height:15.0pt;width:1169pt'>Cabe
+  destacar que, en esta etapa, estos archivos se encuentran exclusivamente en
+  la estructura de directorios de las fuentes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>*Compilación
+  mal preparada</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Se
+  intenta realizar en este ejemplo una compilación con el comando make sin
+  haber configurado previamente la compilación.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]# make<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>make:
+  *** No se especificó ningún objetivo y no se encontró ningún makefile.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'><span
+  style='mso-spacerun:yes'> </span>Alto.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>*Compilación
+  sin errores:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>El
+  comando de compilación make ha encontrado sus <font class="font24">archivos
+  Makefile</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]# make<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>(...)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>gcc -g
+  -O2 -Wall -I/usr/include<span style='mso-spacerun:yes'>  
+  </span>-DPACKAGE_NAME=\&quot;rdesktop\&quot;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>-DPACKAGE_TARNAME=\&quot;rdesktop\&quot;
+  -DPACKAGE_VERSION=\&quot;1.6.0\&quot;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>-DPACKAGE_STRING=\&quot;rdesktop\
+  1.6.0\&quot; -DPACKAGE_BUGREPORT=\&quot;\&quot;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>-DSTDC_HEADERS=1
+  -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>-DHAVE_STDLIB_H=1
+  -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>-DHAVE_STRINGS_H=1
+  -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>-DHAVE_UNISTD_H=1
+  -DL_ENDIAN=1 -DHAVE_SYS_SELECT_H=1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>-DHAVE_LOCALE_H=1
+  -DHAVE_LANGINFO_H=1 -Dssldir=\&quot;/usr\&quot;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>-DEGD_SOCKET=\&quot;/var/run/egd-pool\&quot;
+  -DWITH_RDPSND=1 -DRDPSND_OSS=1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>-DHAVE_DIRENT_H=1
+  -DHAVE_DIRFD=1 -DHAVE_DECL_DIRFD=1 -DHAVE_ICONV_H=1<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>-DHAVE_ICONV=1
+  -DICONV_CONST= -DHAVE_SYS_VFS_H=1 -DHAVE_SYS_STATVFS_H=1<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>-DHAVE_SYS_STATFS_H=1
+  -DHAVE_SYS_PARAM_H=1 -DHAVE_SYS_MOUNT_H=1<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>-DSTAT_STATVFS=1
+  -DHAVE_STRUCT_STATVFS_F_NAMEMAX=1 -DHAVE_STRUCT_STATFS_F_NAMELEN=1<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>-DHAVE_MNTENT_H=1
+  -DHAVE_SETMNTENT=1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>-DKEYMAP_PATH=\&quot;/usr/local/share/rdesktop/keymaps/\&quot;
+  -o rdesktop<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>rdesktop.o
+  xwin.o xkeymap.o ewmhints.o xclip.o cliprdr.o rdpsnd.o<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>rdpsnd_dsp.o
+  rdpsnd_oss.o tcp.o iso.o mcs.o secure.o licence.o<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>rdp.o
+  orders.o bitmap.o cache.o rdp5.o channels.o rdpdr.o serial.o<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>printer.o
+  disk.o parallel.o printercache.o mppc.o pstcache.o lspci.o<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>seamless.o
+  ssl.o<span style='mso-spacerun:yes'>  </span>-L/usr/lib -lcrypto<span
+  style='mso-spacerun:yes'>     </span>-lX11<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>e. Los
+  objetivos del comando make</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>El
+  comando <font class="font24">make</font><font class="font0"> permite realizar
+  la compilación propiamente dicha, pero este mismo comando llamado con algunos
+  argumentos permite realizar diversas acciones relacionadas con la
+  compilación.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1558 style='height:15.0pt;width:1169pt'>A
+  estos argumentos se les llama objetivos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>No
+  todos los objetivos siempre están disponibles, y su presencia depende de los
+  objetivos del desarrollador.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Sin
+  embargo, los objetivos de instalación de los binarios o de limpieza sencilla
+  de fuentes siempre están disponibles.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>f.
+  Instalación de binarios</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Desde
+  el directorio de las fuentes, hay que introducir el comando <font
+  class="font24">make install</font><font class="font0"> para desencadenar la
+  instalación de archivos binarios compilados en sus directorios de destino en
+  el interior de la estructura de carpetas del sistema de archivos Linux.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>La
+  instalación también puede provocar la copia de archivos de manuales o de
+  configuración.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>*Instalación
+  automática de todos los elementos compilados:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>El
+  comando <font class="font24">make</font><font class="font0"> ejecutado con el
+  objetivo </font><font class="font24">install</font><font class="font0"> copia
+  los archivos binarios compilados, así como todo elemento previsto por el
+  desarrollador.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Se
+  requiere tener los permisos adecuados para la escritura en los directorios de
+  destino.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]# make install<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>mkdir
+  -p /usr/local/bin<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>/usr/bin/install
+  -c rdesktop /usr/local/bin<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>/usr/bin/install:<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>(...)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>g.
+  Limpieza de fuentes</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>El
+  comando <font class="font24">make clean</font><font class="font0"> ejecutado
+  desde el directorio raíz de las fuentes limpia la estructura de carpeta
+  eliminando cualquier elemento ya compilado y permite reiniciar otra
+  compilación a partir de las mismas fuentes y del mismo entorno.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>El
+  comando <font class="font24">make mrproper</font><font class="font0"> permite
+  realizar, como su nombre indica, una limpieza completa de cualquier elemento
+  generado localmente, desde los archivos compilados a los archivos de
+  configuración (Makefile) generados previamente.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>*Limpieza
+  sencilla de fuentes:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>El
+  comando <font class="font24">make</font><font class="font0"> ejecutado con el
+  objetivo </font><font class="font24">clean</font><font class="font0"> borra
+  todos los elementos generados por la compilación pero conserva los archivos
+  de configuración.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]# ls Makefile<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>Makefile<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]# make clean<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>rm -f
+  *.o *~ vnc/*.o vnc/*~ rdesktop rdp2vnc<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]# ls Makefile<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>Makefile<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1558 style='height:15.0pt;width:1169pt'>[root@beta
+  rdesktop-1.6.0]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>h.
+  Desinstalación de un programa</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>El
+  comando <font class="font24">make uninstall</font><font class="font0">
+  ejecutado desde el directorio raíz de las fuentes limpia el sistema de todos
+  los archivos instalados por el comando </font><font class="font24">make
+  install</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1558 style='height:15.0pt;width:1169pt'>*Resumen
+  del procedimiento de compilación estándar GNU:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1558 style='height:15.0pt;width:1169pt'>cd
+  dir_fuentes<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1558 style='height:15.0pt;width:1169pt'>./configure<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1558 style='height:15.0pt;width:1169pt'>make<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1558 style='height:15.0pt;width:1169pt'>make
+  install</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'>Donde
+  dir_fuentes representa el directorio de las fuentes, obtenido a partir de la
+  extracción del archivo tar comprimido.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1558 style='height:15.0pt;width:1169pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1558 style='height:15.0pt;width:1169pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1558 style='width:1169pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>
