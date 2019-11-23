@@ -1,0 +1,485 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../108.3.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../108.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl65>
+
+<table border=0 cellpadding=0 cellspacing=0 width=2884 style='border-collapse:
+ collapse;table-layout:fixed;width:2163pt'>
+ <col class=xl65 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl66 width=239 style='mso-width-source:userset;mso-width-alt:8740;
+ width:179pt'>
+ <col class=xl65 width=647 style='mso-width-source:userset;mso-width-alt:23661;
+ width:485pt'>
+ <col class=xl65 width=941 style='mso-width-source:userset;mso-width-alt:34413;
+ width:706pt'>
+ <col class=xl65 width=435 style='mso-width-source:userset;mso-width-alt:15908;
+ width:326pt'>
+ <col class=xl65 width=574 style='mso-width-source:userset;mso-width-alt:20992;
+ width:431pt'>
+ <col class=xl65 width=430 style='mso-width-source:userset;mso-width-alt:15725;
+ width:323pt'>
+ <tr class=xl66 height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl66 width=48 style='height:15.75pt;width:36pt'>108.3</td>
+  <td class=xl66 width=239 style='width:179pt'>W3</td>
+  <td class=xl66 width=647 style='width:485pt'>Mail Transfer Agent (MTA) basics</td>
+  <td class=xl68 width=941 style='width:706pt'><a href="../108.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl66 width=435 style='width:326pt'></td>
+  <td class=xl66 width=574 style='width:431pt'></td>
+ </tr>
+ <tr height=160 style='height:120.0pt'>
+  <td height=160 class=xl66 width=48 style='height:120.0pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'>DESCRIPCION</td>
+  <td class=xl65 width=647 style='width:485pt'>Cuando un cliente (un usuario)
+  manda un mensaje, utiliza un MUA (Mail User Agent), por ejemplo Outlook
+  Express, Thunderbird, Evolution, Kmail, Mutt, etc.<br>
+    El MUA envía el mensaje al MTA (Mail Transport Agent).<br>
+    El MTA estudia la dirección electrónica para aislar al usuario y dominio de
+  destino.<br>
+    Luego verifica la información DNS de tipo MX (Mail eXchanger) para el
+  dominio elegido, para saber a qué servidor transmitir el correo.</td>
+  <td class=xl67 width=941 style='width:706pt'>Si ningún MTA está disponible,
+  se coloca el mensaje en fila de espera y se reenvía más tarde (el plazo
+  depende de la configuración del MTA).<br>
+    El MX puede ser o bien otro MTA, que tendrá el papel de enrutador (en caso
+  de una redirección hacia un subdominio, por ejemplo) o bien un MDA (Mail
+  Delivery Agent).<br>
+    El MDA coloca el mensaje en un fichero temporal, puede filtrarlo,
+  etc.<br>
+    En este nivel, el destinatario recibe el mensaje: o lo recupera al leer
+  directamente el fichero temporal (caso del comando mail, por ejemplo), o pasa
+  por un protocolo de tipo POP o IMAP.</td>
+  <td class=xl65 width=435 style='width:326pt'>El protocolo de transporte de
+  mensajes es el SMTP (Simple Mail Transfer Protocol) en el puerto 25.<br>
+    Los protocolos de recepción de mensajes son o POP (Post Office Protocol) en
+  el puerto 110 (POP3), o IMAP (Internet Message Access Protocol).<br>
+    <br>
+    Dos suites de correo electrónico comparten la parte esencial del mercado en
+  Unix: sendmail y postfix.</td>
+  <td class=xl65 width=574 style='width:431pt'></td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl66 width=48 style='height:90.0pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'>~/.forward</td>
+  <td class=xl65 width=647 style='width:485pt'>Es posible redireccionar el mail
+  entrante creando un archivo en el directorio home del usuario.<br>
+    Para ello, se debe crear un archivo llamado .forward, donde se incluyen las
+  direcciones a donde se debe redirigir el mail.<br>
+    Las direcciones se agregan una por línea.<br>
+    Para que quede una copia en el INBOX local, debe poner su nombre de usuario
+  <br>
+    No se deben agregar direcciones locales.</td>
+  <td class=xl65 width=941 style='width:706pt'>(*) Porqué es necesario
+  asegurarse de que el archivo .forward sea de lectura universal.<br>
+    El servidor de mail puede que no sea ejecutado como &quot;root&quot;.<br>
+    Debido a esto, los archivos .forward deben tener al menos 604 para permitir
+  que funcionen los .forward</td>
+  <td class=xl65 width=435 style='width:326pt'></td>
+  <td class=xl65 width=574 style='width:431pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'>sendmail emulation layer
+  commands</td>
+  <td class=xl65 width=647 style='width:485pt'></td>
+  <td class=xl65 width=941 style='width:706pt'></td>
+  <td class=xl65 width=435 style='width:326pt'></td>
+  <td class=xl65 width=574 style='width:431pt'></td>
+ </tr>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl66 width=48 style='height:105.0pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'>newaliases</td>
+  <td class=xl65 width=647 style='width:485pt'>Es posible ubicar alias para los
+  usuarios locales en el fichero /etc/aliases.<br>
+    Por ejemplo, si los mensajes de webmaster, admin y root se deben
+  redireccionar hacia manuel:<br>
+    <br>
+    manuel: webmaster, admin, root</td>
+  <td class=xl65 width=941 style='width:706pt'>Cada vez que actualice el
+  fichero /etc/aliases, se debe reconstruir la base de datos que sendmail
+  utiliza internamente con el comando<br>
+    # /usr/bin/newaliases<br>
+    <br>
+    La orden /usr/bin/newaliases es un vínculo simbólico al ejecutable de
+  sendmail y, cuando se invoca de esta forma, se comporta exactamente como si
+  hubiese sido invocado así:<br>
+    <br>
+    # /usr/lib/sendmail -bi</td>
+  <td class=xl65 width=435 style='width:326pt'></td>
+  <td class=xl65 width=574 style='width:431pt'></td>
+ </tr>
+ <tr height=240 style='height:180.0pt'>
+  <td height=240 class=xl66 width=48 style='height:180.0pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'>mail</td>
+  <td class=xl65 width=647 style='width:485pt'>El comando “mail” permite enviar
+  correos desde la línea de comandos.<br>
+    <br>
+    Lo primero que tendremos que hacer es editar como superusuario el archivo
+  de configuración<span style='mso-spacerun:yes'>  </span>/etc/mail.rc
+  añadiéndolelas siguientes líneas:<br>
+    set smtp-use-starttls<br>
+    set ssl-verify=ignore<br>
+    set smtp-auth=login<br>
+    set smtp=smtp://smtp.gmail.com:587<br>
+    set from=”tu.direccion.de.correo@tu.dominio”<br>
+    set smtp-auth-user=tu.direccion.de.correo@tu­.dominio<br>
+    set smtp-auth-password=tu.password<br>
+    set ssl-verify=ignore</td>
+  <td class=xl65 width=941 style='width:706pt'>Una vez editado y guardado el
+  archivo de configuración ya sólo queda ejecutar el comando, por ejemplo
+  así:<br>
+    <br>
+    mail -s &quot;asunto&quot; geeko@correo.com<br>
+    <br>
+    Con la opción -s especificamos entre comillas el asunto del correo y seguidamente
+  ponemos la dirección a la que queremos enviar el correo.<br>
+    Seguidamente a esto podremos escribir el cuerpo del propio correo con lo
+  que queramos.<br>
+    <br>
+    Para finalizar el correo y que lo envíe, damos Enter para posicionarnos en
+  una línea vacía y tenemos dos opciones:<br>
+    Podemos escribir un punto “.” (sin comillas) o y dar Enter<br>
+    Podemos dar la combinación de teclas Ctrl+D<br>
+    Con esto hace una marca de fin de texto y envía el cuerpo del correo, con
+  el asunto especificado al correo que hemos dicho.</td>
+  <td class=xl65 width=435 style='width:326pt'></td>
+  <td class=xl65 width=574 style='width:431pt'></td>
+ </tr>
+ <tr height=240 style='height:180.0pt'>
+  <td height=240 class=xl66 width=48 style='height:180.0pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'>mailq</td>
+  <td class=xl65 width=647 style='width:485pt'>Para consultar la cola de
+  mensajes de correo se usa el comando mailq.<br>
+    <br>
+    mailq | less --&gt; Si queremos paginar el resultado<br>
+    <br>
+    mailq | egrep dominio.com --&gt; Filtra por dominio<br>
+    <br>
+    mailq | egrep dominio.com | wc -l --&gt; Cuenta los mails enviados por
+  dominio<br>
+    <br>
+    mailq | tail +2 | grep -v ‘^ *(‘ | awk ’BEGIN { RS = “” } { if ($8 ==
+  “email@address.com” &amp;&amp; $9 == “”) print $1 } ‘ | tr -d ‘*!’ |
+  postsuper -d -<br>
+    Estadística de tráfico de mails<br>
+    </td>
+  <td class=xl65 width=941 style='width:706pt'></td>
+  <td class=xl65 width=435 style='width:326pt'></td>
+  <td class=xl65 width=574 style='width:431pt'></td>
+ </tr>
+ <tr height=360 style='height:270.0pt'>
+  <td height=360 class=xl66 width=48 style='height:270.0pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'>postfix</td>
+  <td class=xl65 width=647 style='width:485pt'>El producto postfix tiende a ser
+  cada vez más utilizado no tanto por aquellos a quienes sendmail ha
+  decepcionado, sino por los que temen no saber configurarlo.<br>
+    Es una alternativa a sendmail.<br>
+    Los objetivos de sus desarrolladores (entre los cuales algunos son los de
+  sendmail) son:<br>
+    - la compatibilidad con sendmail;<br>
+    - la rapidez (más de un millón de mensajes al día en un simple Pentium
+  4);<br>
+    - la sencillez de administración (fichero de configuración simple y
+  legible);<br>
+    - la seguridad (se puede chrootear);<br>
+    - la modularidad (descomposición de los tratamientos).</td>
+  <td class=xl65 width=941 style='width:706pt'>La configuración de postfix se
+  encuentra en /etc/postfix/main.cf.<br>
+    Se modifican sus valores o bien manualmente, o con la ayuda del comando
+  postconf.<br>
+    <br>
+    Postfix inicia primero un servicio maestro, master, encargado de los
+  procesos secundarios smtpd, pickup y nqmgr.<br>
+    <br>
+    En algunas distribuciones, hay que modificar la configuración por defecto
+  que utiliza la serie sendmail. <br>
+    <br>
+    Por ejemplo, en Red Hat usted debe indicar que se utilice postfix en lugar
+  de sendmail con el comando alternatives.<br>
+    #alternatives --set mta /usr/sbin/sendmail.postfix</td>
+  <td class=xl65 width=435 style='width:326pt'>Aplique una configuración básica
+  con el comando postconf.<br>
+    <br>
+    Dominio de origen de los mensajes<br>
+    #postconf -e &quot;myorigin = midominio.org&quot;<br>
+    <br>
+    De qué dominio recibir el correo<br>
+    #postconf -e &quot;mydestination = midominio.org&quot;<br>
+    <br>
+    De qué clientes transmitir el correo<br>
+    #postconf -e &quot;mynetworks = 192.168.1.0/24, 127.0.0.1&quot;<br>
+    <br>
+    En qué interfaces escuchar<br>
+    #postconf -e &quot;inet_interface = all&quot;<br>
+    <br>
+    Inicie el servicio.<br>
+    #service postfix start<br>
+    o:<br>
+    #/etc/init.d/postfix start</td>
+  <td class=xl65 width=574 style='width:431pt'>postsuper -d numero (eliminar el
+  mensaje)<br>
+    postsuper -d ALL (eliminar todos los mensajes)<br>
+    postsuper -r Number (Encolar de nuevo el mensaje)<br>
+    postsuper -r ALL (Encolar de nuevo todos los mensajes)<br>
+    postqueue -p (Mostrar la cola de correo por pantalla)<br>
+    postqueue -f (Hacer un flush de la cola de correo, intentar enviar todos
+  los correos)</td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl66 width=48 style='height:75.0pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'>sendmail</td>
+  <td class=xl65 width=647 style='width:485pt'>La serie libre sendmail es la
+  más conocida y más utilizada.<br>
+    Eric Allman creó Sendmail en 1981, que fue integrado en BSD 4.2 en
+  1983.<br>
+    En 2000 se estimaba que lo usaban a más de 100 millones de servidores de
+  correo electrónico.<br>
+    Mientras no haya que modificar su configuración básica, sendmail es idóneo.</td>
+  <td class=xl65 width=941 style='width:706pt'>Si desea ir más lejos, le hará
+  falta comprarse un libro completo sobre este tema.<br>
+    La configuración de sendmail es tan compleja que se inventó un lenguaje de
+  macros llamado m4 sólo para él.<br>
+    Así no se edita (o poco) el fichero de configuración de sendmail: se edita
+  el fichero fuente de las macros y se vuelve a compilar: m4 va a crear el
+  fichero de configuración de sendmail.<br>
+    Sendmail se ha convertido en un monstruo en lo que respecta a potencia y
+  configuración.</td>
+  <td class=xl65 width=435 style='width:326pt'></td>
+  <td class=xl65 width=574 style='width:431pt'></td>
+ </tr>
+ <tr height=546 style='height:409.5pt'>
+  <td height=546 class=xl66 width=48 style='height:409.5pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'>exim</td>
+  <td class=xl65 width=647 style='width:485pt'>Según la Wikipedia &quot;Exim
+  (EXperimental Internet Mailer) es un agente de transporte de correo (Mail
+  Transport Agent, usualmente MTA) desarrollado por la Universidad de Cambridge
+  y puede ser utilizado en la mayoría de los sistemas Unix (entre ellos GNU/Linux).<br>
+    <br>
+    Si bien puede compilarse en sistemas operativos Windows, se recomienda que
+  sea utilizado en producción sobre sistemas operativos de la familia
+  Unix.<br>
+    <br>
+    Se distribuye sin costo bajo la licencia GNU GPL por lo que es, además,
+  software libre.<br>
+    <br>
+    Tiene una gran flexibilidad en los caminos que pueden seguir los mensajes
+  según su origen y por presentar funcionalidades para control de spam, listas
+  de bloqueo basados en DNS (DNSBL), virus, control de relay, usuarios y
+  dominios virtuales y otros, que se configuran y mantienen en forma más o
+  menos sencilla. <br>
+    <br>
+    El proyecto cuenta con buena documentación, ejemplos y recetas claras de
+  “como hacer” determinadas tareas.</td>
+  <td class=xl65 width=941 style='width:706pt'>Los comandos básicos y mas
+  utilizados para la administración de Exim son los siguientes:<br>
+    Resumen de los correos electrónicos en cola<br>
+    # exim -bp | exiqsumm<br>
+    <br>
+    Lista por pantalla correos en cola:<br>
+    # exim -bp<br>
+    <br>
+    Detener el envío de un correo en cola:<br>
+    # exim -Mf '&lt;id correo&gt;'<br>
+    <br>
+    Muestra en pantalla el numero de correos en cola:<br>
+    # exim -bpc<br>
+    <br>
+    Eliminar los correos electrónicos de un dominio:<br>
+    # exiqgrep -i -r dominio.com | xargs exim -Mrm<br>
+    <br>
+    Buscar correos electrónicos de un receptor:<br>
+    # exiqgrep -r cuenta@dominio.com<br>
+    <br>
+    Eliminar los correos electrónicos de una dirección:<br>
+    # exiqgrep -i -r cuenta@dominio.com | xargs exim -Mrm<br>
+    <br>
+    Procesar un correo electrónico<br>
+    # exim -M '&lt;id correo&gt;'<br>
+    <br>
+    Forzar la cola de correo:<br>
+    # exim -qff<br>
+    <br>
+    Eliminar todos los correos congelados:<br>
+    # exiqgrep -z -i | xargs exim -Mrm<br>
+    <br>
+    Mostrar en pantalla que esta haciendo Exim en estos momentos:<br>
+    # exiwhat<br>
+    <br>
+    Buscar correos electrónicos de un emisor:<br>
+    # exiqgrep -f cuenta@dominio.com<br>
+    <br>
+    Eliminar la cola de correo completa (dos maneras posibles):&#8203;<br>
+    # exim -bp | awk '/^ *[0-9]+[mhd]/{print &quot;exim -Mrm &quot; $3}' |
+  sh<br>
+    <br>
+    # rm /var/spool/exim/input/*</td>
+  <td class=xl65 width=435 style='width:326pt'></td>
+  <td class=xl65 width=574 style='width:431pt'></td>
+ </tr>
+ <tr height=240 style='height:180.0pt'>
+  <td height=240 class=xl66 width=48 style='height:180.0pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'>qmail</td>
+  <td class=xl65 width=647 style='width:485pt'>qmail es un servidor de correo
+  electrónico (SMTP) hecho para Unix.<br>
+    Utiliza el formato maildir para almacenar mensajes (un archivo por
+  mensaje), eliminando varios problemas asociados al manejo del formato
+  mbox.<br>
+    Qmail es distribuido como código fuente (sourcecode), escrito en lenguaje
+  C.<br>
+    <br>
+    qmail fue desarrollado por Daniel J. Bernstein entre 1995-98, en la
+  búsqueda de una mejor alternativa a Sendmail, y otros MTAs. <br>
+    Bernstein tenía en mente una arquitectura simple, pues mientras más simple
+  el diseño, más seguro, estable y eficiente sería su operación. <br>
+    El programa ha demostrado ser absolutamente funcional en este sentido,
+  permaneciendo virtualmente inalterado (en su versión 1.03) desde
+  entonces.<br>
+    </td>
+  <td class=xl65 width=941 style='width:706pt'>El programa está estructurado en
+  módulos que se ejecutan de manera separada, añadiendo por ello un nivel extra
+  de seguridad:<br>
+    <br>
+    qmail-smtpd: Atiende las transacciones SMTP entrantes y pone los mensajes
+  en la cola.<br>
+    qmail-queue: Gestiona la cola, almacenando los mensajes e invocando a
+  qmail-send.<br>
+    qmail-send: Inicia la entrega de mensajes en cola a los destinatarios
+  locales o remotos.<br>
+    qmail-rspawn / qmail-remote: Envían los mensajes salientes a los servidores
+  SMTP donde radican los destinatarios.<br>
+    qmail-lspawn / qmail-local: Distribuye los mensajes entrantes a sus
+  destinatarios locales.</td>
+  <td class=xl65 width=435 style='width:326pt'>La interacción se puede
+  visualizar de la siguiente manera:<br>
+    <br>
+    <span style='mso-spacerun:yes'> </span>qmail-smtpd --- qmail-queue ---
+  qmail-send --- qmail-rspawn --- qmail-remote<br>
+    <span style='mso-spacerun:yes'>               </span>/<span
+  style='mso-spacerun:yes'>                     </span>|<span
+  style='mso-spacerun:yes'>      </span>\<br>
+    qmail-inject _/<span style='mso-spacerun:yes'>                
+  </span>qmail-clean<span style='mso-spacerun:yes'>  </span>\_ qmail-lspawn ---
+  qmail-local<br>
+    </td>
+  <td class=xl65 width=574 style='width:431pt'>Aparte de SMTP, qmail también
+  puede utilizar los protocolos QMTP y QMQP.<br>
+    <br>
+    Los mensajes recibidos en cada casilla pueden ser filtrados a voluntad por
+  medio de archivos &quot;.qmail&quot;. <br>
+    Cada usuario puede tener su propia regla de filtros/reenvios o incluso
+  ejecutar algún programa o script que haga tareas arbitrarias con los mensajes
+  entrantes.<br>
+    Además de maildir se puede utilizar el formato mbox si así se desea.<br>
+    Las casillas pueden estar asociadas a usuarios reales (de Unix) o
+  virtuales, y también es posible atender simultáneamente varios dominios en un
+  solo servidor.<br>
+    Se pueden aplicar parches especiales que permiten aumentan la capacidad del
+  sistema, por ejemplo el aumento de concurrencia (big-concurrency.patch) para
+  enviar hasta un millón de mensajes diarios.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'></td>
+  <td class=xl65 width=647 style='width:485pt'></td>
+  <td class=xl65 width=941 style='width:706pt'></td>
+  <td class=xl65 width=435 style='width:326pt'></td>
+  <td class=xl66 width=574 style='width:431pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'></td>
+  <td class=xl65 width=647 style='width:485pt'></td>
+  <td class=xl65 width=941 style='width:706pt'></td>
+  <td class=xl65 width=435 style='width:326pt'></td>
+  <td class=xl66 width=574 style='width:431pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'></td>
+  <td class=xl65 width=647 style='width:485pt'></td>
+  <td class=xl65 width=941 style='width:706pt'></td>
+  <td class=xl65 width=435 style='width:326pt'></td>
+  <td class=xl66 width=574 style='width:431pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'></td>
+  <td class=xl65 width=647 style='width:485pt'></td>
+  <td class=xl65 width=941 style='width:706pt'></td>
+  <td class=xl65 width=435 style='width:326pt'></td>
+  <td class=xl66 width=574 style='width:431pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl66 width=239 style='width:179pt'></td>
+  <td class=xl66 width=647 style='width:485pt'></td>
+  <td class=xl65 width=941 style='width:706pt'></td>
+  <td class=xl65 width=435 style='width:326pt'></td>
+  <td class=xl66 width=574 style='width:431pt'></td>
+ </tr>
+ <tr class=xl66 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=48 style='height:15.0pt;width:36pt'><a
+  href="../108.htm" target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl66 width=239 style='width:179pt'></td>
+  <td class=xl66 width=647 style='width:485pt'></td>
+  <td class=xl66 width=941 style='width:706pt'></td>
+  <td class=xl66 width=435 style='width:326pt'></td>
+  <td class=xl66 width=574 style='width:431pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=48 style='width:36pt'></td>
+  <td width=239 style='width:179pt'></td>
+  <td width=647 style='width:485pt'></td>
+  <td width=941 style='width:706pt'></td>
+  <td width=435 style='width:326pt'></td>
+  <td width=574 style='width:431pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

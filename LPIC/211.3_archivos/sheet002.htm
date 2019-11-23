@@ -1,0 +1,855 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../211.3.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../211.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl67>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1427 style='border-collapse:
+ collapse;table-layout:fixed;width:1070pt'>
+ <col class=xl67 width=1379 style='mso-width-source:userset;mso-width-alt:50432;
+ width:1034pt'>
+ <col class=xl67 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>Recepción
+  remota de mensajes</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>1.
+  Funcionamiento conjunto de MTA, MDA y MUA</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>La
+  función de un <font class="font15">MTA (Mail Transfer Agent)</font><font
+  class="font0"> en lo que a la recepción de mensajes respecta se limita a la </font><font
+  class="font5">obtención</font><font class="font0"> y </font><font
+  class="font5">almacenamiento</font><font class="font0"> de los mensajes </font><font
+  class="font5">entrantes</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Para
+  que un usuario pueda leer y trabajar cómodamente con su correo, tiene que
+  usar un <font class="font15">MUA (Mail User Agent o cliente de correo)</font><font
+  class="font0"> que funciona con un protocolo de recepción de correo: </font><font
+  class="font5">POP</font><font class="font0"> o </font><font class="font5">IMAP</font><font
+  class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'><font
+  class="font5">Postfix</font><font class="font0"> no es más que un </font><font
+  class="font5">MTA</font><font class="font0"> y </font><font class="font10">no</font><font
+  class="font0"> </font><font class="font5">gestiona</font><font class="font0">
+  estos protocolos.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Por lo
+  tanto, hay que <font class="font5">añadir</font><font class="font0"> un
+  servicio </font><font class="font15">MDA (Mail Delivery Agent)</font><font
+  class="font0"> de recepción de correo para los usuarios.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1379 style='height:15.0pt;width:1034pt'><font
+  class="font19">La certificación</font><font class="font11"> </font><font
+  class="font16">LPI</font><font class="font11"> </font><font class="font19">establece
+  que hay que conocer los servidores</font><font class="font11"> </font><font
+  class="font16">courier-pop</font><font class="font11">, </font><font
+  class="font16">courier-imap</font><font class="font11"> y </font><font
+  class="font16">Dovecot</font><font class="font11">.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Cuando
+  un mensaje llega al <font class="font5">MTA</font><font class="font0">, desde
+  un punto de vista </font><font class="font5">MTA</font><font class="font0">
+  ya ha llegado a destino.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Por
+  tanto, el <font class="font5">MTA</font><font class="font0"> lo </font><font
+  class="font5">guarda</font><font class="font0"> en su disco local, en nuestro
+  caso en formato </font><font class="font5">mbox</font><font class="font0"> o </font><font
+  class="font5">maildir</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Si se
+  instala un servidor <font class="font5">POP</font><font class="font0"> o </font><font
+  class="font5">IMAP</font><font class="font0">, su </font><font class="font5">función</font><font
+  class="font0"> será, después de haber identificado el usuario, </font><font
+  class="font5">buscar</font><font class="font0"> los mensajes </font><font
+  class="font5">entrantes</font><font class="font0"> en este espacio de
+  almacenamiento y proporcionárselos al cliente de correo.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>a. El
+  protocolo POP3</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>El
+  protocolo <font class="font15">POP3</font><font class="font0"> funciona a
+  través del puerto </font><font class="font10">110</font><font class="font0">
+  y usa </font><font class="font10">TCP</font><font class="font0"> como
+  protocolo de transporte.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'><font
+  class="font5">Descarga</font><font class="font0"> los mensajes desde un buzón
+  de usuario a un cliente de correo.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>A
+  continuación, normalmente se <font class="font5">borran</font><font
+  class="font0"> los correos del buzón, liberando espacio de disco del
+  servidor.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Sin
+  embargo, cada vez es más frecuente configurar <font class="font5">POP</font><font
+  class="font0"> desde el cliente para que </font><font class="font5">deje</font><font
+  class="font0"> una </font><font class="font5">copia</font><font class="font0">
+  de los correos en el servidor.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>b. El
+  protocolo IMAP4</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>El
+  protocolo <font class="font15">IMAP4</font><font class="font0"> funciona a
+  través del puerto </font><font class="font10">143</font><font class="font0">
+  y usa </font><font class="font10">TCP</font><font class="font0"> como
+  protocolo de transporte.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'><font
+  class="font5">Descarga</font><font class="font0"> las </font><font
+  class="font5">cabeceras</font><font class="font0"> de los correos desde el
+  servidor y el </font><font class="font5">cliente</font><font class="font0"> </font><font
+  class="font5">decide</font><font class="font0"> a continuación la acción que
+  desea realizar con estos mensajes: </font><font class="font5">consultarlos,
+  borrarlos, moverlos, etc</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Los
+  mensajes <font class="font5">se conservan</font><font class="font0"> en el
+  servidor, pero se puede configurar los clientes </font><font class="font5">IMAP</font><font
+  class="font0"> para que sincronicen los mensajes descargados para una
+  consulta sin conexión.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>2.
+  Servidores Courier-IMAP y Courier-POP</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Los
+  servidores <font class="font15">courier-pop</font><font class="font0"> y </font><font
+  class="font15">courier-imap</font><font class="font0"> pertenecen a una suite
+  de </font><font class="font21">software</font><font class="font0"> llamada </font><font
+  class="font10">«Courier Mail Server»</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Esta
+  aplicación se ha creado para proporcionar el conjunto de servicios comunes de
+  gestión de correo electrónico, pero como es modular sus componentes suelen
+  utilizarse solos para proporcionar un servicio concreto.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>a.
+  Formato de mensajes para los servicios courier</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Los
+  servicios <font class="font15">courier-pop</font><font class="font0"> y </font><font
+  class="font15">courier-imap</font><font class="font0"> encontrarán los
+  correos entrantes </font><font class="font15">exclusivamente</font><font
+  class="font0"> en un directorio en formato </font><font class="font15">maildir</font><font
+  class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'><font
+  class="font10">No</font><font class="font0"> son </font><font class="font15">compatibles</font><font
+  class="font0"> con el formato </font><font class="font10">mbox</font><font
+  class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Por
+  tanto, habrá que <font class="font21">configurar</font><font class="font0"> </font><font
+  class="font10">postfix</font><font class="font0"> para que utilice el formato
+  </font><font class="font10">maildir</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>b.
+  Configuración de servicios</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Esta
+  es la buena noticia: en principio solo hay que instalar el servicio e
+  iniciarlo.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Los
+  parámetros por defecto son adecuados para el modo de funcionamiento estándar.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'><a
+  name="RANGE!A40">Los archivos de <font class="font5">configuración</font><font
+  class="font0"> generalmente se encuentran en el directorio </font><font
+  class="font15">/etc/courier</font><font class="font0"> y se llaman </font><font
+  class="font15">pop3d</font><font class="font0"> para el servicio </font><font
+  class="font15">POP</font><font class="font0"> e </font><font class="font15">imapd</font><font
+  class="font0"> para el servicio </font><font class="font15">IMAP</font><font
+  class="font0">.</font></a></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Si el
+  directorio de almacenamiento de los correos es formato maildir no debe usar
+  el nombre por defecto (Maildir), hay que especificar en estos archivos de
+  configuración el nombre usado realmente.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>*Nombre
+  del directorio maildir en el archivo de configuración pop3d o imapd</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>MAILDIRPATH=nombredirmaildir</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Donde <font
+  class="font15">nombredirmaildir</font><font class="font0"> representa el </font><font
+  class="font5">directorio</font><font class="font0"> usado para </font><font
+  class="font5">almacenar</font><font class="font0"> los correos recibidos en
+  formato </font><font class="font15">maildir</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Si el
+  servidor dispone de varias interfaces físicas, se puede limitar las
+  interfaces de escucha del daemon <font class="font15">imap</font><font
+  class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>*Restricciones
+  de la interfaz activa en el archivo de configuración pop3d o imapd</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>address
+  = dirección_interfaz</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Donde <font
+  class="font15">dirección_interfaz</font><font class="font0"> representa la
+  dirección </font><font class="font5">IP</font><font class="font0"> de la </font><font
+  class="font15">interfaz</font><font class="font0"> válida para establecer las
+  conexiones con los clientes.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>c.
+  Validación de la autentificación</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Cuando
+  se utiliza <font class="font15">courier-pop</font><font class="font0"> o </font><font
+  class="font15">courier-imap</font><font class="font0">, un cliente de correo
+  presenta el </font><font class="font5">identificador</font><font class="font0">
+  y la </font><font class="font5">contraseña</font><font class="font0"> del
+  usuario cuyo correo desea consultar.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>La
+  librería <font class="font15">«courier»</font><font class="font0">, común a
+  estos dos servicios, </font><font class="font15">valida</font><font
+  class="font0"> estos elementos de identificación.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Puede
+  ser útil comprobar por línea de comandos que la cuenta utilizada se
+  autentifica correctamente con esta librería.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>La
+  utilidad <font class="font15">authtest</font><font class="font0"> sirve para
+  esta tarea.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>*Comprobación
+  de la validez de una cuenta con authtest</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>authtest
+  usuario contraseña</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Donde <font
+  class="font15">usuario</font><font class="font0"> y </font><font
+  class="font12">contraseña</font><font class="font0"> son las </font><font
+  class="font21">credenciales</font><font class="font0"> de </font><font
+  class="font21">autentificación</font><font class="font0"> que presenta el
+  cliente de correo para </font><font class="font5">conectarse</font><font
+  class="font0"> usando </font><font class="font15">imap</font><font
+  class="font0"> o </font><font class="font15">pop</font><font class="font0">
+  al </font><font class="font5">servidor</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>*Ejemplo
+  de uso de authtest</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1379 style='height:15.0pt;width:1034pt'>Hasta
+  aquí va todo bien...</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1379 style='height:15.0pt;width:1034pt'>alfa:/etc/courier#
+  authtest usuario password<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>Authentication
+  succeeded.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'><span
+  style='mso-spacerun:yes'>     </span>Authenticated: usuario<span
+  style='mso-spacerun:yes'>  </span>(system username: usuario)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'><span
+  style='mso-spacerun:yes'>    </span>Home Directory: /home/usuario<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'><span
+  style='mso-spacerun:yes'>           </span>Maildir: (none)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'><span
+  style='mso-spacerun:yes'>             </span>Quota: (none)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>Encrypted
+  Password: $1$YSIbmjnM$makfir51Gla3ZpfRq5dmu.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>Cleartext
+  Password: password<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'><span
+  style='mso-spacerun:yes'>           </span>Options: (none)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>alfa:/etc/courier#</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>3.
+  Servidor Dovecot</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'><font
+  class="font15">Dovecot</font><font class="font0"> es otro servidor de </font><font
+  class="font12">recuperación</font><font class="font0"> de correo que hay que
+  conocer para la </font><font class="font10">certificación LPI</font><font
+  class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Se ha
+  desarrollado con el objetivo de proporcionar el <font class="font5">máximo
+  rendimiento y seguridad</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Su
+  despliegue es relativamente simple, pero es tan rico desde el punto de vista
+  funcional que las posibilidades de configuración son innumerables y, a
+  menudo, desalentadoras.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'><font
+  class="font15">Dovecot</font><font class="font0"> soporta de forma nativa los
+  formatos de buzón </font><font class="font15">mbox</font><font class="font0">
+  y </font><font class="font15">maildir</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>a.
+  Configuración de Dovecot</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'><a
+  name="RANGE!A89">El servidor <font class="font15">Dovecot</font><font
+  class="font0"> halla su </font><font class="font5">configuración</font><font
+  class="font0"> en el archivo </font><font class="font15">dovecot.conf</font><font
+  class="font0">, generalmente ubicado en el directorio </font><font
+  class="font15">/etc/dovecot</font><font class="font0">.</font></a></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Si el
+  servicio tiene que usarse en una infraestructura sencilla y común,
+  simplemente habrá que modificar su configuración para que <font class="font5">acepte</font><font
+  class="font0"> la </font><font class="font5">autentificación</font><font
+  class="font0"> por contraseña</font><font class="font9"> </font><font
+  class="font10">sin</font><font class="font9"> </font><font class="font10">encriptar</font><font
+  class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Puede
+  parecer sorprendente que no se protejan las contraseñas en un servidor de
+  correo, pero, en un uso tradicional, cuando el mensaje circula por Internet
+  tampoco se protege de modo alguno y es visible para todos.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Asegurar
+  entonces únicamente la etapa cliente/servidor daría una falsa sensación de
+  seguridad del contenido del mensaje.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>La
+  contraseña del cliente de correo ya no circularía sin encriptar, pero el
+  mensaje solo estaría protegido de los vecinos inmediatos.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Sin
+  embargo, se puede configurar el cliente de correo para utilizar los
+  protocolos <font class="font5">POP</font><font class="font0"> o </font><font
+  class="font5">IMAP</font><font class="font0"> sobre </font><font class="font5">SSL</font><font
+  class="font0">, aportando </font><font class="font5">confidencialidad</font><font
+  class="font0"> al tramo cliente/servidor.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Ha que
+  tener en mente que los mensajes han transitado hasta llegar al servidor sin
+  ningún tipo de protección antes de llegar al servidor.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>La <font
+  class="font10">verdadera</font><font class="font0"> </font><font
+  class="font10">seguridad</font><font class="font0"> en el contenido de los
+  mensajes solo puede obtenerse con un protocolo que gestione de extremo a
+  extremo, como </font><font class="font10">SMIME</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>*Autorización
+  de autentificaciones sin encriptar en el archivo dovecot.conf</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>disable_plaintext_auth
+  = no</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Esta
+  línea puede añadirse en cualquier parte del archivo de configuración, pero <font
+  class="font5">generalmente</font><font class="font0"> está </font><font
+  class="font5">comentada</font><font class="font0"> en los archivos de
+  configuración por </font><font class="font5">defecto</font><font class="font0">
+  facilitados con los paquetes.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>b.
+  Visualización de la configuración</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>El
+  número de parámetros definidos en el archivo <font class="font15">dovecot.conf</font><font
+  class="font0"> puede ser impresionante y hacer que su interpretación se
+  vuelva difícil.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>Además,
+  puede ser útil comprobar un parámetro de configuración sin tener que recorrer
+  las decenas o centenas de líneas del archivo.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>El
+  comando <font class="font15">dovecot</font><font class="font0"> llamado con
+  la opción </font><font class="font15">-a</font><font class="font0"> permite </font><font
+  class="font5">ver</font><font class="font0"> los </font><font class="font5">parámetros</font><font
+  class="font0"> reales del servidor.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1379 style='height:15.0pt;width:1034pt'>*Ejemplo
+  de uso del comando dovecot para visualizar la configuración</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'>El
+  resultado que se muestra a continuación está cortado.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1379 style='height:15.0pt;width:1034pt'>alfa:/etc/dovecot#
+  dovecot -a | wc -l<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>139<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1379 style='height:15.0pt;width:1034pt'>alfa:/etc/dovecot#
+  dovecot -a | head -20<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>#
+  1.0.15: /etc/dovecot/dovecot.conf<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>base_dir:
+  /var/run/dovecot<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>log_path:<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>info_log_path:<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>log_timestamp:
+  %Y-%m-%d %H:%M:%S<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>syslog_facility:
+  mail<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>protocols:
+  imap imaps pop3 pop3s<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>listen:
+  *<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>ssl_listen:<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>ssl_disable:
+  no<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>ssl_ca_file:<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>ssl_cert_file:
+  /etc/ssl/certs/dovecot.pem<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>ssl_key_file:
+  /etc/ssl/private/dovecot.pem<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>ssl_key_password:<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>ssl_parameters_regenerate:
+  168<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>ssl_cipher_list:<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>ssl_verify_client_cert:
+  no<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>disable_plaintext_auth:
+  no<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>verbose_ssl:
+  no<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>shutdown_clients:
+  yes<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1379 style='height:15.0pt;width:1034pt'>alfa:/etc/dovecot#</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1379 style='height:15.0pt;width:1034pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1379 style='height:15.0pt;width:1034pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1379 style='width:1034pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

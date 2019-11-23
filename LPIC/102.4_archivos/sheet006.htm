@@ -1,0 +1,162 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../102.4.htm">
+<link rel=File-List href=filelist.xml>
+<title>102.4 - Use Debian package management</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(5);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../102.4.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1122 style='border-collapse:
+ collapse;table-layout:fixed;width:841pt'>
+ <col class=xl68 width=979 style='mso-width-source:userset;mso-width-alt:35803;
+ width:734pt'>
+ <col class=xl68 width=143 style='mso-width-source:userset;mso-width-alt:5229;
+ width:107pt'>
+ <col class=xl66 width=597 style='mso-width-source:userset;mso-width-alt:21833;
+ width:448pt'>
+ <col class=xl66 width=457 style='mso-width-source:userset;mso-width-alt:16713;
+ width:343pt'>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=979 style='height:15.0pt;width:734pt'><a
+  name="RANGE!A1">/etc/apt/sources.list</a></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=979 style='height:15.0pt;width:734pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=979 style='height:15.0pt;width:734pt'>Un
+  repositorio contiene un conjunto de paquetes que dependen o bien los unos de
+  los otros, o bien de otros paquetes procedentes de otros repositorios.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=979 style='height:15.0pt;width:734pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=979 style='height:15.0pt;width:734pt'>Los
+  repositorios quedan fijados en el fichero /etc/apt/sources.list</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=979 style='height:15.0pt;width:734pt'>Los
+  repositorios de software se ubican físicamente en el árbol de directorios del
+  servidor.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=979 style='height:15.0pt;width:734pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=979 style='height:15.0pt;width:734pt'>El
+  comando genbasedir permite crear un repositorio.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=979 style='height:15.0pt;width:734pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=979 style='height:15.0pt;width:734pt'>La
+  sintaxis de una línea del fichero sources.list es la siguiente:</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=979 style='height:15.0pt;width:734pt'>deb uri
+  distribución componente1 componente2 ...</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=979 style='height:15.0pt;width:734pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=979 style='height:15.0pt;width:734pt'>- uri es
+  la ruta hacia la raíz del repositorio o de los repositorios. Puede ser una
+  URL de tipo http o ftp, pero</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=979 style='height:15.0pt;width:734pt'>también
+  una ruta local (file), un CDRom o DVDRom (CDrom), una ruta ssh, etc.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=979 style='height:15.0pt;width:734pt'>- La
+  distribución es, como su nombre indica, el nombre de la distribución Debian
+  (squeeze, testing, sarge, trusty...)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=979 style='height:15.0pt;width:734pt'>- Los
+  componentes son los nombres de los repositorios para la distribución dada</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=979 style='height:15.0pt;width:734pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=979 style='height:15.0pt;width:734pt'>deb
+  http://ftp.es.debian.org/debian/ squeeze main contrib non-free</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=979 style='height:15.0pt;width:734pt'>deb-src
+  http://ftp.es.debian.org/debian/ squeeze main contrib non-free</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=979 style='width:734pt'></td>
+  <td width=143 style='width:107pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

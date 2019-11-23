@@ -1,0 +1,1140 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../200.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(7);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../200.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1502 style='border-collapse:
+ collapse;table-layout:fixed;width:1127pt'>
+ <col class=xl68 width=1454 style='mso-width-source:userset;mso-width-alt:53174;
+ width:1091pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1454 style='height:15.0pt;width:1091pt'><a
+  name="RANGE!A1">ps, pstree</a></td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'>El
+  comando <font class="font20">ps</font><font class="font0">, con sus múltiples
+  opciones, permite determinar el estado de los procesos que existen en el
+  momento de la ejecución del comando, así como información sobre el uso de
+  diferentes recursos (memoria, procesador).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'>Existe
+  una variante del comando, <font class="font20">pstree</font><font
+  class="font0">, que muestra el árbol de los procesos (un proceso que es
+  creado por otro proceso forman un árbol de padres e hijos).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1454 style='height:15.0pt;width:1091pt'>*Sintaxis</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>ps [-]
+  [lujsvmaxScefwhrnu] [tTerm] [PIDs]</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1454 style='height:15.0pt;width:1091pt'>El
+  comando acepta diferentes sintaxis:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1454 style='height:15.0pt;width:1091pt'>La
+  sintaxis Unix, en que la opciones deben llevar el guión delante.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1454 style='height:15.0pt;width:1091pt'>La
+  sintaxis BSD, en que las opciones no llevan el guión.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1454 style='height:15.0pt;width:1091pt'>La
+  sintaxis GNU, en que las opciones deben llevar un doble guión delante.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1454 style='height:15.0pt;width:1091pt'>Es
+  posible mezclar las sintaxis, pero existe el riesgo de confusión (algunas
+  letras corresponden a opciones diferentes).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1454 style='height:15.0pt;width:1091pt'>-
+  Principales opciones y parámetros:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><font
+  class="font20">tTerm --&gt;</font><font class="font14"> Solo muestra los
+  procesos asociados al terminal Term (número o nombre del archivo especial
+  asociado: -t1 para /dev/tty1 o /dev/pts/1, -tpts/2 para /dev/pts/2).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><font
+  class="font20">PIDs --&gt;</font><font class="font14"> PIDs del proceso o de
+  los procesos que se han de examinar.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><font
+  class="font20">-u Users --&gt;</font><font class="font14"> Solo los procesos
+  asociados a los usuarios (nombres o UID) de la lista.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><font
+  class="font20">-e --&gt;</font><font class="font14"> Todos los procesos (por
+  defecto, solo los asociados al terminal actual).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><font
+  class="font20">-f --&gt;</font><font class="font14"> Visualización detallada.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><font
+  class="font20">-l --&gt;</font><font class="font14"> Visualización larga.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><font
+  class="font20">-w --&gt;</font><font class="font14"> Visualización detallada
+  (wide).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><font
+  class="font20">U Users --&gt;</font><font class="font14"> Solo los procesos
+  asociados a los usuarios (nombres o UID) de la lista.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><font
+  class="font20">a --&gt;</font><font class="font14"> Todos los procesos
+  asociados a un terminal.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><font
+  class="font20">x --&gt;</font><font class="font14"> Todos los procesos no
+  asociados a un terminal.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><font
+  class="font20">l --&gt;</font><font class="font14"> Visualización larga.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><font
+  class="font20">u --&gt;</font><font class="font14"> Visualización larga,
+  usuario.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><font
+  class="font20">w --&gt;</font><font class="font14"> Visualización detallada
+  (wide).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1454 style='height:15.0pt;width:1091pt'>Ejemplos:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1454 style='height:15.0pt;width:1091pt'>*Sintaxis
+  Unix:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>[root@beta
+  ~]# ps -l -t1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>F
+  S<span style='mso-spacerun:yes'>  </span>UID<span style='mso-spacerun:yes'>  
+  </span>PID<span style='mso-spacerun:yes'>  </span>PPID<span
+  style='mso-spacerun:yes'>  </span>C PRI<span style='mso-spacerun:yes'> 
+  </span>NI ADDR SZ WCHAN TTY<span style='mso-spacerun:yes'>      </span>TIME
+  CMD<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>0
+  S<span style='mso-spacerun:yes'>  </span>500<span style='mso-spacerun:yes'> 
+  </span>2686<span style='mso-spacerun:yes'>  </span>2684<span
+  style='mso-spacerun:yes'>  </span>0<span style='mso-spacerun:yes'> 
+  </span>80<span style='mso-spacerun:yes'>   </span>0 -<span
+  style='mso-spacerun:yes'>  </span>1324 -<span style='mso-spacerun:yes'>    
+  </span>pts/1 00:00:00 bash<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>0
+  S<span style='mso-spacerun:yes'>  </span>500<span style='mso-spacerun:yes'> 
+  </span>3811<span style='mso-spacerun:yes'>  </span>2686<span
+  style='mso-spacerun:yes'>  </span>0<span style='mso-spacerun:yes'> 
+  </span>80<span style='mso-spacerun:yes'>   </span>0 -<span
+  style='mso-spacerun:yes'>  </span>2802 -<span style='mso-spacerun:yes'>    
+  </span>pts/1 00:00:00 vim<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>[root@beta
+  ~]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1454 style='height:15.0pt;width:1091pt'>*Lista
+  detallada <font class="font19">(</font><font class="font14">-l</font><font
+  class="font19">)</font><font class="font5"> de los procesos asociados al
+  terminal</font><font class="font20"> /dev/pts/1.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1454 style='height:15.0pt;width:1091pt'>Columnas
+  visualizadas:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>F
+  --&gt; <font class="font14">Flags de los atributos del procesos</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>S
+  --&gt;<font class="font14"> Estado del proceso (S sleep, R running)</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>UID
+  --&gt;<font class="font14"> Propietario del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>PID
+  --&gt;<font class="font14"> Identificador del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>PPID
+  --&gt;<font class="font14"> Identificador del proceso padre del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>C
+  --&gt; <font class="font14">Clase de prioridad</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>PRI
+  --&gt; <font class="font14">Prioridad del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>NI
+  --&gt; <font class="font14">Valor de nivel del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>ADDR
+  --&gt; <font class="font14">Dirección del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>SZ
+  --&gt; <font class="font14">Tamaño en memoria aproximado del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>WCHAN
+  --&gt; <font class="font14">Dirección de la función del núcleo que espera el
+  proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>TTY
+  --&gt; <font class="font14">Archivo especial terminal asociado al proceso (?
+  si es una tarea en segundo plano)</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>TIME
+  --&gt; <font class="font14">Tiempo de procesador acumulado del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>[root@beta
+  ~]# ps -ef<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>UID<span
+  style='mso-spacerun:yes'>        </span>PID<span style='mso-spacerun:yes'> 
+  </span>PPID<span style='mso-spacerun:yes'>  </span>C STIME TTY<span
+  style='mso-spacerun:yes'>          </span>TIME CMD<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>         </span>1<span style='mso-spacerun:yes'>    
+  </span>0<span style='mso-spacerun:yes'>  </span>0 18:27 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:02 /sbin/init<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>         </span>2<span style='mso-spacerun:yes'>    
+  </span>0<span style='mso-spacerun:yes'>  </span>0 18:27 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 [kthreadd]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>         </span>3<span style='mso-spacerun:yes'>    
+  </span>2<span style='mso-spacerun:yes'>  </span>0 18:27 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 [migration/0]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>         </span>4<span style='mso-spacerun:yes'>    
+  </span>2<span style='mso-spacerun:yes'>  </span>0 18:27 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:01 [ksoftirqd/0]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>         </span>5<span style='mso-spacerun:yes'>    
+  </span>2<span style='mso-spacerun:yes'>  </span>0 18:27 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 [migration/0]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>         </span>6<span style='mso-spacerun:yes'>    
+  </span>2<span style='mso-spacerun:yes'>  </span>0 18:27 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:03 [watchdog/0]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>         </span>7<span style='mso-spacerun:yes'>    
+  </span>2<span style='mso-spacerun:yes'>  </span>0 18:27 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:14 [events/0]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>         </span>8<span style='mso-spacerun:yes'>    
+  </span>2<span style='mso-spacerun:yes'>  </span>0 18:27 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 [cgroup]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>         </span>9<span style='mso-spacerun:yes'>    
+  </span>2<span style='mso-spacerun:yes'>  </span>0 18:27 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 [khelper]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>        </span>10<span style='mso-spacerun:yes'>    
+  </span>2<span style='mso-spacerun:yes'>  </span>0 18:27 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 [netns]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>        </span>11<span style='mso-spacerun:yes'>    
+  </span>2<span style='mso-spacerun:yes'>  </span>0 18:27 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 [async/mgr]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>[...]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>      </span>3498<span style='mso-spacerun:yes'> 
+  </span>1738<span style='mso-spacerun:yes'>  </span>0 21:31 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 sshd: root@pts/0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>      </span>3502<span style='mso-spacerun:yes'> 
+  </span>3498<span style='mso-spacerun:yes'>  </span>0 21:31 pts/0<span
+  style='mso-spacerun:yes'>    </span>00:00:00 -bash<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>postfix<span
+  style='mso-spacerun:yes'>   </span>3626<span style='mso-spacerun:yes'> 
+  </span>1818<span style='mso-spacerun:yes'>  </span>0 21:51 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 pickup -l -t fifo -u<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>      </span>3645<span style='mso-spacerun:yes'> 
+  </span>1904<span style='mso-spacerun:yes'>  </span>0 21:56 tty2<span
+  style='mso-spacerun:yes'>     </span>00:00:00 -bash<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>stage<span
+  style='mso-spacerun:yes'>     </span>3811<span style='mso-spacerun:yes'> 
+  </span>2686<span style='mso-spacerun:yes'>  </span>0 22:14 pts/1<span
+  style='mso-spacerun:yes'>    </span>00:00:00 vim /etc/hosts<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>      </span>3867<span style='mso-spacerun:yes'> 
+  </span>3502<span style='mso-spacerun:yes'>  </span>8 22:28 pts/0<span
+  style='mso-spacerun:yes'>    </span>00:00:00 ps -ef<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>[root@beta
+  ~]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1454 style='height:15.0pt;width:1091pt'>*Lista
+  detallada (<font class="font14">-f</font><font class="font5">) de todos los
+  procesos (</font><font class="font14">-e</font><font class="font5">).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1454 style='height:15.0pt;width:1091pt'>Columnas
+  visualizadas:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>UID
+  --&gt;<font class="font14"> Propietario del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>PID
+  --&gt; <font class="font14">Identificador del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>PPID
+  --&gt;<font class="font14"> Identificador del proceso padre del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>C
+  --&gt;<font class="font14"> Clase de prioridad</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>STIME
+  --&gt;<font class="font14"> Fecha de creación (Start time) del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>TTY
+  --&gt; <font class="font14">Archivo especial terminal asociado al proceso (?
+  si es una tarea en segundo plano)</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>CMD
+  --&gt; <font class="font14">Comando ejecutado</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1454 style='height:15.0pt;width:1091pt'>*Syntaxis
+  BSD:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>[root@beta
+  ~]#<span style='mso-spacerun:yes'>  </span>ps l t1<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>F<span
+  style='mso-spacerun:yes'>   </span>UID<span style='mso-spacerun:yes'>  
+  </span>PID<span style='mso-spacerun:yes'>  </span>PPID PRI<span
+  style='mso-spacerun:yes'>  </span>NI<span style='mso-spacerun:yes'>   
+  </span>VSZ<span style='mso-spacerun:yes'>   </span>RSS WCHAN<span
+  style='mso-spacerun:yes'>  </span>STAT TTY<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>TIME
+  COMMAND<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>0<span
+  style='mso-spacerun:yes'>   </span>500<span style='mso-spacerun:yes'> 
+  </span>2686<span style='mso-spacerun:yes'>  </span>2684<span
+  style='mso-spacerun:yes'>  </span>20<span style='mso-spacerun:yes'>  
+  </span>0<span style='mso-spacerun:yes'>   </span>5296<span
+  style='mso-spacerun:yes'>  </span>1704 -<span style='mso-spacerun:yes'>     
+  </span>Ss<span style='mso-spacerun:yes'>   </span>pts/1<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>0:00
+  /bin/bash<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>0<span
+  style='mso-spacerun:yes'>   </span>500<span style='mso-spacerun:yes'> 
+  </span>3811<span style='mso-spacerun:yes'>  </span>2686<span
+  style='mso-spacerun:yes'>  </span>20<span style='mso-spacerun:yes'>  
+  </span>0<span style='mso-spacerun:yes'>  </span>11208<span
+  style='mso-spacerun:yes'>  </span>3312 -<span style='mso-spacerun:yes'>     
+  </span>S+<span style='mso-spacerun:yes'>   </span>pts/1<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>0:00
+  vim /etc/hosts<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>[root@beta
+  ~]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1454 style='height:15.0pt;width:1091pt'>Lista
+  detallada (<font class="font20">l</font><font class="font5">) de los procesos
+  asociados al terminal </font><font class="font20">/dev/pts/1</font><font
+  class="font5">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1454 style='height:15.0pt;width:1091pt'>Columnas
+  visualizadas:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>F
+  --&gt; Flags de los atributos del proceso</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>UID
+  --&gt; Propietario del proceso</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>PID
+  --&gt; Identificador del proceso</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>PPID
+  --&gt; Identificador del proceso padre del proceso</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>PRI
+  --&gt; Prioridad del proceso</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>NI
+  --&gt; Valor de nivel del proceso</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>VSZ
+  --&gt; Tamaño de memoria virtual del proceso</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>RSS
+  --&gt; Tamaño de memoria residente del proceso</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>WCHAN
+  --&gt; Dirección de la función del núcleo que espera el proceso</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>STAT
+  --&gt; Estado del proceso (S sleep, R running)</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>TTY
+  --&gt; Archivo especial de terminal asociado al proceso (? si es una tarea en
+  segundo plano)</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>[root@beta
+  ~]# ps axu<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>USER<span
+  style='mso-spacerun:yes'>   </span>PID %CPU %MEM<span
+  style='mso-spacerun:yes'>    </span>VSZ<span style='mso-spacerun:yes'>  
+  </span>RSS TTY STAT START TIME COMMAND<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>     </span>1<span style='mso-spacerun:yes'> 
+  </span>0.0<span style='mso-spacerun:yes'>  </span>0.1<span
+  style='mso-spacerun:yes'>   </span>2900<span style='mso-spacerun:yes'> 
+  </span>1444 ?<span style='mso-spacerun:yes'>     </span>Ss 18:27 0:02
+  /sbin/init<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>     </span>2<span style='mso-spacerun:yes'> 
+  </span>0.0<span style='mso-spacerun:yes'>  </span>0.0<span
+  style='mso-spacerun:yes'>      </span>0<span style='mso-spacerun:yes'>    
+  </span>0 ?<span style='mso-spacerun:yes'>      </span>S 18:27 0:00
+  [kthreadd]<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>[...]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>   </span>3645 0.0<span style='mso-spacerun:yes'> 
+  </span>0.1<span style='mso-spacerun:yes'>   </span>5256<span
+  style='mso-spacerun:yes'>  </span>1652 tty2 Ss+ 21:56 0:00 -bash<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>stage<span
+  style='mso-spacerun:yes'>  </span>3811 0.0<span style='mso-spacerun:yes'> 
+  </span>0.3<span style='mso-spacerun:yes'>  </span>11208<span
+  style='mso-spacerun:yes'>  </span>3312 pts/1 S+ 22:14 0:00 vim<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>   </span>3924 5.0<span style='mso-spacerun:yes'> 
+  </span>0.1<span style='mso-spacerun:yes'>   </span>4936<span
+  style='mso-spacerun:yes'>  </span>1060 pts/0 R+ 22:37 0:00 ps axu<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>root<span
+  style='mso-spacerun:yes'>   </span>3925<span style='mso-spacerun:yes'> 
+  </span>1.0<span style='mso-spacerun:yes'>  </span>0.0<span
+  style='mso-spacerun:yes'>  </span>4460<span style='mso-spacerun:yes'>  
+  </span>876 pts/0 S+ 22:37 0:00 more<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>[root@beta
+  ~]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1454 style='height:15.0pt;width:1091pt'>*Lista
+  detallada (<font class="font20">u</font><font class="font5">) de todos los
+  procesos (</font><font class="font20">ax</font><font class="font5">).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1454 style='height:15.0pt;width:1091pt'>Columnas
+  visualizadas:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>USER
+  --&gt;<font class="font14"> Propietario del proceso (nombre)</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>PID
+  --&gt; <font class="font14">Identificador del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>%CPU
+  --&gt;<font class="font14"> Porcentaje de ocupación acumulada del procesador</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>%CPU
+  --&gt;<font class="font14"> Porcentaje de ocupación de memoria acumulado del
+  procesador</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>VSZ
+  --&gt;<font class="font14"> Tamaño de memoria virtual del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>RSS
+  --&gt; <font class="font14">Tamaño de memoria residente del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>TTY
+  --&gt; <font class="font14">Archivo especial de terminal asociado al proceso
+  (? si es una tarea en segundo plano)</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>STAT
+  --&gt; <font class="font14">Estado del proceso (S sleep, R running)</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>START
+  --&gt;<font class="font14"> Fecha de creación del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>TIME
+  --&gt; <font class="font14">Tiempo de procesador acumulado del proceso</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>COMMAND
+  --&gt; <font class="font14">Comando ejecutado</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'>Existe
+  una variante del comando, <font class="font20">pstree,</font><font
+  class="font0"> que muestra el árbol de los procesos (un proceso que es creado
+  por otro proceso forman un árbol de padres e hijos).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1454 style='height:15.0pt;width:1091pt'>-
+  Ejemplo:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1454 style='height:15.0pt;width:1091pt'>[root@beta
+  ~]# pstree<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>init&#9472;&#9516;&#9472;NetworkManager<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;abrtd<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;acpid<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;atd<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>    
+  </span>&#9500;&#9472;auditd&#9472;&#9472;&#9472;{auditd}<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>    
+  </span>&#9500;&#9472;automount&#9472;&#9472;&#9472;4*[{automount}]<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;certmonger<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>    
+  </span>&#9500;&#9472;console-kit-dae&#9472;&#9472;&#9472;63*[{console-kit-da}]<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;crond<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;cupsd<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>    
+  </span>&#9500;&#9472;dbus-daemon&#9472;&#9472;&#9472;{dbus-daemon}<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;devkit-power-da<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;dhclient<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>    
+  </span>&#9500;&#9472;hald&#9472;&#9516;&#9472;hald-runner&#9472;&#9516;&#9472;hald-addon-acpi<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9474;<span
+  style='mso-spacerun:yes'>      </span>&#9474;<span
+  style='mso-spacerun:yes'>            
+  </span>&#9500;&#9472;hald-addon-gene<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9474;<span
+  style='mso-spacerun:yes'>      </span>&#9474;<span
+  style='mso-spacerun:yes'>            
+  </span>&#9500;&#9472;hald-addon-inpu<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9474;<span
+  style='mso-spacerun:yes'>      </span>&#9474;<span
+  style='mso-spacerun:yes'>            
+  </span>&#9492;&#9472;hald-addon-stor<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9474;<span
+  style='mso-spacerun:yes'>      </span>&#9492;&#9472;{hald}<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;irqbalance<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;2*[iscsid]<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>    
+  </span>&#9500;&#9472;iscsiuio&#9472;&#9472;&#9472;2*[{iscsiuio}]<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>    
+  </span>&#9500;&#9472;master&#9472;&#9516;&#9472;pickup<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9474;<span
+  style='mso-spacerun:yes'>        </span>&#9492;&#9472;qmgr<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;6*[mingetty]<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;modem-manager<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>    
+  </span>&#9500;&#9472;pcscd&#9472;&#9472;&#9472;{pcscd}<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;polkitd<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;rpc.statd<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9500;&#9472;rpcbind<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>    
+  </span>&#9500;&#9472;rsyslogd&#9472;&#9472;&#9472;3*[{rsyslogd}]<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>    
+  </span>&#9500;&#9472;rtkit-daemon&#9472;&#9472;&#9472;2*[{rtkit-daemon}]<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>    
+  </span>&#9500;&#9472;sshd&#9472;&#9472;&#9472;sshd&#9472;&#9472;&#9472;bash&#9472;&#9472;&#9472;pstree<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>    
+  </span>&#9500;&#9472;tgtd&#9472;&#9472;&#9472;tgtd<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>    
+  </span>&#9500;&#9472;udevd&#9472;&#9472;&#9472;2*[udevd]<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>    
+  </span>&#9500;&#9472;udisks-daemon&#9472;&#9516;&#9472;udisks-daemon<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9474;<span
+  style='mso-spacerun:yes'>              
+  </span>&#9492;&#9472;{udisks-daemon}<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'><span
+  style='mso-spacerun:yes'>     </span>&#9492;&#9472;wpa_supplicant<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1454 style='height:15.0pt;width:1091pt'>[root@beta
+  ~]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1454 style='height:15.0pt;width:1091pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1454 style='height:15.0pt;width:1091pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1454 style='width:1091pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

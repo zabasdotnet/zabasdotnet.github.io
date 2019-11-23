@@ -1,0 +1,405 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../104.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>104.1 - Create Partitions and filesystems</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(3);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../104.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=4526 style='border-collapse:
+ collapse;table-layout:fixed;width:3397pt'>
+ <col class=xl68 width=545 style='mso-width-source:userset;mso-width-alt:19931;
+ width:409pt'>
+ <col class=xl66 width=782 style='mso-width-source:userset;mso-width-alt:28598;
+ width:587pt'>
+ <col class=xl66 width=667 style='mso-width-source:userset;mso-width-alt:24393;
+ width:500pt'>
+ <col class=xl66 width=914 style='mso-width-source:userset;mso-width-alt:33426;
+ width:686pt'>
+ <col class=xl66 width=767 style='mso-width-source:userset;mso-width-alt:28050;
+ width:575pt'>
+ <col class=xl66 width=450 style='mso-width-source:userset;mso-width-alt:16457;
+ width:338pt'>
+ <col class=xl66 width=174 style='mso-width-source:userset;mso-width-alt:6363;
+ width:131pt'>
+ <col class=xl66 width=102 style='mso-width-source:userset;mso-width-alt:3730;
+ width:77pt'>
+ <col class=xl66 width=80 style='width:60pt'>
+ <col class=xl66 width=45 style='mso-width-source:userset;mso-width-alt:1645;
+ width:34pt'>
+ <tr height=200 style='height:150.0pt'>
+  <td height=200 class=xl68 width=545 style='height:150.0pt;width:409pt'><a
+  name="RANGE!A1">mkfs -t typefs opciones periférico</a></td>
+  <td class=xl66 width=782 style='width:587pt'>Es typefs el que determina el
+  tipo de sistema de ficheros y, por lo tanto, el programa al que se
+  llama.<br>
+    Existe un programa por tipo de sistema de ficheros:<br>
+    <br>
+    ext2: mkfs.ext2<br>
+    ext3: mkfs.ext3<br>
+    ext4: mkfs.ext4 o mkfs.ext4dev<br>
+    btrfs: mkfs.btrfs<br>
+    reiserfs: mkfs.reiserfs<br>
+    vfat: mkfs.vfat (para todos los formatos FAT, pero existe mkfs.msdos)<br>
+    ntfs: mkfs.ntfs</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=545 style='height:15.0pt;width:409pt'></td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl68 width=545 style='height:45.0pt;width:409pt'># mkfs
+  -t ext2 /dev/sdb1</td>
+  <td class=xl66 width=782 style='width:587pt'>Se verificará el sistema de
+  ficheros automáticamente cada 35 montajes o después de 180 días, según la
+  primera eventualidad.<br>
+    Utilizar tune2fs -c o -i para sobreescribir el valor.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=200 style='height:150.0pt'>
+  <td height=200 class=xl66 width=545 style='height:150.0pt;width:409pt'></td>
+  <td class=xl66 width=782 style='width:587pt'>Es posible dar una etiqueta (un
+  nombre) al sistema de ficheros.<br>
+    #e2label /dev/sdb1 OLDDATA<br>
+    <br>
+    Una etiqueta de sistema de ficheros no debe superar los 16 caracteres o
+  será truncada.<br>
+    <br>
+    Los nodos i (inodos) representan el número máximo de ficheros.<br>
+    Se reparten las tablas de inodos por grupos.<br>
+    Hay un superbloque principal y cuatro superbloques de emergencia (uno por
+  grupo).<br>
+    <br>
+    Es posible modificar algunos parámetros del sistema de ficheros con el comando
+  tune2fs.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=545 style='height:15.0pt;width:409pt'></td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=260 style='height:195.0pt'>
+  <td height=260 class=xl68 width=545 style='height:195.0pt;width:409pt'>Como
+  los sistemas de los ficheros ext2 y ext3 son compatibles, comparten los
+  mismos parámetros, entre los cuales los más corrientes son:</td>
+  <td class=xl66 width=782 style='width:587pt'>-b --&gt; Tamaño de los bloques
+  en bytes, múltiplo de 512. Si no se especifica el tamaño, se determinará por
+  el tamaño de la partición. Cualquier fichero creado en el disco ocupa al
+  menos un bloque y, por lo tanto, si se prevé un gran número de pequeños ficheros,
+  hay que poner un valor bajo (p. ej.: 1024).<br>
+    -c --&gt; Verifique los bloques defectuosos antes de crear el sistema de
+  ficheros. También se puede utilizar el comando badblocks.<br>
+    -i --&gt; Ratio bytes/inodo. Se calcula el tamaño de la tabla de los inodos
+  en función del tamaño total del sistema de ficheros. Un inodo ocupa 128
+  bytes. El hecho de meter menos limita el número de ficheros posibles, pero
+  permite ganar espacio. -i 4096: un inodo por cada 4 KB.<br>
+    -m --&gt; Porcentaje reservado al superusuario, por defecto el 5%. Ponerlo
+  a cero permite ganar espacio, y root podrá trabajar en ello a pesar de
+  todo.<br>
+    -L --&gt; Label, etiqueta (nombre) del sistema de ficheros, útil para el
+  montaje.<br>
+    -j --&gt; Crea un diario ext3 y por lo tanto un sistema de ficheros
+  ext3.<br>
+    </td>
+  <td class=xl66 width=667 style='width:500pt'>Crear un sistema de ficheros en
+  reiserfs es tan simple como con ext2, ext3 o ext4. <br>
+    # mkfs -t reiserfs /dev/sdb1<br>
+    <br>
+    reiserfs acepta parámetros diferentes de ext2/3:<br>
+    -b --&gt; Tamaño de los bloques en bytes, múltiplo de 512 (potencia de 2:
+  512, 1024, 2048, 4096, 8192) incluido entre 512 y 8192. Si no se especifica
+  el tamaño, se determinará con el tamaño de la partición.<br>
+    -l --&gt; Label, etiqueta (nombre) del sistema de ficheros, útil para el
+  montaje.<br>
+    -f --&gt; Fuerza la ejecución del comando sin hacer preguntas, incluyendo
+  un disco, y no una partición.<br>
+    -d --&gt; Modo debug, facilita más información.<br>
+    Label --&gt; Usted puede modificar una etiqueta reiserfs con el comando
+  reiserfstune.<br>
+    <br>
+    reiserfstune -l HOME /dev/hda6</td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=545 style='height:15.0pt;width:409pt'></td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl68 width=545 style='height:75.0pt;width:409pt'>El
+  ejemplo siguiente crea un sistema de ficheros transaccional ext3 (opción -j)
+  con un tamaño de bloques de 2048 bytes, y un inodo por cada 16 KB.<br>
+    Los usuarios pueden utilizar la totalidad del sistema (no se reserva ningún
+  espacio para root).<br>
+    La etiqueta es DATA.</td>
+  <td class=xl66 width=782 style='width:587pt'># mkfs -t ext2 -j -b 2048 -i
+  16384 -m 0 -L &quot;DATA&quot; /dev/sdb1</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=545 style='height:15.0pt;width:409pt'></td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=545 style='height:15.0pt;width:409pt'>Puede
+  convertir un sistema de ficheros ext2 en ext3 utilizando tune2fs.</td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=545 style='height:15.0pt;width:409pt'></td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=545 style='height:30.0pt;width:409pt'>Para
+  crear un sistema de ficheros xfs:<br>
+    # mkfs -t xfs -f /dev/sdb1</td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl68 width=545 style='height:90.0pt;width:409pt'>btrfs
+  sigue siendo experimental.<br>
+    # mkfs -t btrfs /dev/sdb1</td>
+  <td class=xl66 width=782 style='width:587pt'>Los comandos btrfs permiten
+  convertir fácilmente un sistema de ficheros ext3 o ext4, con la posibilidad
+  de volver al estado anterior si surgen problemas.<br>
+    En este caso, evidentemente, las modificaciones se borrarán.<br>
+    <br>
+    # fsck -f /dev/sdb1<br>
+    # btrfs-convert /dev/sdb1</td>
+  <td class=xl66 width=667 style='width:500pt'>Si btrfs no le convence, y si no
+  ha borrado el directorio ext2_saved, puede anular la conversión, después de
+  haber desmontado el sistema de ficheros:<br>
+    # btrfs-convert -r /dev/sda6</td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=545 style='height:15.0pt;width:409pt'></td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=140 style='height:105.0pt'>
+  <td height=140 class=xl68 width=545 style='height:105.0pt;width:409pt'>La
+  creación de un sistema de ficheros VFAT se hace también de la misma
+  manera.<br>
+    El comando va a seleccionar automáticamente, en función del tamaño de la
+  partición, el tipo de FAT que se debe crear (12, 16 o 32).<br>
+    # mkfs -t vfat -v /dev/sdb5</td>
+  <td class=xl66 width=782 style='width:587pt'>Los comandos mkfs.vfat y
+  mkfs.msdos son vínculos simbólicos hacia el programa mkdosfs.<br>
+    Puede especificar varios parámetros, en particular si desea forzar la
+  creación de un tipo de FAT dado:<br>
+    -c --&gt; Verifica el periférico antes de la creación.<br>
+    -F --&gt; Tamaño de la FAT (12, 16, 32).<br>
+    -I --&gt; Permite utilizar un disco completo, y no una partición (práctico
+  para algunos lectores de MP3).<br>
+    -n --&gt; Nombre del volumen (etiqueta, label).<br>
+    -v --&gt; Visualización de detalles durante la creación.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=545 style='height:15.0pt;width:409pt'></td>
+  <td class=xl66 width=782 style='width:587pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl68 width=545 style='height:75.0pt;width:409pt'>Las
+  mtools son herramientas que permiten trabajar en sistemas de ficheros FAT y
+  VFAT como si estuviera bajo MSDOS o la consola de Windows.<br>
+    Retoman la sintaxis de los comandos de origen, pero añaden una m delante:
+  mdir, mformat, mlabel, mdeltree, etc.</td>
+  <td class=xl66 width=782 style='width:587pt'>Se representan los discos y las
+  particiones con letras de unidad c :, d :, e :. <br>
+    Dichas letras pueden representar un disco, una partición o un
+  directorio.<br>
+    Sin embargo, usted debe modificar un fichero de configuración
+  /etc/mtools.conf.<br>
+    Por ejemplo, para declarar /dev/sdb5 como d: añada o modifique la línea
+  siguiente:<br>
+    drive d: file=&quot;/dev/sdb5&quot;</td>
+  <td class=xl66 width=667 style='width:500pt'>Es útil para modificar después
+  ciertos datos, como el nombre del volumen del sistema de ficheros vfat:<br>
+    # mlabel -s d:<br>
+    # mlabel d:<br>
+    # mlabel -s d:</td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=545 style='width:409pt'></td>
+  <td width=782 style='width:587pt'></td>
+  <td width=667 style='width:500pt'></td>
+  <td width=914 style='width:686pt'></td>
+  <td width=767 style='width:575pt'></td>
+  <td width=450 style='width:338pt'></td>
+  <td width=174 style='width:131pt'></td>
+  <td width=102 style='width:77pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=45 style='width:34pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

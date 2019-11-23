@@ -1,0 +1,1155 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../109.3.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../109.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl67>
+
+<table border=0 cellpadding=0 cellspacing=0 width=3120 style='border-collapse:
+ collapse;table-layout:fixed;width:2340pt'>
+ <col class=xl67 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl65 width=79 style='mso-width-source:userset;mso-width-alt:2889;
+ width:59pt'>
+ <col class=xl67 width=955 style='mso-width-source:userset;mso-width-alt:34925;
+ width:716pt'>
+ <col class=xl67 width=692 style='mso-width-source:userset;mso-width-alt:25307;
+ width:519pt'>
+ <col class=xl67 width=666 style='mso-width-source:userset;mso-width-alt:24356;
+ width:500pt'>
+ <col class=xl67 width=680 style='mso-width-source:userset;mso-width-alt:24868;
+ width:510pt'>
+ <col class=xl67 width=430 style='mso-width-source:userset;mso-width-alt:15725;
+ width:323pt'>
+ <tr class=xl65 height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'>109.3</td>
+  <td class=xl65 width=79 style='width:59pt'>W4</td>
+  <td class=xl65 width=955 style='width:716pt'>Basic networking troubleshooting</td>
+  <td class=xl66 width=692 style='width:519pt'><a href="../109.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl65 width=666 style='width:500pt'></td>
+  <td class=xl65 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=420 style='height:315.0pt'>
+  <td height=420 class=xl65 width=48 style='height:315.0pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'>ifconfig</td>
+  <td class=xl67 width=955 style='width:716pt'>La configuración básica de una
+  interfaz de red se hace con la ayuda del comando ifconfig.<br>
+    <br>
+    Sin embargo, la mayoría de las distribuciones utilizan scripts de
+  administración y ficheros de configuración que simplifican mucho las cosas,
+  ya que configuran al mismo tiempo la interfaz de red y las rutas.<br>
+    <br>
+    Configuración de eth0 para la dirección de clase C 192.168.1.2<br>
+    ifconfig eth0 inet 192.168.1.2 netmask 255.255.255.0<br>
+    ifconfig eth0 192.168.1.2<br>
+    <br>
+    Visualización de información de eth0:<br>
+    # ifconfig eth0<br>
+    eth0<span style='mso-spacerun:yes'>      </span>Vínculo encap:Ethernet<span
+  style='mso-spacerun:yes'>  </span>HWaddr 00:XX:XX:XX:XX:XX<br>
+    <span style='mso-spacerun:yes'>          </span>inet adr:192.168.1.60<span
+  style='mso-spacerun:yes'>  </span>Bcast:192.168.1.255<span
+  style='mso-spacerun:yes'>  </span>Máscara:255.255.255.0<br>
+    <span style='mso-spacerun:yes'>          </span>adr inet6:
+  fe80::21b:fcff:fec9:f81d/64 Scope:Vínculo<br>
+    <span style='mso-spacerun:yes'>          </span>UP BROADCAST RUNNING
+  MULTICAST<span style='mso-spacerun:yes'>  </span>MTU:1500<span
+  style='mso-spacerun:yes'>  </span>Metric:1<br>
+    <span style='mso-spacerun:yes'>          </span>RX packets:16522 errors:0
+  dropped:0 overruns:0 frame:0<br>
+    <span style='mso-spacerun:yes'>          </span>TX packets:13631 errors:0
+  dropped:0 overruns:0 carrier:2<br>
+    <span style='mso-spacerun:yes'>          </span>collisions:0 lg file
+  transmission:1000<br>
+    <span style='mso-spacerun:yes'>          </span>RX bytes:17732221 (16.9
+  MB)<span style='mso-spacerun:yes'>  </span>TX bytes:1648879 (1.5 MB)<br>
+    <br>
+    Observe que la dirección IPv6 aparece en el resultado en la línea inet6.</td>
+  <td class=xl67 width=692 style='width:519pt'>Configuración de una dirección
+  IPv6<br>
+    # ifconfig eth0 inet6 add fe80::21b:fcff:fec9:f81d/64<br>
+    <br>
+    Visualización de todas las interfaces de red activadas:<br>
+    ifconfig<br>
+    <br>
+    Visualización de todas las interfaces de red, activadas o no:<br>
+    ifconfig -a<br>
+    <br>
+    Activación de la interfaz de red eth0:<br>
+    ifconfig eth0 up<br>
+    <br>
+    Parada de la interfaz de red eth0:<br>
+    ifconfig eth0 down<br>
+    </td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl67 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=460 style='height:345.0pt'>
+  <td height=460 class=xl65 width=48 style='height:345.0pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'>ip</td>
+  <td class=xl67 width=955 style='width:716pt'>El comando ip forma parte de la
+  iproute2 suite.<br>
+    Es el sustituto de ifconfig.<br>
+    <br>
+    El comando ip addr list vendría a ser lo mismo que ejecutar ifconfig.<br>
+    Se puede ejecutar con el mismo resultado como ip address show o ip address
+  list<br>
+    <br>
+    También podemos usar el comando ip link show para ver la información en
+  capa 2 (data link layer) de las interfaces de red del sistema:<br>
+    <br>
+    Para habilitar o deshabilitar una interfaz de red:<br>
+    ~# ip link set eth2 down<br>
+    ~# ip link set eth2 up<br>
+    lo mismo que ésto:<br>
+    ~# ifconfig eth2 down<br>
+    ~# ifconfig eth2 up<br>
+    <br>
+    Con ip link también podemos realizar modificaciones en las características
+  o flags de la interfaz, como por ejemplo configurar el modo promiscuo,
+  multicast, arp, dynamic o allmulti. <br>
+    Se utilizan los valores on|off. <br>
+    ~# ip link set dev eth0 promisc on<br>
+    ~# ip link set dev eth0 promisc off</td>
+  <td class=xl67 width=692 style='width:519pt'>Con ip addr add podemos
+  especificar la IP, máscara (también en formato CIDR como vemos a continuación
+  y la IP de broadcast:<br>
+    ~# ip addr add 10.0.0.100/24 broadcast 10.0.0.255 dev eth2<br>
+    <br>
+    Para eliminar la IP:<br>
+    ~# ip addr del 10.0.0.100/24 dev eth2<br>
+    <br>
+    También podemos crear alias en la interfaz:<br>
+    ~# ip addr add 10.0.0.101/24 broadcast 10.0.0.255 dev eth2:1<br>
+    <br>
+    Cambiar la MTU de la interfaz<br>
+    ~# ip link set dev eth2 mtu 9000<br>
+    <br>
+    Ver la tabla de rutas<br>
+    ~# ip route show<br>
+    <br>
+    Ver la tabla de ARP Cache<br>
+    De todas las interfaces:<br>
+    ~# ip neighbor show<br>
+    192.168.1.1 dev eth0 lladdr 64:68:0c:6b:5f:7e REACHABLE<br>
+    <br>
+    De una interfaz concreta:<br>
+    ~# ip neighbor show dev eth0</td>
+  <td class=xl65 width=666 style='width:500pt'>$ man ip</td>
+  <td class=xl67 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'>ifup</td>
+  <td class=xl67 width=955 style='width:716pt'>Activa la interfaz de red</td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl67 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=300 style='height:225.0pt'>
+  <td height=300 class=xl65 width=48 style='height:225.0pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'></td>
+  <td class=xl67 width=955 style='width:716pt'>Se basan en los ficheros
+  presentes en /etc/sysconfig/network-scripts/.<br>
+    Estos ficheros de configuración de interfaz se llaman ifcfg-xxx, donde xxx
+  es el nombre de la interfaz de red, como eth0:<br>
+    DEVICE=eth0<br>
+    IPADDR=192.168.1.2<br>
+    NETMASK=255.255.255.0<br>
+    NETWORK=192.168.1.0<br>
+    BROADCAST=192.168.1.255<br>
+    ONBOOT=yes<br>
+    BOOTPROTO=static<br>
+    <br>
+    Los parámetros hablan por sí mismos.<br>
+    Los valores NETWORK y BROADCAST son opcionales si se notifican IPADDR y NETMASK
+  (en este caso, el cálculo es automático) o si se utiliza DHCP.<br>
+    <br>
+    BOOTPROTO indica cómo montar la interfaz, o bien static, o bien dhcp.<br>
+    Se puede utilizar el valor bootp.</td>
+  <td class=xl67 width=692 style='width:519pt'>En el caso de DHCP, el fichero
+  se puede parecer a esto:<br>
+    DEVICE=eth0<br>
+    ONBOOT=yes<br>
+    BOOTPROTO=dhcp<br>
+    <br>
+    En el caso de una configuración estática, IPADDR y NETMASK son
+  obligatorios:<br>
+    DEVICE=eth0<br>
+    IPADDR=192.168.1.2<br>
+    NETMASK=255.255.255.0<br>
+    ONBOOT=yes<br>
+    BOOTPROTO=static<br>
+    ONBOOT determina si se debe activar automáticamente la interfaz en el
+  arranque de la máquina.</td>
+  <td class=xl67 width=666 style='width:500pt'>Para IPv6, usted debe utilizar
+  las siguientes variables:<br>
+    IPV6INIT=yes<br>
+    IPV6ADDR=&lt;IPv6-IP-Address&gt;<br>
+    IPV6_DEFAULTGW=&lt;IPv6-IP-Gateway-Address&gt;<br>
+    IPV6INIT indica si IPv6 está activo o no en esta interfaz.<br>
+    Las dos variables siguientes indican la dirección IP y su puerta de
+  enlace.<br>
+    <br>
+    Una vez notificado correctamente el fichero, se utilizan los comandos
+  ifup/ifdown:</td>
+  <td class=xl67 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=460 style='height:345.0pt'>
+  <td height=460 class=xl65 width=48 style='height:345.0pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'></td>
+  <td class=xl67 width=955 style='width:716pt'>Parámetros generales<br>
+    El fichero /etc/sysconfig/network contiene los parámetros generales de la
+  red.<br>
+    NETWORKING=yes<br>
+    HOSTNAME=puesto1.mired.org # nombre completo<br>
+    GATEWAY=0.0.0.0 # pasarela por defecto<br>
+    NISDOMAIN= # nombre del dominio NIS<br>
+    NETWORKING_IPV6=yes<br>
+    NETWORKING: activación o no de la red.<br>
+    <br>
+    HOSTNAME: nombre de dominio completo FQDN.<br>
+    GATEWAY: dirección IP de la pasarela.<br>
+    GATEWAYDEV: interfaz de red que permite acceder a la pasarela.<br>
+    NISDOMAIN: en caso de un dominio NIS.<br>
+    NETWORKING_IPV6 : activación o no del soporte de IPv6.</td>
+  <td class=xl67 width=692 style='width:519pt'>El fichero de configuración de
+  las interfaces de redes en Debian (y Ubuntu) se sitúa en
+  /etc/network/interfaces.<br>
+    No tiene el mismo formato que en Red Hat.<br>
+    <br>
+    # cat interfaces<br>
+    auto lo eth0 eth1<br>
+    iface lo inet loopback<br>
+    <br>
+    iface eth0 inet static<br>
+    <span style='mso-spacerun:yes'>        </span>address 192.161.1.60<br>
+    <span style='mso-spacerun:yes'>        </span>netmask 255.255.255.0<br>
+    <span style='mso-spacerun:yes'>        </span>broadcast 192.168.1.255<br>
+    <span style='mso-spacerun:yes'>        </span>gateway 192.168.1.1<br>
+    <br>
+    iface eth1 inet dhcp<br>
+    <br>
+    Este ejemplo muestra tres tipos de interfaces:<br>
+    la interfaz lo de loopback,<br>
+    la interfaz eth1 en dhcp, que no necesita una configuración más
+  avanzada,<br>
+    la interfaz eth0 configurada de manera estática.<br>
+    <br>
+    La sintaxis general de una declaración es la siguiente:<br>
+    interfaz nombre tipo modo</td>
+  <td class=xl67 width=666 style='width:500pt'>Con una configuración estática,
+  especifique los diferentes parámetros con las palabras claves
+  siguientes:<br>
+    <br>
+    address: la dirección IP.<br>
+    netmask: la máscara de subred.<br>
+    broadcast: la dirección de broadcast.<br>
+    gateway: la pasarela por defecto.<br>
+    <br>
+    La línea auto indica las interfaces que se activarán automáticamente en el
+  arranque.<br>
+    <br>
+    Para IPv6 la configuración es idéntica: basta con reemplazar inet con
+  inet6.</td>
+  <td class=xl67 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'>ifdown</td>
+  <td class=xl67 width=955 style='width:716pt'>Desactiva la interfaz de red</td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl67 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=380 style='height:285.0pt'>
+  <td height=380 class=xl65 width=48 style='height:285.0pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'>route</td>
+  <td class=xl67 width=955 style='width:716pt'>Con la utilización de los
+  ficheros y comandos anteriores, no hace falta crear un encaminamiento
+  específico, puesto que la pasarela por defecto está ya presente e ifup
+  implementa automáticamente las rutas para las interfaces.<br>
+    <br>
+    Sin embargo, se puede utilizar el comando route.<br>
+    <br>
+    Visualiza las rutas actuales:<br>
+    route<br>
+    netstat -nr<br>
+    <br>
+    En el ejemplo siguiente, las interfaces vmnet1 y vmnet8 son interfaces
+  virtuales procedentes de la configuración de red de VMWare.<br>
+    # netstat -rn<br>
+    Tabla de encaminamiento IP del núcleo<br>
+    Destino<span style='mso-spacerun:yes'>         </span>Pasarela<span
+  style='mso-spacerun:yes'>      </span>Genmask<span
+  style='mso-spacerun:yes'>         </span>Indic<span
+  style='mso-spacerun:yes'>   </span>MSS Ventana irtt<span
+  style='mso-spacerun:yes'>  </span>Iface<br>
+    192.168.211.0<span style='mso-spacerun:yes'>   </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>        
+  </span>0 0<span style='mso-spacerun:yes'>          </span>0<span
+  style='mso-spacerun:yes'>  </span>vmnet8<br>
+    192.168.1.0<span style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>        
+  </span>0 0<span style='mso-spacerun:yes'>          </span>0<span
+  style='mso-spacerun:yes'>  </span>eth0<br>
+    172.16.248.0<span style='mso-spacerun:yes'>    </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>        
+  </span>0 0<span style='mso-spacerun:yes'>          </span>0<span
+  style='mso-spacerun:yes'>  </span>vmnet1<br>
+    169.254.0.0<span style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.255.0.0<span
+  style='mso-spacerun:yes'>     </span>U<span style='mso-spacerun:yes'>        
+  </span>0 0<span style='mso-spacerun:yes'>          </span>0<span
+  style='mso-spacerun:yes'>  </span>eth0<br>
+    127.0.0.0<span style='mso-spacerun:yes'>       </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.0.0.0<span
+  style='mso-spacerun:yes'>       </span>U<span
+  style='mso-spacerun:yes'>         </span>0 0<span
+  style='mso-spacerun:yes'>          </span>0<span style='mso-spacerun:yes'> 
+  </span>lo<br>
+    0.0.0.0<span style='mso-spacerun:yes'>         </span>192.168.1.1<span
+  style='mso-spacerun:yes'>   </span>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>UG<span
+  style='mso-spacerun:yes'>        </span>0 0<span
+  style='mso-spacerun:yes'>          </span>0<span style='mso-spacerun:yes'> 
+  </span>eth0</td>
+  <td class=xl67 width=692 style='width:519pt'>Creación de la entrada
+  loopback:<br>
+    route add -net 127.0.0.0<br>
+    <br>
+    Crea la ruta hacia la red 192.168.1.0, que pasa por eth0. Se puede omitir
+  netmask.<br>
+    route add -net 192.168.1.0 netmask 255.255.255.0 eth0<br>
+    <br>
+    Crea la pasarela por defecto hacia el enrutador:<br>
+    route add default gw 192.168.1.254<br>
+    <br>
+    Suprime la ruta hacia la red 172.16.0.0:<br>
+    route del -net 172.16.0.0 eth0<br>
+    <br>
+    La gestión de rutas IPv6 es idéntica, pero indicando el tipo de dirección
+  usado al comando con la opción -A:<br>
+    route -A inet6 add &lt;ipv6&gt; gw &lt;ipv6&gt;</td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl65 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'>host</td>
+  <td class=xl67 width=955 style='width:716pt'>La herramienta host devuelve el
+  mismo resultado que dig, pero quizá de manera más sencilla.</td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl65 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=240 style='height:180.0pt'>
+  <td height=240 class=xl65 width=48 style='height:180.0pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'>hostname</td>
+  <td class=xl67 width=955 style='width:716pt'>hostname especifica el nombre
+  del host.<br>
+    <br>
+    La sintaxis es:<br>
+    hostname [-a | -d | -f | -h | -i | -s]<br>
+    <br>
+    OPCIONES:<br>
+    -a Muestra el alias del host, si existe.<br>
+    -d Muestra el nombre de dominio DNS<br>
+    -f Muestra el fully qualified nombre de dominio.<br>
+    -h Muestra mensajes de ayuda.<br>
+    -i Muestra la dirección IP del host.<br>
+    -s No muestra el nombre de dominio.</td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl65 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=546 style='height:409.5pt'>
+  <td height=546 class=xl65 width=48 style='height:409.5pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'>dig</td>
+  <td class=xl67 width=955 style='width:716pt'>El programa dig es una
+  herramienta de consulta avanzada de servidor de nombres capaz de restituir
+  todos los datos de las zonas.<br>
+    <br>
+    &gt; dig tele2.es<br>
+    <br>
+    ; &lt;&lt;&gt;&gt; DiG 9.4.1-P1 &lt;&lt;&gt;&gt; tele2.es<br>
+    ;; global options:<span style='mso-spacerun:yes'>  </span>printcmd<br>
+    ;; Got answer:<br>
+    ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 63972<br>
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0<br>
+    <br>
+    ;; QUESTION SECTION:<br>
+    ;tele2.es.<span style='mso-spacerun:yes'>                      
+  </span>IN<span style='mso-spacerun:yes'>      </span>A<br>
+    <br>
+    ;; ANSWER SECTION:<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86363<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.48.10<br>
+    <br>
+    ;; Query time: 1 msec<br>
+    ;; SERVER: 10.23.254.240#53(10.23.254.240)<br>
+    ;; WHEN: Wed May 14 09:36:09 2008<br>
+    ;; MSG SIZE<span style='mso-spacerun:yes'>  </span>rcvd: 41<br>
+    <br>
+    Por defecto, dig sólo restituye la dirección del host que se ha pasado como
+  parámetro.<br>
+    En caso de éxito, el estado vale NOERROR; ANSWER indica el número de
+  respuestas y dicha respuesta se sitúa debajo de la sección ANSWER.<br>
+    <br>
+    Para obtener una resolución inversa existen dos soluciones.<br>
+    $ dig 10.48.27.212.in-addr.arpa ptr<br>
+    <br>
+    o más sencillamente:<br>
+    $ dig -x 212.27.48.10<br>
+    <br>
+    ; &lt;&lt;&gt;&gt; DiG 9.4.1-P1 &lt;&lt;&gt;&gt; -x 212.27.48.10<br>
+    ;; global options:<span style='mso-spacerun:yes'>  </span>printcmd<br>
+    ;; Got answer:<br>
+    ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 60222<br>
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0<br>
+    <br>
+    ;; QUESTION SECTION:<br>
+    ;10.48.27.212.in-addr.arpa.<span style='mso-spacerun:yes'>    
+  </span>IN<span style='mso-spacerun:yes'>      </span>PTR<br>
+    <br>
+    ;; ANSWER SECTION:<br>
+    10.48.27.212.in-addr.arpa. 86400 IN<span style='mso-spacerun:yes'>    
+  </span>PTR<span style='mso-spacerun:yes'>     </span>www.tele2.es.<br>
+    <br>
+    ;; Query time: 31 msec<br>
+    ;; SERVER: 10.23.254.240#53(10.23.254.240)<br>
+    ;; WHEN: Wed May 14 09:36:51 2008<br>
+    ;; MSG SIZE<span style='mso-spacerun:yes'>  </span>rcvd: 68<br>
+    <br>
+    En la primera sintaxis, observe que puede añadir un parámetro de
+  consulta.<br>
+    Los principales se presentan a continuación.<br>
+    <br>
+    a: únicamente la dirección;<br>
+    any: toda la información correspondiente al dominio;<br>
+    mx: los servidores de mensajería;<br>
+    ns: los servidores de nombres;<br>
+    soa: la zona Start of Authority;<br>
+    hinfo: información sobre el anfitrión;<br>
+    txt: texto de descripción;<br>
+    ptr: zona reversa del anfitrión;<br>
+    axfr: lista de todos los anfitriones de la zona.<br>
+    <br>
+    $ dig tele2.es any<br>
+    ; &lt;&lt;&gt;&gt; DiG 9.4.1-P1 &lt;&lt;&gt;&gt; tele2.es any<br>
+    ;; global options:<span style='mso-spacerun:yes'>  </span>printcmd<br>
+    ;; Got answer:<br>
+    ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 28893<br>
+    ;; flags: qr aa; QUERY: 1, ANSWER: 6, AUTHORITY: 0, ADDITIONAL: 8<br>
+    <br>
+    ;; QUESTION SECTION:<br>
+    ;tele2.es.<span style='mso-spacerun:yes'>                      
+  </span>IN<span style='mso-spacerun:yes'>      </span>ANY<br>
+    <br>
+    ;; ANSWER SECTION:<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>NS<span style='mso-spacerun:yes'>     
+  </span>freens2-g20.tele2.es.<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.48.10<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>NS<span style='mso-spacerun:yes'>     
+  </span>freens1-g20.tele2.es.<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>MX<span style='mso-spacerun:yes'>      </span>20 mx2.tele2.es.<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>SOA<span style='mso-spacerun:yes'>    
+  </span>freens1-g20.tele2.es.<br>
+    hostmaster.proxad.net. 2008051001 10800 3600 604800 86400<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>MX<span style='mso-spacerun:yes'>      </span>10 mx1.tele2.es.<br>
+    <br>
+    ;; ADDITIONAL SECTION:<br>
+    freens2-g20.tele2.es.<span style='mso-spacerun:yes'>    </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.60.20<br>
+    mx1.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.48.6<br>
+    mx2.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.56<br>
+    freens1-g20.tele2.es.<span style='mso-spacerun:yes'>    </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.60.19<br>
+    mx2.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.58<br>
+    mx1.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.48.7<br>
+    mx2.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.57<br>
+    mx1.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.59<br>
+    <br>
+    ;; Query time: 9 msec<br>
+    ;; SERVER: 10.23.254.240#53(10.23.254.240)<br>
+    ;; WHEN: Wed May 14 09:35:32 2008<br>
+    ;; MSG SIZE<span style='mso-spacerun:yes'>  </span>rcvd: 318</td>
+  <td class=xl67 width=692 style='width:519pt'>Para obtener una resolución
+  inversa existen dos soluciones.<br>
+    $ dig 10.48.27.212.in-addr.arpa ptr<br>
+    <br>
+    o más sencillamente:<br>
+    $ dig -x 212.27.48.10<br>
+    <br>
+    ; &lt;&lt;&gt;&gt; DiG 9.4.1-P1 &lt;&lt;&gt;&gt; -x 212.27.48.10<br>
+    ;; global options:<span style='mso-spacerun:yes'>  </span>printcmd<br>
+    ;; Got answer:<br>
+    ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 60222<br>
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0<br>
+    <br>
+    ;; QUESTION SECTION:<br>
+    ;10.48.27.212.in-addr.arpa.<span style='mso-spacerun:yes'>    
+  </span>IN<span style='mso-spacerun:yes'>      </span>PTR<br>
+    <br>
+    ;; ANSWER SECTION:<br>
+    10.48.27.212.in-addr.arpa. 86400 IN<span style='mso-spacerun:yes'>    
+  </span>PTR<span style='mso-spacerun:yes'>     </span>www.tele2.es.<br>
+    <br>
+    ;; Query time: 31 msec<br>
+    ;; SERVER: 10.23.254.240#53(10.23.254.240)<br>
+    ;; WHEN: Wed May 14 09:36:51 2008<br>
+    ;; MSG SIZE<span style='mso-spacerun:yes'>  </span>rcvd: 68<br>
+    <br>
+    En la primera sintaxis, observe que puede añadir un parámetro de consulta.</td>
+  <td class=xl67 width=666 style='width:500pt'>Los principales se presentan a
+  continuación.<br>
+    a: únicamente la dirección;<br>
+    any: toda la información correspondiente al dominio;<br>
+    mx: los servidores de mensajería;<br>
+    ns: los servidores de nombres;<br>
+    soa: la zona Start of Authority;<br>
+    hinfo: información sobre el anfitrión;<br>
+    txt: texto de descripción;<br>
+    ptr: zona reversa del anfitrión;<br>
+    axfr: lista de todos los anfitriones de la zona.<br>
+    <br>
+    $ dig tele2.es any<br>
+    ; &lt;&lt;&gt;&gt; DiG 9.4.1-P1 &lt;&lt;&gt;&gt; tele2.es any<br>
+    ;; global options:<span style='mso-spacerun:yes'>  </span>printcmd<br>
+    ;; Got answer:<br>
+    ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 28893<br>
+    ;; flags: qr aa; QUERY: 1, ANSWER: 6, AUTHORITY: 0, ADDITIONAL: 8<br>
+    <br>
+    ;; QUESTION SECTION:<br>
+    ;tele2.es.<span style='mso-spacerun:yes'>                      
+  </span>IN<span style='mso-spacerun:yes'>      </span>ANY<br>
+    <br>
+    ;; ANSWER SECTION:<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>NS<span style='mso-spacerun:yes'>     
+  </span>freens2-g20.tele2.es.<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.48.10<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>NS<span style='mso-spacerun:yes'>     
+  </span>freens1-g20.tele2.es.<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>MX<span style='mso-spacerun:yes'>      </span>20 mx2.tele2.es.<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>SOA<span style='mso-spacerun:yes'>    
+  </span>freens1-g20.tele2.es.<br>
+    hostmaster.proxad.net. 2008051001 10800 3600 604800 86400<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>MX<span style='mso-spacerun:yes'>      </span>10 mx1.tele2.es.</td>
+  <td class=xl67 width=680 style='width:510pt'>;; ADDITIONAL SECTION:<br>
+    freens2-g20.tele2.es.<span style='mso-spacerun:yes'>    </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.60.20<br>
+    mx1.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.48.6<br>
+    mx2.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.56<br>
+    freens1-g20.tele2.es.<span style='mso-spacerun:yes'>    </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.60.19<br>
+    mx2.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.58<br>
+    mx1.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.48.7<br>
+    mx2.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.57<br>
+    mx1.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.59<br>
+    <br>
+    ;; Query time: 9 msec<br>
+    ;; SERVER: 10.23.254.240#53(10.23.254.240)<br>
+    ;; WHEN: Wed May 14 09:35:32 2008<br>
+    ;; MSG SIZE<span style='mso-spacerun:yes'>  </span>rcvd: 318</td>
+ </tr>
+ <tr height=546 style='height:409.5pt'>
+  <td height=546 class=xl65 width=48 style='height:409.5pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'>netstat</td>
+  <td class=xl67 width=955 style='width:716pt'>El comando netstat permite
+  obtener una multitud de información sobre la red y los protocolos.<br>
+    El parámetro -i permite obtener el estado de las tarjetas de redes con el
+  fin de determinar una posible avería o un problema de cable:<br>
+    # netstat -i<br>
+    Tabla de interfaces del núcleo<br>
+    Iface<span style='mso-spacerun:yes'>  </span>MTU Met<span
+  style='mso-spacerun:yes'>   </span>RX-OK RX-ERR RX-DRP RX-OVR<span
+  style='mso-spacerun:yes'>   </span>TX-OK TX-ERR TX-DRP<span
+  style='mso-spacerun:yes'>  </span>TX-OVR Flg<br>
+    eth0<span style='mso-spacerun:yes'>  </span>1500<span
+  style='mso-spacerun:yes'>   </span>0 2332007<span
+  style='mso-spacerun:yes'>      </span>0<span style='mso-spacerun:yes'>     
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>  </span>677842<span style='mso-spacerun:yes'>     
+  </span>0<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>  </span>0 BMRU<br>
+    lo<span style='mso-spacerun:yes'>   </span>16436<span
+  style='mso-spacerun:yes'>   </span>0<span style='mso-spacerun:yes'>   
+  </span>1109<span style='mso-spacerun:yes'>      </span>0<span
+  style='mso-spacerun:yes'>      </span>0<span style='mso-spacerun:yes'>     
+  </span>0<span style='mso-spacerun:yes'>    </span>1109<span
+  style='mso-spacerun:yes'>      </span>0<span style='mso-spacerun:yes'>     
+  </span>0<span style='mso-spacerun:yes'>  </span>0 LRU<br>
+    <br>
+    Si añade el parámetro -e, obtiene el mismo resultado que con ifconfig
+  -a.<br>
+    # netstat -ei<br>
+    Tabla de interfaces del núcleo<br>
+    eth0<span style='mso-spacerun:yes'>   </span>Vínculo encap:Ethernet<span
+  style='mso-spacerun:yes'>  </span>HWaddr 00:XX:D3:XX:AA:XX<br>
+    <span style='mso-spacerun:yes'>       </span>inet adr:12.168.1.60<span
+  style='mso-spacerun:yes'>  </span>Bcast:192.168.1.255<span
+  style='mso-spacerun:yes'>  </span>Máscara:255.255.255.0<br>
+    <span style='mso-spacerun:yes'>       </span>UP BROADCAST RUNNING
+  MULTICAST<span style='mso-spacerun:yes'>  </span>MTU:1500<span
+  style='mso-spacerun:yes'>  </span>Metric:1<br>
+    <span style='mso-spacerun:yes'>       </span>RX packets:2335314 errors:0
+  dropped:0 overruns:0 frame:0<br>
+    <span style='mso-spacerun:yes'>       </span>TX packets:678095 errors:0
+  dropped:0 overruns:0 carrier:0<br>
+    <span style='mso-spacerun:yes'>       </span>collisions:0 lg file
+  transmission:1000<br>
+    <span style='mso-spacerun:yes'>       </span>RX bytes:1055212145 (1006.3
+  MB)<span style='mso-spacerun:yes'>  </span>TX bytes:61264196 (58.4 MB)<br>
+    <span style='mso-spacerun:yes'>       </span>Interruption:20 Dirección
+  basica:0x8c00<br>
+    <br>
+    lo<span style='mso-spacerun:yes'>     </span>Vínculo encap:Bucle
+  local<br>
+    <span style='mso-spacerun:yes'>       </span>inet adr:127.0.0.1<span
+  style='mso-spacerun:yes'>  </span>Máscara:255.0.0.0<br>
+    <span style='mso-spacerun:yes'>       </span>UP LOOPBACK RUNNING<span
+  style='mso-spacerun:yes'>  </span>MTU:16436<span style='mso-spacerun:yes'> 
+  </span>Metric:1<br>
+    <span style='mso-spacerun:yes'>       </span>RX packets:1109 errors:0
+  dropped:0 overruns:0 frame:0<br>
+    <span style='mso-spacerun:yes'>       </span>TX packets:1109 errors:0
+  dropped:0 overruns:0 carrier:0<br>
+    <span style='mso-spacerun:yes'>       </span>collisions:0 lg file
+  transmission:0<br>
+    <span style='mso-spacerun:yes'>       </span>RX bytes:60423 (59.0 Kb)<span
+  style='mso-spacerun:yes'>  </span>TX bytes:60423 (59.0 KB)<br>
+    </td>
+  <td class=xl67 width=692 style='width:519pt'>El parámetro -r permite obtener
+  las tablas de encaminamiento como ruta. Añada el parámetro -n para indicar
+  las IP en lugar de los nombres.<br>
+    # netstat -rn<br>
+    Tabla de encaminamiento IP del núcleo<br>
+    Destino<span style='mso-spacerun:yes'>         </span>Pasarela<span
+  style='mso-spacerun:yes'>      </span>Genmask<span
+  style='mso-spacerun:yes'>         </span>Indic<span
+  style='mso-spacerun:yes'>   </span>MSS Ventana irtt<br>
+    Iface<br>
+    192.168.211.0<span style='mso-spacerun:yes'>   </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>        
+  </span>0 0<span style='mso-spacerun:yes'>          </span>0<br>
+    vmnet8<br>
+    192.168.1.0<span style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>        
+  </span>0 0<span style='mso-spacerun:yes'>          </span>0<br>
+    eth0<br>
+    172.16.248.0<span style='mso-spacerun:yes'>    </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>        
+  </span>0 0<span style='mso-spacerun:yes'>          </span>0<br>
+    vmnet1<br>
+    169.254.0.0<span style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.255.0.0<span
+  style='mso-spacerun:yes'>     </span>U<span style='mso-spacerun:yes'>        
+  </span>0 0<span style='mso-spacerun:yes'>          </span>0<br>
+    eth0<br>
+    127.0.0.0<span style='mso-spacerun:yes'>       </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.0.0.0<span
+  style='mso-spacerun:yes'>       </span>U<span
+  style='mso-spacerun:yes'>         </span>0 0<span
+  style='mso-spacerun:yes'>          </span>0<br>
+    lo<br>
+    0.0.0.0<span style='mso-spacerun:yes'>         </span>192.168.1.1<span
+  style='mso-spacerun:yes'>   </span>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>UG<span
+  style='mso-spacerun:yes'>        </span>0 0<span
+  style='mso-spacerun:yes'>          </span>0<br>
+    eth0</td>
+  <td class=xl67 width=666 style='width:500pt'>El parámetro -a permite
+  visualizar todas las conexiones, para todos los protocolos, incluido los
+  puertos en escucha de la máquina. La salida es demasiado larga para
+  reproducirla en estas páginas.<br>
+    # netstat -a | wc -l<br>
+    495<br>
+    <br>
+    El parámetro -A permite especificar el protocolo que es preciso consultar:
+  inet, inet6 (ipv6), unix, ipx, ax25, netrom y ddp.<br>
+    # netstat -a -A inet<br>
+    Conexiones Internet activas (servidores y establecidas)<br>
+    Proto Recv-Q Send-Q Dirección local<span style='mso-spacerun:yes'>        
+  </span>Dirección remota<br>
+    Estado<br>
+    tcp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 localhost:716<span
+  style='mso-spacerun:yes'>           </span>*:*<br>
+    LISTEN<br>
+    tcp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 *:sunrpc<span
+  style='mso-spacerun:yes'>                </span>*:*<br>
+    LISTEN<br>
+    tcp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 localhost:ipp<span
+  style='mso-spacerun:yes'>           </span>*:*<br>
+    LISTEN<br>
+    tcp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 localhost:smtp<span
+  style='mso-spacerun:yes'>          </span>*:*<br>
+    LISTEN<br>
+    tcp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 localhost:hpssd<span
+  style='mso-spacerun:yes'>         </span>*:*<br>
+    LISTEN<br>
+    tcp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 slyserver:41851<span
+  style='mso-spacerun:yes'>         </span>imap.tele2.es:imap<br>
+    ESTABLISHED<br>
+    tcp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 slyserver:41850<span
+  style='mso-spacerun:yes'>         </span>imap.tele2.es:imap<br>
+    ESTABLISHED<br>
+    tcp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 slyserver:54220<span
+  style='mso-spacerun:yes'>         </span>by1msg4176111.gate:msnp<br>
+    ESTABLISHED<br>
+    tcp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 slyserver:34267<span
+  style='mso-spacerun:yes'>         </span>by2msg2105007.phx.:msnp<br>
+    ESTABLISHED<br>
+    tcp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 slyserver:47990<span
+  style='mso-spacerun:yes'>         </span>by1msg4082314.phx.:msnp<br>
+    ESTABLISHED<br>
+    udp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 *:filenet-tms<span
+  style='mso-spacerun:yes'>           </span>*:*<br>
+    udp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 *:mdns<span
+  style='mso-spacerun:yes'>                  </span>*:*<br>
+    udp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 *:sunrpc<span
+  style='mso-spacerun:yes'>                </span>*:*<br>
+    udp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 *:ipp<span
+  style='mso-spacerun:yes'>                   </span>*:*<br>
+    udp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 172.16.248.1:ntp<span
+  style='mso-spacerun:yes'>        </span>*:*<br>
+    udp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 192.168.211.1:ntp<span
+  style='mso-spacerun:yes'>       </span>*:*<br>
+    udp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 slyserver:ntp<span
+  style='mso-spacerun:yes'>           </span>*:*<br>
+    udp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 localhost:ntp<span
+  style='mso-spacerun:yes'>           </span>*:*<br>
+    udp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 *:ntp<span
+  style='mso-spacerun:yes'>                   </span>*:*<br>
+    raw<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 *:icmp<span
+  style='mso-spacerun:yes'>                  </span>*:*<span
+  style='mso-spacerun:yes'>                     </span>7</td>
+  <td class=xl67 width=680 style='width:510pt'>Y para terminar, el parámetro -p
+  permite indicar, cuando sea posible, el ID y el nombre del proceso.<br>
+    # netstat -A inet -p<br>
+    Conexiones a Internet activas (sin servidores)<br>
+    Proto Recv-Q Send-Q Dirección local<span style='mso-spacerun:yes'>         
+  </span>Dirección remota<br>
+    Estado<span style='mso-spacerun:yes'>        </span>PID/Program name<br>
+    ...<br>
+    tcp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 slyserver:54220<span
+  style='mso-spacerun:yes'>          </span>by1msg4176111.gate:msnp<br>
+    ESTABLISHED<span style='mso-spacerun:yes'>       </span>4041/kopete<br>
+    tcp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 slyserver:34267<span
+  style='mso-spacerun:yes'>          </span>by2msg2105007.phx.:msnp<br>
+    ESTABLISHED<span style='mso-spacerun:yes'>       </span>4041/kopete<br>
+    tcp<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>      </span>0 slyserver:47990<span
+  style='mso-spacerun:yes'>          </span>by1msg4082314.phx.:msnp<br>
+    ESTABLISHED<span style='mso-spacerun:yes'>       </span>4041/kopete</td>
+ </tr>
+ <tr height=460 style='height:345.0pt'>
+  <td height=460 class=xl65 width=48 style='height:345.0pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'>ping</td>
+  <td class=xl67 width=955 style='width:716pt'>El comando ping es un comando
+  central, incluso ineludible.<br>
+    Para saber si una máquina está accesible o no, lo primero que se suele
+  hacer es intentar «hacer ping» (con la condición de que la configuración del
+  firewall autorice las peticiones ICMP).<br>
+    <br>
+    Ping emite un «eco» de red, un poco como un sónar, y espera una respuesta,
+  el retorno del eco.<br>
+    Para ello, utiliza el protocolo ICMP.<br>
+    Interrumpa el comando ping con [Ctrl] C.<br>
+    <br>
+    $ ping www.kde.org<br>
+    PING www.kde.org (62.70.27.118) 56(84) bytes of data.<br>
+    64 bytes from 62.70.27.118: icmp_seq=1 ttl=57 time=10.5 ms<br>
+    64 bytes from 62.70.27.118: icmp_seq=2 ttl=57 time=11.3 ms<br>
+    64 bytes from 62.70.27.118: icmp_seq=3 ttl=57 time=10.4 ms<br>
+    64 bytes from 62.70.27.118: icmp_seq=4 ttl=57 time=11.5 ms<br>
+    ...<br>
+    <font class="font5"><br>
+    Tres parámetros deben llamarle la atención:<br>
+    -c permite especificar el número de ecos que se deben emitir.<br>
+    -b permite emitir un eco en una dirección de broadcast.<br>
+    -I permite especificar la interfaz de red.</font></td>
+  <td class=xl68 width=692 style='width:519pt'>En el primer caso, el parámetro
+  puede ser útil en un script para probar que un servidor responde:<br>
+    # ping -c 1 10.9.238.170 &gt;/dev/null 2&gt;&amp;1 &amp;&amp; echo &quot;El
+  servidor contesta&quot;<br>
+    El servidor contesta<br>
+    <br>
+    En el segundo caso, todas las direcciones de la subred correspondientes a
+  la dirección de broadcast deben responder.<br>
+    # ping -b 192.168.1.255<br>
+    WARNING: pinging broadcast address<br>
+    PING 192.168.1.255 (192.168.1.255) 56(84) bytes of data.<br>
+    64 bytes from 192.168.1.10: icmp_seq=1 ttl=64 time=0.232 ms<br>
+    64 bytes from 192.168.1.60: icmp_seq=1 ttl=64 time=0.240 ms<br>
+    64 bytes from 192.168.1.130: icmp_seq=1 ttl=255 time=0.285 ms<br>
+    64 bytes from 192.168.1.139: icmp_seq=1 ttl=255 time=0.292 ms<br>
+    ...<br>
+    <br>
+    En el último caso, puede especificar una tarjeta de salida.<br>
+    Esta opción es muy útil para comprobar una resolución DNS o una ruta.<br>
+    # ping -I eth0 192.168.1.60<br>
+    PING 192.168.1.60 (192.168.1.60) from 192.168.1.10:eth0: 56(84) bytes<br>
+    of data.<br>
+    64 bytes from 192.168.1.60: icmp_seq=1 ttl=62 time=0.478 ms<br>
+    64 bytes from 192.168.1.60: icmp_seq=2 ttl=62 time=0.408 ms<br>
+    ...</td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl65 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'>ping6</td>
+  <td class=xl67 width=955 style='width:716pt'>Hace lo mismo para una dirección
+  IPv6</td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl65 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=440 style='height:330.0pt'>
+  <td height=440 class=xl65 width=48 style='height:330.0pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'>traceroute</td>
+  <td class=xl67 width=955 style='width:716pt'>Cuando intenta acceder a un
+  anfitrión remoto desde su máquina, los paquetes IP pasan a menudo por muchas
+  rutas, a veces diferentes según el punto de partida y de destino, los cuellos
+  de botella, etc.<br>
+    <br>
+    El trayecto pasa por numerosas pasarelas (gateways), que dependen de las
+  rutas por defecto o predefinidas de cada una de ellas.<br>
+    <br>
+    El comando traceroute permite visualizar cada uno de los puntos de paso de
+  sus paquetes IP a su destino en un anfitrión dado.<br>
+    <br>
+    En el ejemplo siguiente, el anfitrión ubicado en la región parisina en la
+  red del proveedor Free intenta determinar la ruta recorrida para ir al
+  servidor www.kde.org.<br>
+    Se enmascarará la dirección IP fuente (fuera de la red local).<br>
+    </td>
+  <td class=xl67 width=692 style='width:519pt'>$ traceroute www.kde.org<br>
+    traceroute to www.kde.org (62.70.27.118), 30 hops max, 40 byte
+  packets<br>
+    <span style='mso-spacerun:yes'> </span>1 DD-WRT (192.168.1.1)<span
+  style='mso-spacerun:yes'>  </span>0.558 ms<span style='mso-spacerun:yes'>  
+  </span>0.533 ms<span style='mso-spacerun:yes'>   </span>0.585 ms<br>
+    <span style='mso-spacerun:yes'> </span>2 82.xxx.yyy.zzz
+  (82.xxx.yyy.zzz)<span style='mso-spacerun:yes'>  </span>6.339 ms<span
+  style='mso-spacerun:yes'>   </span>6.404 ms<span style='mso-spacerun:yes'>  
+  </span>6.901 ms<br>
+    <span style='mso-spacerun:yes'> </span>3 * * *<br>
+    <span style='mso-spacerun:yes'> </span>4 * * *<br>
+    <span style='mso-spacerun:yes'> </span>5 212.73.205.5 (212.73.205.5)<span
+  style='mso-spacerun:yes'>  </span>39.267 ms<span style='mso-spacerun:yes'>  
+  </span>35.499 ms<span style='mso-spacerun:yes'>   </span>31.736 ms<br>
+    <span style='mso-spacerun:yes'> </span>6 ae-12-55.car2.Paris1.Level3.net
+  (4.68.109.144)<span style='mso-spacerun:yes'>  </span>6.485 ms <br>
+    ae-22-52.car2.Paris1.Level3.net (4.68.109.48)<span
+  style='mso-spacerun:yes'>  </span>6.401 ms<span style='mso-spacerun:yes'>  
+  </span>6.338 ms<br>
+    <span style='mso-spacerun:yes'> </span>7 UUnet-Level3.Level3.net
+  (212.73.240.206)<span style='mso-spacerun:yes'>  </span>6.113 ms<span
+  style='mso-spacerun:yes'>   </span>6.152 ms<span style='mso-spacerun:yes'> 
+  </span><br>
+    5.866 ms<br>
+    <span style='mso-spacerun:yes'> </span>8 so-3-2-0.TL2.PAR2.ALTER.NET
+  (146.188.8.121)<span style='mso-spacerun:yes'>  </span>6.107 ms<span
+  style='mso-spacerun:yes'>   </span>6.410 ms<span style='mso-spacerun:yes'> 
+  </span><br>
+    6.365 ms<br>
+    <span style='mso-spacerun:yes'> </span>9 so-2-2-0.TL2.STK2.ALTER.NET
+  (146.188.7.33)<span style='mso-spacerun:yes'>  </span>87.323 ms<span
+  style='mso-spacerun:yes'>   </span>86.840 ms<span style='mso-spacerun:yes'> 
+  </span><br>
+    87.010 ms<br>
+    10 so-7-1-0.XR2.OSL2.ALTER.NET (146.188.15.62)<span
+  style='mso-spacerun:yes'>  </span>96.491 ms<span style='mso-spacerun:yes'>  
+  </span>97.148 ms<br>
+    96.488 ms<br>
+    11 ge-0-1-0.GW6.OSL2.ALTER.NET (146.188.3.242)<span
+  style='mso-spacerun:yes'>  </span>95.972 ms<span style='mso-spacerun:yes'>  
+  </span>95.934 ms<br>
+    96.108 ms<br>
+    12 213.203.63.74 (213.203.63.74)<span style='mso-spacerun:yes'> 
+  </span>95.320 ms<span style='mso-spacerun:yes'>   </span>94.321 ms<span
+  style='mso-spacerun:yes'>   </span>96.188 ms<br>
+    13 leeloo.troll.no (62.70.27.10)<span style='mso-spacerun:yes'> 
+  </span>94.064 ms<span style='mso-spacerun:yes'>   </span>94.052 ms<span
+  style='mso-spacerun:yes'>   </span>92.374 ms<br>
+    14 jamaica.kde.org (62.70.27.118)<span style='mso-spacerun:yes'> 
+  </span>97.064 ms<span style='mso-spacerun:yes'>   </span>96.182 ms<span
+  style='mso-spacerun:yes'>   </span>97.853 ms</td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl65 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'>traceroute6</td>
+  <td class=xl67 width=955 style='width:716pt'>El comando traceroute6 es
+  idéntico para IPv6.</td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl65 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=79 style='width:59pt'>tracepath</td>
+  <td class=xl67 width=955 style='width:716pt'>Alternativa a tracepath</td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl65 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl69 width=79 style='width:59pt'>tracepath6</td>
+  <td class=xl70 width=955 style='width:716pt'>Alternativa a traceroute6</td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl67 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=500 style='height:375.0pt'>
+  <td height=500 class=xl67 width=48 style='height:375.0pt;width:36pt'></td>
+  <td class=xl69 width=79 style='width:59pt'>netcat</td>
+  <td class=xl70 width=955 style='width:716pt'>Netcat es una herramienta de red
+  que permite a través de intérprete de comandos y con una sintaxis sencilla
+  abrir puertos TCP/UDP en un HOST (quedando netcat a la escucha), asociar una
+  shell a un puerto en concreto (para conectarse por ejemplo a MS-DOS o al
+  intérprete bash de Linux remotamente) y forzar conexiones UDP/TCP (útil por
+  ejemplo para realizar rastreos de puertos o realizar transferencias de
+  archivos bit a bit entre dos equipos).<br>
+    Fue originalmente desarrollada por Hobbit en 1996 y liberada bajo una
+  licencia de software libre permisiva (no copyleft, similar a BSD, MIT) para
+  UNIX.<br>
+    Posteriormente fue portada a Windows y Mac OS X entre otras
+  plataformas.<br>
+    Existen muchos forks de esta herramienta que añaden características nuevas
+  como GNU Netcat o Cryptcat.<br>
+    <br>
+    Entre sus múltiples aplicaciones, es frecuente la depuración de
+  aplicaciones de red.<br>
+    También es utilizada a menudo para abrir puertas traseras en un
+  sistema.<br>
+    <br>
+    La forma más básica de operar de netcat consiste en:<br>
+    Crear un socket para conectarse a un servidor ( o bien para hacer de
+  servidor )<br>
+    Enviar todo lo que entre por la entrada estándar por el socket<br>
+    Sacar por la salida estándar todo lo recibido por el socket.</td>
+  <td class=xl67 width=692 style='width:519pt'>Parámetros<br>
+    A continuación se listan algunos de los parámetros más usados con
+  Netcat:<br>
+    -l: Indica que Netcat abre el puerto para Escucha (Listen): Acepta una
+  única conexión de un Cliente y se cierra.<br>
+    -p: Especifica el puerto<br>
+    -k: Fuerza a que el puerto permanezca abierto tras haber recibido una
+  Conexión. Se usa con el parámetro -l y permite infinitas Conexiones.<br>
+    -u: El puerto abierto se abre como UDP, en vez de TCP que es la opción por
+  default.<br>
+    -v: Muestra información de la conexión.<br>
+    -t: Las respuestas son compatibles para sesiones de Telnet.<br>
+    -q segundos: Tras haber recibido el EOF de la Entrada de datos, espera los
+  segundos indicados para enviarla.<br>
+    -i segundos: Especifica un delay (retraso) de tiempo para el envio o
+  recepción de las líneas de texto.<br>
+    <br>
+    Ejemplos<br>
+    Abrir nueva conexión al puerto 25 (como telnet):<br>
+    nc mail.server.net 25.<br>
+    <br>
+    Abrir una conexión para enviar un Archivo de manera RAW (Binario) a un
+  Cliente:<br>
+    cat ARCHIVO | nc -l PUERTO<br>
+    <br>
+    Abrir una conexión y volcar la Información recibida en ARCHIVO (Cliente del
+  Ejemplo anterior):<br>
+    nc HOST PUERTO &gt; ARCHIVO<br>
+    <br>
+    Simular una Respuesta HTTP (austera) a un Cliente que se conecta con un
+  navegador web (http://localhost):<br>
+    echo -en &quot;HTTP/1.1 200 OK\r\nContent-Type:
+  text/html\r\n\r\n\&lt;h1&gt;Hola Mundo&lt;/h1&gt;&quot; | nc -l -p 80</td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl67 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl69 width=79 style='width:59pt'></td>
+  <td class=xl71 width=955 style='width:716pt'></td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl67 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl69 width=79 style='width:59pt'></td>
+  <td class=xl71 width=955 style='width:716pt'></td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl67 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl69 width=79 style='width:59pt'></td>
+  <td class=xl71 width=955 style='width:716pt'></td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl67 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl69 width=79 style='width:59pt'></td>
+  <td class=xl71 width=955 style='width:716pt'></td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl67 width=680 style='width:510pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl69 width=79 style='width:59pt'></td>
+  <td class=xl71 width=955 style='width:716pt'></td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=666 style='width:500pt'></td>
+  <td class=xl67 width=680 style='width:510pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'><a
+  href="../109.htm" target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl65 width=79 style='width:59pt'></td>
+  <td class=xl65 width=955 style='width:716pt'></td>
+  <td class=xl65 width=692 style='width:519pt'></td>
+  <td class=xl65 width=666 style='width:500pt'></td>
+  <td class=xl65 width=680 style='width:510pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=48 style='width:36pt'></td>
+  <td width=79 style='width:59pt'></td>
+  <td width=955 style='width:716pt'></td>
+  <td width=692 style='width:519pt'></td>
+  <td width=666 style='width:500pt'></td>
+  <td width=680 style='width:510pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,556 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../109.4.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../109.4.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl67>
+
+<table border=0 cellpadding=0 cellspacing=0 width=2999 style='border-collapse:
+ collapse;table-layout:fixed;width:2249pt'>
+ <col class=xl67 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl65 width=124 style='mso-width-source:userset;mso-width-alt:4534;
+ width:93pt'>
+ <col class=xl67 width=774 style='mso-width-source:userset;mso-width-alt:28306;
+ width:581pt'>
+ <col class=xl67 width=791 style='mso-width-source:userset;mso-width-alt:28928;
+ width:593pt'>
+ <col class=xl67 width=711 style='mso-width-source:userset;mso-width-alt:26002;
+ width:533pt'>
+ <col class=xl67 width=551 style='mso-width-source:userset;mso-width-alt:20150;
+ width:413pt'>
+ <col class=xl67 width=430 style='mso-width-source:userset;mso-width-alt:15725;
+ width:323pt'>
+ <tr class=xl65 height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'>109.4</td>
+  <td class=xl65 width=124 style='width:93pt'>W2</td>
+  <td class=xl65 width=774 style='width:581pt'>Configure client side DNS</td>
+  <td class=xl66 width=791 style='width:593pt'><a href="../109.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl65 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <tr class=xl67 height=120 style='height:90.0pt'>
+  <td height=120 class=xl65 width=48 style='height:90.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>/etc/hosts</td>
+  <td class=xl67 width=774 style='width:581pt'>Sin siquiera utilizar un
+  servidor de nombres, es posible establecer una correspondencia entre las
+  direcciones IP y los nombres de las máquinas dentro del fichero
+  /etc/hosts.<br>
+    <br>
+    192.168.1.1<span style='mso-spacerun:yes'>     </span>server1 www1
+  ftp<br>
+    192.168.1.11<span style='mso-spacerun:yes'>    </span>puesto1<br>
+    192.168.1.12<span style='mso-spacerun:yes'>    </span>puesto2</td>
+  <td class=xl67 width=791 style='width:593pt'>Puede hacer lo mismo para
+  nombrar las redes (lo que puede ser útil para los tcp_wrappers o el comando
+  route) en el fichero /etc/networks.<br>
+    <br>
+    loopnet<span style='mso-spacerun:yes'>    </span>127.0.0.0<br>
+    localnet<span style='mso-spacerun:yes'>   </span>192.168.1.0</td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl67 width=551 style='width:413pt'></td>
+ </tr>
+ <tr class=xl67 height=340 style='height:255.0pt'>
+  <td height=340 class=xl65 width=48 style='height:255.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>/etc/resolv.conf</td>
+  <td class=xl67 width=774 style='width:581pt'>Se utiliza el fichero
+  /etc/resolv.conf para indicar al sistema qué servidores de nombres y qué
+  dominios hay que consultar para resolver las peticiones DNS clientes.<br>
+    Estas API, al igual que las API estándares de Linux, están incluidas en la
+  librería (no hace falta añadir herramientas adicionales).<br>
+    Esta librería se llama resolver.<br>
+    <br>
+    Al configurar DHCP en principio se actualiza automáticamente este fichero y
+  no se debería modificar, salvo que se prohíba la configuración DNS en el
+  cliente.<br>
+    <br>
+    $ cat /etc/resolv.conf<br>
+    domain midominio.org<br>
+    search midominio.org<br>
+    nameserver 192.168.1.1<br>
+    nameserver 192.168.1.2</td>
+  <td class=xl67 width=791 style='width:593pt'>domain: nombre del dominio
+  local. <br>
+    Las peticiones se suelen reducir a unos atajos relativos hacia el dominio
+  local.<br>
+    Si no está creado, se debe determinar el nombre del dominio a partir del
+  nombre completo del anfitrión: corresponde a la parte ubicada después del
+  primer «.».<br>
+    <br>
+    search: lista de los dominios de búsqueda.<br>
+    Por defecto, durante la utilización de atajos (nombres de anfitriones
+  cortos) el resolver inicia una búsqueda sobre el dominio definido por la
+  línea domain, pero se puede especificar aquí una lista de dominios separados
+  por espacios o comas.<br>
+    <br>
+    nameserver: dirección IP del servidor de nombres (el servidor DNS).<br>
+    Se puede colocar un máximo de tres.<br>
+    El resolver intenta utilizar el primero.<br>
+    En caso de fracaso (timeout), pasa al segundo, y así sucesivamente.<br>
+    <br>
+    opciones: se pueden especificar opciones.<br>
+    Por ejemplo, timeout:n, donde n (en segundos) indica el tiempo de espera de
+  respuesta de un servidor de nombres antes de pasar al siguiente.</td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl67 width=551 style='width:413pt'></td>
+ </tr>
+ <tr class=xl67 height=340 style='height:255.0pt'>
+  <td height=340 class=xl65 width=48 style='height:255.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>/etc/nsswitch.conf</td>
+  <td class=xl67 width=774 style='width:581pt'>El fichero /etc/nsswitch.conf
+  permite determinar el orden en el cual el resolver (u otros servicios)
+  recupera su información.<br>
+    <br>
+    Primero se lee el fichero /etc/hosts; luego, si el resolver no encuentra la
+  información, busca mediante una resolución DNS.<br>
+    <br>
+    Puede ocurrir que determinados programas no utilicen el resolver sino
+  directamente el DNS o el fichero etc/hosts, o inviertan el orden establecido
+  en /etc/nsswitch.conf.<br>
+    <br>
+    En este caso, no es posible prever (ni predecir) el funcionamiento correcto
+  de este tipo de programas...<br>
+    </td>
+  <td class=xl67 width=791 style='width:593pt'>passwd: compat<br>
+    group:<span style='mso-spacerun:yes'>  </span>compat<br>
+    <br>
+    hosts:<span style='mso-spacerun:yes'>          </span>files dns<br>
+    networks:<span style='mso-spacerun:yes'>       </span>files dns<br>
+    <br>
+    services:<span style='mso-spacerun:yes'>       </span>files<br>
+    protocols:<span style='mso-spacerun:yes'>      </span>files<br>
+    rpc:<span style='mso-spacerun:yes'>            </span>files<br>
+    ethers:<span style='mso-spacerun:yes'>         </span>files<br>
+    netmasks:<span style='mso-spacerun:yes'>       </span>files<br>
+    netgroup:<span style='mso-spacerun:yes'>       </span>files nis<br>
+    publickey:<span style='mso-spacerun:yes'>      </span>files<br>
+    <br>
+    bootparams:<span style='mso-spacerun:yes'>     </span>files<br>
+    automount:<span style='mso-spacerun:yes'>      </span>files nis<br>
+    aliases:<span style='mso-spacerun:yes'>        </span>files</td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl67 width=551 style='width:413pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>host</td>
+  <td class=xl67 width=774 style='width:581pt'>La herramienta host devuelve el
+  mismo resultado que dig, pero quizá de manera más sencilla.</td>
+  <td class=xl67 width=791 style='width:593pt'></td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <tr class=xl67 height=546 style='height:409.5pt'>
+  <td height=546 class=xl65 width=48 style='height:409.5pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>dig</td>
+  <td class=xl67 width=774 style='width:581pt'>El programa dig es una
+  herramienta de consulta avanzada de servidor de nombres capaz de restituir
+  todos los datos de las zonas.<br>
+    <br>
+    &gt; dig tele2.es<br>
+    <br>
+    ; &lt;&lt;&gt;&gt; DiG 9.4.1-P1 &lt;&lt;&gt;&gt; tele2.es<br>
+    ;; global options:<span style='mso-spacerun:yes'>  </span>printcmd<br>
+    ;; Got answer:<br>
+    ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 63972<br>
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0<br>
+    <br>
+    ;; QUESTION SECTION:<br>
+    ;tele2.es.<span style='mso-spacerun:yes'>                      
+  </span>IN<span style='mso-spacerun:yes'>      </span>A<br>
+    <br>
+    ;; ANSWER SECTION:<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86363<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.48.10<br>
+    <br>
+    ;; Query time: 1 msec<br>
+    ;; SERVER: 10.23.254.240#53(10.23.254.240)<br>
+    ;; WHEN: Wed May 14 09:36:09 2008<br>
+    ;; MSG SIZE<span style='mso-spacerun:yes'>  </span>rcvd: 41<br>
+    <br>
+    Por defecto, dig sólo restituye la dirección del host que se ha pasado como
+  parámetro.<br>
+    En caso de éxito, el estado vale NOERROR; ANSWER indica el número de
+  respuestas y dicha respuesta se sitúa debajo de la sección ANSWER.<br>
+    <br>
+    Para obtener una resolución inversa existen dos soluciones.<br>
+    $ dig 10.48.27.212.in-addr.arpa ptr<br>
+    <br>
+    o más sencillamente:<br>
+    $ dig -x 212.27.48.10<br>
+    <br>
+    ; &lt;&lt;&gt;&gt; DiG 9.4.1-P1 &lt;&lt;&gt;&gt; -x 212.27.48.10<br>
+    ;; global options:<span style='mso-spacerun:yes'>  </span>printcmd<br>
+    ;; Got answer:<br>
+    ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 60222<br>
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0<br>
+    <br>
+    ;; QUESTION SECTION:<br>
+    ;10.48.27.212.in-addr.arpa.<span style='mso-spacerun:yes'>    
+  </span>IN<span style='mso-spacerun:yes'>      </span>PTR<br>
+    <br>
+    ;; ANSWER SECTION:<br>
+    10.48.27.212.in-addr.arpa. 86400 IN<span style='mso-spacerun:yes'>    
+  </span>PTR<span style='mso-spacerun:yes'>     </span>www.tele2.es.<br>
+    <br>
+    ;; Query time: 31 msec<br>
+    ;; SERVER: 10.23.254.240#53(10.23.254.240)<br>
+    ;; WHEN: Wed May 14 09:36:51 2008<br>
+    ;; MSG SIZE<span style='mso-spacerun:yes'>  </span>rcvd: 68<br>
+    <br>
+    En la primera sintaxis, observe que puede añadir un parámetro de
+  consulta.<br>
+    Los principales se presentan a continuación.<br>
+    <br>
+    a: únicamente la dirección;<br>
+    any: toda la información correspondiente al dominio;<br>
+    mx: los servidores de mensajería;<br>
+    ns: los servidores de nombres;<br>
+    soa: la zona Start of Authority;<br>
+    hinfo: información sobre el anfitrión;<br>
+    txt: texto de descripción;<br>
+    ptr: zona reversa del anfitrión;<br>
+    axfr: lista de todos los anfitriones de la zona.<br>
+    <br>
+    $ dig tele2.es any<br>
+    ; &lt;&lt;&gt;&gt; DiG 9.4.1-P1 &lt;&lt;&gt;&gt; tele2.es any<br>
+    ;; global options:<span style='mso-spacerun:yes'>  </span>printcmd<br>
+    ;; Got answer:<br>
+    ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 28893<br>
+    ;; flags: qr aa; QUERY: 1, ANSWER: 6, AUTHORITY: 0, ADDITIONAL: 8<br>
+    <br>
+    ;; QUESTION SECTION:<br>
+    ;tele2.es.<span style='mso-spacerun:yes'>                      
+  </span>IN<span style='mso-spacerun:yes'>      </span>ANY<br>
+    <br>
+    ;; ANSWER SECTION:<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>NS<span style='mso-spacerun:yes'>     
+  </span>freens2-g20.tele2.es.<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.48.10<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>NS<span style='mso-spacerun:yes'>     
+  </span>freens1-g20.tele2.es.<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>MX<span style='mso-spacerun:yes'>      </span>20 mx2.tele2.es.<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>SOA<span style='mso-spacerun:yes'>    
+  </span>freens1-g20.tele2.es.<br>
+    hostmaster.proxad.net. 2008051001 10800 3600 604800 86400<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>MX<span style='mso-spacerun:yes'>      </span>10 mx1.tele2.es.<br>
+    <br>
+    ;; ADDITIONAL SECTION:<br>
+    freens2-g20.tele2.es.<span style='mso-spacerun:yes'>    </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.60.20<br>
+    mx1.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.48.6<br>
+    mx2.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.56<br>
+    freens1-g20.tele2.es.<span style='mso-spacerun:yes'>    </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.60.19<br>
+    mx2.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.58<br>
+    mx1.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.48.7<br>
+    mx2.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.57<br>
+    mx1.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.59<br>
+    <br>
+    ;; Query time: 9 msec<br>
+    ;; SERVER: 10.23.254.240#53(10.23.254.240)<br>
+    ;; WHEN: Wed May 14 09:35:32 2008<br>
+    ;; MSG SIZE<span style='mso-spacerun:yes'>  </span>rcvd: 318</td>
+  <td class=xl67 width=791 style='width:593pt'>Para obtener una resolución
+  inversa existen dos soluciones.<br>
+    $ dig 10.48.27.212.in-addr.arpa ptr<br>
+    <br>
+    o más sencillamente:<br>
+    $ dig -x 212.27.48.10<br>
+    <br>
+    ; &lt;&lt;&gt;&gt; DiG 9.4.1-P1 &lt;&lt;&gt;&gt; -x 212.27.48.10<br>
+    ;; global options:<span style='mso-spacerun:yes'>  </span>printcmd<br>
+    ;; Got answer:<br>
+    ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 60222<br>
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0<br>
+    <br>
+    ;; QUESTION SECTION:<br>
+    ;10.48.27.212.in-addr.arpa.<span style='mso-spacerun:yes'>    
+  </span>IN<span style='mso-spacerun:yes'>      </span>PTR<br>
+    <br>
+    ;; ANSWER SECTION:<br>
+    10.48.27.212.in-addr.arpa. 86400 IN<span style='mso-spacerun:yes'>    
+  </span>PTR<span style='mso-spacerun:yes'>     </span>www.tele2.es.<br>
+    <br>
+    ;; Query time: 31 msec<br>
+    ;; SERVER: 10.23.254.240#53(10.23.254.240)<br>
+    ;; WHEN: Wed May 14 09:36:51 2008<br>
+    ;; MSG SIZE<span style='mso-spacerun:yes'>  </span>rcvd: 68<br>
+    <br>
+    En la primera sintaxis, observe que puede añadir un parámetro de consulta.</td>
+  <td class=xl67 width=711 style='width:533pt'>Los principales se presentan a
+  continuación.<br>
+    a: únicamente la dirección;<br>
+    any: toda la información correspondiente al dominio;<br>
+    mx: los servidores de mensajería;<br>
+    ns: los servidores de nombres;<br>
+    soa: la zona Start of Authority;<br>
+    hinfo: información sobre el anfitrión;<br>
+    txt: texto de descripción;<br>
+    ptr: zona reversa del anfitrión;<br>
+    axfr: lista de todos los anfitriones de la zona.<br>
+    <br>
+    $ dig tele2.es any<br>
+    ; &lt;&lt;&gt;&gt; DiG 9.4.1-P1 &lt;&lt;&gt;&gt; tele2.es any<br>
+    ;; global options:<span style='mso-spacerun:yes'>  </span>printcmd<br>
+    ;; Got answer:<br>
+    ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 28893<br>
+    ;; flags: qr aa; QUERY: 1, ANSWER: 6, AUTHORITY: 0, ADDITIONAL: 8<br>
+    <br>
+    ;; QUESTION SECTION:<br>
+    ;tele2.es.<span style='mso-spacerun:yes'>                      
+  </span>IN<span style='mso-spacerun:yes'>      </span>ANY<br>
+    <br>
+    ;; ANSWER SECTION:<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>NS<span style='mso-spacerun:yes'>     
+  </span>freens2-g20.tele2.es.<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.48.10<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>NS<span style='mso-spacerun:yes'>     
+  </span>freens1-g20.tele2.es.<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>MX<span style='mso-spacerun:yes'>      </span>20 mx2.tele2.es.<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>SOA<span style='mso-spacerun:yes'>    
+  </span>freens1-g20.tele2.es.<br>
+    hostmaster.proxad.net. 2008051001 10800 3600 604800 86400<br>
+    tele2.es.<span style='mso-spacerun:yes'>                </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>MX<span style='mso-spacerun:yes'>      </span>10 mx1.tele2.es.</td>
+  <td class=xl67 width=551 style='width:413pt'>;; ADDITIONAL SECTION:<br>
+    freens2-g20.tele2.es.<span style='mso-spacerun:yes'>    </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.60.20<br>
+    mx1.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.48.6<br>
+    mx2.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.56<br>
+    freens1-g20.tele2.es.<span style='mso-spacerun:yes'>    </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.60.19<br>
+    mx2.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.58<br>
+    mx1.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.48.7<br>
+    mx2.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.57<br>
+    mx1.tele2.es.<span style='mso-spacerun:yes'>            </span>86400<span
+  style='mso-spacerun:yes'>   </span>IN<span style='mso-spacerun:yes'>     
+  </span>A<span style='mso-spacerun:yes'>       </span>212.27.42.59<br>
+    <br>
+    ;; Query time: 9 msec<br>
+    ;; SERVER: 10.23.254.240#53(10.23.254.240)<br>
+    ;; WHEN: Wed May 14 09:35:32 2008<br>
+    ;; MSG SIZE<span style='mso-spacerun:yes'>  </span>rcvd: 318</td>
+ </tr>
+ <tr class=xl67 height=546 style='height:409.5pt'>
+  <td height=546 class=xl65 width=48 style='height:409.5pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>getent</td>
+  <td class=xl67 width=774 style='width:581pt'>Obtiene las entradas de la base
+  de datos administrativa (puede ser: passwd, group, hosts, services,
+  protocols, o networks).<br>
+    <br>
+    getent passwd --&gt; lista usuarios creados en Linux<br>
+    <br>
+    Ejemplo de las distintas salidas:<br>
+    <br>
+    # getent passwd<br>
+    root:x:0:0:root:/root:/bin/bash<br>
+    daemon:x:1:1:daemon:/usr/sbin:/bin/sh<br>
+    bin:x:2:2:bin:/bin:/bin/sh<br>
+    sys:x:3:3:sys:/dev:/bin/sh<br>
+    sync:x:4:65534:sync:/bin:/bin/sync<br>
+    games:x:5:60:games:/usr/games:/bin/sh<br>
+    man:x:6:12:man:/var/cache/man:/bin/sh<br>
+    lp:x:7:7:lp:/var/spool/lpd:/bin/sh<br>
+    mail:x:8:8:mail:/var/mail:/bin/sh<br>
+    news:x:9:9:news:/var/spool/news:/bin/sh<br>
+    uucp:x:10:10:uucp:/var/spool/uucp:/bin/sh<br>
+    proxy:x:13:13:proxy:/bin:/bin/sh<br>
+    ........................<br>
+    ........................</td>
+  <td class=xl67 width=791 style='width:593pt'># getent group<br>
+    root:x:0:<br>
+    daemon:x:1:<br>
+    bin:x:2:<br>
+    sys:x:3:<br>
+    adm:x:4:<br>
+    tty:x:5:<br>
+    disk:x:6:<br>
+    lp:x:7:<br>
+    <br>
+    # getent hosts<br>
+    127.0.0.1<span style='mso-spacerun:yes'>       </span>localhost<br>
+    127.0.1.1<span style='mso-spacerun:yes'>       </span>kali.RIEL kali<br>
+    127.0.0.1<span style='mso-spacerun:yes'>       </span>localhost
+  ip6-localhost ip6-loopback<br>
+    <br>
+    # getent protocols<br>
+    ip<span style='mso-spacerun:yes'>                    </span>0 IP<br>
+    icmp<span style='mso-spacerun:yes'>                  </span>1 ICMP<br>
+    igmp<span style='mso-spacerun:yes'>                  </span>2 IGMP<br>
+    ggp<span style='mso-spacerun:yes'>                   </span>3 GGP<br>
+    ipencap<span style='mso-spacerun:yes'>               </span>4
+  IP-ENCAP<br>
+    st<span style='mso-spacerun:yes'>                    </span>5 ST<br>
+    tcp<span style='mso-spacerun:yes'>                   </span>6 TCP<br>
+    egp<span style='mso-spacerun:yes'>                   </span>8 EGP<br>
+    igp<span style='mso-spacerun:yes'>                   </span>9 IGP<br>
+    pup<span style='mso-spacerun:yes'>                   </span>12 PUP<br>
+    udp<span style='mso-spacerun:yes'>                   </span>17 UDP<br>
+    hmp<span style='mso-spacerun:yes'>                   </span>20 HMP<br>
+    xns-idp<span style='mso-spacerun:yes'>               </span>22
+  XNS-IDP<br>
+    rdp<span style='mso-spacerun:yes'>                   </span>27 RDP<br>
+    iso-tp4<span style='mso-spacerun:yes'>               </span>29
+  ISO-TP4<br>
+    dccp<span style='mso-spacerun:yes'>                  </span>33 DCCP<br>
+    xtp<span style='mso-spacerun:yes'>                   </span>36 XTP<br>
+    ddp<span style='mso-spacerun:yes'>                   </span>37 DDP<br>
+    ........................</td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'></td>
+  <td class=xl67 width=774 style='width:581pt'></td>
+  <td class=xl67 width=791 style='width:593pt'></td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'></td>
+  <td class=xl67 width=774 style='width:581pt'></td>
+  <td class=xl67 width=791 style='width:593pt'></td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'></td>
+  <td class=xl67 width=774 style='width:581pt'></td>
+  <td class=xl67 width=791 style='width:593pt'></td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'></td>
+  <td class=xl65 width=774 style='width:581pt'></td>
+  <td class=xl67 width=791 style='width:593pt'></td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl68 width=124 style='width:93pt'></td>
+  <td class=xl69 width=774 style='width:581pt'></td>
+  <td class=xl67 width=791 style='width:593pt'></td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl67 width=551 style='width:413pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'><a
+  href="../109.htm" target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl65 width=124 style='width:93pt'></td>
+  <td class=xl65 width=774 style='width:581pt'></td>
+  <td class=xl65 width=791 style='width:593pt'></td>
+  <td class=xl65 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=48 style='width:36pt'></td>
+  <td width=124 style='width:93pt'></td>
+  <td width=774 style='width:581pt'></td>
+  <td width=791 style='width:593pt'></td>
+  <td width=711 style='width:533pt'></td>
+  <td width=551 style='width:413pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

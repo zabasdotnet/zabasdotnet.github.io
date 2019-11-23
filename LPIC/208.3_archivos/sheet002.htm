@@ -1,0 +1,987 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../208.3.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../208.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1428 style='border-collapse:
+ collapse;table-layout:fixed;width:1071pt'>
+ <col class=xl68 width=1380 style='mso-width-source:userset;mso-width-alt:50468;
+ width:1035pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>Servidor
+  proxy Apache</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>1.
+  Servidores proxy</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Un
+  servidor proxy se encarga de realizar una petición en nombre de un cliente a
+  otro servidor mediante un protocolo determinado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>El
+  término español para proxy es también «intermediario», el servidor hace de
+  intermediario para realizar una acción en nombre del cliente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Se
+  dice que un servidor proxy trabaja en rotura de flujo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>La
+  mayoría de los proxys trabajan con el protocolo HTTP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Si se
+  habla de proxy sin concretar el protocolo aplicado, se trata de un proxy web
+  (HTTP).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>a.
+  Protección de clientes</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Los
+  servidores proxy son el único camino válido para ir a Internet (en principio,
+  cualquier cliente tiene que pasar por el proxy para obtener contenido
+  proveniente de Internet).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Están
+  en la primera línea en caso de que se produzca un ataque desde el exterior.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Un
+  servidor proxy correctamente configurado proporcionará, por tanto, una
+  protección natural a los navegadores web en la red.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>b.
+  Servidores de caché</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Todas
+  las peticiones pasan por los proxy, el proxy obtiene los datos del servidor y
+  los retransmite al cliente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>En la
+  mayoría de los casos, el servidor conserva en su disco una copia de estos
+  datos para responder directamente a los sucesivos clientes que hagan las
+  mismas peticiones.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Por
+  tanto, la navegación de los clientes se acelera porque no es necesario
+  desviar continuamente las solicitudes a los servidores web.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1380 style='height:15.0pt;width:1035pt'>La
+  generalización de la banda ancha ha hecho que los beneficios de los
+  servidores proxy de caché sean menos espectaculares.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>c.
+  Filtrado</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Los
+  servidores proxy ofrecen la posibilidad de rechazar parte o la totalidad de
+  sus peticiones a algunos clientes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Entonces,
+  se puede rechazar en bloque cualquier navegación o filtrar algunas url para
+  impedir que se navegue en sitios no profesionales, por ejemplo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1380 style='height:15.0pt;width:1035pt'>El
+  servidor proxy es mejor que los cortafuegos para este tipo de tareas.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>El
+  proxy «entiende» qué es lo que se está solicitando (una URL), mientras que el
+  cortafuegos se limita a autorizar o prohibir cualquier tráfico en un puerto
+  (80 en el caso de http) sin diferenciar las páginas web visitadas.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>d.
+  Inconvenientes</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Los
+  servidores proxy no están libres de inconvenientes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Requieren
+  una configuración específica de los clientes (hay que informar la dirección
+  IP del proxy en el navegador) y se limitan a un protocolo de aplicación.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Por
+  tanto, se necesitan otros mecanismos de protección o de optimización para
+  cada uno de los protocolos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Por
+  ello, para cada despliegue planeado de un proxy, habrá que sopesar de forma
+  precisa sus ventajas e inconvenientes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>2. El
+  servidor proxy squid</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>a.
+  Configuración básica</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'><a
+  name="RANGE!A40"><font class="font5">Squid</font><font class="font0"> se
+  compone de un </font><font class="font5">servicio</font><font class="font0">
+  cuyo </font><font class="font5">script</font><font class="font0"> de inicio
+  estándar va a buscar su </font><font class="font5">configuración</font><font
+  class="font0"> en un único archivo llamado </font><font class="font14">squid.conf</font><font
+  class="font0">, que generalmente se ubica en </font><font class="font14">/etc/squid</font><font
+  class="font0">.</font></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>La
+  configuración de squid en un modo de funcionamiento estándar (ruptura de
+  flujo de los accesos cliente y de algunas listas de acceso para gestionar los
+  permisos) no es nada difícil.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>En la
+  mayoría de las implementaciones el archivo de configuración por defecto de
+  squid es impresionante.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>En el
+  paquete proporcionado con Debian, por ejemplo, el archivo ocupa un total de
+  5000 líneas, del que aproximadamente el 1 % se lee en el arranque del
+  servicio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>*Archivo
+  squid.conf de un paquete Debian sin comentarios</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Se
+  puede comprobar que hay un número considerable de<font class="font14"> listas
+  de control de acceso (ACL)</font><font class="font0">, así como de reglas
+  definidas por defecto.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Aun
+  así, no evita que sea recomendable una configuración más precisa del proxy
+  para mejorar la seguridad.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'># grep
+  ˆ[ˆ#] squid.conf<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  all src all<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  manager proto cache_object<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  localhost src 127.0.0.1/32<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  to_localhost dst 127.0.0.0/8<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  localnet src 10.0.0.0/8<span style='mso-spacerun:yes'>  </span># RFC1918
+  possible internal network<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  localnet src 172.16.0.0/12<span style='mso-spacerun:yes'>   </span># RFC1918
+  possible internal network<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  localnet src 192.168.0.0/16<span style='mso-spacerun:yes'>  </span># RFC1918
+  possible internal network<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  SSL_ports port 443<span style='mso-spacerun:yes'>    </span># https<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  SSL_ports port 563<span style='mso-spacerun:yes'>    </span># snews<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  SSL_ports port 873<span style='mso-spacerun:yes'>    </span># rsync<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  Safe_ports port 80<span style='mso-spacerun:yes'>    </span># http<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  Safe_ports port 21<span style='mso-spacerun:yes'>    </span># ftp<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  Safe_ports port 443<span style='mso-spacerun:yes'>         </span>#
+  https<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  Safe_ports port 70<span style='mso-spacerun:yes'>    </span># gopher<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  Safe_ports port 210<span style='mso-spacerun:yes'>         </span># wais<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  Safe_ports port 1025-65535<span style='mso-spacerun:yes'>  </span>#
+  unregistered ports<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  Safe_ports port 280<span style='mso-spacerun:yes'>         </span>#
+  http-mgmt<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  Safe_ports port 488<span style='mso-spacerun:yes'>         </span>#
+  gss-http<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  Safe_ports port 591<span style='mso-spacerun:yes'>         </span>#
+  filemaker<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  Safe_ports port 777<span style='mso-spacerun:yes'>         </span># multiling
+  http<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  Safe_ports port 631<span style='mso-spacerun:yes'>         </span># cups<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  Safe_ports port 873<span style='mso-spacerun:yes'>         </span>#
+  rsync<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  Safe_ports port 901<span style='mso-spacerun:yes'>         </span># SWAT<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  purge method PURGE<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  CONNECT method CONNECT<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>http_access
+  allow manager localhost<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>http_access
+  deny manager<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>http_access
+  allow purge localhost<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>http_access
+  deny purge<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>http_access
+  deny !Safe_ports<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>http_access
+  deny CONNECT !SSL_ports<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>http_access
+  allow localhost<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>http_access
+  deny all<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>icp_access
+  allow localnet<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>icp_access
+  deny all<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>http_port
+  3128<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>hierarchy_stoplist
+  cgi-bin ?<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>access_log
+  /var/log/squid/access.log squid<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>refresh_pattern
+  ˆftp:<span style='mso-spacerun:yes'>        </span>1440<span
+  style='mso-spacerun:yes'>    </span>20%<span style='mso-spacerun:yes'>   
+  </span>10080<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>refresh_pattern
+  ˆgopher:<span style='mso-spacerun:yes'>     </span>1440<span
+  style='mso-spacerun:yes'>    </span>0%<span style='mso-spacerun:yes'>    
+  </span>1440<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>refresh_pattern
+  -i (/cgi-bin/|\?)<span style='mso-spacerun:yes'>  </span>0 0%<span
+  style='mso-spacerun:yes'>     </span>0<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>refresh_pattern
+  (Release|Package(.gz)*)$<span style='mso-spacerun:yes'>    </span>0<span
+  style='mso-spacerun:yes'>       </span>20%<span style='mso-spacerun:yes'>   
+  </span>2880<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>refresh_pattern
+  .<span style='mso-spacerun:yes'>            </span>0<span
+  style='mso-spacerun:yes'>       </span>20%<span style='mso-spacerun:yes'>   
+  </span>4320<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  shoutcast rep_header X-HTTP09-First-Line ˆICY\s[0-9]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>upgrade_http0.9
+  deny shoutcast<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  apache rep_header Server ˆApache<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>broken_vary_encoding
+  allow apache<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>extension_methods
+  REPORT MERGE MKACTIVITY CHECKOUT<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>visible_hostname
+  beta<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>hosts_file
+  /etc/hosts<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>coredump_dir
+  /var/spool/squid</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Sin
+  una configuración particular, un servidor <font class="font5">proxy</font><font
+  class="font0"> squid ejerce de manera </font><font class="font5">natural</font><font
+  class="font0"> como servidor de </font><font class="font10">caché</font><font
+  class="font0"> de oficio y protege las redes locales mediante una ruptura del
+  tráfico.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Las
+  peticiones de los navegadores no van por Internet, sino que se paran en el
+  proxy, que consultará a los servidores en su lugar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Antes
+  de que pueda funcionar, el servidor todavía requiere una configuración
+  mínima.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>*Configuración
+  mínima de un proxy squid en el archivo squid.conf</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'><font
+  class="font14">http_port</font><font class="font12"> número_de_puerto<span
+  style='mso-spacerun:yes'> </span></font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'><font
+  class="font14">cache_dir</font><font class="font12"> ufs directorio tamaño
+  dir_nivel_1, dir_nivel_2<span style='mso-spacerun:yes'> </span></font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'><font
+  class="font14">visible_hostname</font><font class="font12"> nombre_servidor</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>*Archivo
+  squid.conf: configuración básica</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>número_de_puerto
+  <font class="font12">--&gt; El número de puerto en el que el servidor está a
+  la escucha y que debe configurarse en los navegadores. El valor por defecto
+  es 3128, y 8080 es un valor histórico muy común.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>directorio
+  <font class="font12">--&gt; El directorio en el que se almacenarán los datos
+  que se pondrán en caché.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>tamaño
+  <font class="font12">--&gt; Tamaño máximo en MB para los datos puestos en
+  caché. Valor por defecto: 100 MB.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>dir_nivel_1
+  <font class="font12">--&gt; Número máximo de subdirectorios de primer nivel
+  del directorio de caché. Valor por defecto: 16.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>dir_nivel_2
+  <font class="font12">--&gt; Número máximo de subdirectorios de segundo nivel
+  del directorio de caché. Valor por defecto: 256.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>nombre_servidor
+  <font class="font12">--&gt; Nombre de host del servidor proxy. Este nombre
+  aparece especialmente en los registros de actividad.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>b.
+  Gestión del acceso a clientes</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>A
+  continuación se trata de especificar quién puede o quién no puede acceder a
+  Internet a través del servidor proxy.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>La
+  primera etapa consiste en <font class="font5">definir</font><font
+  class="font0"> los </font><font class="font5">hosts</font><font class="font0">
+  o conjuntos de hosts (grupos, redes) a los que se aplicará la autorización.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Estos
+  grupos se crean con el nombre de <font class="font10">ACL</font><font
+  class="font5"> (Access Control List)</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'><a
+  name="RANGE!A126">*Definición de listas de control de acceso en el archivo
+  squid.conf</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'><font
+  class="font14">acl</font><font class="font12"> nombre_lista tipo_acl
+  A.B.C.D/M</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>*Archivo
+  squid.conf: definición de ACL</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>nombre_lista
+  <font class="font12">--&gt; El nombre de la lista creada. Valor alfanumérico
+  cualquiera.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>tipo_acl
+  <font class="font12">--&gt; src (Definición de direcciones origen).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>tipo_acl
+  <font class="font12">--&gt; dst (Definición de direcciones destino).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>A.B.C.D/M
+  <font class="font12">--&gt; Dirección de red y máscara de subred (número de
+  bits de la máscara).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>A.B.C.D/M
+  <font class="font12">--&gt; Dirección de host y máscara de subred (número de
+  bits de la máscara).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>A.B.C.D/M
+  <font class="font12">--&gt; Intervalo de direcciones: A.B.C.D-E.F.G.H/M
+  (número de bits a 1 de la máscara).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>*Ejemplo
+  de definición de ACL</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Cabe
+  destacar la definición de la ACL «all» que incluye a todas las redes
+  posibles.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>acl
+  all src all<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  red_local src 192.168.1.0/24<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  servidores_prohibidos dst 172.11.5.2-172.11.5.5/24</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Solo
+  falta decirle a squid qué tiene que hacer con estas ACL.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'><a
+  name="RANGE!A145">*Autorización de ACL en el archivo squid.conf</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'><font
+  class="font14">http_access</font><font class="font12"> autorización
+  nombre_acl</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>*Archivo
+  squid.conf: autorización de ACL</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>autorización
+  <font class="font12">--&gt; Autorización o denegación de la ACL. Los dos
+  valores posibles son allow y deny.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1380 style='height:15.0pt;width:1035pt'>nombre_acl
+  <font class="font12">--&gt; El nombre de la lista que se autoriza o se
+  deniega.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>*Ejemplos
+  de autorizaciones de ACL</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Cada
+  ACL se trata con un control de acceso allow o deny.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  all src all<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  red_local src 192.168.1.0/24<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>acl
+  servidores_prohibidos dst 172.11.5.2-172.11.5.5/24<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>http_access
+  deny servidores_prohibidos<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>http_access
+  allow red_local<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'>http_access
+  deny all</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Se
+  pueden definir ACL en un archivo externo al archivo de configuración
+  principal.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1380 style='height:15.0pt;width:1035pt'>*Integración
+  de un archivo de ACL en el archivo de configuración</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl69 height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1380 style='height:15.0pt;width:1035pt'><font
+  class="font14">acl</font><font class="font12"> nombre_acl </font><font
+  class="font9">&quot;</font><font class="font14">archivo_acl</font><font
+  class="font9">&quot;</font></td>
+  <td class=xl69 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Donde <font
+  class="font14">archivo_acl</font><font class="font0"> representa la </font><font
+  class="font12">ruta absoluta</font><font class="font0"> del </font><font
+  class="font14">archivo</font><font class="font0"> que contiene las </font><font
+  class="font14">ACL</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'>Este
+  archivo tiene que estar informado <font class="font5">obligatoriamente</font><font
+  class="font0"> entre </font><font class="font10">comillas dobles</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1380 style='height:15.0pt;width:1035pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1380 style='height:15.0pt;width:1035pt'><a
+  href="#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1380 style='width:1035pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

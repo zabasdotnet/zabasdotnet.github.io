@@ -1,0 +1,718 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../105.2.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../105.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl75>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1314 style='border-collapse:
+ collapse;table-layout:fixed;width:986pt'>
+ <col class=xl75 width=1266 style='mso-width-source:userset;mso-width-alt:46299;
+ width:950pt'>
+ <col class=xl75 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1266 style='height:15.0pt;width:950pt'><a
+  name="RANGE!A1">for</a></td>
+  <td class=xl76 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>El bucle for no se basa en un
+  incremento de valor cualquiera, sino en una lista de valores, ficheros...</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>for var in lista</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>do</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>    </span>comandos a ejecutar</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>done</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>La lista representa un
+  determinado número de elementos que se asignarán a var sucesivamente.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Con una variable</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>$ cat for1.sh</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>#!/bin/bash</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>for params in $@</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>do</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>        </span>echo &quot;$params&quot;</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>done</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>$ ./for1.sh test1 test2 test3</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>test1</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>test2</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>test3</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Lista implícita</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Si no especifica ninguna lista
+  a for, entonces es la lista de los parámetros la que está implícita.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Ningún script anterior hubiera
+  podido parecerse a:</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>for params</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>do</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>        </span>echo &quot;$params&quot;</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>done</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Con una lista de elementos
+  explícita</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Cada elemento colocado después
+  del «in» se utilizará para cada iteración del bucle, uno tras otro.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>$ cat for2.sh</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>#!/usr/bin/sh</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>for params in lista lista2</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>do</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>        </span>ls -l $params</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>done</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>$ ./for2.sh</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-rw-r--r--<span
+  style='mso-spacerun:yes'>   </span>1 oracle<span style='mso-spacerun:yes'>  
+  </span>system<span style='mso-spacerun:yes'>       </span>234 Aug 19 14:09
+  lista</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>-rw-r--r--<span
+  style='mso-spacerun:yes'>   </span>1 oracle<span style='mso-spacerun:yes'>  
+  </span>system<span style='mso-spacerun:yes'>       </span>234 Aug 13 10:06
+  lista2</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Con criterios de búsqueda
+  sobre nombre de ficheros</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Si uno o varios elementos de
+  la lista corresponden a un fichero o a un grupo de ficheros presentes en la
+  posición actual de la estructura, el bucle for considera el elemento como un
+  nombre de fichero.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>$ cat for3.sh</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>#!/bin/bash</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>for params in *</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>do</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>        </span>echo &quot;$params \c&quot;</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>        </span>type_fic=`ls -ld $params | cut -c1`</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>        </span>case $type_fic in</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>                </span>-)<span
+  style='mso-spacerun:yes'>      </span>echo &quot;Fichero normal&quot; ;;</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>                </span>d)<span
+  style='mso-spacerun:yes'>      </span>echo &quot;Directorio&quot; ;;</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>                </span>b)<span
+  style='mso-spacerun:yes'>      </span>echo &quot;modo bloque&quot; ;;</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>                </span>l)<span
+  style='mso-spacerun:yes'>      </span>echo &quot;vinculo simbolico&quot; ;;</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>                </span>c)<span
+  style='mso-spacerun:yes'>      </span>echo &quot;modo caracter&quot; ;;</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>                </span>*)<span
+  style='mso-spacerun:yes'>      </span>echo &quot;otro&quot; ;;</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>        </span>esac</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>done</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>$ ./for3.sh</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>case1.sh Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>dump.log Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>for1.sh Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>for2.sh Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>for3.sh Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>vinculo_fic1 vinculo simbolico</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>vinculo_fic2 vinculo simbolico</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>lista Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>lista1 Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>lista2 Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>param.sh Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>param2.sh Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>param3.sh Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>param4.sh Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>read.sh Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>dir1 Directorio</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>resultado.txt Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>pepito.txt Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>ver_a.sh Fichero normal</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'><a name="RANGE!A84">Con un
+  intervalo de valores</a></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Existen dos métodos para
+  contar de 1 a n con un bucle for.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>El primero consiste en
+  utilizar una sustitución de comando con el comando seq.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Su sintaxis básica requiere un
+  parámetro numérico y cuenta de 1 al valor de este parámetro.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>El manual le mostrará que se
+  puede iniciar en cualquier valor e incrementarse con cualquier valor.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>$ seq 5</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>1</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>2</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>3</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>4</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>5</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Usándolo con el bucle for,
+  obtenemos este resultado:</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>$ for i in $(seq 5); do echo
+  $i; done</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>1</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>2</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>3</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>4</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>5</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>El segundo método consiste en
+  utilizar una sintaxis parecida a la del lenguaje C:</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>$ for ((a=1 ; a&lt;=5 ; a++));
+  do echo $a; done</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>1</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>2</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>3</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>4</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>5</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Con una sustitución de comando</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Se puede colocar cualquier
+  comando que produzca una lista de valores a continuación del «in» con la
+  ayuda de una sustitución de comando.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>El bucle for tomará el
+  resultado de este comando como lista de elementos con la que iterar.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>$ cat for4.sh</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>#!/bin/bash</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>echo &quot;Lista de los
+  usuarios en /etc/passwd&quot;</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>for params in `cat /etc/passwd
+  | cut -d: -f1`</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>do</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'><span
+  style='mso-spacerun:yes'>        </span>echo &quot;$params &quot;</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>done</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>$ ./for4.sh</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>Lista de los usuarios en
+  /etc/passwd</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>root</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>nobody</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>nobodyV</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>daemon</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>bin</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>uucp</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>uucpa</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>auth</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>cron</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>lp</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>tcb</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>adm</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>ris</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>carthic</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>ftp</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>stu</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'>...</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl73 width=1266 style='height:30.0pt;width:950pt'>Los
+  bucles permiten la repetición de un bloque de comandos ya sea un número
+  limitado de veces o bien de manera condicional.<br>
+    Todos los comandos que se deben ejecutar en un bucle se colocan entre los
+  comandos do y done.</td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1266 style='height:15.0pt;width:950pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1266 style='height:15.0pt;width:950pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'></td>
+  <td class=xl75></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 style='height:15.0pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+  <td class=xl75></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1266 style='width:950pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,707 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../202.3.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../202.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1532 style='border-collapse:
+ collapse;table-layout:fixed;width:1149pt'>
+ <col class=xl68 width=1484 style='mso-width-source:userset;mso-width-alt:54272;
+ width:1113pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>Alternate
+  Bootloaders</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Aparte
+  de GRUB, existen otras formas de cargar un núcleo Linux.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Los
+  principales son:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font14">LILO:</font><font class="font11"> antiguo programa de Linux de
+  carga del núcleo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font14">ISOLINUX:</font><font class="font11"> para cargar Linux desde
+  un CD/DVD o una llave USB.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font14">PXE:</font><font class="font11"> para cargar un nuevo sistema
+  operativo desde un servidor de red.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'><a
+  name="RANGE!A11">a. LILO</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font5">LILO (LInux LOader)</font><font class="font0"> es el programa
+  original de carga del núcleo Linux.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Hace
+  tiempo era el cargador por defecto de las diferentes distribuciones, antes de
+  ser sustituido progresivamente por GRUB, más flexible y potente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Sin
+  embargo, todavía es posible encontrarlo funcionando en servidores de
+  producción antiguos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Se
+  desaconseja utilizarlo en nuevas instalaciones, excepto en casos concretos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>La
+  configuración de LILO se realiza en un archivo de texto, generalmente <font
+  class="font14">/etc/lilo.conf</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>En
+  este archivo se especifican algunas opciones generales (disco de arranque,
+  tiempo antes del arranque por defecto, posible contraseña), así como los
+  diferentes núcleos que se pueden cargar, con sus opciones de carga.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>LILO
+  permite cargar otros sistemas diferentes de Linux.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Se
+  puede proteger la carga de una o todas las imágenes con una contraseña,
+  obligatoria o necesaria solo en caso de modificación de las opciones de
+  carga.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1484 style='height:15.0pt;width:1113pt'>Cada
+  vez que el archivo de configuración se modifique, hay que actualizar los
+  archivos reales utilizados por la carga mediante el comando <font
+  class="font15">/sbin/lilo</font><font class="font10"> que modificará el
+  cargador real en el sector de arranque del disco de inicio.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>En el
+  arranque, LILO muestra, según su configuración, una línea de comandos, un
+  menú de arranque en modo texto o un menú en modo gráfico.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Es
+  posible modificar, a nivel de línea de comandos, las opciones de arranque
+  específicas (en algunos casos con la condición de introducir la contraseña).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1484 style='height:15.0pt;width:1113pt'>*archivo
+  /etc/lilo.conf:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>#
+  Opciones generales:<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>#
+  Disco utilizado para el arranque<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>boot =
+  /dev/sda<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'># Modo
+  de gestión del arranque: con el símbolo de elección<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>prompt<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>#
+  Imagen por defecto<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>default
+  = linux<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>#
+  Espera antes de arranque por defecto, de décimas de segundo<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>timeout
+  = 30<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'><span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>#
+  Selección del menú de imágenes<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>#
+  Archivo núcleo a cargar<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>image
+  = /boot/vmlinxxxxz<span style='mso-spacerun:yes'>   </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>#
+  Etiqueta del menú<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>label
+  = linuxvXXXX<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>#
+  Partición raíz<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>root =
+  /dev/sda2<span style='mso-spacerun:yes'>   </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'># Otra
+  imagen que se puede cargar<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>image
+  = /boot/vmlinyyyyz<span style='mso-spacerun:yes'>   </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>label
+  = linuxvYYYY<span style='mso-spacerun:yes'>   </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>root =
+  /dev/sda2</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'><a
+  name="RANGE!A54">b. ISOLINUX</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1484 style='height:15.0pt;width:1113pt'>ISOLINUX
+  se utiliza para crear CD/DVD de arranque, en el formato estándar ISO9660.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Forma
+  parte del <font class="font5">paquete syslinux</font><font class="font0">,
+  que es un conjunto de componentes que gestionan métodos de carga del núcleo
+  alternativos (CD/DVD, PXE, etc.).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>La
+  idea es preparar en un directorio los diferentes archivos que se han de
+  almacenar en la imagen ISO de arranque, y a continuación <font class="font5">generar
+  esta imagen mediante el comando </font><font class="font14">mkisofs</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>El
+  archivo resultante se puede grabar en un CD/DVD.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Se
+  puede montar este archivo para comprobar su contenido mediante el comando
+  mount especificando como tipo de sistema de archivos iso9660.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>También
+  es posible crear llaves USB de arranque, copiando el archivo imagen ISO
+  obtenido en la llave.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Lo más
+  sencillo es partir de una imagen ISO de arranque que ya exista (un CD de
+  instalación Linux por ejemplo), montarlo en el sistema de archivos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>A
+  continuación, modificar su contenido en función de nuestras necesidades y
+  generar la nueva imagen con el comando mkisofs.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>c.
+  Arranque PXE</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'><font
+  class="font5">PXE (Pre-boot eXecution Environment) </font><font class="font0">es
+  un protocolo de arranque de un sistema a través de la red.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>Para
+  poder utilizarlo, la tarjeta de red tiene que ser compatible con este
+  protocolo (la mayoría de las tarjetas modernas lo son) y que se active esta
+  funcionalidad en la BIOS del equipo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Este
+  método de arranque necesita un servicio <font class="font5">DHCP</font><font
+  class="font0"> y un servicio </font><font class="font5">TFTP (Trivial File
+  Transfer Protocol)</font><font class="font0"> activos en la red y
+  configurados para la descarga remota de un núcleo Linux.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Linux
+  puede jugar estos dos roles, permitiendo así arrancar equipos desde la red.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>A
+  menudo esta técnica se utiliza para hacer instalaciones de sistemas a través
+  de la red.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*Principios
+  básicos:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>Hay
+  que configurar un servidor DHCP con dos opciones para los clientes TFTP,
+  especificando el nombre del archivo de arranque en el servidor TFTP, así como
+  la dirección de este servidor TFTP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>A
+  nivel del servidor TFTP, hay que copiar en su directorio de trabajo los
+  archivos necesarios para el arranque del cliente, comenzando por el archivo
+  indicado en las opciones del servidor DHCP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>Instalación
+  de una distribución Debian a través de la red:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*
+  Equipo que se ha de instalar</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Configurar
+  la BIOS para arrancar desde la red (modo PXE).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*
+  Servidor DHCP</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Crear
+  o modificar un ámbito de direcciones para los equipos que se han de instalar
+  en PXE, con dos opciones suplementarias:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>next-server
+  w.x.y.z ; #Dirección IP del servidor TFTP<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>filename
+  &quot;pxelinux.0&quot;; # Archivo de arranque en el servidor TFTP</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*
+  Servidor TFTP</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Descargar
+  desde un sitio Debian el archivo de instalación de red Debian: <font
+  class="font14">netboot/netboot.tar.gz</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Descomprimir
+  este archivo en el directorio de trabajo del servidor.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Deberían
+  estar los archivos y directorios siguientes:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>debian-installer</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>pxelinux.0</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>pxelinux.cfg</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1484 style='height:15.0pt;width:1113pt'>version.info</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1484 style='height:15.0pt;width:1113pt'>*
+  Equipo en el que se ha de instalar</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>Arrancar
+  la máquina.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>Debería:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>-
+  Pedir y obtener una concesión del servidor DHCP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>-
+  Pedir el archivo pxelinux.0 al servidor TFTP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>-
+  Cargar el archivo pxelinux.0 en memoria y ejecutarlo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>-
+  Pedir el resto de los archivos al servidor TFTP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1484 style='height:15.0pt;width:1113pt'>-
+  Mostrar el menú de instalación.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1484 style='height:15.0pt;width:1113pt'>*Proceso
+  de inicio de GRUB</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1484 style='height:30.0pt;width:1113pt'>- El
+  BIOS busca un dispositivo de inicio (como el disco duro) y de ahí pasa el
+  control al primer sector físico del dispositivo conocido como master boot
+  record, son los primeros 512 bytes (primer sector) del disco duro y que
+  forman la fase 1 de GRUB.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>- La
+  fase 1 de GRUB carga la siguiente fase de GRUB, ubicada físicamente en
+  cualquier parte del disco duro.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>- La
+  fase 1 puede cargar ya sea la fase 1.5 o, directamente, la 2.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>- La
+  fase 1.5 de GRUB, ubicada en los siguientes 30 kilobytes del disco duro,
+  carga la fase 2. (en GRUB 2 esta fase ha dejado de existir)</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>- La
+  fase 2 de GRUB (cargada por las fases 1 ó 1.5) recibe el control, y presenta
+  al usuario el menú de inicio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'>- GRUB
+  carga el kernel seleccionado por el usuario, en la memoria y le pasa el
+  control.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1484 style='height:15.0pt;width:1113pt'>En el
+  caso de ordenadores con sistema de arranque EFI, el firmware carga el
+  ejecutable de GRUB directamente (fase 2), siempre y cuando esté correctamente
+  instalado en la partición EFI y configurado en la NVRAM.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1484 style='height:15.0pt;width:1113pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1484 style='height:15.0pt;width:1113pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1484 style='width:1113pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

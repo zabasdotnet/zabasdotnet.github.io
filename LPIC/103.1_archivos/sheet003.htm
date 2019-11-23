@@ -1,0 +1,136 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../103.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>103.1 - Work on the command line</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../103.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=655 style='border-collapse:
+ collapse;table-layout:fixed;width:491pt'>
+ <col class=xl66 width=655 style='mso-width-source:userset;mso-width-alt:23954;
+ width:491pt'>
+ <col class=xl66 width=535 style='mso-width-source:userset;mso-width-alt:19565;
+ width:401pt'>
+ <col class=xl66 width=981 style='mso-width-source:userset;mso-width-alt:35876;
+ width:736pt'>
+ <col class=xl66 width=457 style='mso-width-source:userset;mso-width-alt:16713;
+ width:343pt'>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=655 style='height:15.0pt;width:491pt'>echo</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=655 style='height:15.0pt;width:491pt'>El
+  comando echo está hecho para visualizar texto.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=655 style='height:15.0pt;width:491pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=655 style='height:15.0pt;width:491pt'>Como
+  casi todos los comandos, acepta los parámetros, además de los argumentos, en
+  forma de texto.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=655 style='height:15.0pt;width:491pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=655 style='height:15.0pt;width:491pt'>Puede
+  colocar el texto entre comillas o simples apóstrofes para clarificar y
+  agrupar el texto a visualizar.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=655 style='height:15.0pt;width:491pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=655 style='height:15.0pt;width:491pt'>Puede
+  modificar su texto para añadirle secuencias de caracteres que tienen una
+  acción particular.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=655 style='height:15.0pt;width:491pt'>\n
+  --&gt; Pasar a la línea</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=655 style='height:15.0pt;width:491pt'>\t
+  --&gt; Tabulación horizontal</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=655 style='height:15.0pt;width:491pt'>\c
+  --&gt; Suprimir el salto de línea final</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=655 style='height:15.0pt;width:491pt'>\b
+  --&gt; Retorno de un carácter atrás</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=655 style='height:15.0pt;width:491pt'>\\
+  --&gt; Visualiza la contrabarra (barra oblicua inversa)</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=655 style='height:15.0pt;width:491pt'>\nnn
+  --&gt; Visualiza el carácter especificado en octal</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=655 style='height:15.0pt;width:491pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=655 style='height:15.0pt;width:491pt'>Para
+  utilizar estas secuencias, añada el argumento -e:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=655 style='height:15.0pt;width:491pt'>$ echo
+  -e &quot;&quot;Hola.\tMe llamo Seb\b\b\bNadie\n&quot;&quot;</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=655 style='height:15.0pt;width:491pt'>Hola. Me
+  llamo Nadie&quot;</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=655 style='width:491pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

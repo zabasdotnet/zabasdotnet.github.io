@@ -1,0 +1,756 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../204.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../204.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1694 style='border-collapse:
+ collapse;table-layout:fixed;width:1271pt'>
+ <col class=xl68 width=1646 style='mso-width-source:userset;mso-width-alt:60196;
+ width:1235pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>RAID
+  (Redundant Array of Independents Disks) (Conjunto redundante de discos
+  independientes)</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>RAID
+  es una tecnología de uso de discos duros que permite utilizar un espacio de
+  almacenamiento repartido entre varios discos físicos con el objetivo de
+  aumentar el rendimiento, la tolerancia a fallos o ambos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1646 style='height:15.0pt;width:1235pt'>Aunque
+  esta tecnología normalmente se gestiona por hardware en las bahías de los
+  discos o en las SAN, también se puede delegar esta tarea a Linux.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>En
+  este caso, el núcleo de Linux tendrá a su disposición varios discos duros y
+  organizará los bloques de datos en estos discos para hacer las particiones
+  lógicas que albergarán los sistemas de archivos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1646 style='height:15.0pt;width:1235pt'>Solo
+  tratamos los RAID gestionados por software por el núcleo de Linux.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>Para
+  un servidor en producción, es probable que el RAID esté gestionado por una
+  controladora hardware.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>En
+  este caso, la controladora presentará unidades lógicas (LUN) que se verán
+  como particiones normales y para el sistema es indiferente si la controladora
+  trabaja en RAID o no.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>1. Los
+  principales niveles de RAID</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>a.
+  RAID 0</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>RAID 0
+  tiene como único objetivo la rapidez de acceso a los datos y no gestiona de
+  modo alguno la tolerancia a los fallos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>Es muy
+  importante saber que en RAID 0 el fallo de cualquiera de los elementos
+  provoca la pérdida total de los volúmenes utilizados.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>El
+  principio de RAID 0 es repartir los datos escritos en bloques y escribir los
+  bloques al mismo tiempo en los discos físicos que componen el volumen RAID.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=1646 style='height:15.0pt;width:1235pt'>El
+  espacio utilizable en un volumen RAID 0 es igual a la suma de los espacios de
+  disco utilizados.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>b.
+  RAID 1</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>RAID
+  1, al contrario que RAID 0, no busca en ningún caso mejorar el rendimiento,
+  sino únicamente asegurar los datos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>En
+  RAID 1, cada bloque de datos se duplica y se escriben tantas copias como
+  discos hay en el volumen RAID.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>De
+  este modo, si un disco falla, los datos siguen estando disponibles.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=1646 style='height:15.0pt;width:1235pt'>El
+  espacio utilizable en un volumen RAID 1 es igual al espacio disponible en un
+  solo disco.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>c.
+  RAID 5</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>RAID 5
+  reúne las ventajas de RAID 0 y de RAID 1.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>Hay
+  que disponer de al menos 3 discos para configurarlo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1646 style='height:30.0pt;width:1235pt'>Cuando
+  se produce una operación de escritura en un volumen RAID 5, los bloques de
+  datos se escriben usando todos los discos del volumen, a excepción de un
+  bloque de paridad en un disco que se deduce a partir de los bloques de datos
+  con un XOR («o exclusivo»).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>En
+  caso de fallo de un disco, los bloques de datos que faltan se recalculan
+  realizando una operación XOR de todos los bloques restantes, datos y paridad.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=1646 style='height:15.0pt;width:1235pt'>El
+  espacio explotable en un volumen RAID 5 es igual a la suma de los espacios de
+  disco usados menos uno y menos un posible disco de reserva (spare).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>2.
+  Configuración de RAID</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'><a
+  name="RANGE!A39">a. Creación de un volumen RAID</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>Los
+  volúmenes RAID se configuran bastante fácilmente mediante el comando <font
+  class="font12">mdadm</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>Hay
+  que disponer de varios espacios de almacenamiento, discos duros enteros o
+  particiones, determinar el nivel de RAID deseado y elegir el nombre o el
+  número del volumen que se desea crear.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'><a
+  name="RANGE!A43">El comando <font class="font12">mdadm</font><font
+  class="font0"> tiene su configuración, especialmente el orden de escaneo de
+  todas las particiones encontradas en </font><font class="font12">/proc/partitions</font><font
+  class="font0">, en su archivo de configuración </font><font class="font12">/etc/mdadm/mdadm.conf</font><font
+  class="font0">.</font></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>Generalmente
+  no es necesario modificar la configuración por defecto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>*Sintaxis
+  del comando mdadm para la creación o la desactivación de un volumen RAID</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1646 style='height:15.0pt;width:1235pt'>mdadm
+  acción volumen -l nivel -n número_de_discos almacenes</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>*Creación
+  de un volumen con mdadm: opciones y parámetros:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><font
+  class="font12">acción --&gt;</font><font class="font10"> -C: crea un volumen
+  RAID.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>              </span><font class="font12">--&gt;</font><font
+  class="font10"> -S: desactiva un volumen y libera los recursos.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><font
+  class="font12">volumen --&gt;</font><font class="font10"> El archivo de
+  bloque que se creará para representar el nuevo volumen. A menudo es /dev/mdx,
+  pero puede tener un nombre cualquiera.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><font
+  class="font12">nivel --&gt;</font><font class="font10"> Valor del nivel de
+  RAID, generalmente 0, 1 o 5.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><font
+  class="font12">número_de_discos --&gt;</font><font class="font10"> Número de
+  espacios de almacenamiento que se van a usar, seguido de los archivos de
+  bloque que representarán a estos espacios.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><font
+  class="font12">almacenes --&gt;</font><font class="font10"> Periféricos de
+  almacenamiento separados por espacios e identificados por su archivo especial
+  de bloque.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>*Ejemplo
+  de la creación de un volumen RAID 1 en Debian:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>Se
+  usan los dos discos duros /dev/sdb y /dev/sdc para crear el volumen RAID1</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'>root@servidor#
+  mdadm -C /dev/md0 -l 1 -n 2 /dev/sdb /dev/sdc<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'>mdadm:
+  array /dev/md0 started<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'>root@servidor#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>b.
+  Comprobación de un volumen RAID</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>Es
+  también el comando <font class="font12">mdadm</font><font class="font0"> el
+  que nos permitirá conocer el estado y la naturaleza de un volumen RAID
+  desconocido.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>*Comprobación
+  de un volumen RAID</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1646 style='height:15.0pt;width:1235pt'>mdadm
+  -D volumen</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>Donde
+  volumen es el archivo especial de dispositivo de bloque que representa el
+  volumen RAID.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>*Ejemplo
+  de comprobación de un volumen RAID</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'>Es
+  importante conocer y utilizar los comandos de diagnóstico para una buena
+  administración y documentación del almacenamiento.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1646 style='height:15.0pt;width:1235pt'>#
+  mdadm -D /dev/md0<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'>A:~#
+  mdadm -D /dev/md0<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'>/dev/md0:<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>        </span>Version : 00.90<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>  </span>Creation Time : Wed Jan 13 22:52:26
+  2010<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>     </span>Raid Level : raid5<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>     </span>Array Size : 4194176 (4.00 GiB 4.29
+  GB)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>  </span>Used Dev Size : 2097088 (2048.28 MiB
+  2147.42 MB)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>   </span>Raid Devices : 3<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>  </span>Total Devices : 3<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'>Preferred
+  Minor : 0<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>    </span>Persistence : Superblock is
+  persistent<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>    </span>Update Time : Wed Jan 13 22:54:49
+  2010<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>          </span>State : clean, degraded,
+  recovering<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'> </span>Active Devices : 2<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'>Working
+  Devices : 3<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'> </span>Failed Devices : 0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>  </span>Spare Devices : 1<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>         </span>Layout : left-symmetric<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>     </span>Chunk Size : 64K<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'> </span>Rebuild Status : 90% complete<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>           </span>UUID :
+  a20a3883:3badc821:e24ccd6d:eee2883d (local to host A)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>         </span>Events : 0.4<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>    </span>Number<span style='mso-spacerun:yes'>  
+  </span>Major<span style='mso-spacerun:yes'>   </span>Minor<span
+  style='mso-spacerun:yes'>   </span>RaidDevice State<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>       </span>0<span style='mso-spacerun:yes'>      
+  </span>8<span style='mso-spacerun:yes'>        </span>0<span
+  style='mso-spacerun:yes'>        </span>0<span style='mso-spacerun:yes'>     
+  </span>active sync<span style='mso-spacerun:yes'>   </span>/dev/sda<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>       </span>1<span style='mso-spacerun:yes'>      
+  </span>8<span style='mso-spacerun:yes'>       </span>16<span
+  style='mso-spacerun:yes'>        </span>1<span style='mso-spacerun:yes'>     
+  </span>active sync<span style='mso-spacerun:yes'>   </span>/dev/sdb<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>       </span>3<span style='mso-spacerun:yes'>      
+  </span>8<span style='mso-spacerun:yes'>       </span>32<span
+  style='mso-spacerun:yes'>        </span>2<span style='mso-spacerun:yes'>     
+  </span>spare rebuilding<span style='mso-spacerun:yes'>   </span>/dev/sdc</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1646 style='height:15.0pt;width:1235pt'><a
+  name="RANGE!A105">El archivo <font class="font13">/proc/mdstat</font><font
+  class="font9"> también proporciona información sobre el estado de los discos
+  RAID en un sistema Linux.</font></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>*Ejemplo
+  de archivo <font class="font12">/proc/mdstat:</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1646 style='height:15.0pt;width:1235pt'>El
+  archivo mdstat proporciona una visualización resumida de los volúmenes RAID y
+  de los discos que lo componen.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'>Personalities
+  : [raid0]<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'>md0 :
+  active raid0 sdb[1] sda[0]<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>      </span>4194176 blocks 64k chunks<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'><span
+  style='mso-spacerun:yes'>       </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1646 style='height:15.0pt;width:1235pt'>unused
+  devices: &lt;none&gt;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1646 style='height:15.0pt;width:1235pt'>c. Uso
+  de los volúmenes RAID</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1646 style='height:30.0pt;width:1235pt'>Una
+  vez que se han creado los volúmenes con el comando mdadm, estos se
+  identifican por sus respectivos archivos de bloque especiales y soportarán la
+  creación de un sistema de archivos, así como el montaje, ya sea manual o
+  invocado desde el archivo <font class="font12">/etc/fstab</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1646 style='height:15.0pt;width:1235pt'><a
+  name="RANGE!A117">*** Tipos de particiones ***</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1646 style='height:15.0pt;width:1235pt'>Linux
+  LVM<span style='mso-spacerun:yes'>   </span>--&gt; 8E</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1646 style='height:15.0pt;width:1235pt'>Linux<span
+  style='mso-spacerun:yes'>             </span>--&gt; 83</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1646 style='height:15.0pt;width:1235pt'>Linux
+  swap --&gt; 82</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1646 style='height:15.0pt;width:1235pt'>NTFS<span
+  style='mso-spacerun:yes'>             </span>--&gt; 86 ó 87</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1646 style='height:15.0pt;width:1235pt'>Linux
+  raid<span style='mso-spacerun:yes'>   </span>--&gt; FD</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1646 style='height:15.0pt;width:1235pt'>***
+  Tipos de particiones ***</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1646 style='height:15.0pt;width:1235pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1646 style='height:15.0pt;width:1235pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1646 style='width:1235pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

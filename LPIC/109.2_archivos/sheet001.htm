@@ -1,0 +1,568 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../109.2.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../109.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl67>
+
+<table border=0 cellpadding=0 cellspacing=0 width=2809 style='border-collapse:
+ collapse;table-layout:fixed;width:2106pt'>
+ <col class=xl67 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl65 width=124 style='mso-width-source:userset;mso-width-alt:4534;
+ width:93pt'>
+ <col class=xl67 width=683 style='mso-width-source:userset;mso-width-alt:24978;
+ width:512pt'>
+ <col class=xl67 width=692 style='mso-width-source:userset;mso-width-alt:25307;
+ width:519pt'>
+ <col class=xl67 width=711 style='mso-width-source:userset;mso-width-alt:26002;
+ width:533pt'>
+ <col class=xl67 width=551 style='mso-width-source:userset;mso-width-alt:20150;
+ width:413pt'>
+ <col class=xl67 width=430 style='mso-width-source:userset;mso-width-alt:15725;
+ width:323pt'>
+ <tr class=xl65 height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'>109.2</td>
+  <td class=xl65 width=124 style='width:93pt'>W4</td>
+  <td class=xl65 width=683 style='width:512pt'>Basic network configuration</td>
+  <td class=xl66 width=692 style='width:519pt'><a href="../109.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl65 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>/etc/hostname</td>
+  <td class=xl67 width=683 style='width:512pt'>El fichero /etc/hostname
+  contiene el nombre de la máquina</td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl67 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl65 width=48 style='height:90.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>/etc/hosts</td>
+  <td class=xl67 width=683 style='width:512pt'>Sin siquiera utilizar un
+  servidor de nombres, es posible establecer una correspondencia entre las
+  direcciones IP y los nombres de las máquinas dentro del fichero
+  /etc/hosts.<br>
+    <br>
+    192.168.1.1<span style='mso-spacerun:yes'>     </span>server1 www1
+  ftp<br>
+    192.168.1.11<span style='mso-spacerun:yes'>    </span>puesto1<br>
+    192.168.1.12<span style='mso-spacerun:yes'>    </span>puesto2</td>
+  <td class=xl67 width=692 style='width:519pt'>Puede hacer lo mismo para
+  nombrar las redes (lo que puede ser útil para los tcp_wrappers o el comando
+  route) en el fichero /etc/networks.<br>
+    <br>
+    loopnet<span style='mso-spacerun:yes'>    </span>127.0.0.0<br>
+    localnet<span style='mso-spacerun:yes'>   </span>192.168.1.0</td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl67 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=340 style='height:255.0pt'>
+  <td height=340 class=xl65 width=48 style='height:255.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>/etc/nsswitch.conf</td>
+  <td class=xl67 width=683 style='width:512pt'>El fichero /etc/nsswitch.conf
+  permite determinar el orden en el cual el resolver (u otros servicios)
+  recupera su información.<br>
+    <br>
+    Primero se lee el fichero /etc/hosts; luego, si el resolver no encuentra la
+  información, busca mediante una resolución DNS.<br>
+    <br>
+    Puede ocurrir que determinados programas no utilicen el resolver sino
+  directamente el DNS o el fichero etc/hosts, o inviertan el orden establecido
+  en /etc/nsswitch.conf.<br>
+    <br>
+    En este caso, no es posible prever (ni predecir) el funcionamiento correcto
+  de este tipo de programas...<br>
+    </td>
+  <td class=xl67 width=692 style='width:519pt'>passwd: compat<br>
+    group:<span style='mso-spacerun:yes'>  </span>compat<br>
+    <br>
+    hosts:<span style='mso-spacerun:yes'>          </span>files dns<br>
+    networks:<span style='mso-spacerun:yes'>       </span>files dns<br>
+    <br>
+    services:<span style='mso-spacerun:yes'>       </span>files<br>
+    protocols:<span style='mso-spacerun:yes'>      </span>files<br>
+    rpc:<span style='mso-spacerun:yes'>            </span>files<br>
+    ethers:<span style='mso-spacerun:yes'>         </span>files<br>
+    netmasks:<span style='mso-spacerun:yes'>       </span>files<br>
+    netgroup:<span style='mso-spacerun:yes'>       </span>files nis<br>
+    publickey:<span style='mso-spacerun:yes'>      </span>files<br>
+    <br>
+    bootparams:<span style='mso-spacerun:yes'>     </span>files<br>
+    automount:<span style='mso-spacerun:yes'>      </span>files nis<br>
+    aliases:<span style='mso-spacerun:yes'>        </span>files</td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl67 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=460 style='height:345.0pt'>
+  <td height=460 class=xl65 width=48 style='height:345.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>ifconfig</td>
+  <td class=xl67 width=683 style='width:512pt'>La configuración básica de una
+  interfaz de red se hace con la ayuda del comando ifconfig.<br>
+    <br>
+    Sin embargo, la mayoría de las distribuciones utilizan scripts de
+  administración y ficheros de configuración que simplifican mucho las cosas,
+  ya que configuran al <br>
+    <br>
+    mismo tiempo la interfaz de red y las rutas.<br>
+    <br>
+    Configuración de eth0 para la dirección de clase C 192.168.1.2<br>
+    ifconfig eth0 inet 192.168.1.2 netmask 255.255.255.0<br>
+    ifconfig eth0 192.168.1.2<br>
+    <br>
+    Visualización de información de eth0:<br>
+    # ifconfig eth0<br>
+    eth0<span style='mso-spacerun:yes'>      </span>Vínculo encap:Ethernet<span
+  style='mso-spacerun:yes'>  </span>HWaddr 00:XX:XX:XX:XX:XX<br>
+    <span style='mso-spacerun:yes'>          </span>inet adr:192.168.1.60<span
+  style='mso-spacerun:yes'>  </span>Bcast:192.168.1.255<span
+  style='mso-spacerun:yes'>  </span>Máscara:255.255.255.0<br>
+    <span style='mso-spacerun:yes'>          </span>adr inet6:
+  fe80::21b:fcff:fec9:f81d/64 Scope:Vínculo<br>
+    <span style='mso-spacerun:yes'>          </span>UP BROADCAST RUNNING
+  MULTICAST<span style='mso-spacerun:yes'>  </span>MTU:1500<span
+  style='mso-spacerun:yes'>  </span>Metric:1<br>
+    <span style='mso-spacerun:yes'>          </span>RX packets:16522 errors:0
+  dropped:0 overruns:0 frame:0<br>
+    <span style='mso-spacerun:yes'>          </span>TX packets:13631 errors:0
+  dropped:0 overruns:0 carrier:2<br>
+    <span style='mso-spacerun:yes'>          </span>collisions:0 lg file
+  transmission:1000<br>
+    <span style='mso-spacerun:yes'>          </span>RX bytes:17732221 (16.9
+  MB)<span style='mso-spacerun:yes'>  </span>TX bytes:1648879 (1.5 MB)<br>
+    <br>
+    Observe que la dirección IPv6 aparece en el resultado en la línea inet6.</td>
+  <td class=xl67 width=692 style='width:519pt'>Configuración de una dirección
+  IPv6<br>
+    # ifconfig eth0 inet6 add fe80::21b:fcff:fec9:f81d/64<br>
+    <br>
+    Visualización de todas las interfaces de red activadas:<br>
+    ifconfig<br>
+    <br>
+    Visualización de todas las interfaces de red, activadas o no:<br>
+    ifconfig -a<br>
+    <br>
+    Activación de la interfaz de red eth0:<br>
+    ifconfig eth0 up<br>
+    <br>
+    Parada de la interfaz de red eth0:<br>
+    ifconfig eth0 down<br>
+    </td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl67 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>ifup</td>
+  <td class=xl67 width=683 style='width:512pt'>Activa la interfaz de red</td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl67 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=340 style='height:255.0pt'>
+  <td height=340 class=xl65 width=48 style='height:255.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'></td>
+  <td class=xl67 width=683 style='width:512pt'>Se basan en los ficheros
+  presentes en /etc/sysconfig/network-scripts/.<br>
+    Estos ficheros de configuración de interfaz se llaman ifcfg-xxx, donde xxx
+  es el nombre de la interfaz de red, como eth0:<br>
+    DEVICE=eth0<br>
+    IPADDR=192.168.1.2<br>
+    NETMASK=255.255.255.0<br>
+    NETWORK=192.168.1.0<br>
+    BROADCAST=192.168.1.255<br>
+    ONBOOT=yes<br>
+    BOOTPROTO=static<br>
+    <br>
+    Los parámetros hablan por sí mismos.<br>
+    Los valores NETWORK y BROADCAST son opcionales si se notifican IPADDR y NETMASK
+  (en este caso, el cálculo es automático) o si se utiliza DHCP.<br>
+    <br>
+    BOOTPROTO indica cómo montar la interfaz, o bien static, o bien dhcp.<br>
+    Se puede utilizar el valor bootp.</td>
+  <td class=xl67 width=692 style='width:519pt'>En el caso de DHCP, el fichero
+  se puede parecer a esto:<br>
+    DEVICE=eth0<br>
+    ONBOOT=yes<br>
+    BOOTPROTO=dhcp<br>
+    <br>
+    En el caso de una configuración estática, IPADDR y NETMASK son
+  obligatorios:<br>
+    DEVICE=eth0<br>
+    IPADDR=192.168.1.2<br>
+    NETMASK=255.255.255.0<br>
+    ONBOOT=yes<br>
+    BOOTPROTO=static<br>
+    ONBOOT determina si se debe activar automáticamente la interfaz en el
+  arranque de la máquina.</td>
+  <td class=xl67 width=711 style='width:533pt'>Para IPv6, usted debe utilizar
+  las siguientes variables:<br>
+    IPV6INIT=yes<br>
+    IPV6ADDR=&lt;IPv6-IP-Address&gt;<br>
+    IPV6_DEFAULTGW=&lt;IPv6-IP-Gateway-Address&gt;<br>
+    IPV6INIT indica si IPv6 está activo o no en esta interfaz.<br>
+    Las dos variables siguientes indican la dirección IP y su puerta de
+  enlace.<br>
+    <br>
+    Una vez notificado correctamente el fichero, se utilizan los comandos
+  ifup/ifdown:</td>
+  <td class=xl67 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=460 style='height:345.0pt'>
+  <td height=460 class=xl65 width=48 style='height:345.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'></td>
+  <td class=xl67 width=683 style='width:512pt'>Parámetros generales<br>
+    El fichero /etc/sysconfig/network contiene los parámetros generales de la
+  red.<br>
+    NETWORKING=yes<br>
+    HOSTNAME=puesto1.mired.org # nombre completo<br>
+    GATEWAY=0.0.0.0 # pasarela por defecto<br>
+    NISDOMAIN= # nombre del dominio NIS<br>
+    NETWORKING_IPV6=yes<br>
+    NETWORKING: activación o no de la red.<br>
+    <br>
+    HOSTNAME: nombre de dominio completo FQDN.<br>
+    GATEWAY: dirección IP de la pasarela.<br>
+    GATEWAYDEV: interfaz de red que permite acceder a la pasarela.<br>
+    NISDOMAIN: en caso de un dominio NIS.<br>
+    NETWORKING_IPV6 : activación o no del soporte de IPv6.</td>
+  <td class=xl67 width=692 style='width:519pt'>El fichero de configuración de
+  las interfaces de redes en Debian (y Ubuntu) se sitúa en
+  /etc/network/interfaces.<br>
+    No tiene el mismo formato que en Red Hat.<br>
+    <br>
+    # cat interfaces<br>
+    auto lo eth0 eth1<br>
+    iface lo inet loopback<br>
+    <br>
+    iface eth0 inet static<br>
+    <span style='mso-spacerun:yes'>        </span>address 192.161.1.60<br>
+    <span style='mso-spacerun:yes'>        </span>netmask 255.255.255.0<br>
+    <span style='mso-spacerun:yes'>        </span>broadcast 192.168.1.255<br>
+    <span style='mso-spacerun:yes'>        </span>gateway 192.168.1.1<br>
+    <br>
+    iface eth1 inet dhcp<br>
+    <br>
+    Este ejemplo muestra tres tipos de interfaces:<br>
+    la interfaz lo de loopback,<br>
+    la interfaz eth1 en dhcp, que no necesita una configuración más
+  avanzada,<br>
+    la interfaz eth0 configurada de manera estática.<br>
+    <br>
+    La sintaxis general de una declaración es la siguiente:<br>
+    interfaz nombre tipo modo</td>
+  <td class=xl67 width=711 style='width:533pt'>Con una configuración estática,
+  especifique los diferentes parámetros con las palabras claves
+  siguientes:<br>
+    <br>
+    address: la dirección IP.<br>
+    netmask: la máscara de subred.<br>
+    broadcast: la dirección de broadcast.<br>
+    gateway: la pasarela por defecto.<br>
+    <br>
+    La línea auto indica las interfaces que se activarán automáticamente en el
+  arranque.<br>
+    <br>
+    Para IPv6 la configuración es idéntica: basta con reemplazar inet con
+  inet6.</td>
+  <td class=xl67 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>ifdown</td>
+  <td class=xl67 width=683 style='width:512pt'>Desactiva la interfaz de red</td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl67 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=460 style='height:345.0pt'>
+  <td height=460 class=xl65 width=48 style='height:345.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>ip</td>
+  <td class=xl67 width=683 style='width:512pt'>El comando ip forma parte de la
+  iproute2 suite.<br>
+    Es el sustituto de ifconfig.<br>
+    <br>
+    El comando ip addr list vendría a ser lo mismo que ejecutar ifconfig.<br>
+    Se puede ejecutar con el mismo resultado como ip address show o ip address
+  list<br>
+    <br>
+    También podemos usar el comando ip link show para ver la información en
+  capa 2 (data link layer) de las interfaces de red del sistema:<br>
+    <br>
+    Para habilitar o deshabilitar una interfaz de red:<br>
+    ~# ip link set eth2 down<br>
+    ~# ip link set eth2 up<br>
+    lo mismo que ésto:<br>
+    ~# ifconfig eth2 down<br>
+    ~# ifconfig eth2 up<br>
+    <br>
+    Con ip link también podemos realizar modificaciones en las características
+  o flags de la interfaz, como por ejemplo configurar el modo promiscuo,
+  multicast, arp, dynamic o allmulti. <br>
+    Se utilizan los valores on|off. <br>
+    ~# ip link set dev eth0 promisc on<br>
+    ~# ip link set dev eth0 promisc off</td>
+  <td class=xl67 width=692 style='width:519pt'>Con ip addr add podemos
+  especificar la IP, máscara (también en formato CIDR como vemos a continuación
+  y la IP de broadcast:<br>
+    ~# ip addr add 10.0.0.100/24 broadcast 10.0.0.255 dev eth2<br>
+    <br>
+    Para eliminar la IP:<br>
+    ~# ip addr del 10.0.0.100/24 dev eth2<br>
+    <br>
+    También podemos crear alias en la interfaz:<br>
+    ~# ip addr add 10.0.0.101/24 broadcast 10.0.0.255 dev eth2:1<br>
+    <br>
+    Cambiar la MTU de la interfaz<br>
+    ~# ip link set dev eth2 mtu 9000<br>
+    <br>
+    Ver la tabla de rutas<br>
+    ~# ip route show<br>
+    <br>
+    Ver la tabla de ARP Cache<br>
+    De todas las interfaces:<br>
+    ~# ip neighbor show<br>
+    192.168.1.1 dev eth0 lladdr 64:68:0c:6b:5f:7e REACHABLE<br>
+    <br>
+    De una interfaz concreta:<br>
+    ~# ip neighbor show dev eth0</td>
+  <td class=xl65 width=711 style='width:533pt'>$ man ip</td>
+  <td class=xl67 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=420 style='height:315.0pt'>
+  <td height=420 class=xl65 width=48 style='height:315.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>route</td>
+  <td class=xl67 width=683 style='width:512pt'>Con la utilización de los
+  ficheros y comandos anteriores, no hace falta crear un encaminamiento
+  específico, puesto que la pasarela por defecto está ya presente e ifup
+  implementa automáticamente las rutas para las interfaces.<br>
+    <br>
+    Sin embargo, se puede utilizar el comando route.<br>
+    <br>
+    Visualiza las rutas actuales:<br>
+    route<br>
+    netstat -nr<br>
+    <br>
+    En el ejemplo siguiente, las interfaces vmnet1 y vmnet8 son interfaces
+  virtuales procedentes de la configuración de red de VMWare.<br>
+    # netstat -rn<br>
+    Tabla de encaminamiento IP del núcleo<br>
+    Destino<span style='mso-spacerun:yes'>         </span>Pasarela<span
+  style='mso-spacerun:yes'>      </span>Genmask<span
+  style='mso-spacerun:yes'>         </span>Indic<span
+  style='mso-spacerun:yes'>   </span>MSS Ventana irtt<span
+  style='mso-spacerun:yes'>  </span>Iface<br>
+    192.168.211.0<span style='mso-spacerun:yes'>   </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>        
+  </span>0 0<span style='mso-spacerun:yes'>          </span>0<span
+  style='mso-spacerun:yes'>  </span>vmnet8<br>
+    192.168.1.0<span style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>        
+  </span>0 0<span style='mso-spacerun:yes'>          </span>0<span
+  style='mso-spacerun:yes'>  </span>eth0<br>
+    172.16.248.0<span style='mso-spacerun:yes'>    </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.255.255.0<span
+  style='mso-spacerun:yes'>   </span>U<span style='mso-spacerun:yes'>        
+  </span>0 0<span style='mso-spacerun:yes'>          </span>0<span
+  style='mso-spacerun:yes'>  </span>vmnet1<br>
+    169.254.0.0<span style='mso-spacerun:yes'>     </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.255.0.0<span
+  style='mso-spacerun:yes'>     </span>U<span style='mso-spacerun:yes'>        
+  </span>0 0<span style='mso-spacerun:yes'>          </span>0<span
+  style='mso-spacerun:yes'>  </span>eth0<br>
+    127.0.0.0<span style='mso-spacerun:yes'>       </span>0.0.0.0<span
+  style='mso-spacerun:yes'>       </span>255.0.0.0<span
+  style='mso-spacerun:yes'>       </span>U<span
+  style='mso-spacerun:yes'>         </span>0 0<span
+  style='mso-spacerun:yes'>          </span>0<span style='mso-spacerun:yes'> 
+  </span>lo<br>
+    0.0.0.0<span style='mso-spacerun:yes'>         </span>192.168.1.1<span
+  style='mso-spacerun:yes'>   </span>0.0.0.0<span
+  style='mso-spacerun:yes'>         </span>UG<span
+  style='mso-spacerun:yes'>        </span>0 0<span
+  style='mso-spacerun:yes'>          </span>0<span style='mso-spacerun:yes'> 
+  </span>eth0</td>
+  <td class=xl67 width=692 style='width:519pt'>Creación de la entrada
+  loopback:<br>
+    route add -net 127.0.0.0<br>
+    <br>
+    Crea la ruta hacia la red 192.168.1.0, que pasa por eth0. Se puede omitir
+  netmask.<br>
+    route add -net 192.168.1.0 netmask 255.255.255.0 eth0<br>
+    <br>
+    Crea la pasarela por defecto hacia el enrutador:<br>
+    route add default gw 192.168.1.254<br>
+    <br>
+    Suprime la ruta hacia la red 172.16.0.0:<br>
+    route del -net 172.16.0.0 eth0<br>
+    <br>
+    La gestión de rutas IPv6 es idéntica, pero indicando el tipo de dirección
+  usado al comando con la opción -A:<br>
+    route -A inet6 add &lt;ipv6&gt; gw &lt;ipv6&gt;</td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=460 style='height:345.0pt'>
+  <td height=460 class=xl65 width=48 style='height:345.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'>ping</td>
+  <td class=xl67 width=683 style='width:512pt'>El comando ping es un comando
+  central, incluso ineludible.<br>
+    Para saber si una máquina está accesible o no, lo primero que se suele
+  hacer es intentar «hacer ping» (con la condición de que la configuración del
+  firewall autorice las peticiones ICMP).<br>
+    <br>
+    El comando ping6 hace lo mismo para una dirección IPv6.<br>
+    <br>
+    Ping emite un «eco» de red, un poco como un sónar, y espera una respuesta,
+  el retorno del eco.<br>
+    Para ello, utiliza el protocolo ICMP.<br>
+    Interrumpa el comando ping con [Ctrl] C.<br>
+    <br>
+    $ ping www.kde.org<br>
+    PING www.kde.org (62.70.27.118) 56(84) bytes of data.<br>
+    64 bytes from 62.70.27.118: icmp_seq=1 ttl=57 time=10.5 ms<br>
+    64 bytes from 62.70.27.118: icmp_seq=2 ttl=57 time=11.3 ms<br>
+    64 bytes from 62.70.27.118: icmp_seq=3 ttl=57 time=10.4 ms<br>
+    64 bytes from 62.70.27.118: icmp_seq=4 ttl=57 time=11.5 ms<br>
+    ...<br>
+    <font class="font5"><br>
+    Tres parámetros deben llamarle la atención:<br>
+    -c permite especificar el número de ecos que se deben emitir.<br>
+    -b permite emitir un eco en una dirección de broadcast.<br>
+    -I permite especificar la interfaz de red.</font></td>
+  <td class=xl68 width=692 style='width:519pt'>En el primer caso, el parámetro
+  puede ser útil en un script para probar que un servidor responde:<br>
+    # ping -c 1 10.9.238.170 &gt;/dev/null 2&gt;&amp;1 &amp;&amp; echo &quot;El
+  servidor contesta&quot;<br>
+    El servidor contesta<br>
+    <br>
+    En el segundo caso, todas las direcciones de la subred correspondientes a
+  la dirección de broadcast deben responder.<br>
+    # ping -b 192.168.1.255<br>
+    WARNING: pinging broadcast address<br>
+    PING 192.168.1.255 (192.168.1.255) 56(84) bytes of data.<br>
+    64 bytes from 192.168.1.10: icmp_seq=1 ttl=64 time=0.232 ms<br>
+    64 bytes from 192.168.1.60: icmp_seq=1 ttl=64 time=0.240 ms<br>
+    64 bytes from 192.168.1.130: icmp_seq=1 ttl=255 time=0.285 ms<br>
+    64 bytes from 192.168.1.139: icmp_seq=1 ttl=255 time=0.292 ms<br>
+    ...<br>
+    <br>
+    En el último caso, puede especificar una tarjeta de salida.<br>
+    Esta opción es muy útil para comprobar una resolución DNS o una ruta.<br>
+    # ping -I eth0 192.168.1.60<br>
+    PING 192.168.1.60 (192.168.1.60) from 192.168.1.10:eth0: 56(84) bytes<br>
+    of data.<br>
+    64 bytes from 192.168.1.60: icmp_seq=1 ttl=62 time=0.478 ms<br>
+    64 bytes from 192.168.1.60: icmp_seq=2 ttl=62 time=0.408 ms<br>
+    ...</td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'></td>
+  <td class=xl67 width=683 style='width:512pt'></td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'></td>
+  <td class=xl67 width=683 style='width:512pt'></td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'></td>
+  <td class=xl67 width=683 style='width:512pt'></td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=124 style='width:93pt'></td>
+  <td class=xl65 width=683 style='width:512pt'></td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl69 width=124 style='width:93pt'></td>
+  <td class=xl70 width=683 style='width:512pt'></td>
+  <td class=xl67 width=692 style='width:519pt'></td>
+  <td class=xl67 width=711 style='width:533pt'></td>
+  <td class=xl67 width=551 style='width:413pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'><a
+  href="../109.htm" target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl65 width=124 style='width:93pt'></td>
+  <td class=xl65 width=683 style='width:512pt'></td>
+  <td class=xl65 width=692 style='width:519pt'></td>
+  <td class=xl65 width=711 style='width:533pt'></td>
+  <td class=xl65 width=551 style='width:413pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=48 style='width:36pt'></td>
+  <td width=124 style='width:93pt'></td>
+  <td width=683 style='width:512pt'></td>
+  <td width=692 style='width:519pt'></td>
+  <td width=711 style='width:533pt'></td>
+  <td width=551 style='width:413pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

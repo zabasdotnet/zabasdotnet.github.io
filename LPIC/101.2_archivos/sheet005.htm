@@ -1,0 +1,154 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../101.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>101.2 - Boot the system</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(4);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../101.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1231 style='border-collapse:
+ collapse;table-layout:fixed;width:923pt'>
+ <col class=xl66 width=1231 style='mso-width-source:userset;mso-width-alt:45019;
+ width:923pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1231 style='height:15.0pt;width:923pt'><a
+  name="RANGE!A1">init</a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'>El
+  programa init es el primer proceso iniciado y el último que se para dentro
+  del sistema, y tiene como misión ejecutar todas las demás tareas, comandos y
+  scripts.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1231 style='height:15.0pt;width:923pt'>Una vez
+  iniciado el sistema y ejecutados los servicios, init sigue activo para
+  gestionar los cambios de estado de los procesos que controla y de los niveles
+  de ejecución.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'>El
+  programa init puede cambiar de una distribución a otra.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'>En la
+  mayoría de las distribuciones profesionales o mayores (Mandriva, Red
+  Hat/Fedora, openSUSE, Debian, etc.), el principio sigue siendo más o menos el
+  mismo:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'>- init
+  de tipo System V (basado en la noción de niveles de ejecución).<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'>- La
+  distribución Ubuntu utiliza Upstart, que gestiona las prioridades, los
+  eventos y dependencias entre los servicios, pero respeta el mismo
+  principio.<span style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'>- La
+  distribución Slackware utiliza otro mecanismo inspirado en BSD.<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'>-
+  Finalmente, la distribución Fedora utiliza desde la versión 15 systemd otro
+  reemplazo de init, de diseño moderno y disponible únicamente para Linux.<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'>Parece
+  que con el tiempo systemd también reemplazará init.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1231 style='height:15.0pt;width:923pt'>El
+  proceso init es el padre de todos los procesos.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1231 style='height:15.0pt;width:923pt'>SIEMPRE
+  TIENE EL PID 1</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1231 style='height:15.0pt;width:923pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1231 style='height:15.0pt;width:923pt'>Su
+  configuración está en el fichero /etc/inittab.<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'>Si este
+  fichero está corrompido o es inutilizable, habrá que arrancar el sistema en
+  modo single (S, s, 1 Single) y arreglarlo, o a lo peor arrancar desde un
+  soporte externo o un disco de emergencia.<span
+  style='mso-spacerun:yes'> </span></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1231 style='height:15.0pt;width:923pt'>Es un
+  fichero central del sistema operativo.</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1231 style='width:923pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

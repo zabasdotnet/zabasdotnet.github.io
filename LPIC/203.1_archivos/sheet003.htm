@@ -1,0 +1,605 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../203.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../203.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1385 style='border-collapse:
+ collapse;table-layout:fixed;width:1039pt'>
+ <col class=xl68 width=1337 style='mso-width-source:userset;mso-width-alt:48896;
+ width:1003pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1337 style='height:15.0pt;width:1003pt'>swap</td>
+  <td class=xl75 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>El
+  swap o memoria de intercambio es un espacio de almacenamiento usado para
+  subsanar la falta de memoria física en el sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1337 style='height:15.0pt;width:1003pt'>a.
+  ¿Por qué usar el swap y en qué cantidad?</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1337 style='height:30.0pt;width:1003pt'>Cuando
+  la memoria física se vuelve un bien escaso para las aplicaciones, una parte
+  de la información almacenada en memoria y que no se ha utilizado
+  recientemente se mueve al espacio de swap, liberando espacio para las
+  aplicaciones que necesitan memoria inmediatamente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1337 style='height:30.0pt;width:1003pt'>Si una
+  aplicación requiere el uso de algún dato que ha sido movido a la zona de
+  swap, el mecanismo de swap es de nuevo el encargado de liberar todavía más
+  espacio en memoria física para volver a traer los datos desde el intercambio
+  para que se puedan utilizar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>No hay
+  que confundirse sobre el uso que hay que hacer del swap.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>En un
+  funcionamiento normal, un servidor o una estación de trabajo Linux no debería
+  usar el swap.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>La
+  gran época del swap se dio cuando la memoria tenía un coste tan caro que era
+  necesario encontrar para el servidor un compromiso entre el coste del sistema
+  y el rendimiento que podía obtener.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Hoy en
+  día el coste relativamente bajo de la memoria hace que un sistema no tenga
+  que recurrir tan a menudo al mecanismo del swap. Solo sucede en casos de un
+  consumo en exceso accidental de memoria.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1337 style='height:30.0pt;width:1003pt'>El
+  swap es, por lo tanto, un tipo de memoria de repuesto que evita el cuelgue de
+  un servidor gestionando el balance entre las necesidades de memoria y los
+  recursos disponibles.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>La
+  cantidad de memoria dedicada al swap depende a menudo del autor, la fuente y
+  la época.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Es
+  difícil, cuando se está instalando de forma manual un sistema, tomar una
+  decisión serena.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1337 style='height:15.0pt;width:1003pt'>Hay
+  cierto consenso en torno a valores comprendidos entre una y dos veces el
+  tamaño de la memoria RAM.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>De
+  todos modos, las instalaciones por defecto de las distribuciones generalmente
+  proponen la creación automática de un espacio de swap.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1337 style='height:30.0pt;width:1003pt'>Para
+  una instalación a medida, los valores comunes (de una a dos veces la memoria
+  RAM) son perfectamente aceptables y en caso de duda, como el espacio en disco
+  es todavía más barato, lo mejor es sobredimensionar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1337 style='height:15.0pt;width:1003pt'>b.
+  Optimización del swap</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>El
+  swap se puede optimizar tanto en cantidad como en calidad.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1337 style='height:30.0pt;width:1003pt'>Puede
+  suceder que durante la instalación se haya decidido un tamaño de swap
+  demasiado pequeño: por ejemplo, cuando se instala en un servidor una
+  aplicación que exige una cantidad de RAM y un swap diez veces superior a los
+  existentes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1337 style='height:30.0pt;width:1003pt'>Además,
+  el espacio de intercambio puede trasladarse a un disco más rápido: una SAN o
+  una bahía de disco más moderna y por lo tanto más rápida que aquella en la
+  que está instalado el sistema, con lo que el uso del swap podría ser más
+  rápido en estos sistemas de almacenamiento.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Por
+  estas razones, puede ser útil crear un nuevo espacio de swap que se añadirá o
+  sustituirá al espacio inicial.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1337 style='height:15.0pt;width:1003pt'>-
+  Naturaleza del espacio de swap:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Se
+  puede crear el swap desde varios espacios de almacenamiento que se pueden ser
+  particiones o archivos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1337 style='height:30.0pt;width:1003pt'>Como
+  nos interesa que el núcleo acceda directa y exclusivamente al swap, es
+  preferible en términos de rendimiento usar particiones en lugar de archivos
+  de intercambio, ya que el sistema de archivos representa un intermediario
+  adicional para acceder al almacenamiento físico.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Si el
+  swap se ubica en una partición, esta tiene que crearse de tipo 82 con una
+  herramienta de particionado adecuada (fdisk Linux, por ejemplo).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Si
+  está en un archivo, tiene que estar siempre disponible en un sistema de
+  archivos montado a perpetuidad.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1337 style='height:15.0pt;width:1003pt'>-
+  Creación del espacio de swap:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Para
+  poder usar el espacio de swap, hay que prepararlo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Para
+  ello hay que hacer como cuando se crea un sistema de archivos en un espacio
+  de almacenamiento sin tratar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Esta
+  preparación se realiza mediante el comando mkswap y puede aplicarse tanto a
+  una partición como a un archivo de tamaño determinado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1337 style='height:15.0pt;width:1003pt'>-
+  Sintaxis del comando mkswap:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1337 style='height:15.0pt;width:1003pt'>mkswap
+  espacio_de_almacenamiento</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Donde
+  espacio_de_almacenamiento representa la ubicación física del espacio de swap
+  cuya denominación puede realizarse de distintos modos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Posibles
+  denominaciones de los espacios de almacenamiento para el comando mkswap:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'><font
+  class="font12">/ruta/archivo --&gt;</font><font class="font10"> Estructura el
+  archivo para que pueda usarse como espacio de swap.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'><font
+  class="font12">/dev/device --&gt;</font><font class="font10"> Estructura el
+  espacio de almacenamiento designado por el archivo especial de bloque para
+  que se pueda usar como espacio de swap.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'><font
+  class="font12">-L LABEL --&gt;</font><font class="font10"> Estructura el
+  espacio de almacenamiento designado por la etiqueta LABEL para que se pueda
+  usar como espacio de swap.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'><font
+  class="font12">-U UUID --&gt;</font><font class="font10"> Estructura el
+  espacio de almacenamiento designado por el uuid UUID para que se pueda usar
+  como espacio de swap.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1337 style='height:15.0pt;width:1003pt'><a
+  name="RANGE!A51">- Uso del swap:</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Una
+  vez que el espacio de swap ha sido creado, se tiene que dejar disponible al
+  núcleo mediante el comando <font class="font12">swapon</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Entonces
+  el sistema ya será capaz de realizar intercambios desde el nuevo espacio
+  creado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1337 style='height:15.0pt;width:1003pt'>-
+  Sintaxis del comando swapon para activar el espacio de swap:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1337 style='height:15.0pt;width:1003pt'>swapon
+  espacio_de_almacenamiento</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Donde
+  espacio_de_almacenamiento representa la ubicación física del espacio de
+  intercambio cuya denominación puede realizarse de distintos modos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Posibles
+  denominaciones de los espacios de almacenamiento para el comando swapon:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'><font
+  class="font12">/ruta/archivo --&gt; </font><font class="font10">Habilita la
+  utilización del archivo como swap para el núcleo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'><font
+  class="font12">/dev/device --&gt;</font><font class="font10"> Habilita la
+  utilización del espacio de almacenamiento designado por el archivo especial
+  de bloque como swap para el núcleo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'><font
+  class="font12">-L LABEL --&gt;</font><font class="font10"> Habilita la
+  utilización del espacio de almacenamiento designado por la etiqueta LABEL
+  como swap para el núcleo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'><font
+  class="font12">-U UUID --&gt;</font><font class="font10"> Habilita la
+  utilización del espacio de almacenamiento designado por el uuid UUID como
+  swap para el núcleo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1337 style='height:15.0pt;width:1003pt'><a
+  name="RANGE!A65">- Desactivación de un espacio de swap:</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Si
+  desea que el sistema deje de usar un espacio de swap, hay que indicárselo con
+  el comando <font class="font12">swapoff</font><font class="font0">.<span
+  style='mso-spacerun:yes'> </span></font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1337 style='height:15.0pt;width:1003pt'>-
+  Sintaxis del comando swapoff para desactivar un espacio de swap:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'>swapoff
+  espacio_de_almacenamiento</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Donde
+  espacio_de_almacenamiento representa la ubicación física del espacio de swap
+  cuya denominación puede realizarse de distintos modos:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>Posibles
+  denominaciones de los espacios de almacenamiento para el comando swapoff</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'><font
+  class="font12">/ruta/archivo --&gt;</font><font class="font10"> Detiene el
+  uso del espacio de swap en el archivo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'><font
+  class="font12">/dev/dispositivo --&gt;</font><font class="font10"> Detiene el
+  uso del espacio de swap en el dispositivo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'><font
+  class="font12">-L LABEL --&gt;</font><font class="font10"> Detiene el uso del
+  espacio de swap cuya etiqueta es LABEL.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'><font
+  class="font12">-U UUID --&gt;</font><font class="font10"> Detiene el uso del
+  espacio de swap cuyo uuid es UUID.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1337 style='height:15.0pt;width:1003pt'>-
+  Visualización de los espacios de swap:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>El
+  conjunto de espacios de swap usados, así como su naturaleza (archivo o
+  partición), se pueden visualizar mediante el comando swapon explicado
+  anteriormente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1337 style='height:15.0pt;width:1003pt'>-
+  Sintaxis del comando swapon para visualizar la configuración del swap:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1337 style='height:15.0pt;width:1003pt'>swapon
+  -s</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1337 style='height:15.0pt;width:1003pt'>-
+  Ejemplo de uso del comando swapon:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>El
+  comando indica la partición o el archivo usado, el tamaño reservado y la
+  cantidad de swap usado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1337 style='height:15.0pt;width:1003pt'>alfa:~#
+  swapon -s<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'>Filename<span
+  style='mso-spacerun:yes'>    </span>Type<span
+  style='mso-spacerun:yes'>        </span>Size<span
+  style='mso-spacerun:yes'>      </span>Used<span style='mso-spacerun:yes'> 
+  </span>Priority<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'>/dev/sda5<span
+  style='mso-spacerun:yes'>   </span>partition<span style='mso-spacerun:yes'>  
+  </span>409616<span style='mso-spacerun:yes'>    </span>0<span
+  style='mso-spacerun:yes'>  </span>-1</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1337 style='height:15.0pt;width:1003pt'>- Otra
+  visualización de swap:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'>También
+  se puede visualizar la configuración del swap consultando el contenido del
+  archivo <font class="font12">swaps</font><font class="font0"> del sistema de
+  archivos virtual </font><font class="font12">/proc</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1337 style='height:15.0pt;width:1003pt'>alfa:~#
+  cat /proc/swaps<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'>Filename<span
+  style='mso-spacerun:yes'>    </span>Type<span
+  style='mso-spacerun:yes'>        </span>Size<span
+  style='mso-spacerun:yes'>      </span>Used<span style='mso-spacerun:yes'> 
+  </span>Priority<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1337 style='height:15.0pt;width:1003pt'>/dev/sda5<span
+  style='mso-spacerun:yes'>   </span>partition<span style='mso-spacerun:yes'>  
+  </span>409616<span style='mso-spacerun:yes'>    </span>0<span
+  style='mso-spacerun:yes'>  </span>-1</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1337 style='height:15.0pt;width:1003pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 style='height:15.0pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1337 style='width:1003pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../103.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>103.1 - Work on the command line</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(4);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../103.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1958 style='border-collapse:
+ collapse;table-layout:fixed;width:1469pt'>
+ <col class=xl66 width=1248 style='mso-width-source:userset;mso-width-alt:45641;
+ width:936pt'>
+ <col class=xl66 width=710 style='mso-width-source:userset;mso-width-alt:25965;
+ width:533pt'>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1248 style='height:15.0pt;width:936pt'><a
+  name="RANGE!A1">history</a></td>
+  <td class=xl68 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'>Puede
+  ver el contenido del historial con el comando history.</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'>Le
+  resultará muy útil poder volver a llamar a un comando que ya ejecutó
+  navegando por el historial de los comandos con las teclas [Flecha arriba] y
+  [Flecha abajo].</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'>La
+  flecha arriba vuelve atrás en el historial.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'>Si ha
+  tecleado los dos comandos anteriores (date y luego pwd), al presionar una
+  primera vez en la flecha arriba se visualiza en la línea de comandos pwd, y a
+  la segunda se visualiza el comando date.</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'>La
+  flecha abajo navega en el otro sentido hasta la línea de origen.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'>Si
+  pulsa la tecla [Intro] vuelve a ejecutar el comando.</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'>El
+  comando fc funciona como history cuando se utiliza con el parámetro -l.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1248 style='height:15.0pt;width:936pt'>Por
+  defecto, se limita a los últimos quince comandos.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'>También
+  puede pasar el número de últimos comandos, como a continuación para los diez
+  últimos:</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'>$ fc -l
+  -10</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1248 style='height:15.0pt;width:936pt'>Puede
+  volver a llamar a un comando con fc y el parámetro -s seguido del número del
+  comando.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'>Entonces
+  se ejecutará de manera automática.</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'>$ fc -s
+  1001</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1248 style='height:15.0pt;width:936pt'>Finalmente,
+  puede sustituir un elemento del comando por otro antes de ejecutarlo.</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'>Por
+  ejemplo, puede sustituir fc por ls en la entrada 1002 del historial:</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1248 style='height:15.0pt;width:936pt'>$ fc -s
+  fc=ls 1002</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1248 style='width:936pt'></td>
+  <td width=710 style='width:533pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

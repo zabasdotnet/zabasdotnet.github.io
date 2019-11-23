@@ -1,0 +1,263 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../204.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .25in .75in .25in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;
+	mso-page-orientation:landscape;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../204.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl65>
+
+<table border=0 cellpadding=0 cellspacing=0 width=951 style='border-collapse:
+ collapse;table-layout:fixed;width:714pt'>
+ <col class=xl65 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl72 width=126 style='mso-width-source:userset;mso-width-alt:4608;
+ width:95pt'>
+ <col class=xl65 width=729 style='mso-width-source:userset;mso-width-alt:26660;
+ width:547pt'>
+ <col class=xl65 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl65 width=440 style='mso-width-source:userset;mso-width-alt:16091;
+ width:330pt'>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'><a
+  name="RANGE!A1">204.1</a></td>
+  <td class=xl72 width=126 style='width:95pt'>W3</td>
+  <td class=xl65 width=729 style='width:547pt'>Configuring RAID</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="../204.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=160 style='height:120.0pt'>
+  <td height=160 class=xl65 width=48 style='height:120.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl69 width=729 style='width:547pt'>Candidates should be able to
+  configure and implement software RAID. This objective includes using and
+  configuring RAID 0, 1 and 5.<br>
+    This objective includes configuring and mounting various filesystem
+  types.<br>
+    <br>
+    Key Knowledge Areas:<br>
+    - The concept of the fstab configuration<br>
+    - Tools and utilities for handling SWAP partitions and files<br>
+    - Use of UUIDs</td>
+  <td class=xl77 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl67 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl66 width=126 style='width:95pt'><a href="sheet002.htm#RANGE!A43"><span
+  style='font-weight:700'>mdadm.conf</span></a></td>
+  <td class=xl68 width=729 style='width:547pt'>Archivo de configuración del
+  comando mdadm (<font class="font10">/proc partitions</font><font class="font0">
+  | </font><font class="font10">/etc/mdadm/mdadm.conf</font><font class="font0">)</font></td>
+  <td class=xl78 width=48 style='width:36pt'>87</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl66 width=126 style='width:95pt'><a href="sheet002.htm#RANGE!A39"><span
+  style='font-weight:700'>mdadm</span></a></td>
+  <td class=xl68 width=729 style='width:547pt'>Los volúmenes RAID se configuran
+  bastante fácilmente mediante el comando mdadm</td>
+  <td class=xl78 width=48 style='width:36pt'>87</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl79><a href="sheet002.htm#RANGE!A105"><span style='color:red;
+  font-weight:700'>/proc/mdstat</span></a></td>
+  <td class=xl80 width=729 style='width:547pt'>Proporciona información sobre el
+  estado de los discos RAID en un sistema Linux.</td>
+  <td class=xl81 width=48 style='width:36pt'>???</td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl79><a href="sheet002.htm#RANGE!A117"><span style='color:red;
+  font-weight:700'>partition type 0xFD</span></a></td>
+  <td class=xl80 width=729 style='width:547pt'>Tipo de partición Linux Raid</td>
+  <td class=xl81 width=48 style='width:36pt'>???</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'><a
+  href="../204.htm" target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl82 width=729 style='width:547pt'><a href="../204.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl66 width=48 style='width:36pt'><a href="../204.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl72 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl73 width=126 style='width:95pt'></td>
+  <td class=xl65 width=729 style='width:547pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=48 style='width:36pt'></td>
+  <td width=126 style='width:95pt'></td>
+  <td width=729 style='width:547pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../102.5.htm">
+<link rel=File-List href=filelist.xml>
+<title>102.5 - Use RPM and YUM package management</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../102.5.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=490 style='border-collapse:
+ collapse;table-layout:fixed;width:368pt'>
+ <col class=xl68 width=490 style='mso-width-source:userset;mso-width-alt:17920;
+ width:368pt'>
+ <col class=xl66 width=535 style='mso-width-source:userset;mso-width-alt:19565;
+ width:401pt'>
+ <col class=xl66 width=981 style='mso-width-source:userset;mso-width-alt:35876;
+ width:736pt'>
+ <col class=xl66 width=457 style='mso-width-source:userset;mso-width-alt:16713;
+ width:343pt'>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=490 style='height:15.0pt;width:368pt'><a
+  name="RANGE!A1">/etc/yum/conf</a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=490 style='height:15.0pt;width:368pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=490 style='height:15.0pt;width:368pt'>Fichero
+  de configuración principal de YUM donde se colocan los repostiorios.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=490 style='height:15.0pt;width:368pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=490 style='height:15.0pt;width:368pt'>[fedora]</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=490 style='height:15.0pt;width:368pt'>name=Fedora
+  $releasever - $basearch</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=490 style='height:15.0pt;width:368pt'>failovermethod=priority</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=490 style='height:15.0pt;width:368pt'>#baseurl=http://download.fedoraproject.org/pub/fedora/linux/releases/</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=490 style='height:15.0pt;width:368pt'>$releasever/Everything/$basearch/os/</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=490 style='height:15.0pt;width:368pt'>mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=fedora-</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=490 style='height:15.0pt;width:368pt'>$releasever&amp;arch=$basearch</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=490 style='height:15.0pt;width:368pt'>enabled=1</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=490 style='height:15.0pt;width:368pt'>metadata_expire=7d</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=490 style='height:15.0pt;width:368pt'>gpgcheck=1</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=490 style='height:15.0pt;width:368pt'>gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$basearch</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=490 style='height:15.0pt;width:368pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=490 style='height:15.0pt;width:368pt'>El
+  repositorio se llama (nombre corto) rhel5.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=490 style='height:15.0pt;width:368pt'>-&gt;
+  name: el nombre largo del repositorio, detallado.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=490 style='height:15.0pt;width:368pt'>-&gt;
+  baseurl: la URL del repositorio.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=490 style='height:15.0pt;width:368pt'>-&gt;
+  gpgcheck: requiere una verificación de la firma GPG del repositorio.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=490 style='height:15.0pt;width:368pt'>-&gt;
+  enabled: si ausente o a 1, el repositorio está activo.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=490 style='height:15.0pt;width:368pt'>-&gt;
+  gpgkey: ruta de la clave pública GPG.</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=490 style='width:368pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

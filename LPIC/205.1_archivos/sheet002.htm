@@ -1,0 +1,2439 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../205.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../205.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1473 style='border-collapse:
+ collapse;table-layout:fixed;width:1105pt'>
+ <col class=xl68 width=1425 style='mso-width-source:userset;mso-width-alt:52114;
+ width:1069pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>Direccionamiento
+  IP</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>a.
+  Direccionamiento IPv4 y notación CIDR</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1425 style='height:15.0pt;width:1069pt'>Las
+  direcciones IPv4 (direccionamiento IP histórico) se expresan en 4 bytes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Contienen
+  dos datos fundamentales: la dirección de red y la dirección de host (la
+  máquina que se desea identificar).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Aunque
+  el direccionamiento IP histórico ha previsto una segmentación implícita de
+  redes según las clases A, B y C, la disociación entre la dirección de red y
+  la dirección de host se expresa hoy en día con la máscara de subred.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>La
+  máscara de subred, expresada también en 4 bytes, se compone de tantos bits a
+  1 como bits se usen en la dirección para describir la dirección de red en una
+  dirección IP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  resto de los bits se pone a 0.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Ejemplo
+  de dirección IP y máscara de red asociada en decimal</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>192.168.1.5</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>255.255.255.0</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Ejemplo
+  de dirección IP y máscara de red asociada en binario</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>11000000.10101000.00000001.00000101</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>11111111.11111111.11111111.00000000</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>En
+  este ejemplo, se puede observar que los 24 primeros bits de la máscara son 1,
+  lo que indica que los 24 primeros bits de la dirección IP representan la
+  dirección de red y los 8 restantes la dirección de host.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>La
+  dirección de red es, por lo tanto, convencionalmente expresada como
+  192.168.1.0 con todos los bits de la parte host inicializados a 0.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl70 width=1425 style='height:30.0pt;width:1069pt'>La
+  asociación sistemática de una máscara a las direcciones IP en las
+  configuraciones de elementos que usan un direccionamiento IPv4 ha terminado
+  por manifestar un problema de uso de memoria de los equipos, especialmente en
+  los routers: conservar en memoria los 32 bits de la máscara además de los de
+  la dirección representa una sobrecarga importante cuando se multiplica por
+  miles de direcciones.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1425 style='height:15.0pt;width:1069pt'>Además,
+  la escritura de esta máscara puede también parecer tediosa en las operaciones
+  de configuración.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1425 style='height:15.0pt;width:1069pt'>Por
+  estos motivos, ha aparecido una nueva forma de escribir la máscara:
+  expresando cuántos bits a 1 tiene dicha máscara.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1425 style='height:15.0pt;width:1069pt'>La
+  dirección IP se escribe entonces A.B.C.D/n, siendo n el número de bits a 1 de
+  la máscara asociada a la dirección A.B.C.D.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>Es la
+  notación CIDR (Classless Internet Domain Routing).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>La
+  máscara se escribe en un solo número comprendido entre 0 y 32, y por lo tanto
+  puede escribirse rápidamente y codificarse en un número reducido de bits en
+  la memoria de los equipos.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Dirección
+  IP y máscara en notación CIDR</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>192.168.1.5/24</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>b.
+  Direccionamiento IPv6</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  direccionamiento IPv6 se creó para paliar la ausencia de direcciones IPv4
+  anunciada desde hace ya mucho tiempo y encarar el futuro con más serenidad.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  último bloque de direcciones IPv4 disponible se asignó a un operador en 2011.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  paso a IPv6 deja de ser, por lo tanto, una alternativa posible y pasa a ser
+  una realidad obligatoria a más o menos largo plazo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1425 style='height:15.0pt;width:1069pt'>Las
+  direcciones IPv6 se expresan en 16 bytes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Aunque
+  se tratan en binario por las máquinas, su notación para los humanos es
+  siempre en hexadecimal, lo que requiere todavía 32 caracteres.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>IPv6
+  soporta naturalmente como su predecesor un direccionamiento jerárquico y, por
+  lo tanto, irá de forma sistemática acompañado de una máscara de subred.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Por
+  razones comprensibles, la máscara se expresará siempre en notación CIDR.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  direccionamiento IPv6 retoma lo esencial de los principios de funcionamiento
+  de su predecesor, pero tiene algunas diferencias importantes respecto al
+  direccionamiento IPv4.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Escritura
+  por convenio</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1425 style='height:15.0pt;width:1069pt'>Como
+  las direcciones IPv6 se expresan en 16 bytes, requieren 32 caracteres
+  hexadecimales, con lo que son largas y es tedioso teclearlas.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Los
+  bytes se agrupan de dos en dos y se separan por dos puntos (:).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Por
+  convenio, se puede ignorar los 0 de un grupo de dos bytes (4 caracteres
+  hexadecimales).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>También
+  se puede reemplazar cualquier serie de 0 en la dirección por dos símbolos de
+  dos puntos (::).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Naturalmente,
+  esta abreviación puede usarse solo una vez en la escritura de la dirección.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Escritura
+  simplificada de direcciones IPv6</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>20a0:1234:5678::1
+  es equivalente a 20a0:1234:5678:0000:0000:0000:0000:0001</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>20a0:1:2:3:4:5:6:7
+  es equivalente a 20a0:0001:0002:0003:0004:0005:0006:0007</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Direccionamiento
+  de hosts de una red IPv6</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>La
+  parte host en 64 bits de una dirección IPv6 se genera localmente en la
+  mayoría de los casos a partir de la dirección MAC de la interfaz física.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>La
+  dirección MAC, por lo tanto, se parte en dos por la mitad, y los caracteres
+  hexadecimales fffe se insertan para alcanzar los 64 bits.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Por
+  convenio, el segundo bit de menor peso del primer byte de las direcciones MAC
+  se asigna a 1 para la creación de la dirección IPv6.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>La
+  parte host de la dirección IPv6 también puede asignarse de forma
+  pseudoaleatoria (a partir de un hash de la dirección MAC) o simplemente
+  configurada a mano.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>En
+  este caso, se tendrá la ventaja de elegir un valor pequeño para simplificar
+  la escritura de la dirección IPv6.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Dirección
+  IPv6 generada a partir de la dirección MAC</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>root@alfa:~#
+  ifconfig<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>eth0<span
+  style='mso-spacerun:yes'>     </span>Link encap:Ethernet<span
+  style='mso-spacerun:yes'>    </span>Hwaddr 00:1c:23:59:d1:8c<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>         </span>inet adr:172.17.6.23<span
+  style='mso-spacerun:yes'>    </span>Bcast:172.17.6.255<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>Máscara:255.255.255.0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>         </span>adr inet6:
+  fe80::21c:23ff:fe59:d18c/64 Scope:Enlace<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>         </span>UP BROADCAST RUNNING MULTICAST<span
+  style='mso-spacerun:yes'>  </span>MTU:1500<span style='mso-spacerun:yes'> 
+  </span>Metric:1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>         </span>RX packets 218326<span
+  style='mso-spacerun:yes'>  </span>bytes 267371428 (254.9 MiB)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>         </span>RX errors 0<span
+  style='mso-spacerun:yes'>  </span>dropped 0<span style='mso-spacerun:yes'> 
+  </span>overruns 0<span style='mso-spacerun:yes'>  </span>frame 0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>         </span>TX packets 183982<span
+  style='mso-spacerun:yes'>  </span>bytes 24737320 (23.5 MiB)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>         </span>TX errors 0<span
+  style='mso-spacerun:yes'>  </span>dropped 0 overruns 0<span
+  style='mso-spacerun:yes'>  </span>carrier 0<span style='mso-spacerun:yes'> 
+  </span>collisions 0<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>root@alfa:~#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Dirección
+  de enlace local</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Cualquier
+  máquina compatible con IPv6 dispone de una dirección llamada ”de enlace
+  local” no enrutable y autoasignada.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Esta
+  dirección le permite comunicar con otros equipos IPv6 (servidor DHCP por
+  ejemplo) antes de cualquier configuración más general.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>La
+  dirección de enlace local comienza siempre por <font class="font5">fe80</font><font
+  class="font0"> y la parte host de la dirección se genera localmente, en
+  principio a partir de la dirección MAC de la interfaz.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Dirección
+  global</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Una
+  dirección global se puede enrutar, con lo que permite a la máquina
+  comunicarse en IPv6 con sus homólogos situados en otras redes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>La
+  parte de red de la dirección global la impone el operador o el proveedor de
+  acceso a Internet.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Naturalmente,
+  es única en todo Internet.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>La
+  parte host de la dirección se suele generar localmente a partir de la
+  dirección MAC o se configura manualmente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>La
+  configuración de la dirección de red IPv6 puede hacerse manualmente, mediante
+  DHCPv6 o incluso por descubrimiento automático.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Configuración
+  automática de direcciones</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>En la
+  mayoría de los casos, se usa un servidor DHCPv6 que distribuye las
+  direcciones IPv6 a los equipos que realizan la correspondiente solicitud.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  servidor se aprovechará para tener la contabilidad de las direcciones
+  distribuidas.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Las
+  direcciones también pueden obtenerse por observación de anuncios del router,
+  que informan sobre la dirección global usada en la red local.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Fin
+  de broadcast</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1425 style='height:15.0pt;width:1069pt'>Ya
+  raras en IPv4, las direcciones broadcast <font class="font15">desaparecen
+  completamente del escenario IPv6</font><font class="font9">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Esto
+  no debería ser un problema para las aplicaciones, que ya funcionan en
+  multicast en la mayoría de los casos que requieren una comunicación de ”uno a
+  muchos”.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Los
+  modos de comunicación son por lo tanto el unicast, el multicast y el anycast
+  (uno a alguien).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>2.
+  Configuración universal de la red</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Cada
+  distribución Linux intenta que la configuración de la red sea lo más fácil
+  posible.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  objetivo es a menudo el de no sufrir en comparación con Windows y hacer de
+  algún modo que el usuario tenga a su disposición una interfaz intuitiva y
+  fácil de configurar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Esta
+  configuración se realiza mediante utilidades, gráficas o no, y archivos de
+  configuración que leerán los scripts de inicio de red.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1425 style='height:30.0pt;width:1069pt'>Independientemente
+  de estos elementos de confort proporcionados por las distribuciones o los
+  escritorios gráficos, siempre se tendrá, sea cual sea la distribución y el
+  entorno, los comandos básicos que permiten configurar la red, es decir, la
+  dirección IP, la ruta por defecto y la dirección de los servidores DNS.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  método descrito a continuación, si bien no es el más rápido, tiene la ventaja
+  de ser universal.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'><a
+  name="RANGE!A106">a. Determinar la interfaz de red</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Los
+  sistemas Linux utilizan un nombre simbólico para la interfaz de red, ya sea
+  real o virtual, ethernet o de otro tipo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>En el
+  caso común donde el sistema está conectado a la red mediante ethernet y solo
+  utiliza una tarjeta de red, esta tarjeta se llamará <font class="font5">«eth0»</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Se
+  puede obtener la lista de todas las interfaces de red que existen en un
+  sistema, configuradas o no, con el comando <font class="font12">ifconfig</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Obtención
+  de las interfaces de red con el comando <font class="font12">ifconfig</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>ifconfig
+  -a</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>b.
+  Asignación de la dirección IP: ifconfig</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  comando ifconfig tiene muchos usos y sobre todo es conocido por mostrar las
+  direcciones MAC e IP de un sistema ya configurado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Sin
+  embargo, el comando ifconfig también puede usarse para asignar dinámicamente
+  la dirección y la máscara de red de una máquina.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Asignación
+  de una dirección IPv4 con el comando ifconfig</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>ifconfig
+  interfaz dirección_IPv4<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>ifconfig
+  interfaz netmask máscara</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Aunque
+  no es el uso más común, se puede agregar una segunda dirección IP a una
+  interfaz ya configurada.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Añadir
+  una dirección IPv4 secundaria a una interfaz</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>ifconfig
+  interfaz:subinterfaz dirección_IPv4</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Añadir
+  una dirección IPv6 con el comando ifconfig</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>ifconfig
+  add dirección_IPv6/prefijo</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Comando
+  ifconfig: opciones y parámetros</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">interfaz --&gt;</font><font class="font10"> Nombre Linux de la
+  interfaz. Por ejemplo, eth0.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">subinterfaz --&gt;</font><font class="font10"> Nombre
+  arbitrario de la subinterfaz. Puede ser una cadena de caracteres cualquiera.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">dirección_IPv4 --&gt;</font><font class="font10"> Dirección
+  IPv4 que se asignará.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">máscara --&gt;</font><font class="font10"> Valor de la máscara
+  de subred asociada a la dirección IP.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">dirección_IPv6 --&gt;</font><font class="font10"> Dirección
+  IPv6 que se asigna a la máquina.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">prefijo --&gt;</font><font class="font10"> Número de bits de
+  la máscara en notación CIDR.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>c.
+  Configuración del cliente DNS: archivo <font class="font12">/etc/resolv.conf</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1425 style='height:15.0pt;width:1069pt'>Las
+  máquinas Linux disponen de forma nativa de un cliente DNS llamado <font
+  class="font9">resolver</font><font class="font8">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Toda
+  aplicación que funcione en Linux y tenga la necesidad de hacer peticiones DNS
+  se apoyará en este componente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Usa el
+  sencillo archivo de configuración <font class="font12">/etc/resolv.conf</font><font
+  class="font0">, donde debe constar la referencia de al menos un servidor DNS.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Formato
+  simplificado del archivo /etc/resolv.conf</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>search
+  dominio</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>nameserver
+  dirección_ip</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Archivo
+  /etc/resolv.conf: directivas y variables utilizadas</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl71 width=1425 style='height:30.0pt;width:1069pt'><font
+  class="font12">search --&gt;</font><font class="font10"> Opcional: indica el
+  sufijo de búsqueda empleado en la máquina Linux. Ahorra el tener que escribir
+  la totalidad del nombre de dominio completamente calificado (FQDN) en las
+  aplicaciones. El archivo /etc/resolv.conf admite varios dominios de búsqueda
+  definidos por search.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">dominio --&gt;</font><font class="font10"> El FQDN del dominio
+  que constituye el sufijo de búsqueda.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">nameserver --&gt;</font><font class="font10"> Indica la
+  dirección IP del servidor DNS que proporcionará las resoluciones de nombre.
+  El archivo /etc/resolv.conf admite varios servidores DNS definidos por
+  nameserver.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">dirección_ip --&gt;</font><font class="font10"> Dirección IP
+  del servidor DNS al que se preguntará.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Algunas
+  documentaciones recomiendan el uso del comando <font class="font12">hostname
+  -d</font><font class="font0"> para averiguar el sufijo DNS de un sistema.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1425 style='height:15.0pt;width:1069pt'>Se
+  trata del sufijo asociado al nombre de host y no al cliente DNS.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1425 style='height:15.0pt;width:1069pt'>Por
+  tanto, no se consulta en las resoluciones DNS.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'><a
+  name="RANGE!A158">d. Configuración de la puerta de enlace predeterminada:
+  route</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  comando <font class="font12">route</font><font class="font0"> define rutas
+  estáticas en una máquina Linux.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>En el
+  marco de una configuración sencilla y puntual, se puede utilizar para definir
+  la puerta de enlace por defecto. De hecho, consiste en declarar una ruta
+  estática indicando la ruta por defecto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Sintaxis
+  del comando route para indicar una ruta estática</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>route
+  add -net red_dest netmask máscara gw ip_p_enlace</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Sintaxis
+  del comando route para indicar la puerta de enlace predeterminada</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>route
+  add -net 0.0.0.0 gw ip_p_enlace<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>route
+  add default gw ip_p_enlace</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Comando
+  route: opciones y parámetros</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">add --&gt;</font><font class="font10"> Indica que se añade una
+  ruta a la tabla de enrutamiento.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">-net --&gt;</font><font class="font10"> Indica que el destino
+  es una red.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">red_dest --&gt;</font><font class="font10"> La red de destino
+  para la ruta estática que se está definiendo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">0.0.0.0 --&gt;</font><font class="font10"> La ruta por
+  defecto. 0.0.0.0 representa todas las redes posibles.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">gw --&gt;</font><font class="font10"> Define el valor de la
+  puerta de enlace predeterminada.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">ip_p_enlace --&gt;</font><font class="font10"> Dirección IP de
+  la puerta de enlace predeterminada que se usará.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">default --&gt;</font><font class="font10"> Equivalente a </font><font
+  class="font12">-net 0.0.0.0</font><font class="font10">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">máscara --&gt; </font><font class="font10">La mácara de subred
+  asociada a la ruta añadida.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Un
+  servidor Linux utilizado como router soporta también los principales
+  protocolos de enrutamiento.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  software histórico <font class="font5">routed</font><font class="font0">
+  soporta únicamente el protocolo de enrutamiento RIP, mientras que el software
+  más moderno </font><font class="font5">quagga</font><font class="font0">
+  permite el uso de casi la totalidad de protocolos de enrutamiento IP.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>e.
+  Configuración del nombre de host: hostname</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  nombre de host de la máquina puede asignarse dinámicamente mediante el
+  comando <font class="font12">hostname</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>También
+  permite mostrar el nombre de host del sistema si se llama sin argumentos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Sintaxis
+  del comando hostname para asignar un nombre de host</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>hostname
+  nombre_host</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>nombre_host
+  representa el nombre que se desea asignar al sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Atención,
+  este valor se conserva solo en memoria principal y se perderá cuando se
+  reinicie el sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Los
+  sistemas tradicionales en producción deberán, por tanto, conservar este valor
+  en un archivo de configuración para que se lea en cada arranque.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=1425 style='height:15.0pt;width:1069pt'>Este
+  archivo depende de la distribución.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Por
+  ejemplo, para las distribuciones basadas en <font class="font5">Debian</font><font
+  class="font0"> el archivo es </font><font class="font12">/etc/hostname</font><font
+  class="font0">, mientras que para las distribuciones basadas en </font><font
+  class="font5">RedHat</font><font class="font0"> es </font><font class="font12">/etc/sysconfig/network</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Los
+  scripts que se ejecutan en el arranque del sistema se encargan de llamar al
+  comando hostname y de obtener el valor del nombre del sistema en el archivo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Ejemplo
+  del contenido de un archivo /etc/hostname</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>root@alfa:~$
+  cat /etc/hostname<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>alfa</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>3.
+  Especificidades de las distribuciones</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Las
+  únicas reglas universales para la configuración de la red son las que se han
+  descrito en los párrafos anteriores.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Sin
+  embargo, las distribuciones Linux actuales tienen procedimientos de
+  configuración mediante scripts y archivos de configuración que se pueden
+  clasificar en dos grandes familias:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>* Las
+  distribuciones cuya configuración de red está en el directorio <font
+  class="font12">/etc/network</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>* Las
+  distribuciones que tienen su configuración en el directorio <font
+  class="font12">/etc/sysconfig/network-scripts</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>a.
+  Configuración de red en <font class="font12">/etc/network</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Este
+  es el caso de las distribuciones <font class="font9">Debian y derivadas</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Los
+  elementos de configuración se ubican en un archivo de formato muy sencillo: <font
+  class="font12">/etc/network/interfaces</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Formato
+  del archivo de configuración /etc/network/interfaces para una dirección IP
+  estática</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>auto
+  interfaz</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>iface
+  interfaz inet static<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>address
+  dirección_ip<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>netmask
+  máscara<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>gateway
+  ip_p_enlace</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Formato
+  del archivo de configuración /etc/network/interfaces para una dirección IP
+  dinámica</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>auto
+  interfaz<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>iface
+  interfaz inet dhcp</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Archivo
+  interfaces: opciones y parámetros</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">auto --&gt;</font><font class="font10"> Indica que la interfaz
+  deberá activarse automáticamente en el arranque.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">interfaz --&gt;</font><font class="font10"> El nombre en
+  terminología Linux de la interfaz que se configura (ejemplo: eth0).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">inet --&gt;</font><font class="font10"> Indica que se va a
+  asignar una dirección IPv4.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">static --&gt;</font><font class="font10"> Indica que la
+  dirección IP configurada será estática.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">dirección_ip --&gt;</font><font class="font10"> Dirección IP
+  que se asignará a la interfaz.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">máscara --&gt;</font><font class="font10"> Máscara de subred
+  que se asignará a la interfaz.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">ip_p_enlace --&gt;</font><font class="font10"> Dirección IP de
+  la puerta de enlace por defecto.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">dhcp --&gt;</font><font class="font10"> Indica que la
+  dirección IP configurada será dinámica y se obtendrá por peticiones DHCP.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1425 style='height:30.0pt;width:1069pt'>Estos
+  archivos no generan evidentemente ninguna acción por ellos mismos, el script
+  de inicio de red (en general <font class="font5">/etc/init.d/networking</font><font
+  class="font0">) es el que los lee e invocará al comando </font><font
+  class="font12">ifup</font><font class="font0"> (interface up) para activar
+  las interfaces con sus respectivas configuraciones de red.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>b.
+  Configuración de red en <font class="font12">/etc/sysconfig/network-scripts</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Este
+  es el caso de las distribuciones <font class="font9">RedHat y derivadas.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Los
+  elementos de configuración se ubican en un archivo de formato muy sencillo
+  para cada interfaz en el directorio<font class="font12">
+  /etc/sysconfig/network-scripts</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1425 style='height:15.0pt;width:1069pt'>Todos
+  estos archivos tienen el prefijo <font class="font9">ifcfg-</font><font
+  class="font8"> seguido del nombre de la interfaz que configuran.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Formato
+  del archivo ifcfg-interfaz para una dirección IP estática</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>DEVICE=interfaz<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>BOOTPROTO=none<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>ONBOOT=yes<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>IPADDR=dirección_ip<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>NETMASK=máscara<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>GATEWAY=ip_p_enlace</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Formato
+  del archivo ifcfg-interfaz para una dirección IP dinámica</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>DEVICE=interfaz<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>BOOTPROTO=dhcp<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>ONBOOT=yes</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Archivo
+  ifcfg: opciones y parámetros</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">interfaz --&gt;</font><font class="font10"> El nombre en
+  terminología Linux de la interfaz que se configura (ejemplo: eth0).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">BOOTPROTO=dhcp --&gt;</font><font class="font10"> Indica que
+  la dirección IP configurada será dinámica y se obtendrá por peticiones DHCP.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">ONBOOT=yes --&gt;</font><font class="font10"> Indica que la
+  interfaz deberá activarse automáticamente en el arranque.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">dirección_ip --&gt;</font><font class="font10"> Dirección IP
+  que se asignará a la interfaz.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">máscara --&gt;</font><font class="font10"> Máscara de subred
+  que se asignará a la interfaz.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">ip_p_enlace --&gt;</font><font class="font10"> Dirección IP de
+  la puerta de enlace por defecto.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>4.
+  Otros comandos y archivos de administración de la red</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Se ha
+  visto cómo los parámetros de red pueden configurarse mediante los comandos <font
+  class="font12">ifconfig</font><font class="font0"> y </font><font
+  class="font12">route</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Sin
+  embargo, hay muchas otras utilidades que permiten administrar, configurar y
+  diagnosticar el funcionamiento de la red.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'><a
+  name="RANGE!A266">a. Administración de direcciones MAC con <font
+  class="font12">arp</font></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Todo
+  equipo de red que use el protocolo IP en una red ethernet tiene que utilizar
+  el protocolo ARP para establecer la correspondencia entre direcciones IP y
+  direcciones MAC.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1425 style='height:30.0pt;width:1069pt'>En un
+  régimen de funcionamiento dinámico, el más común, una máquina que conoce la
+  dirección IP de su destinatario pero que necesita informar su cabecera MAC
+  para comunicarse con él envía un broadcast para solicitar si alguien en la
+  red tiene la dirección IP en cuestión.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Si la
+  máquina destino está en el dominio broadcast (es decir, en la red local)
+  responderá en unicast indicando su dirección MAC.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Con
+  estas acciones se ha realizado la resolución ARP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1425 style='height:15.0pt;width:1069pt'>Las
+  correspondencias establecidas entre las direcciones MAC y las direcciones IP
+  se conservan durante un periodo de tiempo en memoria en lo que se llama la
+  caché ARP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>En
+  algunos casos particulares se puede asignar de forma estática una
+  correspondencia entre una dirección IP y una dirección MAC.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1425 style='height:15.0pt;width:1069pt'>El
+  comando arp permite observar y si es preciso administrar los valores
+  almacenados en esta caché.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Sintaxis
+  del comando arp para consultar la caché</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>arp -n</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  parámetro <font class="font5">-n</font><font class="font0"> no es
+  obligatorio, pero evita que el sistema realice una búsqueda DNS inversa que
+  ralentiza enormemente la visualización del resultado.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Sintaxis
+  del comando arp para borrar una entrada de la caché.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>arp -d
+  dirección_ip</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Sintaxis
+  del comando arp para asignar un valor en la caché</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>arp -s
+  dirección_ip dirección_mac</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Donde
+  dirección_ip representa la dirección IP de la entrada que se desea
+  administrar y dirección_mac representa la dirección MAC de una entrada que se
+  asociará a una dirección IP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Las
+  direcciones MAC se expresan en bytes en formato hexadecimal separados por dos
+  puntos (:).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Naturalmente,
+  el uso más habitual consiste en dejar que la totalidad de las asociaciones
+  entre direcciones MAC y direcciones IP se realicen dinámicamente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Sin
+  embargo, si se desea configurar <font class="font8">un gran número de
+  asociaciones estáticas</font><font class="font0">, es </font><font
+  class="font16">recomendable</font><font class="font0"> escribirlas en el
+  archivo </font><font class="font12">/etc/ethers</font><font class="font0"> y
+  llamar al comando arp con la opción </font><font class="font12">-f</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Formato
+  del archivo /etc/ethers</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>dirección_mac1
+  dirección_ip1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>dirección_mac2
+  dirección_ip2<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>...<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>dirección_macn
+  dirección_ipn</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Uso
+  del comando arp</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Se
+  utiliza aquí el comando <font class="font12">arp</font><font class="font0">
+  para mostrar el contenido de la caché arp antes y después de la actividad.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>A
+  continuación, se asigna manualmente una dirección MAC a una dirección IP,
+  después se tiene en cuenta el contenido del archivo<font class="font12">
+  /etc/ethers</font><font class="font0"> para configurar más asociaciones.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>alfa:~#
+  arp -n<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>alfa:~#
+  ping 192.168.199.1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>PING
+  192.168.199.1 (192.168.199.1) 56(84) bytes of data.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>(...)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>alfa:~#
+  arp -n<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>Address<span
+  style='mso-spacerun:yes'>          </span>HWtype<span
+  style='mso-spacerun:yes'>  </span>HWaddress<span
+  style='mso-spacerun:yes'>           </span>Flags Mask<span
+  style='mso-spacerun:yes'>  </span>Iface<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>192.168.199.1<span
+  style='mso-spacerun:yes'>    </span>ether<span style='mso-spacerun:yes'>  
+  </span>08:00:27:e4:07:62<span style='mso-spacerun:yes'>   </span>C<span
+  style='mso-spacerun:yes'>            </span>eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>alfa:~#
+  arp -s 192.168.199.222 00:01:02:a1:b2:b3<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>alfa:~#
+  arp -n<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>Address<span
+  style='mso-spacerun:yes'>          </span>HWtype<span
+  style='mso-spacerun:yes'>  </span>HWaddress<span
+  style='mso-spacerun:yes'>           </span>Flags Mask<span
+  style='mso-spacerun:yes'>  </span>Iface<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>192.168.199.222<span
+  style='mso-spacerun:yes'>  </span>ether<span style='mso-spacerun:yes'>  
+  </span>00:01:02:a1:b2:b3<span style='mso-spacerun:yes'>   </span>CM<span
+  style='mso-spacerun:yes'>          </span>eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>192.168.199.1<span
+  style='mso-spacerun:yes'>    </span>ether<span style='mso-spacerun:yes'>  
+  </span>08:00:27:e4:07:62<span style='mso-spacerun:yes'>   </span>C<span
+  style='mso-spacerun:yes'>           </span>eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>alfa:~#
+  cat /etc/ethers<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>00:00:00:01:02:03
+  192.168.199.33<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>00:00:00:01:02:04
+  192.168.199.34<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>00:00:00:01:02:05
+  192.168.199.35<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>00:00:00:01:02:06
+  192.168.199.36<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>alfa:~#
+  arp -f<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>alfa:~#
+  arp -n<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>Address<span
+  style='mso-spacerun:yes'>          </span>HWtype<span
+  style='mso-spacerun:yes'>  </span>HWaddress<span
+  style='mso-spacerun:yes'>           </span>Flags Mask<span
+  style='mso-spacerun:yes'>  </span>Iface<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>192.168.199.222<span
+  style='mso-spacerun:yes'>  </span>ether<span style='mso-spacerun:yes'>  
+  </span>00:01:02:a1:b2:b3<span style='mso-spacerun:yes'>   </span>CM<span
+  style='mso-spacerun:yes'>          </span>eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>192.168.199.33<span
+  style='mso-spacerun:yes'>   </span>ether<span style='mso-spacerun:yes'>  
+  </span>00:00:00:01:02:03<span style='mso-spacerun:yes'>   </span>CM<span
+  style='mso-spacerun:yes'>          </span>eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>192.168.199.35<span
+  style='mso-spacerun:yes'>   </span>ether<span style='mso-spacerun:yes'>  
+  </span>00:00:00:01:02:05<span style='mso-spacerun:yes'>   </span>CM<span
+  style='mso-spacerun:yes'>          </span>eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>192.168.199.34<span
+  style='mso-spacerun:yes'>   </span>ether<span style='mso-spacerun:yes'>  
+  </span>00:00:00:01:02:04<span style='mso-spacerun:yes'>   </span>CM<span
+  style='mso-spacerun:yes'>          </span>eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>192.168.199.36<span
+  style='mso-spacerun:yes'>   </span>ether<span style='mso-spacerun:yes'>  
+  </span>00:00:00:01:02:06<span style='mso-spacerun:yes'>   </span>CM<span
+  style='mso-spacerun:yes'>          </span>eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>192.168.199.1<span
+  style='mso-spacerun:yes'>    </span>ether<span style='mso-spacerun:yes'>  
+  </span>08:00:27:e4:07:62<span style='mso-spacerun:yes'>   </span>C<span
+  style='mso-spacerun:yes'>           </span>eth0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>alfa:~#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>b. TCP
+  Wrappers</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Es
+  posible administrar el acceso a un sistema Linux según la dirección IP o el
+  nombre del host cliente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1425 style='height:15.0pt;width:1069pt'>Se
+  puede gestionar una lista de «todos los que están autorizados», o bien una
+  lista de «todos los que están prohibidos».</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>A
+  pesar de que las modernas técnicas de intrusión y piratería informática
+  vuelven este tipo de control de acceso casi insignificante, no deja de ser
+  una forma de control de acceso rudimentaria que puede desalentar a curiosos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Además,
+  la certificación LPI exige el conocimiento de estas técnicas de control de
+  acceso.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1425 style='height:15.0pt;width:1069pt'>La
+  implementación <font class="font9">TCP Wrappers</font><font class="font8">
+  utilizada en los sistemas Linux se sustenta en la librería </font><font
+  class="font9">libwrap</font><font class="font8">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Los
+  dos archivos que permiten este control son <font class="font12">/etc/hosts.allow</font><font
+  class="font0"> para los clientes autorizados, y </font><font class="font12">/etc/hosts.deny</font><font
+  class="font0"> para los clientes no autorizados.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Ambos
+  archivos son leídos por el daemon <font class="font12">tcpd</font><font
+  class="font0">, que aplicará los controles de acceso de forma consecuente.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1425 style='height:30.0pt;width:1069pt'>Por su
+  principio de funcionamiento, estos archivos deberán usarse
+  independientemente: si se autorizan algunos hosts para conectarse, esto
+  significa que todo el resto de los equipos tienen el acceso prohibido y por
+  lo tanto el archivo de prohibición pierde su interés.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Formato
+  de los archivos hosts.allow y hosts.deny</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>servicio:
+  clientes</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*TCP
+  Wrappers: archivos de control de acceso</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">servicio --&gt;</font><font class="font10"> El nombre del
+  servicio cuyo acceso queremos controlar. ALL es un valor especial que
+  representa todos los servicios posibles.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><font
+  class="font12">clientes --&gt;</font><font class="font10"> Nombre DNS o
+  dirección IP de los clientes. Se pueden informar varios valores separados por
+  espacios. Soporta varios comodines y formatos. ALL es un valor especial que
+  representa todas las direcciones IP.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Ejemplo
+  de archivo hosts.allow</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1425 style='height:15.0pt;width:1069pt'>Observe
+  que en el primer ejemplo la dirección <font class="font16">termina</font><font
+  class="font19"> con un </font><font class="font16">punto</font><font
+  class="font19">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Esta
+  sintaxis un poco particular permite incluir a todas las direcciones cuya
+  parte prefijada al punto concuerde.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>#
+  Todas las direcciones que empiecen por 10.1 están permitidas<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>ftp:10.1<font
+  class="font16">.</font><font class="font12"><span
+  style='mso-spacerun:yes'> </span></font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>#
+  Solamente la dirección 172.12.5.28 puede conectarse<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>sshd:
+  172.12.5.28<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>#
+  Todas las direcciones de la red 192.168.1.0 pueden conectarse<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>ALL:
+  192.168.1.0/255.255.255.0</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>5.
+  Configuración WiFi</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Las
+  distribuciones y los entornos de escritorio gráficos proporcionan utilidades
+  gráficas para administrar las redes WiFi cuyo uso es muy intuitivo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>No
+  obstante, a continuación se mostrará cómo configurar paso a paso una conexión
+  WiFi por línea de comandos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Las
+  principales herramientas serán <font class="font12">ifconfig, iwconfig </font><font
+  class="font13">e</font><font class="font12"> iwlist</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>a.
+  Determinar la interfaz WiFi</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Ya
+  sabemos que el comando <font class="font12">ifconfig -a</font><font
+  class="font0"> muestra todas las interfaces de red presentes en un sistema, </font><font
+  class="font9">incluso si no están activadas</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Una
+  tarjeta WiFi, por lo tanto, tiene que aparecer en la lista devuelta por este
+  comando.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Sin
+  embargo, si el sistema tiene más tarjetas de red, un comando específico nos
+  permitirá afinar nuestra elección.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'><a
+  name="RANGE!A370">*Visualización de las interfaces WiFi con <font
+  class="font12">iwconfig</font></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1425 style='height:15.0pt;width:1069pt'>Todas
+  las interfaces que devuelven una referencia a <font class="font9">802.11</font><font
+  class="font8"> son interfaces </font><font class="font9">WiFi</font><font
+  class="font8">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>En
+  este ejemplo, es la tarjeta de red eth1.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>usuario@ubuntu:~$
+  iwconfig<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>lo<span
+  style='mso-spacerun:yes'>        </span>no wireless extensions.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>eth0<span
+  style='mso-spacerun:yes'>      </span>no wireless extensions.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>eth1<span
+  style='mso-spacerun:yes'>      </span>IEEE 802.11<span
+  style='mso-spacerun:yes'>  </span>Nickname:&quot;&quot;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>          </span>Access Point: Not-Associated<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>          </span>Link Quality:5<span
+  style='mso-spacerun:yes'>  </span>Signal level:0<span
+  style='mso-spacerun:yes'>  </span>Noise level:166<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>          </span>Rx invalid nwid:0<span
+  style='mso-spacerun:yes'>  </span>invalid crypt:0<span
+  style='mso-spacerun:yes'>  </span>invalid misc:0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>vboxnet0<span
+  style='mso-spacerun:yes'>  </span>no wireless extensions.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'><a
+  name="RANGE!A385">b. Visualización de redes disponibles</a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  comando <font class="font12">iwlist</font><font class="font0"> permite
+  inventariar las redes disponibles.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Sintaxis
+  del comando iwlist para la visualización de las redes del entorno</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>iwlist
+  interfaz scan</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Donde
+  interfaz es el nombre de la tarjeta de red WiFi y scan el parámetro que
+  indica el tipo de acción que debe realizar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Ejemplo
+  de scan con iwlist</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>En
+  este ejemplo, se ve que hay dos redes disponibles.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>La
+  primera se publica mediante un punto de acceso cuya dirección MAC es
+  00:0A:66:13:E7:01, usando el protocolo 802.11g (2,4 GHz y 54 Mb/s) y cuyo
+  SSID es WLAN1.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>El
+  cifrado se ha realizado mediante WPA-TKIP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>La
+  segunda red proviene de un punto de acceso cuya dirección MAC es
+  CA:9D:2E:E6:B7:56, usando también el protocolo 802.11g, con el SSID hotspot y
+  sin ningún tipo de seguridad.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>usuario@ubuntu:~$
+  sudo iwlist eth1 scan<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'>eth1<span
+  style='mso-spacerun:yes'>      </span>Scan completed :<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>          </span>Cell 01 - Address:
+  00:0A:66:13:E7:01<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                   
+  </span>ESSID:&quot;WLAN1&quot;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                    </span>Mode:Managed<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                    </span>Frequency=2.437 GHz
+  (Channel 6)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                    </span>Quality:5/5<span
+  style='mso-spacerun:yes'>  </span>Signal level:-50 dBm<span
+  style='mso-spacerun:yes'>  </span>Noise level:-78 dBm<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                    </span>IE: WPA Version 1<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                        </span>Group Cipher :
+  TKIP<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                        </span>Pairwise Ciphers (1)
+  : TKIP<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                        </span>Authentication Suites
+  (1) : PSK<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                    </span>Encryption key:on<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                    </span>Bit Rates:1 Mb/s; 2 Mb/s;
+  5.5 Mb/s; 11 Mb/s; 18 Mb/s<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                              </span>24 Mb/s; 36
+  Mb/s; 54 Mb/s; 6 Mb/s; 9 Mb/s<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                              </span>12 Mb/s; 48
+  Mb/s<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>          </span>Cell 02 - Address:
+  CA:9D:2E:E6:B7:56<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                   
+  </span>ESSID:&quot;hotspot&quot;<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                    </span>Mode:Managed<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                    </span>Frequency:2.427 GHz
+  (Channel 4)<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                    </span>Quality:1/5<span
+  style='mso-spacerun:yes'>  </span>Signal level:-83 dBm<span
+  style='mso-spacerun:yes'>  </span>Noise level:-84 dBm<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                    </span>Encryption key:off<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                    </span>Bit Rates:1 Mb/s; 2 Mb/s;
+  5.5 Mb/s; 11 Mb/s; 9 Mb/s<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                              </span>18 Mb/s; 36
+  Mb/s; 54 Mb/s; 6 Mb/s; 12 Mb/s<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'>                              </span>24 Mb/s; 48
+  Mb/s</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>c.
+  Conexión a una red no segura</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Una
+  vez que se ha determinado la red, se puede conectar con el comando <font
+  class="font12">iwconfig</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1425 style='height:15.0pt;width:1069pt'>*Asociación
+  a una red inalámbrica abierta</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1425 style='height:15.0pt;width:1069pt'>iwconfig
+  interfaz essid nombre_ssid</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'>Donde
+  interfaz representa la interfaz de red WiFi administrada por el sistema y
+  nombre_ssid el nombre de la red WiFi (Service Set Identifier) a la que se
+  desea conectar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1425 style='height:15.0pt;width:1069pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1425 style='height:15.0pt;width:1069pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1425 style='width:1069pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

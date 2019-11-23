@@ -1,0 +1,123 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../102.3.htm">
+<link rel=File-List href=filelist.xml>
+<title>102.3 - Manage shared libraries</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(3);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../102.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1513 style='border-collapse:
+ collapse;table-layout:fixed;width:1135pt'>
+ <col class=xl66 width=803 style='mso-width-source:userset;mso-width-alt:29366;
+ width:602pt'>
+ <col class=xl66 width=710 style='mso-width-source:userset;mso-width-alt:25965;
+ width:533pt'>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=803 style='height:15.0pt;width:602pt'><a
+  name="RANGE!A1">/etc/ld.so.conf</a></td>
+  <td class=xl68 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=803 style='height:15.0pt;width:602pt'></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=803 style='height:15.0pt;width:602pt'>Este
+  fichero contiene la lista de los directorios que contienen las librerías
+  compartidas</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=803 style='height:15.0pt;width:602pt'></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=803 style='height:15.0pt;width:602pt'># cat
+  /etc/ld.so.conf</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=803 style='height:15.0pt;width:602pt'>/usr/X11R6/lib</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=803 style='height:15.0pt;width:602pt'>/usr/local/lib</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=803 style='height:15.0pt;width:602pt'>/opt/kde3/lib</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=803 style='height:15.0pt;width:602pt'>include
+  /etc/ld.so.conf.d/*.conf</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=803 style='height:15.0pt;width:602pt'></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=803 style='height:15.0pt;width:602pt'>En vez
+  de modificar este fichero, añadir un fichero en /etc/ld.so.conf.d que
+  contenga la ruta o las rutas de sus nuevas librerías.</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=803 style='height:15.0pt;width:602pt'></td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=803 style='height:15.0pt;width:602pt'>No basta
+  con añadir la ruta: debe regenerar la caché con el comando ldconfig.</td>
+  <td class=xl66 width=710 style='width:533pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=803 style='width:602pt'></td>
+  <td width=710 style='width:533pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>
