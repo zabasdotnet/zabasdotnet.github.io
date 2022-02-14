@@ -1,0 +1,336 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../206.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(4);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../206.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1683 style='border-collapse:
+ collapse;table-layout:fixed;width:1262pt'>
+ <col class=xl68 width=1635 style='mso-width-source:userset;mso-width-alt:59794;
+ width:1226pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1635 style='height:15.0pt;width:1226pt'><a
+  name="RANGE!A1">mt</a></td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'>Controla
+  las operaciones en la unidad de cinta magnética</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1635 style='height:15.0pt;width:1226pt'>SINOPSIS</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1635 style='height:15.0pt;width:1226pt'>mt
+  [-V] [-f dispositivo] [--file=dispositivo] [--version] operación [n]</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1635 style='height:15.0pt;width:1226pt'>DESCRIPCIÓN</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'>El
+  dispositivo de cinta predeterminado sobre el que operar se toma del fichero<font
+  class="font12"> /usr/include/sys/mtio.h</font><font class="font0"> cuando se
+  compila mt.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'>Puede
+  sustituirse dando un nombre de fichero de dispositivo en la variable de
+  entorno TAPE o por medio de una opción de la línea de órdenes (vea más
+  abajo), lo que también tiene preferencia sobre la variable de entorno.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'>El
+  dispositivo debe ser bien un fichero especial de caracteres o una unidad de
+  cinta remota.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'>Para
+  emplear una unidad de cinta en otra máquina como el archivo, use un nombre de
+  fichero que empiece con<font class="font5">`NOMBREANFITRIÓN:'</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'>El
+  nombre del computador anfitrión puede ir precedido por un nombre de usuario y
+  una arroba `<font class="font5">@</font><font class="font0">' para acceder a
+  la unidad de cinta remota como tal usuario, si Ud. tiene permisos para
+  hacerlo (típicamente una entrada en el fichero '</font><font class="font12">~/.rhosts</font><font
+  class="font0">' de ese usuario).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'>Las
+  operaciones disponibles se listan abajo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'>Se
+  aceptan abreviaciones únicas.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'>No
+  todas las operaciones están disponibles en todos los sistemas, o funcionan en
+  todos los tipos de unidades de cinta.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'>Algunas
+  operaciones toman opcionalmente un número de repetición n, que puede darse
+  tras el nombre de la operación y cuyo valor predeterminado es 1.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>eof,
+  weof --&gt; <font class="font10">Escribe n marcas EOF en la posición actual.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>fsf--&gt;
+  <font class="font10">Se mueve hacia adelante n ficheros. La cinta se
+  posiciona en el primer bloque del siguiente fichero.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>bsf--&gt;
+  <font class="font10">Se mueve hacia atrás n ficheros. La cinta se posiciona
+  en el primer bloque del siguiente fichero.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>fsr--&gt;
+  <font class="font10">Se mueve hacia adelante n registros.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>bsr--&gt;
+  <font class="font10">Se mueve hacia atrás n registros.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>bsfm
+  --&gt; <font class="font10">Se mueve hacia atrás n marcas de fichero. La
+  cinta se posiciona en el lado del principio de la cinta de la marca de
+  fichero.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>fsfm
+  --&gt; <font class="font10">Se mueve hacia adelante n marcas de fichero. La
+  cinta se posiciona en el lado del principio de la cinta de la marca de
+  fichero.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>asf--&gt;
+  <font class="font10">Se mueve de forma absoluta al fichero número n.
+  Equivalente a rebobinar seguido por fsf n.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>seek
+  --&gt; <font class="font10">Busca y se pone en el bloque número n.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>eom--&gt;
+  <font class="font10">Se mueve hasta el fin de los datos grabados en la cinta
+  (para añadir nuevos ficheros a la cinta).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>rewind
+  --&gt; <font class="font10">Rebobina la cinta.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>offline,
+  rewoffl --&gt; <font class="font10">Rebobina la cinta, y si es aplicable,
+  descarga la cinta, la saca de la unidad.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>status
+  --&gt; <font class="font10">Muestra información de estado sobre la unidad de
+  cinta.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>retension
+  --&gt; <font class="font10">Rebobina la cinta, luego la lleva al final del
+  carrete, y después la rebobina de nuevo, para tensarla.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>erase
+  --&gt; <font class="font10">Borra la cinta.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=1635 style='height:15.0pt;width:1226pt'><font
+  class="font15">mt</font><font class="font18"> sale con un estado de </font><font
+  class="font15">0</font><font class="font18"> si la operación tuvo </font><font
+  class="font15">éxito</font><font class="font18">, </font><font class="font15">1</font><font
+  class="font18"> si la </font><font class="font15">operación</font><font
+  class="font18"> o el nombre de </font><font class="font15">dispositivo</font><font
+  class="font18"> dado eran </font><font class="font15">inválidos</font><font
+  class="font18">, ó </font><font class="font15">2</font><font class="font18">
+  si la operación </font><font class="font15">falló</font><font class="font18">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1635 style='height:15.0pt;width:1226pt'>*OPCIONES</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>-f,
+  --file=dispositivo</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'>Emplea
+  dispositivo como el nombre de fichero de la unidad de cinta con la que
+  operar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'>Para
+  emplear una unidad de cinta en otra máquina, use un nombre de fichero que
+  comience con `<font class="font5">NOMBREANFITRIÓN:</font><font class="font0">'.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'>El
+  nombre del computador anfitrión puede ir precedido por un nombre de usuario y
+  una arroba `<font class="font5">@</font><font class="font0">' para acceder a
+  la unidad de cinta remota como tal usuario, si Ud. tiene permisos para
+  hacerlo (típicamente una entrada en el fichero '</font><font class="font12">~/.rhosts</font><font
+  class="font0">' de ese usuario).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1635 style='height:15.0pt;width:1226pt'>-V,
+  --version</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'>Muestra
+  el número de versión de mt.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1635 style='height:15.0pt;width:1226pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1635 style='height:15.0pt;width:1226pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1635 style='width:1226pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

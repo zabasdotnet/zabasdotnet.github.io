@@ -1,0 +1,449 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../110.3.htm">
+<link rel=File-List href=filelist.xml>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../110.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl71>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1104 style='border-collapse:
+ collapse;table-layout:fixed;width:828pt'>
+ <col class=xl71 width=1056 style='mso-width-source:userset;mso-width-alt:38619;
+ width:792pt'>
+ <col class=xl71 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1056 style='height:15.0pt;width:792pt'><a
+  name="RANGE!A1">ssh</a></td>
+  <td class=xl73 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>OpenSSH es un protocolo de
+  shell con prestaciones de seguridad, un mecanismo que permite la
+  autenticación segura, la ejecución remota y la conexión a distancia.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Permite también el transporte
+  seguro del protocolo X Window.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>En realidad, es capaz
+  encapsular protocolos no seguros redireccionando los puertos.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Los paquetes que se deben
+  utilizar para un servidor son openssh, openssl y openssh-clients.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Para X se añaden los paquetes
+  openssh-askpass* (puede haber varios en función del entorno de escritorio).</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>La lista de los paquetes que
+  hay que instalar depende de cada distribución.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>El uso más común sigue siendo
+  el acceso remoto seguro a una máquina mediante el cliente ssh.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Configuración:</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 style='height:15.0pt'>La configuración es
+  /etc/ssh/sshd_config.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Si es preciso, se pueden
+  modificar algunas opciones:</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>* Port: el número de puerto
+  por defecto es 22.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>* Protocol: fijado en 2,1,
+  autoriza SSH1 y SSH2. Se preferirá SSH2 y así se dejará el valor 2.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>* ListenAddress: por defecto
+  ssh escucha en todos los IP del servidor. Se puede autorizar únicamente la
+  escucha en una interfaz dada.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>* PermitRootLogin: ssh
+  autoriza las conexiones de root. Se puede poner el valor a «no». En este
+  caso, habrá que conectarse como simple usuario y pasar por su o sudo.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>* Banner: ruta de un fichero
+  cuyo contenido se mostrará a los usuarios durante la conexión.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>ssh es un servicio System V
+  que puede iniciarse con service o directamente por /etc/init.d/sshd.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'># service sshd start</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Utilización:</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>El comando ssh permite
+  establecer una conexión.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>$ ssh -l login host</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>$ ssh login@host</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>La opción -X permite activar
+  la redirección (forwarding) del protocolo X Window.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>$ ssh -X login@host</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Claves y conexión automática:</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Es posible establecer una
+  conexión automática hacia otra máquina sin introducir una contraseña.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Para ello, es necesario
+  generar un par de claves, privada y pública, desde la cuenta de usuario del
+  cliente (la máquina que se va a conectar).</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>No se debe introducir ninguna
+  frase de contraseña.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Por parte del servidor ssh, se
+  debe colocar la clave pública del cliente en un fichero que contiene las
+  claves autorizadas a conectarse en la cuenta de destino.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Lado cliente:</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 style='height:15.0pt'><a name="RANGE!A42">Genere una
+  clave en formato RSA con el comando ssh-keygen:</a></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>$ ssh-keygen -t rsa</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Generating public/private rsa
+  key pair.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Enter file in which to save
+  the key (/home/bean/.ssh/id_rsa):</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Created directory
+  ’/home/bean/.ssh’.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Enter passphrase (empty for no
+  passphrase):</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Enter same passphrase again:</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Your identification has been
+  saved in /home/bean/.ssh/id_rsa.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Your public key has been saved
+  in /home/bean/.ssh/id_rsa.pub.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>The key fingerprint is:</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>f6:39:23:4e:fa:53:d0:4e:65:7f:3f:fd:a3:f4:8e:2a
+  bean@p64p17bicb3</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>El directorio del usuario
+  contiene ahora un directorio .ssh:</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>$ cd .ssh</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>$ ls</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 style='height:15.0pt'><a name="RANGE!A57">id_rsa<span
+  style='mso-spacerun:yes'>  </span>id_rsa.pub</a></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>El fichero id_rsa.pub contiene
+  la clave pública:</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>$ cat id_rsa.pub</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>ssh-rsa
+  AAAAB3NzaC1yc2EAAAABIwAAAQEArB/VskR9v708J2EDG1LM1Q6HmKJc</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>P2UenurnSr7rWTSZK5w9Hzn4DCz5iMzLAPc4659I0uKJbmF3vBXozIgLrCdCZCQE</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>hhPLwJVLXbGNc8lMf742E/WqkkJ/uQYb31iPAU7Efosei+DVZ21No725XjiSCZ2q</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>zKKx7ZuNQEtxW0eVkwvlA0u7Hvrwn+FQksW3NXwTxwHhudSw7S6kIC3tyF5rkzfk</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>vu7zQbOGDGGPiF3aOvd0oSBNgiJtZ+M0PaoXXI3brMd66WkGfSwf4ofYKNDCA/3T</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Q4xU6WxkxqTBcsjEm1gIymFAyxDo+zzf63jxLGO8Pp50DKf7DUqBx7+rjw==</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>bean@slyserver</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Lado servidor:</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Vaya al directorio .ssh de la
+  cuenta a la cual desea acceder en el servidor (cree una si no existe):</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>$ cd /home/seb/.ssh</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Edite el fichero
+  authorized_keys2 (creélo si no existe) y copie dentro en una nueva línea el
+  contenido del fichero id_rsa.pub del cliente.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Guarde.</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>$ echo &quot;ssh-rsa</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>AAAAB3NzaC1yc2EAAAABIwAAAQEArB/VskR9v708J2EDG1LM1Q6HmKJcP2Uenurn</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Sr7rWTSZK5w9Hzn4DCz5iMzLAPc4659I0uKJbmF3vBXozIgLrCdCZCQEhhPLwJVL</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>XbGNc8lMf742E/WqkkJ/uQYb31iPAU7Efosei+DVZ21No725XjiSCZ2qzKKx7ZuN</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>QEtxW0eVkwvlA0u7Hvrwn+FQksW3NXwTxwHhudSw7S6kIC3tyF5rkzfkvu7zQbOG</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>DGGPiF3aOvd0oSBNgiJtZ+M0PaoXXI3brMd66WkGfSwf4ofYKNDCA/3TQ4xU6Wxk</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>xqTBcsjEm1gIymFAyxDo+zzf63jxLGO8Pp50DKf7DUqBx7+rjw==
+  bean@slyser</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>ver&quot; &gt;&gt;
+  autorized_keys2</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'></td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>Intente una conexión; no se
+  requiere la contraseña:</td>
+  <td class=xl71></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 style='height:15.0pt'>$ ssh seb@slyserver</td>
+  <td class=xl71></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1056 style='width:792pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,866 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../208.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../208.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1793 style='border-collapse:
+ collapse;table-layout:fixed;width:1345pt'>
+ <col class=xl68 width=1717 style='mso-width-source:userset;mso-width-alt:62793;
+ width:1288pt'>
+ <col class=xl68 width=76 style='width:57pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>Configuración
+  de Apache con SSL</td>
+  <td class=xl66 width=76 style='width:57pt'><a href="#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'><font
+  class="font11">SSL</font><font class="font10"> (Secure Socket Layer)</font><font
+  class="font0"> es un protocolo de seguridad de la capa de aplicación.</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Funciona
+  con muchos protocolos, pero su uso más extendido es para asegurar <font
+  class="font10">http </font><font class="font11">(https</font><font
+  class="font10">)</font><font class="font0">.</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>SSL
+  proporciona servicios de autentificación, de confidencialidad y de control de
+  la integridad.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>1.
+  Criptografía y certificados</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Explicar
+  exhaustivamente qué son la criptografía y los certificados digitales X509
+  sobrepasarían por completo los objetivos de este libro, y su conocimiento
+  detallado no es un requerimiento en la certificación LPI.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1717 style='height:15.0pt;width:1288pt'>Sin
+  embargo, la utilización de certificados es necesaria para asegurar el acceso
+  a las páginas web de un servidor mediante <font class="font22">SSL (https)</font><font
+  class="font14">.</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>a.
+  Conceptos criptográficos</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Cualquier
+  infraestructura criptográfica se basa en algoritmos de cifrado.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Estos
+  algoritmos pueden pertenecer a tres familias distintas:</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'><font
+  class="font16">1) los algoritmos simétricos</font><font class="font0">, donde
+  se cifra y se descifra gracias a una clave única</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'><font
+  class="font16">2) los algoritmos asimétricos</font><font class="font0">,
+  donde se dispone de un par de claves, una para cifrar y otra para descifrar</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'><font
+  class="font16">3) los algoritmos de hash</font><font class="font0">, de un
+  solo sentido y que no usan la clave de cifrado.</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1717 style='height:15.0pt;width:1288pt'><font
+  class="font9">La criptografía</font><font class="font12"> asimétrica </font><font
+  class="font9">usa</font><font class="font12"> </font><font class="font22">dos
+  claves</font><font class="font12">.</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Por
+  convenio, se decide que una de estas claves será privada y solo la podrá usar
+  su propietario, y que la otra será pública y podrá ser vista por todos,
+  incluso personas hostiles.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>El
+  gran consumo de recursos de procesador de la criptografía asimétrica hace que
+  su uso no sea apto para el cifrado de grandes cantidades de datos.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>La
+  amplia cantidad de posibilidades que ofrecen las claves públicas y privadas
+  la convierten en una herramienta imprescindible.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1717 style='height:15.0pt;width:1288pt'>La <font
+  class="font22">clave pública</font><font class="font14"> servirá para cifrar
+  pequeñas cantidades de datos (como otras claves, simétricas por ejemplo).</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1717 style='height:15.0pt;width:1288pt'>La <font
+  class="font22">clave privada</font><font class="font14"> se utilizará para
+  operaciones de firma digital (se firma con algo que solo pertenezca a uno
+  mismo).</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>b.
+  Certificados digitales X509</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Aunque
+  los algoritmos utilizados comúnmente en Internet y en las empresas se
+  consideran fiables, el análisis de sistemas criptográficos muestra que la
+  vulnerabilidad está sobre todo en los riesgos asociados a la transmisión de
+  la clave pública de un usuario o un servidor.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>El
+  mismo diseño de la criptografía asimétrica hace que esta clave sea
+  absolutamente inútil por sí sola y que no haya modo alguno de deducir la
+  clave privada a partir de la pública.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Sin
+  embargo, los fallos de seguridad en comunicaciones confidenciales o en las
+  firmas digitales de documentos se basan en claves públicas cuyo nombre del
+  propietario ha sido usurpado.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Es
+  decir, una clave pública circula, pero no es la verdadera y un farsante hace
+  pasar su clave pública por la de otro.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>La
+  persona engañada podría entonces cifrar datos muy confidenciales con la clave
+  falsa y, por lo tanto, poner esta información en peligro.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>Los
+  certificados digitales X509 tienen como objetivo establecer de modo formal un
+  enlace entre una identidad (nombre, dirección IP, etc.) y una clave pública.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Los
+  certificados no pueden falsificarse, ya que están firmados por un tercero con
+  quien todos tienen una relación de confianza.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Este
+  tercer actor se llama <font class="font20">«Certificate Authority»</font><font
+  class="font21"> (autoridad de certificación)</font><font class="font0">.</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Pueden
+  ser públicos y reconocidos por todo el mundo o privados y usados en un
+  entorno restringido.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>En
+  este caso, las aplicaciones cliente deberán configurarse para reconocer la
+  autoridad de certificación que emitirá los certificados.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Cuando
+  un servidor web tiene que usar un certificado, tiene que disponer de un
+  certificado que demuestre su identidad: <font class="font5">una clave pública
+  relacionada con su nombre de host</font><font class="font0">.</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Cuando
+  se produce una conexión https por parte de un navegador, el servidor envía su
+  certificado y el navegador comprueba su validez (el nombre con el que se
+  accede al servidor es el que se anuncia en el certificado).</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Si no
+  es así, el navegador muestra una alerta de seguridad.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Entonces
+  queda en manos del usuario cancelar la conexión segura o aceptarla, pero
+  siempre con la duda de no saber si el servidor al que se dirige es legítimo o
+  se trata de un farsante.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>c.
+  Generación local de un certificado</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1717 style='height:15.0pt;width:1288pt'>El
+  funcionamiento de HTTP con SSL requiere que un certificado que contenga una
+  clave pública del servidor web se envíe al navegador cliente y que esta clave
+  pública se envíe siempre en un certificado.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Por lo
+  tanto, <font class="font11">Apache</font><font class="font0"> configurado
+  para </font><font class="font11">SSL</font><font class="font0"> debe disponer
+  de un </font><font class="font11">certificado</font><font class="font0"> que
+  podrá enviar a sus clientes.</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1717 style='height:15.0pt;width:1288pt'>El
+  certificado utilizado por Apache podrá ser facilitado por una autoridad de
+  certificación pública o privada proporcionada por una aplicación
+  especializada.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>En
+  este supuesto, la autoridad proporcionará un certificado que se exportará en
+  forma de archivo, se copiará en el disco del servidor Apache y este lo
+  utilizará.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1717 style='height:15.0pt;width:1288pt'>Para
+  un uso puntual o para realizar pruebas, también se puede generar de manera
+  local un certificado listo para usar que Apache podrá utilizar.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'><a
+  name="RANGE!A52">Hay herramientas especializadas en esta función, pero están
+  generalmente ligadas a una distribución, o se pueden crear a partir de todas
+  las piezas generadas con las utilidades de la <font class="font20">librería
+  openssl</font><font class="font0">.</font></a></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Para
+  operaciones limitadas a las pruebas de la configuración ssl de Apache, se
+  elegirá la solución más sencilla, que es utilizar la misma clave tanto para
+  generar el certificado como para firmarlo.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>*Generación
+  del certificado autofirmado</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>openssl
+  req -x509 -nodes -newkey rsa:tamaño -keyout archivo_clave -out
+  archivo_certificado</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>*Comando
+  openssl para generar certificados: opciones y parámetros</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1717 style='height:15.0pt;width:1288pt'>req <font
+  class="font13">--&gt; Solicitud de certificado.</font></td>
+  <td class=xl65 width=76 style='width:57pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1717 style='height:15.0pt;width:1288pt'>-x509 <font
+  class="font13">--&gt; Se desea un certificado autofirmado y no una petición
+  de firma.</font></td>
+  <td class=xl65 width=76 style='width:57pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1717 style='height:15.0pt;width:1288pt'>-nodes
+  <font class="font13">--&gt; La clave del servidor no debe estar protegida con
+  contraseña.</font></td>
+  <td class=xl65 width=76 style='width:57pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1717 style='height:15.0pt;width:1288pt'>-newkey
+  rsa:tamaño <font class="font13">--&gt; Se crean nuevas claves asimétricas RSA
+  cuyo tamaño se proporciona en número de bits.</font></td>
+  <td class=xl65 width=76 style='width:57pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1717 style='height:15.0pt;width:1288pt'>-keyout
+  archivo_clave <font class="font13">--&gt; El archivo que contiene la clave
+  privada del servidor.</font></td>
+  <td class=xl65 width=76 style='width:57pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1717 style='height:15.0pt;width:1288pt'>-out
+  archivo_certificado <font class="font13">--&gt; El archivo que contiene el
+  certificado del servidor.</font></td>
+  <td class=xl65 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>El
+  comando anterior genera la solicitud del certificado.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Los
+  campos estándar del certificado se solicitan de forma interactiva al usuario.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>La
+  mayoría de estos campos son informativos.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Para
+  un certificado que se usa en un <font class="font11">servidor web</font><font
+  class="font0">, el campo </font><font class="font11">Common Name</font><font
+  class="font0"> (nombre común) tiene que ser obligatoriamente el </font><font
+  class="font11">nombre DNS del servidor</font><font class="font0"> que
+  aparecerá en la URL de acceso.</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>En
+  caso contrario, el navegador del cliente mostrará una alerta de seguridad
+  cuando compruebe el certificado del servidor.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>*Ejemplo
+  de generación de certificado</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Es
+  imprescindible informar correctamente el campo Common Name (CN). Es el que se
+  asociará formalmente a la clave pública en el certificado digital.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1717 style='height:15.0pt;width:1288pt'>root@servidor#
+  openssl req -x509 -nodes -newkey rsa:1024 -keyout<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>servidor.key
+  -out certificado.pem<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>Generating
+  a 1024 bit RSA private key<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>......++++++<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>.................++++++<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>writing
+  new private key to ’servidor.key’<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>-----<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>You
+  are about to be asked to enter information that will be incorporated<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>into
+  your certificate request.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>What
+  you are about to enter is what is called a Distinguished Name or a DN.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>There
+  are quite a few fields but you can leave some blank<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>For
+  some fields there will be a default value,<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>If you
+  enter ’.’, the field will be left blank.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>-----<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>Country
+  Name (2 letter code) [AU]:ES<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>State
+  or Province Name (full name) [Some-State]:España<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>Locality
+  Name (eg, city) []:Burgos<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>Organization
+  Name (eg, company) [Internet Trials S.A.]:<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>Organizational
+  Unit Name (eg, section) []:R&amp;D<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>Common
+  Name (eg, YOUR name) []:192.168.1.1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>Email
+  Address []:<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>root@servidor#</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'><a
+  name="RANGE!A98">2. Configuración SSL de un servidor Apache</a></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>a.
+  Carga del módulo SSL</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>El
+  módulo necesario para el funcionamiento de SSL es <font class="font16">mod_ssl</font><font
+  class="font5">.</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>*Carga
+  del módulo</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr class=xl70 height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>LoadModule
+  ssl_module /ruta/mod_ssl.so</td>
+  <td class=xl70 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Donde <font
+  class="font5">ruta</font><font class="font0"> es la ruta </font><font
+  class="font11">absoluta</font><font class="font0"> del archivo de </font><font
+  class="font5">módulo</font><font class="font0">.</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>La
+  ruta por defecto depende de la forma en que haya sido compilado Apache y, por
+  lo tanto, de la distribución.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>b.
+  Configuración de las claves del servidor</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>A
+  continuación hay que especificar al servidor cuáles son las claves que se
+  deben usar para que funcione en modo SSL.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Se
+  tiene que disponer de su clave privada y de su certificado, que contendrá su
+  clave pública.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>*Configuración
+  de las claves</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'><a
+  name="RANGE!A114">SSLCertificateFile /ruta/archivo_certificado<span
+  style='mso-spacerun:yes'> </span></a></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'><a
+  name="RANGE!A115">SSLCertificateKeyFile /ruta/archivo_clave</a></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>*Archivo
+  de configuración: Declaración de las claves de servidor</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1717 style='height:15.0pt;width:1288pt'>SSLCertificateFile
+  <font class="font13">--&gt; Define el archivo que contiene el certificado del
+  servidor.</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1717 style='height:15.0pt;width:1288pt'>SSLCertificateKeyFile
+  <font class="font13">--&gt; Define el archivo que contiene la clave privada
+  del servidor.</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>c.
+  Administración del funcionamiento en modo SSL</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Solo
+  hay que solicitar al servidor que escuche por el puerto https y reiniciar el
+  motor SSL que, una vez realizada la autentificación, permitirá cifrar las
+  comunicaciones entre cliente y servidor.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>*Apertura
+  del puerto https</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>Listen
+  443</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'><a
+  name="RANGE!A127">*Activación del motor SSL</a></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>SSLEngine
+  on</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1717 style='height:15.0pt;width:1288pt'>Por
+  supuesto, estos dos parámetros se deben añadir al archivo de configuración
+  Apache.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>d.
+  Autentificación de los clientes mediante certificado</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>El
+  funcionamiento en modo SSL estándar que se acaba de mostrar es el que se
+  encuentra generalmente en Internet y sirve para la mayor parte de
+  situaciones.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Sin
+  embargo, se pueden utilizar los certificados, no para transmitir una clave de
+  sesión encriptada y, por consiguiente, asegurar la confidencialidad, sino
+  para garantizar la identidad de los clientes que se conecten al servidor.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>En
+  esta configuración, el navegador cliente deberá disponer de un certificado
+  que se comprobará por el servidor web.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Para
+  ello, el servidor Apache tiene que disponer de un certificado de la autoridad
+  que haya emitido los certificados de los clientes.</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1717 style='height:15.0pt;width:1288pt'>*Gestión
+  de la autentificación mediante certificado en el archivo de configuración
+  Apache</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>SSLVerifyClient
+  require<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1717 style='height:15.0pt;width:1288pt'>SSLCACertificateFile
+  certificado_ca</td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'>Donde <font
+  class="font16">certificado_ca</font><font class="font0"> representa el </font><font
+  class="font16">archivo</font><font class="font0"> de </font><font
+  class="font16">certificado</font><font class="font0"> de la </font><font
+  class="font16">autoridad</font><font class="font0"> que habrá firmado los
+  certificados clientes.</font></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1717 style='height:15.0pt;width:1288pt'>Los
+  certificados clientes se deben instalar en el <font class="font19">repositorio</font><font
+  class="font9"> de certificados del </font><font class="font19">navegador</font><font
+  class="font9"> web.</font></td>
+  <td class=xl67 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1717 style='height:15.0pt;width:1288pt'></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1717 style='height:15.0pt;width:1288pt'><a
+  href="#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=76 style='width:57pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1717 style='width:1288pt'></td>
+  <td width=76 style='width:57pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,930 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../211.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../211.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl67>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1627 style='border-collapse:
+ collapse;table-layout:fixed;width:1220pt'>
+ <col class=xl67 width=1579 style='mso-width-source:userset;mso-width-alt:57746;
+ width:1184pt'>
+ <col class=xl67 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>El
+  servidor SMTP Postfix</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>1.
+  Configuración de Postfix</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>a.
+  Gestión de cuentas</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Un <font
+  class="font5">MTA</font><font class="font0"> tiene que gestionar las cuentas
+  de correo de su dominio, lo que implica que el servidor tiene que gestionar
+  la lista de usuarios que tienen una cuenta de correo en el dominio.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Los <font
+  class="font5">MTA</font><font class="font0"> generalmente son capaces de usar
+  bases de datos de usuarios de distinto tipo: archivos locales de cuentas
+  locales, directorio ldap, bases de datos MySQL, etc.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1579 style='height:15.0pt;width:1184pt'>La
+  solución más simple, siempre disponible y que no necesita ninguna
+  configuración particular, es utilizar directamente las cuentas de usuario del
+  sistema Linux.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>b.
+  Gestión de alias</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>En
+  general, la base de datos de cuentas de usuario utilizada por un <font
+  class="font5">MTA</font><font class="font0"> determina qué direcciones de
+  correo son susceptibles de recibir correos electrónicos.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Sin
+  embargo, puede que un <font class="font5">usuario</font><font class="font0">
+  tenga </font><font class="font9">varias cuentas</font><font class="font0"> de
+  correo.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Por
+  ejemplo, es frecuente que el administrador de una red deba responder a los
+  correos dirigidos a postmaster@dominio.ext.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Es
+  incluso una recomendación de la RFC SMTP.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Para
+  este tipo de uso, un <font class="font5">MTA</font><font class="font0">
+  utiliza una </font><font class="font5">relación</font><font class="font0"> de
+  correspondencias </font><font class="font5">entre</font><font class="font0"> </font><font
+  class="font15">cuentas</font><font class="font0"> llamadas </font><font
+  class="font15">alias</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Postfix
+  utiliza el <font class="font16">archivo de declaración de alias</font><font
+  class="font0"> </font><font class="font15">/etc/aliases</font><font
+  class="font0"> y lo hace en una</font><font class="font17"> base de datos
+  generada </font><font class="font0">a partir del </font><font class="font17">archivo</font><font
+  class="font0"> de </font><font class="font17">alias</font><font class="font0">
+  mediante el comando </font><font class="font15">postalias</font><font
+  class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Archivo
+  de declaración de alias</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>#
+  /etc/aliases<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>mailer-daemon:
+  postmaster<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>postmaster:
+  root<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>nobody:
+  root<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>hostmaster:
+  root<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>usenet:
+  root<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>news:
+  root<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>webmaster:
+  root<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>www:
+  root<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>ftp:
+  root<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>abuse:
+  root<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>noc:
+  root<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>security:
+  root<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>root:
+  usuario</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Cualquier
+  modificación del archivo <font class="font15">/etc/aliases</font><font
+  class="font0"> debe ir acompañada de una redeclaración de la base de datos
+  con el </font><font class="font9">comando</font><font class="font0"> </font><font
+  class="font15">postalias</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Generación
+  de la base de datos a partir del archivo</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>alfa:~#
+  postalias /etc/aliases<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>alfa:~#</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'><a
+  name="RANGE!A41">c. El comando postfix</a></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Generalmente,
+  un script de configuración estándar inicia el servicio <font class="font5">postfix</font><font
+  class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Sin
+  embargo, se puede utilizar el comando <font class="font5">postfix</font><font
+  class="font0"> </font><font class="font17">directamente</font><font
+  class="font0">, sobre todo cuando se está en fase de pruebas y diagnóstico.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Utilización
+  del comando postfix</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>postfix
+  acción</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Comando
+  postfix: acciones comunes</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>status<font
+  class="font16"> --&gt; Muestra el estado funcional del servicio.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>stop <font
+  class="font16">--&gt; Detiene el servicio de manera controlada. Los procesos
+  en ejecución están autorizados para finalizar su ejecución.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>start <font
+  class="font16">--&gt; Realiza comprobaciones e inicia el servicio.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>check <font
+  class="font16">--&gt; Comprueba la validez del entorno de funcionamiento del
+  servicio.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>reload
+  <font class="font16">--&gt; Recarga la configuración. Preferible a un
+  stop/start.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>abort <font
+  class="font16">--&gt; Detiene el servicio inmediatamente. Los procesos en
+  ejecución se detienen bruscamente.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>flush <font
+  class="font16">--&gt; Intenta mandar todos los correos pendientes: los que ya
+  han dado error y los que están a la espera de un nuevo intento.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>d.
+  Archivos de configuración</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'><a
+  name="RANGE!A59">La configuración del servicio <font class="font5">Postfix</font><font
+  class="font0"> se encuentra en el archivo llamado </font><font class="font15">main.cf</font><font
+  class="font0">, alojado generalmente en el directorio </font><font
+  class="font15">/etc/postfix</font><font class="font0">.</font></a></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>myorigin
+  = dominio_origen<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>mydestination
+  = dominio_destino<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>mynetwork
+  = red/máscara_de_bits<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>relayhost
+  = relays_MTA</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Archivo
+  main.cf: parámetros principales</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>dominio_origen
+  <font class="font16">--&gt; El que el servidor pone a continuación de la
+  arroba (@) en el correo saliente. Puede ser distinto del dominio local
+  inicialmente configurado. Es el dominio visto desde el exterior.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>dominio_destino
+  <font class="font16">--&gt; El servidor gestiona correos con destino a este
+  dominio. Puede ser idéntico al dominio de origen.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>red/máscara_de_bits
+  <font class="font16">--&gt; El servidor permite reenviar los correos
+  provenientes directamente de esta red. En principio, la red local.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>relays_MTA
+  <font class="font16">--&gt; Si se usa el parámetro relayhost, los correos se
+  envían al exterior exclusivamente a través del MTA relays_MTA.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'><font
+  class="font5">No</font><font class="font0"> es </font><font class="font5">obligatorio</font><font
+  class="font0"> usar el parámetro </font><font class="font15">relayhost</font><font
+  class="font0"> y, según el espíritu del protocolo SMTP, no debería ser
+  necesario.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Sin
+  embargo, algunos proveedores de servicio de Internet bloquean cualquier tipo
+  de tráfico SMTP saliente de sus redes si este no se ha emitido por sus
+  propios <font class="font5">MTA</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Por
+  tanto, el parámetro <font class="font5">relayhost</font><font class="font0">
+  hace </font><font class="font5">posible</font><font class="font0"> que se </font><font
+  class="font5">dependa</font><font class="font0"> de un </font><font
+  class="font5">MTA</font><font class="font0"> </font><font class="font5">externo</font><font
+  class="font0"> para cualquier transmisión de correo.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Con un
+  archivo de configuración mínimo y usando únicamente los parámetros
+  mencionados anteriormente, un servidor <font class="font5">postfix</font><font
+  class="font0"> ya sería capaz de realizar sus tareas de </font><font
+  class="font5">MTA</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Mientras
+  esperan a que un cliente de correo los descargue a su destinatario (mediante
+  un protocolo de obtención de correo electrónico como POP o IMAP), los
+  mensajes se almacenan en el directorio <font class="font15">/var/mail</font><font
+  class="font0"> con el nombre del usuario destinatario.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Para
+  comprobar el funcionamiento hasta el momento del proceso de configuración, se
+  puede mandar un email desde un cliente SMTP (Outlook, Thunderbird, etc.)
+  configurado para que utilice el servidor postfix como servidor SMTP.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>La
+  lectura de mensajes a este nivel de configuración solo puede hacerse desde
+  una <font class="font5">sesión</font><font class="font0"> </font><font
+  class="font5">shell</font><font class="font0"> en el </font><font
+  class="font5">servidor</font><font class="font0"> </font><font class="font5">postfix</font><font
+  class="font0"> con el comando </font><font class="font15">mail</font><font
+  class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>El
+  comando mail se explica en la sección de clientes de correo.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl80 height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1579 style='height:15.0pt;width:1184pt'>Los
+  requerimientos de la certificación <font class="font18">LPI</font><font
+  class="font19"> establecen que hay que tener conocimientos básicos de este
+  comando.</font></td>
+  <td class=xl80 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>e.
+  Comprobación de la configuración activa</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Se
+  puede comprobar la configuración real de un servidor postfix para detectar
+  problemas importantes de funcionamiento (directorios inexistentes, etc.) y
+  los parámetros aplicados por el servidor desde el archivo <font class="font15">main.cf</font><font
+  class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Comprobación
+  del entorno funcional</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>postfix
+  check</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Parámetros
+  reales</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>postconf
+  -n</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>2.
+  Gestión de dominios virtuales</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>En una
+  configuración sencilla, un servidor <font class="font5">postfix</font><font
+  class="font0"> gestiona un solo dominio de correo: el que está asociado a la
+  empresa o a la organización que lo alberga.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Sin
+  embargo, puede suceder que se desee gestionar varios dominios de correo.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Esta
+  tarea la cumplen a la perfección los <font class="font5">dominios virtuales</font><font
+  class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Los
+  servicios de alojamiento de Internet utilizan los <font class="font5">dominios
+  virtuales</font><font class="font0">, con los que pueden gestionar varias
+  centenas de dominios de clientes en un solo servidor.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>También
+  se usan en empresas, donde el servicio informático gestiona el correo de dos
+  entidades distintas cuando, por ejemplo, se realiza una adquisición.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>a.
+  Definición de dominios virtuales</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Se ha
+  visto anteriormente que el archivo <font class="font15">main.cf</font><font
+  class="font0"> tenía que albergar en la </font><font class="font5">directiva</font><font
+  class="font0"> </font><font class="font15">mydestination</font><font
+  class="font0"> el nombre del </font><font class="font5">dominio</font><font
+  class="font0"> de correo </font><font class="font5">gestionado</font><font
+  class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Este <font
+  class="font5">dominio</font><font class="font0"> </font><font class="font5">principal,</font><font
+  class="font0"> coherente con el nombre completo del servidor, se llama </font><font
+  class="font15">dominio canónico</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Si se
+  desea administrar <font class="font5">otros</font><font class="font0"> </font><font
+  class="font5">dominios</font><font class="font0">, habrá que declararlos
+  primeramente usando la </font><font class="font5">directiva</font><font
+  class="font0"> </font><font class="font15">virtual_alias_domain</font><font
+  class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Declaración
+  de dominios virtuales en main.cf</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>virtual_alias_domain
+  dominio2, dominio3</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Donde <font
+  class="font15">dominio2</font><font class="font0"> y </font><font
+  class="font15">dominio3</font><font class="font0"> representan los dominios </font><font
+  class="font20">virtuales</font><font class="font0"> gestionados por el
+  servidor.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>b.
+  Gestión de usuarios para dominios virtuales</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>A
+  continuación hay que especificar qué cuenta de usuario se asigna a qué cuenta
+  de correo y para qué dominio.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Esta
+  asociación debe hacerse en un archivo cuyo nombre y ubicación estén
+  especificados por la <font class="font5">directiva</font><font class="font0">
+  </font><font class="font15">virtual_alias_maps</font><font class="font0"> en
+  el archivo de configuración </font><font class="font15">main.cf</font><font
+  class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>El
+  nombre que se suele utilizar para este archivo es /etc/postfix/virtual.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Declaración
+  del archivo de alias en main.cf</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>virtual_alias_maps
+  = hash:/etc/postfix/virtual</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Basta
+  con crear a continuación el archivo de alias con el formato siguiente:</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Formato
+  del archivo de alias</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>dirección_de_correo1
+  cuenta_linux<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>dirección_de_correo2
+  cuenta_linux</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Ejemplo
+  de archivo de alias</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>root@servidor#
+  cat /etc/postfix/virtual<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>toto@dominio.com
+  toto<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>titi@dominio.com
+  titi<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>usuario@dominio.com
+  usuario<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>root@servidor#</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Creación
+  del archivo de alias en un formato que pueda utilizar postfix</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>postmap
+  /etc/postfix/virtual</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Este
+  comando crea un <font class="font5">archivo</font><font class="font0"> en
+  formato </font><font class="font5">Berkeley DB</font><font class="font0"> a
+  partir del archivo de alias en texto plano.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Ejemplo
+  de creación de un archivo de alias</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>El
+  comando postmap crea el archivo <font class="font15">virtual.db</font><font
+  class="font0"> a partir del archivo en texto plano virtual.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>alfa:/etc/postfix#
+  cat virtual<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>usuario@otrodominio.com<span
+  style='mso-spacerun:yes'>   </span>usuario<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>alfa:/etc/postfix#
+  postmap virtual<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>alfa:/etc/postfix#
+  ls virtual*<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>virtual<span
+  style='mso-spacerun:yes'>  </span>virtual.db<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>alfa:/etc/postfix#
+  file virtual.db<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>virtual.db:
+  Berkeley DB (Hash, version 9, native byte-order)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>alfa:/etc/postfix#</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>3.
+  Gestión de cuotas</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Se
+  puede limitar el espacio de disco consumido por las cuentas de correo.</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Esta
+  limitación se establece fácilmente mediante el <font class="font5">parámetro</font><font
+  class="font0"> </font><font class="font15">mailbox_size_limit</font><font
+  class="font0"> en el archivo de configuración.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'>Del
+  mismo modo, se puede limitar el tamaño de un mensaje con el parámetro <font
+  class="font15">message_size_limit</font><font class="font0">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Gestión
+  de los tamaños máximos en main.cf</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>mailbox_size_limit
+  = tamaño_máx_cuenta<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl77 width=1579 style='height:15.0pt;width:1184pt'>message_size_limit
+  = tamaño_máx_correo</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1579 style='height:15.0pt;width:1184pt'>*Limitación
+  del espacio de disco en main.cf</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>tamaño_máx_cuenta
+  <font class="font16">- Límite de una cuenta de correo en bytes.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1579 style='height:15.0pt;width:1184pt'>tamaño_máx_correo
+  <font class="font16">- Límite de un mensaje en bytes.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1579 style='height:15.0pt;width:1184pt'></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1579 style='height:15.0pt;width:1184pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1579 style='width:1184pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

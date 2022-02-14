@@ -1,0 +1,268 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../212.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../212.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1182 style='border-collapse:
+ collapse;table-layout:fixed;width:887pt'>
+ <col class=xl68 width=1134 style='mso-width-source:userset;mso-width-alt:41472;
+ width:851pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1134 style='height:15.0pt;width:851pt'>El
+  servidor Pure-FTPd</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1134 style='height:15.0pt;width:851pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'><font
+  class="font16">Pure-FTPd </font><font class="font0">es un servidor </font><font
+  class="font5">FTP</font><font class="font0"> cuyo objetivo es ofrecer un
+  servicio de transferencia de archivos simple, estable y eficaz.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'>Su
+  objetivo es ser apto tanto para principiantes como para entornos de
+  producción en el lugar de trabajo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'>Su
+  característica principal es que puede ser iniciado fácilmente por <font
+  class="font5">línea</font><font class="font0"> de </font><font class="font5">comandos</font><font
+  class="font0"> </font><font class="font11">sin</font><font class="font0">
+  necesitar un </font><font class="font5">archivo</font><font class="font0"> de
+  </font><font class="font5">configuración</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1134 style='height:15.0pt;width:851pt'>a.
+  Funcionamiento para accesos de usuarios a sus directorios personales</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'>Este es
+  el funcionamiento por defecto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'>Los
+  usuarios dispondrán de una cuenta de usuario y un directorio personal donde
+  podrán acceder con su identificador y su contraseña habituales.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'>Atención:
+  generalmente se desaconseja este modo de funcionamiento ya que la contraseña,
+  circulando sin encriptar, supone un peligro para las contraseñas Linux de los
+  usuarios.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1134 style='height:15.0pt;width:851pt'>*Inicio
+  del servicio</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1134 style='height:15.0pt;width:851pt'>pure-ftpd</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1134 style='height:15.0pt;width:851pt'>b.
+  Funcionamiento para accesos anónimos</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'>Se
+  puede activar el acceso anónimo si se ha creado una cuenta de usuario llamada
+  <font class="font5">ftp</font><font class="font0"> en el servidor.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'>Los
+  clientes conectados en modo anónimo trabajan entonces en el directorio <font
+  class="font16">/home/ftp</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'>Se
+  puede trabajar en <font class="font16">modo anónimo</font><font class="font0">
+  llamando a </font><font class="font16">pure-ftpd</font><font class="font0">
+  con la </font><font class="font13">opción </font><font class="font16">--anonymousonly</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1134 style='height:15.0pt;width:851pt'>c.
+  Opciones de funcionamiento</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'><font
+  class="font16">Pure-ftpd</font><font class="font0"> funciona </font><font
+  class="font9">generalmente</font><font class="font0"> </font><font
+  class="font5">sin</font><font class="font0"> archivo de </font><font
+  class="font5">configuración</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'>A la
+  línea de comandos que inicia el servicio se le pueden añadir opciones de
+  configuración en función del resultado deseado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'>Sin
+  embargo, <font class="font5">algunas</font><font class="font0"> </font><font
+  class="font5">implementaciones</font><font class="font0"> utilizan uno o
+  varios </font><font class="font5">archivos</font><font class="font0"> de </font><font
+  class="font5">configuración</font><font class="font0"> que el script de
+  inicio del servicio interpretará.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'>La
+  lista mostrada a continuación presenta algunas de las opciones más comunes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1134 style='height:15.0pt;width:851pt'><a
+  name="RANGE!A27">*pure-ftpd: opciones comunes</a></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1134 style='height:15.0pt;width:851pt'>--help
+  --&gt; Muestra las opciones posibles.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1134 style='height:15.0pt;width:851pt'>--displaydotfile
+  --&gt; También muestra los archivos escondidos a los clientes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1134 style='height:15.0pt;width:851pt'>--anonymousonly
+  --&gt; Funcionamiento del servidor solo en modo anónimo (si la cuenta ftp
+  existe).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1134 style='height:15.0pt;width:851pt'>--noanonymous
+  --&gt; Impide cualquier intento de conexión anónimo (incluso si la cuenta ftp
+  existe).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1134 style='height:15.0pt;width:851pt'>--maxidletime
+  --&gt; Tiempo máximo de inactividad antes de forzar la desconexión.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1134 style='height:15.0pt;width:851pt'>--anonymouscantupload
+  --&gt; Impide a los usuarios anónimos transferir archivos al servidor.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1134 style='height:15.0pt;width:851pt'>--anonymouscancreatedirs
+  --&gt; Permite a los usuarios anónimos crear directorios.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1134 style='height:15.0pt;width:851pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1134 style='height:15.0pt;width:851pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1134 style='width:851pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

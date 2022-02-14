@@ -1,0 +1,358 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../204.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../204.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1069 style='border-collapse:
+ collapse;table-layout:fixed;width:802pt'>
+ <col class=xl68 width=1021 style='mso-width-source:userset;mso-width-alt:37339;
+ width:766pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1021 style='height:15.0pt;width:766pt'><a
+  name="RANGE!A1">hdparm</a></td>
+  <td class=xl74 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1021 style='height:15.0pt;width:766pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1021 style='height:15.0pt;width:766pt'>El
+  comando <font class="font12">hdparm</font><font class="font0"> permite
+  consultar y configurar una gran cantidad de parámetros del disco duro.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1021 style='height:15.0pt;width:766pt'>Algunos
+  de ellos además pueden ser peligrosos para el disco.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1021 style='height:15.0pt;width:766pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1021 style='height:15.0pt;width:766pt'>*Visualización
+  de los parámetros funcionales con hdparm</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=1021 style='height:15.0pt;width:766pt'>alfa:~#
+  hdparm /dev/hda<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'>/dev/hda:<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>multcount<span style='mso-spacerun:yes'>    
+  </span>=<span style='mso-spacerun:yes'>  </span>0 (off)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>IO_support<span style='mso-spacerun:yes'>   
+  </span>=<span style='mso-spacerun:yes'>  </span>0 (default)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>unmaskirq<span style='mso-spacerun:yes'>    
+  </span>=<span style='mso-spacerun:yes'>  </span>0 (off)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>using_dma<span style='mso-spacerun:yes'>    
+  </span>=<span style='mso-spacerun:yes'>  </span>1 (on)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>keepsettings<span style='mso-spacerun:yes'> 
+  </span>=<span style='mso-spacerun:yes'>  </span>0 (off)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>readonly<span style='mso-spacerun:yes'>     
+  </span>=<span style='mso-spacerun:yes'>  </span>0 (off)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>readahead<span style='mso-spacerun:yes'>    
+  </span>= 256 (on)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>geometry<span style='mso-spacerun:yes'>     
+  </span>= 16644/16/63, sectors = 16777216, start = 0</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1021 style='height:15.0pt;width:766pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1021 style='height:15.0pt;width:766pt'>Si el
+  hardware lo soporta, los parámetros funcionales del disco pueden modificarse
+  con la opción apropiada seguida de un parámetro numérico, en general 0 o 1.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1021 style='height:15.0pt;width:766pt'>Las
+  opciones más comunes son <font class="font12">c</font><font class="font5"> </font><font
+  class="font9">(acceso de 32 bits al disco activado o desactivado)</font><font
+  class="font5"> y </font><font class="font12">d</font><font class="font5"> </font><font
+  class="font9">(acceso por DMA activado o desactivado)</font><font
+  class="font5">.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1021 style='height:15.0pt;width:766pt'>Una
+  opción solicitada sin valor numérico asociado provocará la visualización del
+  valor actual.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1021 style='height:15.0pt;width:766pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1021 style='height:15.0pt;width:766pt'>*Consulta
+  del acceso de 32 bits</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=1021 style='height:15.0pt;width:766pt'>alfa:~#
+  hdparm -c /dev/hda<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'>/dev/hda:<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>IO_support<span style='mso-spacerun:yes'>   
+  </span>=<span style='mso-spacerun:yes'>  </span>0 (default)</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1021 style='height:15.0pt;width:766pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1021 style='height:15.0pt;width:766pt'>*Consulta
+  y supresión de la lectura anticipada</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=1021 style='height:15.0pt;width:766pt'>alfa:~#
+  hdparm -a /dev/hda<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'>/dev/hda:<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>readahead<span style='mso-spacerun:yes'>    
+  </span>= 256 (on)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=1021 style='height:15.0pt;width:766pt'>alfa:~#
+  hdparm -a 0 /dev/hda<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'>/dev/hda:<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>setting fs readahead to 0<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>readahead<span style='mso-spacerun:yes'>    
+  </span>=<span style='mso-spacerun:yes'>  </span>0 (off)</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1021 style='height:15.0pt;width:766pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1021 style='height:15.0pt;width:766pt'>*Visualización,
+  activación y desactivación del acceso por DMA</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=1021 style='height:15.0pt;width:766pt'>alfa:~#
+  hdparm -d /dev/hda<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'>/dev/hda:<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>using_dma<span style='mso-spacerun:yes'>    
+  </span>=<span style='mso-spacerun:yes'>  </span>0 (off)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=1021 style='height:15.0pt;width:766pt'>alfa:~#
+  hdparm -d 1 /dev/hda<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'>/dev/hda:<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>setting using_dma to 1 (on)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>using_dma<span style='mso-spacerun:yes'>    
+  </span>=<span style='mso-spacerun:yes'>  </span>1 (on)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=1021 style='height:15.0pt;width:766pt'>alfa:~#
+  hdparm -d 0 /dev/hda<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'>/dev/hda:<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>setting using_dma to 0 (off)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1021 style='height:15.0pt;width:766pt'><span
+  style='mso-spacerun:yes'> </span>using_dma<span style='mso-spacerun:yes'>    
+  </span>=<span style='mso-spacerun:yes'>  </span>0 (off)</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1021 style='height:15.0pt;width:766pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1021 style='height:15.0pt;width:766pt'>Otro
+  comando:<font class="font19"> sdparm</font><font class="font21">, menos
+  común, permite una comunicación de bajo nivel con los periféricos </font><font
+  class="font19">SCSI.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1021 style='height:15.0pt;width:766pt'>Por
+  ejemplo para realizar su desactivación para retirarlos en caliente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1021 style='height:15.0pt;width:766pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1021 style='height:15.0pt;width:766pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1021 style='height:15.0pt;width:766pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 style='height:15.0pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1021 style='width:766pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

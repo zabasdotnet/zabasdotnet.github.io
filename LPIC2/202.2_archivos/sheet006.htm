@@ -1,0 +1,1655 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../202.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(5);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../202.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1804 style='border-collapse:
+ collapse;table-layout:fixed;width:1353pt'>
+ <col class=xl68 width=1756 style='mso-width-source:userset;mso-width-alt:64219;
+ width:1317pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'><a
+  name="RANGE!A1">EL proceso init y los niveles de ejecución.</a></td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>1. Los
+  niveles de ejecución</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>El
+  funcionamiento de un sistema Linux se rige por los niveles de ejecución.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Aunque
+  este concepto parece un lastre hoy en día, más como una herencia del pasado
+  que como una herramienta de administración real de una estación de trabajo
+  Linux, su conocimiento es indispensable para una buena gestión del sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Para
+  empezar, hay que saber que un sistema Linux siempre está en algún nivel de
+  ejecución, sea cual sea su actividad, ya se trate de un servidor apache que
+  está respondiendo a una petición o un servidor nuevo todavía en su caja.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>La
+  gestión de los niveles de ejecución consistirá en determinar cuál debe ser el
+  comportamiento del sistema cuando este entra en un nivel concreto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>a.
+  ¿Qué es un nivel de ejecución?</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Para
+  simplificar, un nivel de ejecución es un nivel funcional en el que se ha
+  determinado la lista de servicios que se arrancan o se detienen.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Cuando
+  un sistema entra en un nivel de ejecución, siempre consulta si hay que
+  arrancar o parar servicios.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>b. Los
+  posibles niveles de ejecución</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Nivel
+  0</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>El más
+  simple: el sistema está detenido.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Atención,
+  esto no significa que no tenga que configurarse; todavía tiene que gestionar
+  lo que sucede cuando el sistema entra en el nivel 0, es decir, cuáles son los
+  servicios que se deben detener cuando se para físicamente una máquina.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*El
+  nivel 1 o monousuario</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Un
+  nivel un poco singular: está reservado para las operaciones de mantenimiento
+  y solamente permite una conexión, la de la cuenta root.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Además,
+  la mayor parte de los servicios están detenidos en este nivel, lo que
+  significa que el sistema tiene una actividad mínima.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Esto
+  es perfecto para el administrador que desea realizar operaciones de
+  mantenimiento sin interferir con producción.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*El
+  nivel 2</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>En la
+  mayoría de los sistemas, este nivel no se utiliza.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Se
+  deja a disposición del administrador, que podrá establecer a partir de este
+  nivel un modo de funcionamiento particular con solamente algunos servicios
+  iniciados.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1756 style='height:15.0pt;width:1317pt'>En los
+  sistemas Debian y derivados (Ubuntu, por ejemplo) este nivel es, en cambio,
+  el nivel funcional por defecto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*El
+  nivel 3</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>En la
+  mayor parte de los sistemas el nivel 3 es funcional, es decir, que todos los
+  servicios están iniciados, pero no se dispone de interfaz gráfica.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*El
+  nivel 4</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>En la
+  mayoría de los sistemas este nivel no se utiliza.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Se
+  deja a disposición del administrador, que podrá establecer a partir de este
+  nivel un modo de funcionamiento particular con solamente algunos servicios
+  iniciados.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*El
+  nivel 5</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>En la
+  mayor parte de los sistemas el nivel 5 es funcional, es decir, que todos los
+  servicios están iniciados y la interfaz gráfica está disponible.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1756 style='height:15.0pt;width:1317pt'>En los
+  sistemas Debian y derivados (Ubuntu, por ejemplo) este nivel, en general, no
+  se utiliza.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*El
+  nivel 6</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Temporal
+  por definición, el nivel 6 es el de un sistema que está reiniciando.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>La
+  configuración del nivel 6 consistirá en determinar qué servicios tienen que
+  detenerse para el reinicio del sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Después
+  del reinicio se aplicará un nuevo nivel de ejecución (en general el nivel por
+  defecto) y se iniciarán los servicios asociados a este nivel.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>c.
+  ¿Quién decide qué se encuentra en cada uno de los niveles?</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>En la
+  inmensa mayoría de los casos, es la definición inicial de los niveles de
+  ejecución la que se usa.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Es
+  decir, que el autor de la distribución (Ubuntu, Mandriva, Red Hat, etc.)
+  elige lo que se debe activar en cada uno de los niveles de ejecución.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>El
+  administrador de sistemas se conforma con esta decisión.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Sin
+  embargo, puede darse el caso que el administrador de sistemas prefiera
+  gestionar él mismo la configuración de los niveles de ejecución.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Entonces
+  puede elegir a qué nivel funcional corresponde cada uno de los niveles de
+  ejecución y cuáles son los servicios asociados.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>A cada
+  nivel de ejecución le corresponde entonces un conjunto de servicios.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>2.
+  Configuración del proceso init</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Hemos
+  hablado hasta ahora de niveles de ejecución como si de una lista de servicios
+  para arrancar o parar se tratase.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>La
+  cuestión ahora es saber cómo el sistema es consciente de su nivel de
+  ejecución y de los servicios a los que se hace referencia.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>a. El
+  primer proceso iniciado en el sistema</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Si se
+  miran los procesos en ejecución en el sistema, el proceso init se encuentra
+  en primera posición.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1756 style='height:15.0pt;width:1317pt'>Tiene
+  un PPID bastante particular (0) y es el padre de bastantes otros procesos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Los
+  procesos</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Muchos
+  procesos tienen el número 1 como PPID.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>[root@beta
+  ~]# ps -ef | head<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>UID<span
+  style='mso-spacerun:yes'>        </span>PID<span style='mso-spacerun:yes'> 
+  </span>PPID<span style='mso-spacerun:yes'>  </span>C STIME TTY<span
+  style='mso-spacerun:yes'>          </span>TIME CMD<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>root<span
+  style='mso-spacerun:yes'>         </span>1<span style='mso-spacerun:yes'>    
+  </span>0<span style='mso-spacerun:yes'>  </span>0 09:07 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:12 init [5]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>root<span
+  style='mso-spacerun:yes'>         </span>2<span style='mso-spacerun:yes'>    
+  </span>1<span style='mso-spacerun:yes'>  </span>0 09:07 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 [migration/0]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>root<span
+  style='mso-spacerun:yes'>         </span>3<span style='mso-spacerun:yes'>    
+  </span>1<span style='mso-spacerun:yes'>  </span>0 09:07 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 [ksoftirqd/0]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>root<span
+  style='mso-spacerun:yes'>         </span>4<span style='mso-spacerun:yes'>    
+  </span>1<span style='mso-spacerun:yes'>  </span>0 09:07 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 [watchdog/0]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>root<span
+  style='mso-spacerun:yes'>         </span>5<span style='mso-spacerun:yes'>    
+  </span>1<span style='mso-spacerun:yes'>  </span>0 09:07 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:09 [events/0]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>root<span
+  style='mso-spacerun:yes'>         </span>6<span style='mso-spacerun:yes'>    
+  </span>1<span style='mso-spacerun:yes'>  </span>0 09:07 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 [khelper]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>root<span
+  style='mso-spacerun:yes'>         </span>7<span style='mso-spacerun:yes'>    
+  </span>1<span style='mso-spacerun:yes'>  </span>0 09:07 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 [kthread]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>root<span
+  style='mso-spacerun:yes'>        </span>10<span style='mso-spacerun:yes'>    
+  </span>7<span style='mso-spacerun:yes'>  </span>0 09:07 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:04 [kblockd/0]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>root<span
+  style='mso-spacerun:yes'>        </span>11<span style='mso-spacerun:yes'>    
+  </span>7<span style='mso-spacerun:yes'>  </span>0 09:07 ?<span
+  style='mso-spacerun:yes'>        </span>00:00:00 [kacpid]<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>[root@beta
+  ~]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Este
+  proceso es el primero que se ejecuta en el arranque del kernel.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>Tiene
+  evidentemente un rol privilegiado y su comportamiento se rige por un archivo
+  de configuración: /etc/inittab.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>b. El
+  archivo inittab</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Según
+  las distribuciones, el archivo /etc/inittab tiene contenidos muy distintos,
+  pero su estructura es siempre la misma.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Estructura
+  del archivo /etc/inittab</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>identificador:nivel:modo_acción:comando</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Archivo
+  /etc/inittab: estructura de una línea de definición</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><font
+  class="font18">identificador --&gt;</font><font class="font12"> Cadena
+  alfanumérica de uno o dos caracteres. Identifica la línea. No hay más
+  restricciones, salvo evitar tener dos líneas con el mismo identificador.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><font
+  class="font18">nivel --&gt; </font><font class="font12">El nivel o los
+  niveles de ejecución (en cifras) para los cuales la línea es adecuada.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><font
+  class="font18">modo_acción --&gt;</font><font class="font12"> Elegir entre
+  varias palabras clave. Define la forma en la que el comando del cuarto campo
+  se ejecutará.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><font
+  class="font18">comando --&gt;</font><font class="font12"> El comando que se
+  ejecutará en el nivel o los niveles elegidos en el segundo campo según el
+  modo de acción del tercer campo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>Modos
+  de acción comunes:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><font
+  class="font18">*initdefault:</font><font class="font12"> siendo un poco
+  particular, initdefault no rige la forma en la que el comando del cuarto
+  campo se ejecutará. Además, cuando el modo de acción es initdefault, el
+  cuarto campo está vacío. initdefault solo sirve para definir el nivel de
+  ejecución por defecto del sistema.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><font
+  class="font18">*sysinit:</font><font class="font12"> sirve para ejecutar
+  scripts en la inicialización del sistema, independientemente del nivel de
+  ejecución. Por esta razón sysinit no admite ningún valor en el segundo campo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><font
+  class="font18">*wait:</font><font class="font12"> ejecuta el comando del
+  cuarto campo (a menudo un script) y espera el final de esta ejecución para
+  pasar a las siguientes líneas del archivo inittab.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><font
+  class="font18">*respawn:</font><font class="font12"> ejecuta el comando del
+  cuarto campo y deja el proceso ejecutándose en segundo plano. A continuación,
+  pasa a las siguientes líneas del archivo inittab. Si el proceso llamado por
+  el comando se detiene, init lo volverá a iniciar automáticamente.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Archivo
+  inittab de una distribución RedHat:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Los
+  comentarios han sido eliminados por motivos de legibilidad.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>id:5:initdefault:<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>si::sysinit:/etc/rc.d/rc.sysinit<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>l0:0:wait:/etc/rc.d/rc
+  0<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>l1:1:wait:/etc/rc.d/rc
+  1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>l2:2:wait:/etc/rc.d/rc
+  2<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>l3:3:wait:/etc/rc.d/rc
+  3<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>l4:4:wait:/etc/rc.d/rc
+  4<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>l5:5:wait:/etc/rc.d/rc
+  5<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>l6:6:wait:/etc/rc.d/rc
+  6<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>ca::ctrlaltdel:/sbin/shutdown
+  -t3 -r now<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>pf::powerfail:/sbin/shutdown
+  -f -h +2 &quot;Power Failure; System Shutting Down&quot;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>pr:12345:powerokwait:/sbin/shutdown
+  -c &quot;Power Restored; Shutdown Cancelled&quot;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>1:2345:respawn:/sbin/mingetty
+  tty1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>2:2345:respawn:/sbin/mingetty
+  tty2<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>3:2345:respawn:/sbin/mingetty
+  tty3<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>4:2345:respawn:/sbin/mingetty
+  tty4<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>5:2345:respawn:/sbin/mingetty
+  tty5<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>6:2345:respawn:/sbin/mingetty
+  tty6<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>x:5:respawn:/etc/X11/prefdm
+  -nodaemon</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Algunas
+  distribuciones modernas utilizan un mecanismo de inicio alternativo (upstart)
+  y hacen un uso limitado o nulo del archivo inittab.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>El
+  principio de los niveles de ejecución y de los enlaces de ejecución de los
+  servicios se conserva, sin embargo, y es idéntico en todas las
+  distribuciones.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>c.
+  Recordatorio acerca de la ejecución de servicios</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>En un
+  sistema Linux los servicios se ejecutan mediante scripts normalizados que
+  responden como mínimo a dos condiciones:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1756 style='height:15.0pt;width:1317pt'>* Se
+  encuentran todos dentro del directorio /etc/init.d (o están disponibles en
+  esta ubicación en forma de enlace simbólico).</td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1756 style='height:15.0pt;width:1317pt'>*
+  Admiten los parámetros start y stop para la ejecución y la parada del
+  servicio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Sintaxis
+  universal de gestión de servicios:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>/etc/init.d/nombre
+  acción</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Gestión
+  de servicios con el comando service:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>service
+  nombre acción</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Gestión
+  de servicios: parámetros</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><font
+  class="font18">nombre --&gt; </font><font class="font12">El nombre del
+  servicio que se gestionará.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><font
+  class="font18">acción --&gt;</font><font class="font12"> start o stop para
+  arrancar o parar el servicio. status también es una opción comúnmente
+  soportada que indica el estado del servicio.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>El
+  comando service, cuando está disponible, puede considerarse como la forma
+  recomendada de administrar servicios, ya que inicia el servicio liberándolo
+  tanto como le es posible del entorno (pwd y variables).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>De
+  este modo, el servicio se inicia en un entorno más neutro.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Formato
+  estándar de un script de gestión de un servicio</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>#!/bin/bash<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>case
+  $1 in<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>start)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><span
+  style='mso-spacerun:yes'>  </span># comando de inicio del servicio<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>;;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>stop)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><span
+  style='mso-spacerun:yes'>  </span># comando de parada del servicio<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>;;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>esac</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>d.
+  Enlaces entre los niveles de ejecución y los servicios</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl78 height=20 style='height:15.0pt'>
+  <td height=20 class=xl78 width=1756 style='height:15.0pt;width:1317pt'>Si se
+  examina el archivo /etc/inittab, hay en su interior una sección que contiene
+  7 líneas, una por cada nivel de ejecución, con un script como comando:
+  /etc/init.d/rc en modo wait.</td>
+  <td class=xl78 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>No se
+  explicará detalladamente el funcionamiento de este script, simplemente
+  conviene recordar que inicia la ejecución de cada archivo del directorio
+  /etc/rcn.d (siendo n el número del nivel de ejecución).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1756 style='height:15.0pt;width:1317pt'>Con el
+  parámetro start si la primera letra del nombre del archivo es una S y con el
+  parámetro stop si la primera letra del nombre del archivo es una K.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>Cada
+  uno de los archivos de /etc/rcn.d es un enlace simbólico a un script de
+  inicio de servicio de /etc/init.d y esta construcción permite determinar qué
+  servicios deben iniciarse o pararse en cada uno de los niveles de ejecución.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Según
+  la distribución, puede ser que los scripts rc y los directorios rcn.d se
+  ubiquen en sitios distintos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>La
+  coherencia se asegura mediante la gestión correcta de las rutas en los
+  scripts de sistema y la creación de enlaces simbólicos cuando proceda.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>Estos
+  enlaces pueden crearse manualmente con el comando ln o de forma más fiable
+  con el comando update-rc.d.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Creación
+  de enlaces de gestión de servicios con el comando ln</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Estos
+  enlaces deben crearse en cada uno de los niveles de ejecución posibles.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>cd
+  /etc/rcx.d<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>ln -s
+  ../init.d/servicio Cnnservicio</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Enlace
+  de ejecución de servicios: parámetros</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><font
+  class="font18">x --&gt; </font><font class="font12">El nivel de ejecución
+  para el que se quiere gestionar el inicio o la parada del servicio.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><font
+  class="font18">C --&gt;</font><font class="font12"> Conmutador de inicio (S)
+  o parada (K).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><font
+  class="font18">nn --&gt;</font><font class="font12"> Número de orden en dos
+  cifras. El script se gestionará más o menos pronto según los otros del mismo
+  nivel.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><font
+  class="font18">servicio --&gt; </font><font class="font12">Nombre del
+  servicio que se gestionará.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>e.
+  Administración de los niveles de ejecución</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>El
+  comando <font class="font18">runlevel</font><font class="font0"> indica el
+  nivel de ejecución actual.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Visualización
+  del nivel de ejecución</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>runlevel</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>El
+  comando <font class="font18">telinit</font><font class="font0"> permite
+  cambiar en caliente el nivel de ejecución de un sistema.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Cambio
+  del nivel de ejecución</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>telinit
+  nivel</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Donde
+  nivel representa el nivel de ejecución en el que se desea colocar el sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Administración
+  del nivel de ejecución</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>El
+  cambio en caliente del nivel de ejecución solo debería realizarse en un
+  sistema cuya configuración se conozca.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>alfa:~#
+  runlevel<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>N
+  2<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>alfa:~#
+  telinit 3<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>alfa:~#<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>alfa:~#
+  runlevel<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>N
+  3<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>alfa:~#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>También
+  se puede definir el nivel de ejecución al que se desea cambiar en el kernel
+  como parámetro en su carga.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Por
+  tanto, la elección del nivel de ejecución puede realizarse desde el gestor de
+  arranque simplemente colocando el nivel deseado en la línea de carga del
+  kernel.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>f.
+  Comandos de gestión de enlaces de servicios</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Los
+  comandos <font class="font18">update-rc.d</font><font class="font0"> y</font><font
+  class="font12"> </font><font class="font18">chkconfig</font><font
+  class="font0"> permiten liberarse de la gestión apremiante de los enlaces de
+  llamadas de servicios según los niveles de ejecución.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Ambos
+  comandos no están disponibles en todos los sistemas y puede ser que la
+  creación manual de enlaces sea la única solución funcional.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>En
+  todo caso, es pedagógicamente interesante comprobar la acción de estos
+  comandos en los enlaces ubicados en los directorios /etc/rcn.d.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Creación
+  de enlaces de gestión de servicios</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>update-rc.d
+  servicio defaults<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>chkconfig
+  --add servicio</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Donde
+  servicio representa el nombre del servicio presente en el directorio
+  /etc/init.d.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>El
+  parámetro defaults implica que el servicio se iniciará en los niveles
+  funcionales por defecto y se detendrá en los niveles no funcionales (0 para
+  la parada de sistema, 1 para el modo mantenimiento y 6 para una máquina que
+  está reiniciando).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Supresión
+  de enlaces de gestión de servicios</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>update-rc.d
+  servicio remove<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>chkconfig
+  --del servicio</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Comprobación
+  de los estados de un servicio según los niveles</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>chkconfig
+  --list servicio</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>Ejemplo
+  de uso del comando chkconfig:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>El
+  comando chkconfig permite tanto la creación de enlaces como la visualización
+  de los servicios según el nivel de ejecución.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>[root@beta
+  ~]# ls /etc/rc5.d/*nfs<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>ls:
+  /etc/rc5.d/*nfs: No such file or directory<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>[root@beta
+  ~]# chkconfig --add nfs<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>[root@beta
+  ~]# ls /etc/rc5.d/*nfs<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>/etc/rc5.d/K20nfs<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>[root@beta
+  ~]# chkconfig --list nfs<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>nfs<span
+  style='mso-spacerun:yes'>             </span>0:off<span
+  style='mso-spacerun:yes'>   </span>1:off<span style='mso-spacerun:yes'>  
+  </span>2:off<span style='mso-spacerun:yes'>   </span>3:off<span
+  style='mso-spacerun:yes'>   </span>4:off<span style='mso-spacerun:yes'>  
+  </span>5:off<span style='mso-spacerun:yes'>   </span>6:off<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>[root@beta
+  ~]#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>Ejemplo
+  de uso del comando update-rc.d:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>alfa:/etc/init.d#
+  ls /etc/rc2.d/*cron<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>ls: no
+  se puede acceder a /etc/rc2.d/*cron: No existe el archivo o el
+  directorio<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>alfa:/etc/init.d#
+  update-rc.d cron defaults<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><span
+  style='mso-spacerun:yes'> </span>Adding system startup for /etc/init.d/cron
+  ...<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><span
+  style='mso-spacerun:yes'>   </span>/etc/rc0.d/K20cron -&gt;
+  ../init.d/cron<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><span
+  style='mso-spacerun:yes'>   </span>/etc/rc1.d/K20cron -&gt;
+  ../init.d/cron<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><span
+  style='mso-spacerun:yes'>   </span>/etc/rc6.d/K20cron -&gt;
+  ../init.d/cron<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><span
+  style='mso-spacerun:yes'>   </span>/etc/rc2.d/S20cron -&gt;
+  ../init.d/cron<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><span
+  style='mso-spacerun:yes'>   </span>/etc/rc3.d/S20cron -&gt;
+  ../init.d/cron<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><span
+  style='mso-spacerun:yes'>   </span>/etc/rc4.d/S20cron -&gt;
+  ../init.d/cron<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><span
+  style='mso-spacerun:yes'>   </span>/etc/rc5.d/S20cron -&gt;
+  ../init.d/cron<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>alfa:/etc/init.d#
+  ls /etc/rc2.d/*cron<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>/etc/rc2.d/S20cron<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>alfa:/etc/init.d#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>g.
+  Script independiente del nivel de ejecución: rc.local</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Una
+  vez que todos los scripts relacionados con el nivel de ejecución se han
+  ejecutado, también lo hace un último script: rc.local.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>*Script
+  rc.local en una distribución ubuntu</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Listo
+  para ser usado...</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>#!/bin/sh
+  -e<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>#<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>#
+  rc.local<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>#<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'># This
+  script is executed at the end of each multiuser runlevel.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'># Make
+  sure that the script will &quot;exit 0&quot; on success or any other<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>#
+  value on error.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>#<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'># In
+  order to enable or disable this script just change the execution<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>#
+  bits.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>#<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'># By
+  default this script does nothing.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1756 style='height:15.0pt;width:1317pt'>exit 0</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1756 style='height:15.0pt;width:1317pt'>Se
+  puede encontrar un script /etc/rc.boot en algunos sistemas antiguos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>El
+  proceso init también lo invoca.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1756 style='height:15.0pt;width:1317pt'>3.
+  Utilización de los niveles de ejecución</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Sea
+  cual sea la distribución Linux, el administrador siempre tiene a su
+  disposición niveles de ejecución que no se utilizan por defecto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Por
+  supuesto, no sirve de nada configurar los niveles de ejecución por diversión.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>En la
+  inmensa mayoría de los casos, el sistema tiene previsto un nivel funcional
+  por defecto y todo el funcionamiento en producción se realizará en este
+  nivel.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1756 style='height:30.0pt;width:1317pt'>Sin
+  embargo, en algunos casos particulares el administrador puede elegir
+  configurar algunos niveles por necesidades funcionales particulares y cada
+  nivel de ejecución se corresponderá con un modo de funcionamiento del
+  servidor, con la totalidad o parte de los servicios en funcionamiento.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Jugando
+  con los enlaces contenidos en los directorios rcn.d y reemplazando la K de la
+  primera letra por una S o viceversa, se provoca, para un nivel de ejecución
+  determinado, el arranque o la parada del servicio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>De
+  este modo, si un servicio determinado se invoca por un enlace K en el nivel 3
+  y un enlace S en nivel 4, el administrador podrá elegir, arrancando su
+  sistema en uno de estos dos niveles, el nivel funcional del sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl68 width=1756 style='height:30.0pt;width:1317pt'>Se
+  puede preguntar cuál es la importancia del número de orden situado detrás de
+  la S o la K. Los scripts se tratan en el orden en el que el shell los muestra
+  y concretamente son los caracteres alfanuméricos del nombre del enlace los
+  que determinan el orden de ejecución o parada de los scripts.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>La
+  única restricción para la asignación de este número es, por lo tanto, el
+  momento en el que el script debe ejecutarse.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Si un
+  servicio depende de otro, el script que se ha de ejecutar detrás deberá tener
+  un número de orden superior al primero.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Los
+  niveles de ejecución ya no se usan como herramientas de administración, las
+  paradas de servicios se gestionan incorrectamente por defecto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'>Si se
+  desea utilizar los niveles de ejecución como elementos de administración de
+  un sistema, conviene inventariar de forma precisa qué servicios se deben
+  arrancar y cuáles detener en cada cambio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1756 style='height:15.0pt;width:1317pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1756 style='height:15.0pt;width:1317pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1756 style='width:1317pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

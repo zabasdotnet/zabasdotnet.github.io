@@ -1,0 +1,196 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../103.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>103.2 - Process text streams using filters</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(8);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../103.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1489 style='border-collapse:
+ collapse;table-layout:fixed;width:1117pt'>
+ <col class=xl66 width=1489 style='mso-width-source:userset;mso-width-alt:54454;
+ width:1117pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1489 style='height:15.0pt;width:1117pt'><a
+  name="RANGE!A1">pr</a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>Convierte
+  ficheros de texto para imprimirlos.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>pr
+  imprime<span style='mso-spacerun:yes'>  </span>en la<span
+  style='mso-spacerun:yes'>  </span>salida<span style='mso-spacerun:yes'> 
+  </span>estandar<span style='mso-spacerun:yes'>  </span>una<span
+  style='mso-spacerun:yes'>  </span>copia<span style='mso-spacerun:yes'> 
+  </span>paginada<span style='mso-spacerun:yes'>  </span>y, opcionalmente,<span
+  style='mso-spacerun:yes'>  </span>multicolumna de los ficheros de texto dados
+  en la linea de ordenes, o de la entrada estandar si no se han indicado
+  ficheros o si aparece el nombre de fichero `-'.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>Los
+  avances de pagina en la entrada producen saltos de pagina en la salida.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1489 style='height:15.0pt;width:1117pt'>SINOPSIS</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1489 style='height:15.0pt;width:1117pt'>pr<span
+  style='mso-spacerun:yes'>  </span>[+PAGE]<span style='mso-spacerun:yes'> 
+  </span>[-COLUMN]<span style='mso-spacerun:yes'>  </span>[-abcdfFmrtv]<span
+  style='mso-spacerun:yes'>  </span>[-e[in-tab-char[in-tab-width]]]<span
+  style='mso-spacerun:yes'>  </span>[-h header]
+  [-i[out-tab-char[out-tab-width]]] [-l</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1489 style='height:15.0pt;width:1117pt'>page-length]
+  [-n[number-separator[digits]]] [-o left-margin] [-s[column-separator]] [-w
+  page-width] [--help]<span style='mso-spacerun:yes'>  </span>[--version]</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1489 style='height:15.0pt;width:1117pt'>[file...]</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>+PAGE
+  --&gt; Empieza imprimiendo en la pagina PAGE.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>-COLUMN
+  --&gt; Imprime<span style='mso-spacerun:yes'>  </span>COLUMN<span
+  style='mso-spacerun:yes'>  </span>columnas<span style='mso-spacerun:yes'> 
+  </span>en sentido vertical.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>-a
+  --&gt; Imprime las columnas a lo ancho de la pagina en vez de hacia abajo.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>-b
+  --&gt; Balancea las columnas en la ultima pagina.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>-c
+  --&gt; Imprime<span style='mso-spacerun:yes'>  </span>los<span
+  style='mso-spacerun:yes'>  </span>caracteres<span style='mso-spacerun:yes'> 
+  </span>de<span style='mso-spacerun:yes'>  </span>control<span
+  style='mso-spacerun:yes'>  </span>usando<span style='mso-spacerun:yes'> 
+  </span>la<span style='mso-spacerun:yes'>  </span>notacion<span
+  style='mso-spacerun:yes'> 
+  </span>&quot;&quot;circunflejo-letra&quot;&quot;<span
+  style='mso-spacerun:yes'>  </span>(p.e.:<span style='mso-spacerun:yes'> 
+  </span>`^G'); Imprime los otros caracteres no imprimibles en notacion octal
+  con barra invertida.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>-d
+  --&gt; La salida sera a doble espacio.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>-e[in-tab-char[in-tab-width]]
+  --&gt; Expande los tabuladores en la entrada a espacios.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>-F, -f
+  --&gt; Para separar las paginas de salida, usa el caracter
+  &quot;&quot;avanzar pagina&quot;&quot; (&quot;&quot;formfeed&quot;&quot;)
+  en<span style='mso-spacerun:yes'>  </span>vez<span style='mso-spacerun:yes'> 
+  </span>del<span style='mso-spacerun:yes'>  </span>de<span
+  style='mso-spacerun:yes'>  </span>&quot;&quot;nueva<span
+  style='mso-spacerun:yes'>  </span>linea&quot;&quot; (&quot;&quot;new
+  line&quot;&quot;).</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>-h
+  header --&gt; Reemplaza en la cabecera el nombre del fichero por la
+  cadena<span style='mso-spacerun:yes'>  </span>header.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>--help
+  --&gt; Imprime el mensaje sobre el uso del comando y termina con un codigo de
+  estado indicando una ejecucion correcta.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>-i[out-tab-char[out-tab-width]]
+  --&gt; Reemplaza<span style='mso-spacerun:yes'>  </span>los<span
+  style='mso-spacerun:yes'>  </span>espacios<span style='mso-spacerun:yes'> 
+  </span>con<span style='mso-spacerun:yes'>  </span>tabuladores<span
+  style='mso-spacerun:yes'>  </span>en<span style='mso-spacerun:yes'> 
+  </span>la<span style='mso-spacerun:yes'>  </span>salida.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>-l
+  page-length --&gt; Establece<span style='mso-spacerun:yes'>  </span>la<span
+  style='mso-spacerun:yes'>  </span>longitud de pagina a page-length lineas.
+  Por defecto 66.<span style='mso-spacerun:yes'>  </span>Si page-length es
+  menor que 10, se omiten las cabeceras y pies de pagina, como si se hubiese
+  dado la opcion -t.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>-m
+  --&gt; Imprime todos los ficheros en paralelo, uno por columna.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1489 style='height:15.0pt;width:1117pt'>-n[number-separator[digits]]
+  --&gt; Precede cada columna con un numero de linea; con ficheros en paralelo,
+  precede cada linea con un numero de<span style='mso-spacerun:yes'> 
+  </span>linea.</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1489 style='width:1117pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,510 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../104.5.htm">
+<link rel=File-List href=filelist.xml>
+<title>104.5 - Manage file permissions and ownership</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../104.5.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=5431 style='border-collapse:
+ collapse;table-layout:fixed;width:4075pt'>
+ <col class=xl68 width=1377 style='mso-width-source:userset;mso-width-alt:50358;
+ width:1033pt'>
+ <col class=xl75 width=855 style='mso-width-source:userset;mso-width-alt:31268;
+ width:641pt'>
+ <col class=xl66 width=667 style='mso-width-source:userset;mso-width-alt:24393;
+ width:500pt'>
+ <col class=xl66 width=914 style='mso-width-source:userset;mso-width-alt:33426;
+ width:686pt'>
+ <col class=xl66 width=767 style='mso-width-source:userset;mso-width-alt:28050;
+ width:575pt'>
+ <col class=xl66 width=450 style='mso-width-source:userset;mso-width-alt:16457;
+ width:338pt'>
+ <col class=xl66 width=174 style='mso-width-source:userset;mso-width-alt:6363;
+ width:131pt'>
+ <col class=xl66 width=102 style='mso-width-source:userset;mso-width-alt:3730;
+ width:77pt'>
+ <col class=xl66 width=80 style='width:60pt'>
+ <col class=xl66 width=45 style='mso-width-source:userset;mso-width-alt:1645;
+ width:34pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'>Es posible cambiar el
+  propietario y el grupo de un fichero con la ayuda de los comandos chown
+  (change owner) y chgrp (change group).</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'>El parámetro -R cambia la
+  propiedad de manera recursiva.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl77 width=855 style='width:641pt'><a name="RANGE!B5">chown usuario
+  fic1 [Fic2...]</a></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl77 width=855 style='width:641pt'><a name="RANGE!B6">chgrp grupo
+  fic1 [Fic2...]</a></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'>Al especificar el nombre de
+  usuario (o de grupo), el sistema comprueba primero su existencia.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'>Usted puede especificar un UID o
+  un GID.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'>En este caso, el sistema no
+  efectuará comprobación alguna.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl77 width=855 style='width:641pt'>Para los dos comandos, no se
+  modifican los permisos anteriores ni la ubicación del fichero.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl77 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'>Es posible modificar con un solo
+  comando el propietario y el grupo a la vez.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl78 width=855 style='width:641pt'>chown usuario[:grupo] fic1
+  [fic2...]</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl79 width=855 style='width:641pt'>chown usuario[.grupo] fic1
+  [fic2...]</td>
+  <td class=xl68 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl77 width=855 style='width:641pt'>Sólo root tiene el permiso de
+  cambiar el propietario de un fichero.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'>Pero un usuario puede cambiar el
+  grupo de un fichero si forma parte del nuevo grupo.</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl66 width=1377 style='height:45.0pt;width:1033pt'></td>
+  <td class=xl77 width=855 style='width:641pt'>$ chgrp video fic1<br>
+    $ ls -l fic1<br>
+    -rwxr-xr-x 1 seb video 0 mar 21 22:03 fic1</td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl77 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl77 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1377 style='height:15.0pt;width:1033pt'></td>
+  <td class=xl75 width=855 style='width:641pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1377 style='width:1033pt'></td>
+  <td width=855 style='width:641pt'></td>
+  <td width=667 style='width:500pt'></td>
+  <td width=914 style='width:686pt'></td>
+  <td width=767 style='width:575pt'></td>
+  <td width=450 style='width:338pt'></td>
+  <td width=174 style='width:131pt'></td>
+  <td width=102 style='width:77pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=45 style='width:34pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

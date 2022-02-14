@@ -1,0 +1,1192 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../208.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(3);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../208.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1774 style='border-collapse:
+ collapse;table-layout:fixed;width:1331pt'>
+ <col class=xl68 width=1726 style='mso-width-source:userset;mso-width-alt:63122;
+ width:1295pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>Restricción
+  de acceso a usuarios de un servidor Apache</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Apache
+  ofrece múltiples posibilidades de restricción de acceso a usuarios y existen
+  muchos medios para gestionar el acceso a datos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Cabe
+  decir que este párrafo solo trata los métodos de autentificación de los
+  usuarios y no explica nada acerca de la confidencialidad.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1726 style='height:15.0pt;width:1295pt'>Es
+  decir, que el acceso a los datos podrá someterse a la autentificación, pero
+  las páginas web circularán sin encriptar entre el servidor y el navegador.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Si se
+  desea tener <font class="font5">confidencialidad</font><font class="font0">
+  en la comunicación, se tendrá que usar el protocolo </font><font class="font5">SSL</font><font
+  class="font0"> que se verá más adelante.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>1.
+  Restricción de acceso a páginas web</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>a.
+  Declaración del directorio que se desea proteger</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>La
+  restricción se realiza en directorios cuyo contenido solo se puede ver una
+  vez el usuario se ha autentificado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Si se
+  desea restringir el acceso a un sitio entero, basta con restringir el acceso
+  al directorio raíz del contenido web.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Sin
+  embargo, en la práctica se desea tener una página de inicio disponible para
+  todo el mundo y que toda navegación a partir de esta esté sometida a la
+  autentificación del usuario.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Declaración
+  de una sección de directorio en apache2.conf</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>&lt;Directory
+  directorio&gt;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>...<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>&lt;/Directory&gt;</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Donde <font
+  class="font16">directorio</font><font class="font0"> representa la </font><font
+  class="font12">ruta absoluta</font><font class="font0"> del directorio cuyo
+  acceso hay que proteger.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Cabe
+  destacar los puntos suspensivos que representan las directivas específicas
+  que se aplicarán al contenido de este directorio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>b.
+  Directivas de autentificación</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>En la
+  sección de directorio sujeta a la autentificación, hay que añadir el conjunto
+  de directivas necesarias según el modo de autentificación que se escoja.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Algunas
+  de estas directivas se encontrarán en la mayoría de las circunstancias.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Solicitud
+  de autentificación</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>AuthName
+  &quot;texto&quot;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>Require
+  valid-user<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>Directiva_aut
+  parámetro_aut</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Archivo
+  Apache2.conf: solicitud de autentificación para un directorio</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>AuthName
+  <font class="font13">--&gt; Define el título del cuadro de diálogo que
+  solicitará la autentificación del usuario.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>texto <font
+  class="font13">--&gt; Título del cuadro de diálogo que solicitará la
+  autentificación del usuario.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>Require
+  valid-user <font class="font13">--&gt; Directiva que impone un funcionamiento
+  específico con su parámetro valid-user que exige que el usuario esté
+  correctamente autentificado.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>Directiva_aut
+  <font class="font13">--&gt; La directiva o las directivas de autentificación
+  en función del método escogido.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Se ha
+  empleado en este ejemplo el parámetro <font class="font16">valid-user</font><font
+  class="font0"> para establecer que cualquier usuario autentificado pueda
+  acceder a los datos protegidos.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Se
+  podría haber usado <font class="font16">user x</font><font class="font0"> o </font><font
+  class="font16">group y</font><font class="font0"> para limitar el acceso a un
+  usuario o a los miembros de un grupo.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>2.
+  Autentificación local</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>a.
+  Creación de una base de datos de cuentas locales</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>La
+  creación de un archivo de cuentas locales para la autentificación de los
+  visitantes Apache es una forma sencilla y común de administrar usuarios.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Se
+  trata de un <font class="font11">archivo único</font><font class="font0"> que
+  contiene una </font><font class="font16">línea</font><font class="font0"> por
+  cada </font><font class="font16">declaración</font><font class="font0"> de
+  usuario.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Por lo
+  tanto, conviene usar este método en entornos con un número limitado de
+  usuarios.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'><a
+  name="RANGE!A47">El comando <font class="font11">htpasswd</font><font
+  class="font0"> permite </font><font class="font5">crear</font><font
+  class="font0"> la base de datos de </font><font class="font5">cuentas</font><font
+  class="font0"> y trabajar con ella.</font></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Creación
+  de la primera cuenta de usuario</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>htpasswd
+  -c archivo nombre_usuario</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Añadir
+  una cuenta de usuario</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>htpasswd
+  archivo nombre_usuario</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Eliminar
+  una cuenta de usuario</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>htpasswd
+  -D archivo nombre_usuario</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Comando
+  htpasswd: opciones y parámetros</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>-c <font
+  class="font13">--&gt; Necesario si el archivo no existe todavía. Si el
+  archivo ya existe, se sobreescribe.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>archivo
+  <font class="font13">--&gt; El archivo que contiene la base de datos de
+  cuentas.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>nombre_usuario
+  <font class="font13">--&gt; El nombre de la cuenta creada.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>-D <font
+  class="font13">--&gt; Elimina el usuario cuyo nombre se proporciona como
+  parámetro.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Ejemplo
+  de archivo de contraseñas</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>El
+  archivo muestra en cada línea el nombre de la cuenta de usuario y su
+  contraseña cifrada.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>alfa:~#
+  cat httpmdp<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>usuario:x4OpUoo9KBR1o<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>toto:o9zeMsxnhS45M<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>titi:hQcfUWksuIAmk<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>alfa:~#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'><a
+  name="RANGE!A72">b. Carga de módulos de autentificación</a></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Algunos
+  módulos tienen que cargarse para que se puedan reconocer las directivas.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Habrá
+  que cargar como mínimo:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>- el
+  módulo <font class="font16">auth_basic</font><font class="font5"> para
+  permitir la autentificación mediante un archivo local</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'><span
+  style='mso-spacerun:yes'> </span>- el módulo <font class="font16">authn_file</font><font
+  class="font5"> para gestionar esta autentificación</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'><span
+  style='mso-spacerun:yes'> </span>- el módulo <font class="font16">authz_user,</font><font
+  class="font5"> que gestiona la autorización de acceso a las páginas
+  protegidas.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Esta
+  profusión de módulos puede ser inquietante, pero un mínimo de rigor facilita
+  las cosas: para cada una de las directivas empleadas, la documentación en
+  línea especifica sistemáticamente qué módulos tienen que cargarse.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Carga
+  de módulos</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Los
+  tres módulos son necesarios para la autentificación de usuarios.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>LoadModule
+  auth_basic_module /ruta/mod_auth_basic.so<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>LoadModule
+  authn_file_module /ruta/mod_authn_file.so<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>LoadModule
+  authz_user_module /ruta/mod_authz_user.so</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'><a
+  name="RANGE!A87">c. Configuración de la autentificación local</a></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>En la
+  sección de directorio sujeta a la autentificación, habrá que añadir a
+  continuación las directivas necesarias para la autentificación local.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Directivas
+  para la autentificación local</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>AuthType
+  Basic<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>AuthUserFile
+  archivo</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Donde <font
+  class="font16">archivo</font><font class="font0"> representa el </font><font
+  class="font10">archivo</font><font class="font0"> que contiene la base de
+  datos de </font><font class="font10">cuentas</font><font class="font0"> de
+  usuario usada para la autentificación con las contraseñas de los usuarios.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Ejemplo
+  de archivo apache2.conf con autentificación</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>ServerRoot
+  /etc/apache2<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>User
+  www-data<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>Group
+  www-data<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>ErrorLog
+  /var/log/apache2/error.log<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>Listen
+  80<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>DocumentRoot
+  /var/www<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>LoadModule
+  dir_module /usr/lib/apache2/modules/mod_dir.so<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>DirectoryIndex
+  index.html<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>LoadModule
+  auth_basic_module /usr/lib/apache2/modules/mod_auth_basic.so<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>LoadModule
+  authn_file_module /usr/lib/apache2/modules/mod_authn_file.so<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>LoadModule
+  authz_user_module /usr/lib/apache2/modules/mod_authz_user.so<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>&lt;Directory
+  /var/www&gt;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'><span
+  style='mso-spacerun:yes'>  </span>AuthType basic<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'><span
+  style='mso-spacerun:yes'>  </span>AuthUserFile /root/httpmdp<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'><span
+  style='mso-spacerun:yes'>  </span>AuthName &quot;Se necesita comprobar sus
+  credenciales&quot;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'><span
+  style='mso-spacerun:yes'>  </span>Require valid-user<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>&lt;/Directory&gt;</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>3.
+  Autentificación mediante directorio LDAP</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Existen
+  varios métodos para usar un directorio LDAP como base de datos de
+  autentificación.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>La
+  configuración siguiente es uno de los posibles ejemplos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>a.
+  Comprobación de la disponibilidad de la información del directorio</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Supongamos
+  que se dispone de un directorio LDAP con las siguientes características:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Dirección
+  IP: 192.168.1.11</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Contexto
+  de cuentas de usuarios: ou=users,dc=direc,dc=es</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Nombre
+  distinguido del administrador: cn=admin,dc=direc,dc=es</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Ejemplo
+  de consulta al directorio</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Se
+  recomienda sobremanera comprobar que el directorio está adecuadamente en
+  línea y accesible con los datos correctos (dirección IP y contexto LDAP)
+  antes de configurar la autentificación LDAP para cualquier aplicación.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>usuario@servidor#
+  ldapsearch -x -D cn=admin,dc=direc,dc=es -W -h<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>192.168.1.11
+  -b ou=users,dc=direc,dc=es -s sub ObjectClass=*<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>Enter
+  LDAP Password:<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>#
+  extended LDIF<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>#<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>#
+  LDAPv3<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'># base
+  &lt;dc=direc,dc=es&gt; with scope subtree<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>#
+  filter: (objectclass=*)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>#
+  requesting: ALL<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>#<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>#
+  direc.es<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>dn:
+  dc=direc,dc=es<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>objectClass:
+  domain<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>dc:
+  direc<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>(...)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>#
+  usuario, users.direc.es<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>dn:
+  uid=usuario,ou=users,dc=direc,dc=es<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>objectClass:
+  top<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>objectClass:
+  posixAccount<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>objectClass:
+  person<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>objectClass:
+  organizationalPerson<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>objectClass:
+  inetOrgPerson<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>(...)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1726 style='height:15.0pt;width:1295pt'>usuario@servidor#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>b.
+  Carga de los módulos necesarios</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Los
+  módulos necesarios para la autentificación LDAP son los siguientes:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>1)
+  auth_basic</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>2)
+  authn_file</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>3)
+  authz_user</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>4)
+  authnz_ldap</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>c.
+  Configuración de la autentificación</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Ahora
+  se deberán utilizar las directivas de autentificación en una sección de
+  directorio.<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>El
+  punto culminante de la configuración será la declaración de la <font
+  class="font11">directiva</font><font class="font16"> AuthLDAPUrl</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Directivas
+  utilizadas para la autentificación LDAP</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Aunque
+  la sintaxis pueda parecer impresionante, no se debe al azar o a la
+  imaginación de los desarrolladores.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>El
+  formato URL LDAP se define en la RFC2255 y se utiliza en algunas
+  aplicaciones.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>AuthName
+  &quot;Texto&quot;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>AuthType
+  Basic<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>Require
+  Valid-user<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>AuthLDAPUrl
+  ldap://192.168.1.11/ou=users,dc=direc,dc=es?cn?sub?objectclass=*</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'><a
+  name="RANGE!A177">4. Autentificación simple mediante el archivo .htaccess</a></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Las
+  buenas prácticas de Apache recomiendan utilizar una directiva <font
+  class="font5">Directory</font><font class="font0"> cada vez que una </font><font
+  class="font5">configuración</font><font class="font0"> específica debe
+  aplicarse al contenido de un directorio y ubicar en el bloque definido por
+  esta directiva los elementos de configuración específicos a este directorio.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Un
+  método alternativo consiste en crear un archivo <font class="font11">.htaccess</font><font
+  class="font0"> en el directorio en cuestión e integrar en él las directivas
+  que se deben aplicar en el contenido del directorio.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl79 width=1726 style='height:15.0pt;width:1295pt'>Aunque
+  el mejor método es sin duda el uso de la directiva Directory, se recomienda
+  (encarecidamente) para la certificación <font class="font18">LPI</font><font
+  class="font23"> estar familiarizado con el concepto de los archivos </font><font
+  class="font18">.htaccess</font><font class="font23">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Ejemplos
+  comparativos de uso</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Extracto
+  del archivo de configuración Apache con la directiva Directory:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>...<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>&lt;Directory
+  /var/www/prot&gt;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>AllowOverride
+  all<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>authType
+  basic<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>AuthName
+  &quot;Se necesita comprobar sus credenciales&quot;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>Require
+  valid-user<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>AuthUserFile
+  /etc/httpd/mdp<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>&lt;/Directory&gt;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>...</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1726 style='height:15.0pt;width:1295pt'>*Contenido
+  del archivo <font class="font11">/var/www/prot/.htaccess</font><font
+  class="font5"> utilizado para configurar una autentificación desde el
+  directorio de datos html:</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1726 style='height:15.0pt;width:1295pt'>authType
+  basic<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1726 style='height:15.0pt;width:1295pt'>AuthName
+  &quot;Se necesita comprobar sus credenciales&quot;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1726 style='height:15.0pt;width:1295pt'>Require
+  valid-user<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1726 style='height:15.0pt;width:1295pt'>AuthUserFile
+  /etc/httpd/mdp</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>A
+  veces, las dos configuraciones entran en conflicto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Configurando
+  por un lado el comportamiento específico del directorio en un contexto
+  directory y, por otro lado, la misma directiva se configura de forma distinta
+  en un archivo .htaccess del mismo directorio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>En
+  este caso, la <font class="font10">directiva</font><font class="font0"> </font><font
+  class="font16">AllowOverride</font><font class="font0"> permite </font><font
+  class="font13">establecer</font><font class="font0"> qué </font><font
+  class="font13">configuración</font><font class="font0"> se utilizará.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>*Valores
+  comunes de la directiva AllowOverride</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>all <font
+  class="font13">--&gt; Valor por defecto: Cualquier directiva se autoriza en
+  los archivos .htaccess.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>none <font
+  class="font13">--&gt; Ninguna directiva se autoriza en los archivos
+  .htaccess. Los archivos .htaccess serán ignorados.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1726 style='height:15.0pt;width:1295pt'>AuthConfig
+  <font class="font13">--&gt; Autoriza las directivas relativas a los
+  mecanismos de autentificación.</font></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1726 style='height:15.0pt;width:1295pt'>Se
+  recomienda encarecidamente <font class="font18">no aplicar</font><font
+  class="font9"> la directiva </font><font class="font17">AllowOverride All </font><font
+  class="font9">en el directorio </font><font class="font23">raíz</font><font
+  class="font9"> de su servidor web </font><font class="font17">(¡valor por
+  defecto!</font><font class="font9">).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Es
+  mejor definir este valor a <font class="font11">None</font><font class="font0">,
+  y crear una directiva Directory con la directiva AllowOverride configurada
+  solamente para el directorio que nos interesa.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'>Este
+  método no solo aumenta la seguridad, sino también el rendimiento evitando que
+  el servidor web tenga que buscar un hipotético archivo <font class="font10">.htaccess</font><font
+  class="font0"> en cada uno de los directorios que se visitan.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1726 style='height:15.0pt;width:1295pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1726 style='height:15.0pt;width:1295pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1726 style='width:1295pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,337 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../104.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>104.2 - Maintain the integrity of filesystems</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(8);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../104.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=889 style='border-collapse:
+ collapse;table-layout:fixed;width:667pt'>
+ <col class=xl66 width=729 style='mso-width-source:userset;mso-width-alt:26660;
+ width:547pt'>
+ <col class=xl66 width=80 span=2 style='width:60pt'>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=729 style='height:30.0pt;width:547pt'><a
+  name="RANGE!A1">El comando tune2fs permite modificar algunos parámetros de un
+  sistema de ficheros ext2 o ext3.<br>
+    Se usa para convertir ext2 a ext3, y viceversa.</a></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=729 style='height:15.0pt;width:547pt'>Parámetros:</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=729 style='height:15.0pt;width:547pt'>-c
+  n<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl66 width=729 style='height:45.0pt;width:547pt'>Número
+  de veces que se debe montar el sistema de ficheros antes de ser comprobado
+  automáticamente. Por ejemplo, si n vale 10, se iniciará de manera automática
+  fsck la décima vez que se monte. Si n vale 0 o -1, se desactivará la
+  verificación.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=729 style='height:15.0pt;width:547pt'>-i
+  n<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl66 width=729 style='height:45.0pt;width:547pt'>Intervalo
+  de tiempo entre dos comprobaciones. La unidad por defecto es el día. Se
+  pueden juntar los sufijos d (días), w (semanas) o m (mes) al número. -i 180d
+  significa que se controlará el sistema de ficheros después de 180 días.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=729 style='height:15.0pt;width:547pt'>-j</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl66 width=729 style='height:45.0pt;width:547pt'>Añade un
+  diario sobre un sistema de ficheros ext2. Es preferible hacerlo con el
+  sistema desmontado. En el caso contrario, se añade un fichero oculto .journal
+  a la raíz del sistema, inmutable (salvo si usted destruye el diario), que se
+  integrará dentro del sistema durante la próxima ejecución de fsck.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=729 style='height:15.0pt;width:547pt'>-L</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'>Modifica
+  la etiqueta (label, nombre de volumen). La etiqueta no debe superar 16
+  caracteres o será truncada.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=729 style='height:15.0pt;width:547pt'>-e err</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=60 style='height:45.0pt'>
+  <td height=60 class=xl66 width=729 style='height:45.0pt;width:547pt'>Indica
+  cómo debe reaccionar el núcleo si se detecta un error en el sistema de
+  ficheros durante el boot. El valor por defecto es «continuo». Los otros
+  valores posibles son «panic» (bloqueo del núcleo en modo kernel panic) y
+  «remount-ro»: remontaje en modo de sólo lectura.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=729 style='height:15.0pt;width:547pt'>-m n</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl66 width=729 style='height:60.0pt;width:547pt'>El
+  porcentaje n representa el tamaño reservado a los procesos iniciados por root
+  (y el propio root) sobre el tamaño total de la partición. En un sistema de
+  ficheros reservados a los usuarios, poner 0 permite llenar el sistema de
+  ficheros hasta 100%. Pero es importante reservar en la raíz, o /var, una zona
+  para que algunas bitácoras como syslogd puedan seguir escribiendo los
+  registros. Por defecto se reserva el 5%.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=729 style='height:15.0pt;width:547pt'>-o
+  [^]option</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=729 style='height:30.0pt;width:547pt'>Añade o
+  suprime (con ^) la opción indicada por defecto al montaje. Las opciones
+  pueden ser, por ejemplo, acl o user_xattr.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=729 style='height:15.0pt;width:547pt'>-O
+  [^]function</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=729 style='height:30.0pt;width:547pt'>Añade o
+  suprime (con ^) la función indicada. La función más famosa es «has_journal».
+  -O has_journal equivale a -j. -O ^has_journal convierte ext3 en ext2.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=729 style='height:15.0pt;width:547pt'>-U UUID</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=729 style='height:30.0pt;width:547pt'>Modifica
+  el valor del UUID a su conveniencia (formato hexadecimal). Es posible
+  suprimirlo (clear), generar uno de manera aleatoria (random) o generar uno en
+  función de la fecha (time).</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=729 style='height:15.0pt;width:547pt'>-s 0/1</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=729 style='height:30.0pt;width:547pt'>Activa o
+  desactiva la «sparse super feature». En discos de gran tamaño, la activación
+  reduce el número de bloques de emergencia para ganar espacio. Después debe
+  ejecutar fsck.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=729 style='height:15.0pt;width:547pt'>#
+  tune2fs -m 0 -s 1 -U random -e remount-ro -c 60 -i 180 /dev/sdb1</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=729 style='height:15.0pt;width:547pt'>Observe
+  que -c e -i van de la mano.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'>A
+  vencimiento del plazo se efectúa la comprobación con fsck.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'>Luego el
+  sistema pone de nuevo a cero la fechas y los contadores.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=729 style='height:15.0pt;width:547pt'>Como
+  consecuencia de un fsck, el sistema pone de nuevo a cero las fechas y los
+  contadores.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=729 style='height:15.0pt;width:547pt'>Se
+  verifican los contadores durante el montaje en el momento del inicio (boot)
+  del sistema.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=729 style='height:30.0pt;width:547pt'>Si hace
+  300 días que el sistema no se ha reiniciado y no se ha verificado el sistema
+  de ficheros durante este intervalo, no se verificará automáticamente durante
+  estos 300 días, sino en el próximo reinicio.</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl66 width=729 style='height:30.0pt;width:547pt'>Como
+  algunos servidores reinician pocas veces (por ejemplo, cada dos años), no se
+  comprueba el sistema de ficheros de manera automática durante todo este
+  tiempo...</td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=729 style='width:547pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=80 style='width:60pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

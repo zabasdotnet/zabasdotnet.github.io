@@ -1,0 +1,184 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../102.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>102.2 - Install a boot manager</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../102.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1256 style='border-collapse:
+ collapse;table-layout:fixed;width:942pt'>
+ <col class=xl68 width=1113 style='mso-width-source:userset;mso-width-alt:40704;
+ width:835pt'>
+ <col class=xl68 width=143 style='mso-width-source:userset;mso-width-alt:5229;
+ width:107pt'>
+ <col class=xl66 width=597 style='mso-width-source:userset;mso-width-alt:21833;
+ width:448pt'>
+ <col class=xl66 width=457 style='mso-width-source:userset;mso-width-alt:16713;
+ width:343pt'>
+ <tr class=xl68 height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1113 style='height:15.0pt;width:835pt'><a
+  name="RANGE!A1">menu.lst, grub.cfg and grub.conf</a></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'>En la
+  mayoría de las distribuciones Linux, el cargador por defecto se llama GRUB
+  (Grand Unified Bootloader).</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'>Se
+  puede configurar en gran medida, en particular la protección mediante
+  contraseña encriptada.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'>Cuenta
+  con un intérprete de comandos y con una interfaz gráfica.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'>GRUB
+  guarda las configuraciones en un fichero de texto y no es necesario volver a
+  instalar GRUB tras cada modificación.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'>GRUB2
+  es el sucesor de GRUB y se ha reescrito desde cero.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'>De su
+  predecesor sólo conserva el nombre.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'>Ya es
+  el cargador por defecto de algunas distribuciones, entre las cuales hay
+  Ubuntu desde la versión 9.10 o Debian 6.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'>Está
+  dotado de una interfaz gráfica y es modular, compatible con varias
+  arquitecturas (BIOS, EFI, Raid, etc.) y dispone de un modo de recuperación.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'>La
+  mayor parte de la configuración es automática.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'>Los
+  componentes de GRUB2 detectarán automáticamente la presencia de nuevos
+  núcleos de Linux y de otros sistemas operativos como Windows, gracias al
+  comando osprober.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'>Esta
+  detección no se realiza en el arranque, sino en la ejecución de un comando de
+  actualización.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'>Su
+  instalación es idéntica a la de la primera versión de GRUB.<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'></td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1113 style='height:15.0pt;width:835pt'>Se
+  puede migrar de GRUB a GRUB2 utilizando el comando upgradefromgrublegacy: el
+  archivo menu.lst pasará a estar controlado y se aplicará la nueva
+  configuración.</td>
+  <td class=xl68 width=143 style='width:107pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1113 style='width:835pt'></td>
+  <td width=143 style='width:107pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

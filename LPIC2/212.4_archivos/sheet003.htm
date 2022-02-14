@@ -1,0 +1,732 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../212.4.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../212.4.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1487 style='border-collapse:
+ collapse;table-layout:fixed;width:1115pt'>
+ <col class=xl68 width=1439 style='mso-width-source:userset;mso-width-alt:52626;
+ width:1079pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'><a
+  name="RANGE!A1">Filtrado de paquetes</a></td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>a.
+  Política y reglas</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'><font
+  class="font12">Después</font><font class="font0"> de haber configurado una </font><font
+  class="font12">política</font><font class="font0"> que describe el
+  comportamiento básico del cortafuegos, hay que </font><font class="font5">crear</font><font
+  class="font0"> las </font><font class="font16">reglas</font><font
+  class="font0"> específicas para el tráfico que se desea dejar pasar o
+  prohibir.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>La
+  filosofía del cortafuegos es:<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>Se
+  define el comportamiento general con las políticas y se gestiona caso por
+  caso el comportamiento específico con reglas.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>b.
+  Creación de reglas</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Para <font
+  class="font5">cada</font><font class="font0"> </font><font class="font5">elemento</font><font
+  class="font0"> de tráfico que debe estar permitido o prohibido, habrá que </font><font
+  class="font5">crear</font><font class="font0"> una </font><font class="font5">regla</font><font
+  class="font0"> específica.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*Sintaxis
+  de creación de una regla de gestión de tráfico</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>iptables
+  -A cadena -s ip_origen -d ip_destino -p protocolo --dport puerto -j acción</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*iptables:
+  creación de reglas</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>-A
+  cadena --&gt; Se añade una regla en la cadena cadena (INPUT, OUTPUT o
+  FORWARD).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>-s
+  ip_origen --&gt; Opcional: la dirección IP origen de donde provienen los
+  paquetes sometidos a la regla. Si la dirección es una dirección de red, hay
+  que especificar la máscara.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>-d
+  ip_destino --&gt; Opcional: la dirección IP destino a la que van los paquetes
+  sometidos a la regla. Si la dirección es una dirección de red, hay que
+  especificar la máscara.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>-p
+  protocolo --&gt; Indica el protocolo utilizado en el paquete sometido a la
+  regla. Valores comunes: udp, tcp, icmp.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>--dport
+  puerto --&gt; Opcional: indica el puerto de destino del paquete sometido a la
+  regla.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>-j
+  acción --&gt; Indica cómo tratar el paquete sometido a la regla (ACCEPT o
+  DROP).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*Autorización
+  de ping salientes y entrantes</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Cada
+  tipo de flujo tiene que ser el objetivo de una regla de iptables.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -A OUTPUT -p icmp -j ACCEPT<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -A INPUT -p icmp -j ACCEPT<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*Autorización
+  del tráfico http que pase por la máquina con origen una red determinada</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -A FORWARD -s 192.168.1.0/24 -p tcp -dport 80 -j ACCEPT<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Una
+  configuración errónea en un cortafuegos puede tener consecuencias drásticas.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Para <font
+  class="font5">comprobar</font><font class="font0"> que la </font><font
+  class="font5">configuración</font><font class="font0"> está realizada
+  correctamente, se recomienda utilizar un </font><font class="font5">escáner</font><font
+  class="font0"> de </font><font class="font5">puertos</font><font class="font0">
+  desde una máquina </font><font class="font5">remota</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'><a
+  name="RANGE!A34">El comando <font class="font16">nmap -F</font><font
+  class="font0"> </font><font class="font20">seguido</font><font class="font0">
+  de la dirección </font><font class="font16">IP</font><font class="font0"> de
+  la máquina protegida permite comprobar muy rápido (Fastmode) que los puertos
+  están adecuadamente bloqueados o abiertos.</font></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>c.
+  Gestión de reglas</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Las <font
+  class="font16">reglas</font><font class="font0"> se aplican en su </font><font
+  class="font11">orden</font><font class="font0"> de </font><font class="font11">creación</font><font
+  class="font0"> y el sistema les asigna automáticamente un número de orden.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*Visualización
+  de los números de reglas efectivas</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>iptables
+  -L cadena --line-numbers -n</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Donde <font
+  class="font16">cadena</font><font class="font0"> </font><font class="font5">representa</font><font
+  class="font0"> la cadena de tratamiento </font><font class="font13">(</font><font
+  class="font16">INPUT, OUTPUT </font><font class="font13">o</font><font
+  class="font16"> FORWARD</font><font class="font0">).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>El
+  parámetro <font class="font16">-n</font><font class="font0"> no es
+  obligatorio, pero </font><font class="font12">acelera</font><font
+  class="font0"> notablemente la visualización del resultado, ya que </font><font
+  class="font5">no</font><font class="font0"> fuerza a que el comando tenga que
+  </font><font class="font5">resolver</font><font class="font0"> las
+  direcciones en </font><font class="font5">nombres</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*Eliminación
+  de una regla</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>iptables
+  -D cadena número</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Donde <font
+  class="font16">número</font><font class="font0"> representa el </font><font
+  class="font12">número de la línea</font><font class="font0"> obtenido con el
+  comando anterior y </font><font class="font16">cadena</font><font
+  class="font0"> representa la cadena de tratamiento (</font><font
+  class="font16">INPUT, OUTPUT </font><font class="font19">o</font><font
+  class="font16"> FORWARD</font><font class="font0">).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*Inserción
+  de una regla</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>iptables
+  -I cadena número condiciones -j acción</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Donde <font
+  class="font16">condiciones</font><font class="font0"> representa los
+  criterios de selección del paquete sometido a la regla (</font><font
+  class="font16">direcciones IP, puertos </font><font class="font19">y</font><font
+  class="font16"> protocolos</font><font class="font0">).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*Ejemplo
+  de gestión de reglas</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>La
+  gestión dinámica de reglas es tan pesada que su uso se ha establecido en un
+  archivo de <font class="font16">script</font><font class="font0"> que incluye</font><font
+  class="font21"> todas las reglas</font><font class="font0"> y se </font><font
+  class="font10">recarga</font><font class="font0"> por </font><font
+  class="font22">completo</font><font class="font0"> después de cada </font><font
+  class="font16">cambio</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -L FORWARD --line-numbers -n<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>Chain
+  FORWARD (policy DROP)<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>num<span
+  style='mso-spacerun:yes'>  </span>target<span style='mso-spacerun:yes'>    
+  </span>prot opt source<span style='mso-spacerun:yes'>              
+  </span>destination<span style='mso-spacerun:yes'>          </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>1<span
+  style='mso-spacerun:yes'>    </span>ACCEPT<span style='mso-spacerun:yes'>    
+  </span>tcp<span style='mso-spacerun:yes'>  </span>--<span
+  style='mso-spacerun:yes'>  </span>192.168.1.0/24<span
+  style='mso-spacerun:yes'>       </span>0.0.0.0/0<span
+  style='mso-spacerun:yes'>           </span>tcp dpt:23<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>2<span
+  style='mso-spacerun:yes'>    </span>ACCEPT<span style='mso-spacerun:yes'>    
+  </span>udp<span style='mso-spacerun:yes'>  </span>--<span
+  style='mso-spacerun:yes'>  </span>192.168.1.0/24<span
+  style='mso-spacerun:yes'>       </span>0.0.0.0/0<span
+  style='mso-spacerun:yes'>           </span>udp dpt:53<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>3<span
+  style='mso-spacerun:yes'>    </span>ACCEPT<span style='mso-spacerun:yes'>    
+  </span>tcp<span style='mso-spacerun:yes'>  </span>--<span
+  style='mso-spacerun:yes'>  </span>192.168.1.0/24<span
+  style='mso-spacerun:yes'>       </span>0.0.0.0/0<span
+  style='mso-spacerun:yes'>           </span>tcp dpt:80<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -D FORWARD 1<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -L FORWARD --line-numbers -n<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>Chain
+  FORWARD (policy DROP)<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>num<span
+  style='mso-spacerun:yes'>  </span>target<span style='mso-spacerun:yes'>    
+  </span>prot opt source<span style='mso-spacerun:yes'>              
+  </span>destination<span style='mso-spacerun:yes'>          </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>1<span
+  style='mso-spacerun:yes'>    </span>ACCEPT<span style='mso-spacerun:yes'>    
+  </span>udp<span style='mso-spacerun:yes'>  </span>--<span
+  style='mso-spacerun:yes'>  </span>192.168.1.0/24<span
+  style='mso-spacerun:yes'>       </span>0.0.0.0/0<span
+  style='mso-spacerun:yes'>           </span>udp dpt:53<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>2<span
+  style='mso-spacerun:yes'>    </span>ACCEPT<span style='mso-spacerun:yes'>    
+  </span>tcp<span style='mso-spacerun:yes'>  </span>--<span
+  style='mso-spacerun:yes'>  </span>192.168.1.0/24<span
+  style='mso-spacerun:yes'>       </span>0.0.0.0/0<span
+  style='mso-spacerun:yes'>           </span>tcp dpt:80<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -I FORWARD 1 -s 192.168.1.0/24 -p tcp --dport 22 -j ACCEPT<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -L FORWARD --line-numbers -n<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>Chain
+  FORWARD (policy DROP)<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>num<span
+  style='mso-spacerun:yes'>  </span>target<span style='mso-spacerun:yes'>    
+  </span>prot opt source<span style='mso-spacerun:yes'>              
+  </span>destination<span style='mso-spacerun:yes'>          </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>1<span
+  style='mso-spacerun:yes'>    </span>ACCEPT<span style='mso-spacerun:yes'>    
+  </span>tcp<span style='mso-spacerun:yes'>  </span>--<span
+  style='mso-spacerun:yes'>  </span>192.168.1.0/24<span
+  style='mso-spacerun:yes'>       </span>0.0.0.0/0<span
+  style='mso-spacerun:yes'>           </span>tcp dpt:22<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>2<span
+  style='mso-spacerun:yes'>    </span>ACCEPT<span style='mso-spacerun:yes'>    
+  </span>udp<span style='mso-spacerun:yes'>  </span>--<span
+  style='mso-spacerun:yes'>  </span>192.168.1.0/24<span
+  style='mso-spacerun:yes'>       </span>0.0.0.0/0<span
+  style='mso-spacerun:yes'>           </span>udp dpt:53<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>3<span
+  style='mso-spacerun:yes'>    </span>ACCEPT<span style='mso-spacerun:yes'>    
+  </span>tcp<span style='mso-spacerun:yes'>  </span>--<span
+  style='mso-spacerun:yes'>  </span>192.168.1.0/24<span
+  style='mso-spacerun:yes'>       </span>0.0.0.0/0<span
+  style='mso-spacerun:yes'>           </span>tcp dpt:80<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>d.
+  Gestión de flujos de retorno</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>En la
+  mayoría de las aplicaciones de red, un host envía un paquete con destino otro
+  host que le responde.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Por lo
+  tanto, se establece una comunicación bidireccional.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Ahora
+  bien, en la configuración de un cortafuegos, se visualiza perfectamente la
+  comunicación de ida:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>- por
+  ejemplo, desde un navegador a un servidor web a través del puerto 80;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>- en
+  cambio, no se ve tan bien las respuestas que se realizan por un puerto
+  aleatorio, por iniciativa del cliente, mayor que 1024.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>En los
+  inicios de los cortafuegos, la solución consistía en autorizar cualquier
+  tráfico entrante cuyo puerto era superior al 1024.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Los
+  cortafuegos tenían entonces más tendencia a impedir a los usuarios salir
+  antes que evitar las intrusiones en la red.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Pasados
+  unos años, los cortafuegos llamados <font class="font16">«stateful» (con
+  estado) </font><font class="font0">son capaces de autorizar dinámicamente los
+  flujos de retorno siempre que sean respuesta a un flujo de salida
+  explícitamente autorizado.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*Autorización
+  implícita de flujos de retorno</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1439 style='height:15.0pt;width:1079pt'>iptables
+  -A cadena -m state --state ESTABLISHED,RELATED -j ACCEPT</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>La
+  opción <font class="font16">-m state</font><font class="font0"> permite
+  realizar un </font><font class="font5">filtro</font><font class="font0"> en
+  función del estado del paquete tratado.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Los
+  estados <font class="font5">aceptados</font><font class="font0"> son </font><font
+  class="font16">ESTABLISHED</font><font class="font0"> y </font><font
+  class="font16">RELATED</font><font class="font0"> y representan
+  respectivamente paquetes en respuesta a un flujo autorizado y paquetes
+  enviados para una nueva conexión.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Pero
+  con la iniciativa de una conexión establecida y autorizada (por ejemplo, el
+  tráfico de datos ftp relativo al tráfico de comandos ftp).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1439 style='height:15.0pt;width:1079pt'>*Ejemplo
+  de configuración completa de un cortafuegos</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>Se
+  configura en este caso el cortafuegos para que no deje pasar nada, a
+  excepción de las respuestas a cada una de las comunicaciones establecidas,
+  así como los protocolos necesarios para navegar por Internet (http, https y
+  dns).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -P INPUT DROP<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -P OUTPUT DROP<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -P FORWARD DROP<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -A FORWARD -s 192.168.1.0/24 -p tcp --dport 80 -j ACCEPT<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -A FORWARD -s 192.168.1.0/24 -p tcp --dport 443 -j ACCEPT<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1439 style='height:15.0pt;width:1079pt'>alfa:~#
+  iptables -A FORWARD -s 192.168.1.0/24 -p udp --dport 53 -j ACCEPT</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'>En
+  este ejemplo, se configura el cortafuegos para que no deje pasar nada excepto
+  las respuestas a los tráficos establecidos, así como los protocolos
+  necesarios para navegar por Internet (http, https y dns).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'><a
+  name="RANGE!A110">La aplicación <font class="font11">fail2ban</font><font
+  class="font0">, en el caso de que se generen muchos intentos fallidos de
+  conexión a aplicaciones o al propio sistema, permite crear dinámicamente una
+  regla que bloqueará cualquier comunicación del atacante.</font></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl69 height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=1439 style='height:15.0pt;width:1079pt'>El
+  conocimiento detallado de su configuración NO se exige para la <font
+  class="font23">certificación LPI</font><font class="font11">.</font></td>
+  <td class=xl69 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1439 style='height:15.0pt;width:1079pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1439 style='height:15.0pt;width:1079pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1439 style='width:1079pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

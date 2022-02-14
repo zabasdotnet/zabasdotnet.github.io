@@ -1,0 +1,1910 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../207.1.htm">
+<link rel=File-List href=filelist.xml>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+x\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(4);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../207.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1320 style='border-collapse:
+ collapse;table-layout:fixed;width:990pt'>
+ <col class=xl68 width=1272 style='mso-width-source:userset;mso-width-alt:46518;
+ width:954pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>Seguridad
+  en el servicio DNS</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>1.
+  Limitaciones de los clientes</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Se
+  pueden<font class="font10"> limitar</font><font class="font0"> las consultas
+  permitidas.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>La
+  directiva <font class="font16">allow-query</font><font class="font0"> en el
+  archivo de configuración permite definir los hosts o las redes a los que el
+  servidor tiene permitido responder.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>*Limitación
+  de clientes autorizados en el archivo named.conf</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>allow-query
+  { redes_autorizadas; };</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Donde <font
+  class="font16">redes_autorizadas</font><font class="font0"> representa la
+  dirección o las direcciones de red o de equipo que pueden dirigirse al
+  servidor.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>2.
+  Utilización de una cuenta de servicio</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>a. ¿Por
+  qué una cuenta de servicio?</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>En los
+  orígenes, era frecuente ejecutar un servidor bind con la cuenta de
+  administración root.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Es
+  decir, la cuenta root era propietaria del proceso.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Las
+  consecuencias podían llegar a ser desastrosas: si el ejecutable named enviaba
+  código sensible (peligroso) al procesador, lo hacía en nombre de root, es
+  decir, con privilegios absolutos en el sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Esta
+  situación presenta una serie de riesgos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Pueden
+  ser errores en el código ejecutable de named o bien vulnerabilidades del
+  programa que permitirían a un atacante enviar código ejecutable al
+  procesador.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>La
+  solución es, en general, <font class="font17">ejecutar named con unas
+  credenciales distintas a las de root, utilizando una cuenta de servicio</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Esta
+  cuenta es una cuenta de usuario que no permite la conexión directa al
+  sistema, pero que es propietaria del proceso.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>De este
+  modo, si se ejecuta código malicioso proveniente del proceso named, no tendrá
+  más privilegios que los de la cuenta de servicio y, por tanto, no pondrá en
+  peligro el sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1272 style='height:15.0pt;width:954pt'>La
+  mayoría de las implementaciones modernas de bind usan de forma nativa una
+  cuenta de servicio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>*Cuenta
+  de servicio named en una distribución Red Hat: la cuenta se crea
+  automáticamente con la instalación del servicio.</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>[root@RH9
+  root]# grep named /etc/passwd<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'>named:x:25:25:Named:/var/named:/sbin/nologin</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>b.
+  Ejecución de named con una cuenta de servicio</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Como ya
+  se ha dicho, todas las implementaciones de bind utilizadas en las
+  distribuciones modernas de Linux usan de forma nativa una cuenta de servicio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>A
+  continuación se muestra cómo se incluye esta forma de ejecución en los
+  scripts de inicio del servicio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>*Sintaxis
+  simplificada del comando named para su uso con una cuenta de servicio</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>named
+  -u usuario</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>*Elementos</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>named
+  --&gt; <font class="font13">El ejecutable principal de bind. En la mayoría de
+  las implementaciones, ejecutado desde el script de gestión del servicio.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>usuario
+  --&gt; <font class="font13">Llamado con el parámetro </font><font
+  class="font11">-u</font><font class="font13">, indica la cuenta de servicio
+  propietaria del proceso. Por supuesto, esta cuenta tiene que haberse definido
+  en el archivo </font><font class="font10">/etc/passwd</font><font
+  class="font13">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>3. Bind
+  en modo chroot</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>a.
+  ¿Para qué enjaular el proceso?</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Se ha
+  visto anteriormente que un uso malintencionado del proceso named podía
+  entrañar el riesgo de ejecución de acciones peligrosas para el sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>El
+  enjaulamiento del proceso en un directorio dedicado permite limitar los
+  riesgos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>El
+  objetivo es hacer creer al proceso que se está ejecutando en un sistema
+  normal.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Realmente
+  está enclaustrado en una estructura de directorios paralela y en ningún caso
+  puede interactuar con el resto del sistema.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>El
+  término <font class="font16">«enjaulamiento»</font><font class="font0"> no ha
+  sido usurpado, en inglés también se habla de poner </font><font class="font16">«in
+  jail»</font><font class="font0">, es decir, en prisión.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1272 style='height:15.0pt;width:954pt'>En este
+  caso se dice que se está utilizando <font class="font18">bind en modo chroot</font><font
+  class="font9">, contracción de </font><font class="font18">change root</font><font
+  class="font17"> (cambio de raíz)</font><font class="font9">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Se
+  recomienda <font class="font11">utilizar</font><font class="font0"> el modo </font><font
+  class="font11">chroot</font><font class="font0"> con una </font><font
+  class="font11">cuenta de servicio</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Un
+  proceso que tuviera los privilegios de root podría obtener el modo de salir
+  del directorio donde ha sido enjaulado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>b.
+  Creación del entorno necesario</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>En la
+  media en que se engaña al proceso y este cree que se ejecuta en un entorno
+  normal, debe tener a su disposición todos los elementos necesarios para su
+  funcionamiento.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Hay que
+  entender que el proceso no tendrá ningún modo de ir a buscar cualquier tipo
+  de dato fuera de su directorio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl83 width=1272 style='height:15.0pt;width:954pt'>La
+  puesta en marcha de un bind en modo chroot requiere, por tanto, una fase
+  preliminar de creación de su entorno de trabajo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 width=1272 style='height:15.0pt;width:954pt' align=left
+  valign=top><!--[if gte vml 1]><v:shapetype id="_x0000_t75" coordsize="21600,21600"
+   o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
+   stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="Imagen_x0020_2" o:spid="_x0000_s2051" type="#_x0000_t75"
+   style='position:absolute;margin-left:1.5pt;margin-top:1.5pt;width:442.5pt;
+   height:312.75pt;z-index:1;visibility:visible' o:gfxdata="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
+">
+   <v:imagedata src="image005.png" o:title=""/>
+   <x:ClientData ObjectType="Pict">
+    <x:SizeWithCells/>
+    <x:CF>Bitmap</x:CF>
+    <x:AutoPict/>
+   </x:ClientData>
+  </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+  position:absolute;z-index:1;margin-left:2px;margin-top:2px;width:590px;
+  height:417px'><img width=590 height=417 src=image006.png v:shapes="Imagen_x0020_2"></span><![endif]><span
+  style='mso-ignore:vglayout2'>
+  <table cellpadding=0 cellspacing=0>
+   <tr>
+    <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+   </tr>
+  </table>
+  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl93 width=1272 style='height:15.0pt;width:954pt'>*Fases
+  de creación del entorno de trabajo</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'><font
+  class="font16">1)</font><font class="font13"> Creación del directorio de
+  chroot.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'><font
+  class="font16">2)</font><font class="font13"> Creación de la estructura de
+  directorios falsa «/» en el directorio de chroot. Todos los directorios
+  utilizados por el proceso named deben aparecer ahí.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'><font
+  class="font16">3)</font><font class="font13"> Copia de los archivos de
+  configuración en el directorio de chroot.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'><font
+  class="font16">4)</font><font class="font13"> Ejecución del proceso en modo
+  chroot.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>c.
+  Ejecución del programa en modo chroot</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Realmente
+  no es difícil ejecutar bind en modo chroot.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>*Sintaxis
+  del comando named para su uso en modo chroot</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>named
+  -c config -u usuario -t directorio</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>*Elementos
+  usados en la sintaxis:</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>named
+  --&gt; <font class="font13">El ejecutable principal de bind. En la mayoría de
+  las implementaciones, ejecutado desde el script de gestión del servicio.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'><a
+  name="RANGE!A98">config --&gt; <font class="font13">Opcional. Indica el
+  archivo de configuración que se usará en la carga. En principio,</font><font
+  class="font11"> /etc/named.conf</font><font class="font13"> o </font><font
+  class="font11">/etc/bind/named.conf</font><font class="font13">.</font></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>usuario
+  --&gt; <font class="font13">La cuenta de servicio propietaria del proceso.
+  Por supuesto, esta cuenta tiene que </font><font class="font11">definirse</font><font
+  class="font13"> en el archivo </font><font class="font10">/etc/passwd</font><font
+  class="font13">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>directorio
+  --&gt; <font class="font13">El directorio en el que se enjaulará named. A
+  menudo, </font><font class="font11">/var/named</font><font class="font13">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl73 width=1272 style='height:15.0pt;width:954pt'>Es
+  recomendable comprobar en los registros que el proceso consigue iniciarse
+  correctamente en su nuevo entorno.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl93 width=1272 style='height:15.0pt;width:954pt'>En
+  general, se requieren algunos intentos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>4.
+  Intercambio seguro entre servidores</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Muchas
+  funciones de Internet requieren el uso de DNS, desde algo tan sencillo como
+  navegar hasta el envío de correos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Los
+  intentos de phishing, cada vez más frecuentes, muestran el peligro que
+  entraña la incertidumbre en la resolución de nombres.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Si
+  alguien se conecta al sitio web de su banco en línea usando la url exacta
+  pero el nombre se resuelve con la dirección IP de un farsante, las
+  consecuencias pueden llegar a ser dramáticas.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>En el
+  caso de los DNS, la seguridad se basa sobre todo en la autenticación y la
+  integridad de los datos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Es
+  decir, se quiere tener la certeza de que se está dialogando con el servidor
+  adecuado y los datos no se han modificado en el trayecto.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>En este
+  caso se usará el mecanismo <font class="font11">TSIG</font><font
+  class="font10"> (</font><font class="font11">T</font><font class="font10">ransaction
+  </font><font class="font11">SIG</font><font class="font10">nature, </font><font
+  class="font17">firma de transacciones</font><font class="font10">)</font><font
+  class="font25">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'>Este
+  mecanismo se basa en el uso de una <font class="font31">clave compartida</font><font
+  class="font13"> entre los servidores que intercambian datos.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>a.
+  Generación de la clave compartida</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Existe
+  una herramienta de generación de claves:<font class="font31"> dnssec-keygen</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Tiene
+  muchos posibles usos, pero el que se muestra a continuación es su uso para
+  TSIG.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>*Sintaxis
+  de dnssec-keygen en su uso para TSIG</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>dnssec-keygen
+  -a HMAC-MD5 -b tamaño_de_clave -n nametype nombreclave</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>*dnssec-keygen:
+  variables y parámetros:</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>-a
+  --&gt; <font class="font13">HMAC-MD5</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>-a
+  --&gt; <font class="font13">define el algoritmo de cifrado. HMAC-MD5 es el
+  único valor soportado para TSIG.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>-b
+  --&gt; <font class="font13">tamaño_de_clave</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>-b
+  --&gt; <font class="font13">define el tamaño de la clave usada. Para
+  HMAC-MD5, tamaño_de_clave tiene que estar comprendido entre 1 y 512. 128 es
+  un valor corriente generalmente satisfactorio.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>-n
+  --&gt;<font class="font13"> nametype</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>-n
+  --&gt;<font class="font13"> define la propiedad de la clave. En su uso para
+  TSIG, generalmente nametype tiene el valor HOST para indicar que la seguridad
+  va de máquina a máquina.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>nombreclave
+  --&gt; <font class="font13">El nombre de la clave. Puede ser cualquier cadena
+  alfanumérica.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl94 width=1272 style='height:15.0pt;width:954pt'>El
+  comando finaliza con la generación de dos archivos:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1272 style='height:15.0pt;width:954pt'>Knombreclave.+xxx.yyyyy.<font
+  class="font37">key</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1272 style='height:15.0pt;width:954pt'>Knombreclave.+xxx.yyyyy.<font
+  class="font37">private</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>*Ejemplo
+  de uso de dnssec-keygen</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>donald:~#
+  dnssec-keygen -a HMAC-MD5 -b 128 -n HOST supersecret<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'>Ksupersecret.+157+26824<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>donald:~#
+  cat Ksupersecret.+157+26824.key<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'>supersecret.
+  IN KEY 512 3 157<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'><span
+  style='mso-spacerun:yes'>  </span>yItYGlAQtGcM7VqGjZdJAg==<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>donald:~#
+  cat Ksupersecret.+157+26824.private<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'>Private-key-format:
+  v1.2<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'>Algorithm:
+  157 (HMAC_MD5)<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'>Key:
+  yItYGlAQtGcM7VqGjZdJAg==</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>b.
+  Declaración de la clave en named.conf</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>En los
+  servidores afectados por esta medida de seguridad, se <font class="font5">incluirá</font><font
+  class="font0"> en el archivo </font><font class="font5">named.conf</font><font
+  class="font0"> la </font><font class="font5">definición</font><font
+  class="font0"> de la </font><font class="font5">clave</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>*Sintaxis
+  de declaración de claves en named.conf</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'>key
+  nombreclave {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'><span
+  style='mso-spacerun:yes'>   </span>algorithm hmac-md5;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'><span
+  style='mso-spacerun:yes'>   </span>secret
+  &quot;yItYGlAQtGcM7VqGjZdJAg==&quot;;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'>};</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>*Elementos
+  usados en esta sintaxis:</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>key
+  --&gt;<font class="font13"> Inicia la declaración de la clave.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>nombreclave
+  --&gt; <font class="font13">El nombre de la clave utilizada en la generación.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>algorithm
+  --&gt; <font class="font13">Tiene como parámetro el tipo de algoritmo usado.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>hmac-md5
+  --&gt; <font class="font13">Obligatorio para TSIG.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>secret
+  --&gt;<font class="font13"> Tiene como parámetro la clave generada en el
+  archivo Knombreclave.+xxx.yyyyy.key (la cadena de caracteres entre comillas
+  dobles).</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>c.
+  Ambos servidores tienen que usar la clave</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl90 width=1272 style='height:15.0pt;width:954pt'>La
+  clave compartida se declara en <font class="font38">ambos servidores</font><font
+  class="font33">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Ahora
+  hay que hacer que sepan que tienen que utilizarla para garantizar la
+  seguridad de ciertas comunicaciones.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>Por lo
+  tanto, habrá que añadir un nuevo comando en named.conf.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>*Sintaxis
+  de uso de la clave en named.conf</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'>server
+  ip_dest {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'><span
+  style='mso-spacerun:yes'>   </span>keys { nombreclave; };<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'>};</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>*Elementos
+  empleados en esta sintaxis:</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>server
+  --&gt; <font class="font13">Anuncia un modo de comportamiento para un
+  servidor determinado.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>ip_dest
+  --&gt; <font class="font13">La dirección IP del servidor para el que se
+  aplica esta directiva.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>keys
+  --&gt;<font class="font13"> Establece la clave utilizada para asegurar los
+  intercambios.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=1272 style='height:15.0pt;width:954pt'>nombreclave
+  --&gt;<font class="font13"> El nombre de la clave utilizada en la generación.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>d.
+  Rechazar todo servicio que no esté firmado</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>El
+  párrafo anterior ha dado a los servidores la capacidad de comunicarse de
+  forma segura.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'>A
+  continuación hay que <font class="font11">hacer</font><font class="font0">
+  que esta medida de seguridad sea </font><font class="font11">obligatoria</font><font
+  class="font0"> para todas las peticiones entre servidores, por ejemplo en el
+  contexto de una delegación.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1272 style='height:15.0pt;width:954pt'>*Sintaxis</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'>zone
+  &quot;midominio.es&quot; {<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'><span
+  style='mso-spacerun:yes'>    </span>type master;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'><span
+  style='mso-spacerun:yes'>    </span>file &quot;db.midominio.es&quot;;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1272 style='height:15.0pt;width:954pt'><span
+  style='mso-spacerun:yes'>    </span>allow-recursion { <font class="font16">key
+  supersecret;</font><font class="font11"> };<span
+  style='mso-spacerun:yes'> </span></font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1272 style='height:15.0pt;width:954pt'>};<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1272 style='height:15.0pt;width:954pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1272 style='height:15.0pt;width:954pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1272 style='width:954pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,418 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../103.8.htm">
+<link rel=File-List href=filelist.xml>
+<title>103.8 - Perform basic file editing operations using vi</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(3);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../103.8.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=3794 style='border-collapse:
+ collapse;table-layout:fixed;width:2847pt'>
+ <col class=xl68 width=168 style='mso-width-source:userset;mso-width-alt:6144;
+ width:126pt'>
+ <col class=xl66 width=427 style='mso-width-source:userset;mso-width-alt:15616;
+ width:320pt'>
+ <col class=xl66 width=667 style='mso-width-source:userset;mso-width-alt:24393;
+ width:500pt'>
+ <col class=xl66 width=914 style='mso-width-source:userset;mso-width-alt:33426;
+ width:686pt'>
+ <col class=xl66 width=767 style='mso-width-source:userset;mso-width-alt:28050;
+ width:575pt'>
+ <col class=xl66 width=450 style='mso-width-source:userset;mso-width-alt:16457;
+ width:338pt'>
+ <col class=xl66 width=174 style='mso-width-source:userset;mso-width-alt:6363;
+ width:131pt'>
+ <col class=xl66 width=102 style='mso-width-source:userset;mso-width-alt:3730;
+ width:77pt'>
+ <col class=xl66 width=80 style='width:60pt'>
+ <col class=xl66 width=45 style='mso-width-source:userset;mso-width-alt:1645;
+ width:34pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=168 style='height:15.0pt;width:126pt'></td>
+  <td class=xl66 width=427 style='width:320pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl68 width=168 style='height:90.0pt;width:126pt'>Introducir
+  datos</td>
+  <td class=xl66 width=427 style='width:320pt'>Se deben efectuar las acciones
+  siguientes en modo comando.<br>
+    Antes se debe pulsar [Esc]: [Esc] a, [Esc] i, etc.</td>
+  <td class=xl66 width=667 style='width:500pt'><a name="RANGE!C2">a --&gt;
+  Añadido después del carácter actual.<br>
+    A --&gt; Añadido de texto al final de línea.<br>
+    i --&gt; Inserción delante del carácter actual, como en un procesador de
+  texto.<br>
+    I --&gt; Inserción de texto al principio de línea.<br>
+    o --&gt; Añadido de una línea debajo de la línea actual.<br>
+    O --&gt; Inserción de una línea encima de la línea actual.</a></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=168 style='height:15.0pt;width:126pt'></td>
+  <td class=xl66 width=427 style='width:320pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=168 style='height:15.0pt;width:126pt'></td>
+  <td class=xl66 width=427 style='width:320pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl68 width=168 style='height:90.0pt;width:126pt'>Salir y
+  guardar</td>
+  <td class=xl66 width=427 style='width:320pt'>Recuerde que «:» significa que
+  el comando se introduce en la línea de comandos:<br>
+    <span style='mso-spacerun:yes'> </span>[Esc] : <br>
+    <span style='mso-spacerun:yes'> </span>inserción del comando <br>
+    <span style='mso-spacerun:yes'> </span>luego [Intro].</td>
+  <td class=xl66 width=667 style='width:500pt'><a name="RANGE!C5">ZZ --&gt;
+  Guarda el fichero y sale.<br>
+    :q! --&gt; Sale sin guardar.<br>
+    :q --&gt; Sale si no se modificó el fichero (en caso contrario, aparece un
+  mensaje de error)<br>
+    :w --&gt; Guarda el fichero. Puede precisar un nombre para seguir.<br>
+    :wq o :x --&gt; Guarda y sale.<br>
+    1,10w fic --&gt; Guarda las líneas de 1 a 10 en fic.</a></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=168 style='height:15.0pt;width:126pt'></td>
+  <td class=xl66 width=427 style='width:320pt'></td>
+  <td class=xl66 width=667 style='width:500pt'></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=335 style='mso-height-source:userset;height:251.25pt'>
+  <td height=335 class=xl68 width=168 style='height:251.25pt;width:126pt'>Desplazamiento</td>
+  <td class=xl66 width=427 style='width:320pt'>Existen todavía teclados sin
+  teclas direccionales, así como programas e intérpretes de comando que no
+  saben interpretarlos (ejemplo del shell ksh mal configurado en algunos
+  Unix).<br>
+    En estas máquinas, se activa el modo de inserción de vi por defecto e,
+  incluso bajo vi, es posible arreglárselas sin las teclas de dirección, en
+  modo comando.</td>
+  <td class=xl66 width=667 style='width:500pt'><a name="RANGE!C7">h --&gt; Ir a
+  la izquierda.<br>
+    l (l minúscula) --&gt; Ir a la derecha.<br>
+    k --&gt; Ir hacia arriba.<br>
+    j --&gt; Ir hacia abajo.<br>
+    0 (cero) --&gt; Principio de línea.<br>
+    :0 --&gt; Principio de fichero (primera línea).<br>
+    $ --&gt; Fin de línea.<br>
+    :$ --&gt; Fin de fichero (última línea).<br>
+    w --&gt; Ir a la palabra siguiente.<br>
+    b --&gt; Ir a la palabra anterior.<br>
+    f&lt;c&gt; --&gt; Saltar al carácter &lt;c&gt; siguiente.<br>
+    Control+f --&gt; Avanzar una pantalla (Forward).<br>
+    Control+b --&gt; Retroceder una pantalla (Backward).<br>
+    G --&gt; Última línea del fichero.<br>
+    &lt;n&gt;G --&gt; Salta a la línea «n» (p. ej.: 10G va a la 10ª
+  línea).<br>
+    :&lt;n&gt; --&gt; Ídem ( :10 va a la 10ª línea).</a></td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=220 style='height:165.0pt'>
+  <td height=220 class=xl68 width=168 style='height:165.0pt;width:126pt'>Corrección</td>
+  <td class=xl66 width=427 style='width:320pt'>Se pueden repetir estos
+  comandos. <br>
+    5dd suprime 5 líneas; 4dw, 4 palabras.<br>
+    5x, 5 caracteres.<br>
+    etc…</td>
+  <td class=xl66 width=667 style='width:500pt'>x --&gt; Borra el carácter bajo
+  el cursor.<br>
+    X --&gt; Borra el carácter delante el cursor.<br>
+    r&lt;c&gt; --&gt; Sustituye el carácter bajo el cursor por el carácter
+  &lt;c&gt;.<br>
+    dw --&gt; Borra desde el cursor hasta el final de la palabra.<br>
+    d$ o D --&gt; Borra desde el cursor hasta el final de la línea.<br>
+    dO --&gt; Borra desde el principio de línea hasta el cursor.<br>
+    df&lt;c&gt; --&gt; Borra todo hasta el carácter &lt;c&gt;.<br>
+    dG --&gt; Borra todo hasta la última línea, incluyendo la línea
+  actual.<br>
+    d1G --&gt; Borra todo hasta la primera línea, incluyendo la línea
+  actual.<br>
+    dd --&gt; Borra la línea actual.<br>
+    u --&gt; Undo. Cancela la última acción.</td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=220 style='height:165.0pt'>
+  <td height=220 class=xl68 width=168 style='height:165.0pt;width:126pt'><a
+  name="RANGE!A9">Búsqueda en el texto</a></td>
+  <td class=xl66 width=427 style='width:320pt'>A diferencia de un editor de
+  texto clásico, vi puede buscar otras cosas además de palabras sencillas, y
+  funciona con la ayuda de caracteres especiales y criterios.<br>
+    El comando de búsqueda es el carácter /.</td>
+  <td class=xl66 width=667 style='width:500pt'><a name="RANGE!C9">La búsqueda
+  arranca en el carácter actual hasta el final del fichero.<br>
+    El carácter ? efectúa la búsqueda en sentido inverso.<br>
+    Primero se indica el criterio y luego se pulsa [Intro].<br>
+    /echo --&gt; busca la cadena ’echo’ a continuación en el fichero.<br>
+    <br>
+    Cuando se encuentra la cadena, el cursor se para en el primer carácter de
+  esta cadena.<br>
+    <br>
+    El comando n permite seguir la búsqueda en el sentido indicado al
+  principio.<br>
+    El comando N efectúa la búsqueda en sentido inverso.<br>
+    <br>
+    Algunos criterios:</a></td>
+  <td class=xl66 width=914 style='width:686pt'>/[CcBb]ola: Cola, cola, Bola,
+  bola.<br>
+    /[A-Z]e: todo lo que empieza con una mayúscula con una e en segunda
+  posición.<br>
+    /[A-Za-Z0-9]: todo lo que empieza por una mayúscula, una minúscula o una
+  cifra.<br>
+    /[^a-z]: intervalo negativo: todo lo que no empieza con una
+  minúscula.<br>
+    /co.a: el punto sustituye un carácter: coma, cola, cota...<br>
+    /Au*o: la estrella es un carácter de repetición, de 0 a n caracteres, Auo,
+  Auto, Automoto...<br>
+    /.* : la estrella delante del punto, una cadena cualquiera de tamaño
+  variable; el &quot;.&quot; representa un carácter.<br>
+    /[A-Z][A-Z]*: repetición del motivo entre [] de 0 a n veces, búsqueda de
+  una palabra que comporta al menos una mayúscula (al principio de
+  palabra).<br>
+    /^Auto: el ^ indica que la cadena buscada deberá estar al principio de
+  línea.<br>
+    /Auto$: el $ indica que la cadena buscada deberá estar al final de línea.</td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl68 width=168 style='height:90.0pt;width:126pt'>Comandos
+  de sustitución</td>
+  <td class=xl66 width=427 style='width:320pt'>Para sustituir algo de texto,
+  hay que colocarse al principio de la cadena a modificar, luego teclear uno de
+  los comandos siguientes.<br>
+    A continuación, teclee simplemente su texto.<br>
+    Es idéntico al de la supresión:<br>
+    se suprime la parte precisada y vi pasa al modo de inserción para la
+  introducción de datos.</td>
+  <td class=xl66 width=667 style='width:500pt'>cw --&gt; Sustituye la palabra
+  corriente.<br>
+    c$ --&gt; Sustituye hasta el final de la línea.<br>
+    c0 (cero) --&gt; Sustituye hasta el principio de la línea.<br>
+    cf&lt;x&gt; --&gt; Sustituye hasta el próximo carácter &lt;x&gt;.<br>
+    c/&lt;rech&gt; --&gt; Sustituye hasta la próxima coincidencia de la cadena
+  &lt;rech&gt;.</td>
+  <td class=xl66 width=914 style='width:686pt'></td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=80 style='height:60.0pt'>
+  <td height=80 class=xl68 width=168 style='height:60.0pt;width:126pt'>Copiar y
+  pegar</td>
+  <td class=xl66 width=427 style='width:320pt'>El comando v permite una
+  selección visual.<br>
+    Se subraya el texto y usted puede desplazar el cursor para seleccionar el
+  texto.<br>
+    Luego utilice uno de los comandos siguientes:</td>
+  <td class=xl66 width=667 style='width:500pt'><a name="RANGE!C11">d --&gt;
+  corresponde a cortar (mover);<br>
+    c --&gt; casi lo mismo que d, pero vi se queda en modo edición;<br>
+    p --&gt; para pegar el texto en el lugar elegido, se utiliza el comando p
+  (detrás del carácter) o P (delante del carácter). Si se ha copiado una línea
+  entera, se colocará debajo de la línea activa.</a></td>
+  <td class=xl66 width=914 style='width:686pt'><a name="RANGE!D11">Las acciones
+  siguientes son posibles en modo comando:<br>
+    yy<span style='mso-spacerun:yes'>  </span>--&gt; Para copiar una
+  línea.<br>
+    5yy --&gt; Para copiar cinco líneas.<br>
+    p<span style='mso-spacerun:yes'>   </span>--&gt; Para colocar las líneas
+  copiadas en un sitio determinado.</a></td>
+  <td class=xl66 width=767 style='width:575pt'>El editor vi dispone de 26
+  búferes de memoria para almacenar en ellos los datos que se pueden nombrar
+  como se desee.<br>
+    Para ello, se utiliza el &quot;.<br>
+    Para copiar cinco palabras en la memoria m1: &quot;m1y5w.<br>
+    Para pegar el contenido de la memoria m1 en un lugar determinado:
+  &quot;m1p.</td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=120 style='height:90.0pt'>
+  <td height=120 class=xl68 width=168 style='height:90.0pt;width:126pt'>Sustitución</td>
+  <td class=xl66 width=427 style='width:320pt'>La sustitución permite
+  reemplazar de manera automática varias coincidencias por otra cadena.<br>
+    El modelo es un criterio de búsqueda presentado en estas últimas
+  páginas.<br>
+    Sustitución es una cadena cualquiera que sustituirá el modelo.<br>
+    </td>
+  <td class=xl66 width=667 style='width:500pt'>:[1ª línea, última
+  línea]s/Modelo/Sustitución/[gc]<br>
+    Los números de líneas son opcionales.<br>
+    En este caso, la sustitución se hace en la línea corriente
+  únicamente.<br>
+    Como sustitución de los números de línea, . determina la línea corriente, 1
+  la primera línea, $ la última línea.</td>
+  <td class=xl66 width=914 style='width:686pt'>Por defecto sólo se sustituye la
+  primera coincidencia.<br>
+    La letra g indica que hay que sustituir todas las coincidencias.<br>
+    Con c, vi requiere una confirmación para cada una de las
+  coincidencias.<br>
+    El siguiente ejemplo sustituye todas las coincidencias de Unix o unix en
+  UNIX.<br>
+    :1,$s/[Uu]nix/UNIX/g</td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <tr height=180 style='height:135.0pt'>
+  <td height=180 class=xl68 width=168 style='height:135.0pt;width:126pt'>Otros</td>
+  <td class=xl66 width=427 style='width:320pt'>Comandos prácticos para edición
+  avanzada.<br>
+    <br>
+    :r fic --&gt; Inserta el contenido de fic desde el lugar actual.<br>
+    :! cmd --&gt; Ejecuta el comando. Pulse [Intro] para volver a vi.<br>
+    :r! cmd --&gt; Se inserta el resultado del comando en el lugar
+  actual.<br>
+    :e fic --&gt; Carga el fichero fic para edición.<br>
+    :e# --&gt; Conmuta entre los diferentes ficheros abiertos.</td>
+  <td class=xl66 width=667 style='width:500pt'>El comando set permite
+  configurar el editor y acceder a sus opciones:<br>
+    <br>
+    -&gt; set all: muestra el conjunto de las opciones posibles.<br>
+    -&gt; set number (o nu) / nonumber (o nonu): muestra/suprime los números de
+  líneas.<br>
+    -&gt; set autoindent / noautoindent: se conserva la indentación durante un
+  retorno a la línea.<br>
+    -&gt; set showmatch / noshowmatch: durante la introducción de una llave o
+  de una paréntesis de cierre, se visualiza el de apertura durante un instante
+  muy corto, luego el editor vuelve al carácter corriente.<br>
+    -&gt; set showmode / noshowmode: vi mostrará una línea de estado (INPUT
+  MODE).<br>
+    -&gt; set tabstop=x: define el número de caracteres para una tabulación.</td>
+  <td class=xl66 width=914 style='width:686pt'>Detecta el tipo de fichero
+  cargado y colorea las líneas, las contraseñas, etc.<br>
+    Puede desactivar la coloración:<br>
+    --&gt; syntax off para desactivar;<br>
+    --&gt; syntax on para activar.</td>
+  <td class=xl66 width=767 style='width:575pt'></td>
+  <td class=xl66 width=450 style='width:338pt'></td>
+  <td class=xl66 width=174 style='width:131pt'></td>
+  <td class=xl66 width=102 style='width:77pt'></td>
+  <td class=xl66 width=80 style='width:60pt'></td>
+  <td class=xl66 width=45 style='width:34pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=168 style='width:126pt'></td>
+  <td width=427 style='width:320pt'></td>
+  <td width=667 style='width:500pt'></td>
+  <td width=914 style='width:686pt'></td>
+  <td width=767 style='width:575pt'></td>
+  <td width=450 style='width:338pt'></td>
+  <td width=174 style='width:131pt'></td>
+  <td width=102 style='width:77pt'></td>
+  <td width=80 style='width:60pt'></td>
+  <td width=45 style='width:34pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

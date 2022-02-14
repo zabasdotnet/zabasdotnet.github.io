@@ -1,0 +1,171 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../104.7.htm">
+<link rel=File-List href=filelist.xml>
+<title>104.7 - Find system files and place files in the correct location</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(6);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../104.7.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl65>
+
+<table border=0 cellpadding=0 cellspacing=0 width=3632 style='border-collapse:
+ collapse;table-layout:fixed;width:2724pt'>
+ <col class=xl65 width=704 style='mso-width-source:userset;mso-width-alt:25746;
+ width:528pt'>
+ <col class=xl65 width=519 style='mso-width-source:userset;mso-width-alt:18980;
+ width:389pt'>
+ <col class=xl65 width=939 style='mso-width-source:userset;mso-width-alt:34340;
+ width:704pt'>
+ <col class=xl65 width=1470 style='mso-width-source:userset;mso-width-alt:53760;
+ width:1103pt'>
+ <tr class=xl66 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=704 style='height:15.0pt;width:528pt'><a
+  name="RANGE!A1">El comando updatedb se encarga de actualizar la base de datos
+  que utiliza locate para buscar ficheros.</a></td>
+  <td class=xl66 width=519 style='width:389pt'></td>
+  <td class=xl66 width=939 style='width:704pt'></td>
+  <td class=xl66 width=1470 style='width:1103pt'></td>
+ </tr>
+ <tr class=xl66 height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=704 style='height:15.0pt;width:528pt'>Utiliza
+  el fichero con las opciones configuradas en el fichero /etc/updatedb.conf
+  para realizar la busqueda.</td>
+  <td class=xl66 width=519 style='width:389pt'></td>
+  <td class=xl66 width=939 style='width:704pt'></td>
+  <td class=xl66 width=1470 style='width:1103pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=704 style='height:15.0pt;width:528pt'></td>
+  <td class=xl65 width=519 style='width:389pt'></td>
+  <td class=xl65 width=939 style='width:704pt'></td>
+  <td class=xl66 width=1470 style='width:1103pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=704 style='height:15.0pt;width:528pt'>El
+  fichero de configuración /etc/updatedb.conf contiene las siguientes opciones:</td>
+  <td class=xl65 width=519 style='width:389pt'></td>
+  <td class=xl65 width=939 style='width:704pt'></td>
+  <td class=xl66 width=1470 style='width:1103pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=704 style='height:15.0pt;width:528pt'>PRUNE_BIND_MOUNTS
+  :<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=519 style='width:389pt'></td>
+  <td class=xl65 width=939 style='width:704pt'></td>
+  <td class=xl66 width=1470 style='width:1103pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=704 style='height:15.0pt;width:528pt'>Si el
+  valor es 1 o yes los montajes de tipo bind no son incluidos por updatedb.</td>
+  <td class=xl65 width=519 style='width:389pt'></td>
+  <td class=xl65 width=939 style='width:704pt'></td>
+  <td class=xl66 width=1470 style='width:1103pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=704 style='height:15.0pt;width:528pt'>PRUNEFS
+  :<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=519 style='width:389pt'></td>
+  <td class=xl65 width=939 style='width:704pt'></td>
+  <td class=xl66 width=1470 style='width:1103pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=704 style='height:15.0pt;width:528pt'>Lista de
+  los tipos de sistemas de ficheros que no deben ser actualizados por updatedb.</td>
+  <td class=xl65 width=519 style='width:389pt'></td>
+  <td class=xl65 width=939 style='width:704pt'></td>
+  <td class=xl66 width=1470 style='width:1103pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=704 style='height:15.0pt;width:528pt'>PRUNENAMES
+  :<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=519 style='width:389pt'></td>
+  <td class=xl65 width=939 style='width:704pt'></td>
+  <td class=xl66 width=1470 style='width:1103pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=704 style='height:15.0pt;width:528pt'>Lista de
+  nombres de directorios (sin rutas absolutas) que no deben ser actualizados
+  por updatedb.</td>
+  <td class=xl65 width=519 style='width:389pt'></td>
+  <td class=xl65 width=939 style='width:704pt'></td>
+  <td class=xl66 width=1470 style='width:1103pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=704 style='height:15.0pt;width:528pt'>PRUNEPATHS
+  :<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl65 width=519 style='width:389pt'></td>
+  <td class=xl65 width=939 style='width:704pt'></td>
+  <td class=xl65 width=1470 style='width:1103pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=704 style='height:15.0pt;width:528pt'>Lista de
+  nombres de directorios (incluidas rutas absolutas) que no deben ser
+  actualizados por updatedb.</td>
+  <td class=xl65 width=519 style='width:389pt'></td>
+  <td class=xl65 width=939 style='width:704pt'></td>
+  <td class=xl65 width=1470 style='width:1103pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=704 style='height:15.0pt;width:528pt'></td>
+  <td class=xl65 width=519 style='width:389pt'></td>
+  <td class=xl65 width=939 style='width:704pt'></td>
+  <td class=xl65 width=1470 style='width:1103pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=704 style='height:15.0pt;width:528pt'>Cada
+  ruta debe tener exactamente el mismo nombre que la que aparece cuando se
+  ejecuta el comando locate.</td>
+  <td class=xl65 width=519 style='width:389pt'></td>
+  <td class=xl65 width=939 style='width:704pt'></td>
+  <td class=xl65 width=1470 style='width:1103pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=704 style='width:528pt'></td>
+  <td width=519 style='width:389pt'></td>
+  <td width=939 style='width:704pt'></td>
+  <td width=1470 style='width:1103pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

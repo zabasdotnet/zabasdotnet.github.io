@@ -1,0 +1,270 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../207.3.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .25in .75in .25in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;
+	mso-page-orientation:landscape;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../207.3.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl65>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1010 style='border-collapse:
+ collapse;table-layout:fixed;width:757pt'>
+ <col class=xl65 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl65 width=155 style='mso-width-source:userset;mso-width-alt:5668;
+ width:116pt'>
+ <col class=xl65 width=759 style='mso-width-source:userset;mso-width-alt:27757;
+ width:569pt'>
+ <col class=xl65 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <col class=xl65 width=440 style='mso-width-source:userset;mso-width-alt:16091;
+ width:330pt'>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'><a
+  name="RANGE!A1">207.3</a></td>
+  <td class=xl65 width=155 style='width:116pt'>W3</td>
+  <td class=xl65 width=759 style='width:569pt'>Securing a DNS server</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="../207.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=40 style='height:30.0pt'>
+  <td height=40 class=xl65 width=48 style='height:30.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl71 width=759 style='width:569pt'>Candidates should be able to
+  configure a DNS server to run as a non-root user and run in a chroot
+  jail.<br>
+    This objective includes secure exchange of data between DNS servers.</td>
+  <td class=xl75 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=21 style='mso-height-source:userset;height:15.75pt'>
+  <td height=21 class=xl65 width=48 style='height:15.75pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl76 width=759 style='width:569pt'></td>
+  <td class=xl75 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl66 width=155 style='width:116pt'><a href="sheet002.htm#RANGE!A98"><span
+  style='font-weight:700'>/etc/named.conf</span></a></td>
+  <td class=xl68 width=759 style='width:569pt'>Archivo de configuración que se
+  usará en la carga de named en<span style='mso-spacerun:yes'>  </span>modo
+  chroot</td>
+  <td class=xl77 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl66 width=155 style='width:116pt'><a href="sheet002.htm#RANGE!A28"><span
+  style='font-weight:700'>/etc/passwd</span></a></td>
+  <td class=xl68 width=759 style='width:569pt'>La cuenta de servicio de BIND
+  debe estár creada.</td>
+  <td class=xl77 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=100 style='height:75.0pt'>
+  <td height=100 class=xl65 width=48 style='height:75.0pt;width:36pt'></td>
+  <td class=xl78 width=155 style='width:116pt'>DNSSEC</td>
+  <td class=xl68 width=759 style='width:569pt'>DNSSEC es un conjunto de
+  extensiones de seguridad que utiliza cifrado asimétrico desarrollado para el
+  servicio de DNS.<br>
+    Aporta los siguientes beneficios:&nbsp;&nbsp;<br>
+    <font class="font24">• Autentificar el origen de los datos de un servidor
+  DNS<br>
+    • Mantener la integridad de los datos entre servidores DNS<br>
+    • Denegación de existencia autentificada</font></td>
+  <td class=xl77 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl66 width=155 style='width:116pt'><a href="sheet002.htm#RANGE!A119"><span
+  style='font-weight:700'>dnssec-keygen</span></a></td>
+  <td class=xl68 width=759 style='width:569pt'>Herramienta de generación de
+  claves</td>
+  <td class=xl77 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl78 width=155 style='width:116pt'>dnssec-signzone</td>
+  <td class=xl68 width=759 style='width:569pt'>Firma una zona. Genera registros
+  NSEC y RRSIG y produce una versión firmada de la zona.</td>
+  <td class=xl77 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl79 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'><a
+  href="../207.htm" target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl73 width=155 style='width:116pt'></td>
+  <td class=xl74 width=759 style='width:569pt'><a href="../207.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl66 width=48 style='width:36pt'><a href="../207.htm"
+  target="_parent"><span style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl65 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=48 style='height:15.0pt;width:36pt'></td>
+  <td class=xl66 width=155 style='width:116pt'></td>
+  <td class=xl65 width=759 style='width:569pt'></td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=48 style='width:36pt'></td>
+  <td width=155 style='width:116pt'></td>
+  <td width=759 style='width:569pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

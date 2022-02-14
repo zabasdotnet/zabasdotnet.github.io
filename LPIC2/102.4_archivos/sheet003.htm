@@ -1,0 +1,142 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../102.4.htm">
+<link rel=File-List href=filelist.xml>
+<title>102.4 - Use Debian package management</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../102.4.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl66>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1105 style='border-collapse:
+ collapse;table-layout:fixed;width:829pt'>
+ <col class=xl66 width=1105 style='mso-width-source:userset;mso-width-alt:40411;
+ width:829pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1105 style='height:15.0pt;width:829pt'><a
+  name="RANGE!A1">apt-get</a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1105 style='height:15.0pt;width:829pt'>apt-get
+  es la herramienta de línea de comandos que se suministra con el paquete
+  Debian apt.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1105 style='height:15.0pt;width:829pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1105 style='height:15.0pt;width:829pt'>APT
+  busca los paquetes en su lista cacheada y muestra las depencendias que deben
+  ser instaladas o actualizadas.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1105 style='height:15.0pt;width:829pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1105 style='height:15.0pt;width:829pt'>APT
+  recupera, configura e instala las dependencias automáticamente.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1105 style='height:15.0pt;width:829pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1105 style='height:15.0pt;width:829pt'>-&gt;
+  update --&gt; se usa para resincronizar los ficheros indices de los orígenes</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1105 style='height:15.0pt;width:829pt'>-&gt;
+  upgrade --&gt; se usa para instalar las veriones nuevas de todos los paquetes
+  actualmente instalados en el sistema.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1105 style='height:15.0pt;width:829pt'>-&gt;
+  dist-upgrade --&gt; se usa para actualizar todo el sistema (lo mismo que
+  aptitude full-upgrade), ya que la opción upgrade únicamente intenta hacerlo
+  con los más importantes.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1105 style='height:15.0pt;width:829pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1105 style='height:15.0pt;width:829pt'>El
+  comando apt-get install xxx instala el paquete xxx:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1105 style='height:15.0pt;width:829pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1105 style='height:15.0pt;width:829pt'>Dos
+  opciones merecen recordarse:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1105 style='height:15.0pt;width:829pt'>la -s
+  para la simulación: APT indica lo que debería hacer, pero no lo hace.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1105 style='height:15.0pt;width:829pt'>la -f
+  para «fix-broken»: APT intenta arreglar los problemas de dependencias como
+  puede (añadido de paquetes).</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1105 style='height:15.0pt;width:829pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1105 style='height:15.0pt;width:829pt'>La
+  herramienta synaptic es un front-end: una interfaz gráfica que llama a las
+  funciones de APT.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1105 style='height:15.0pt;width:829pt'>Soporta
+  todas las operaciones propuestas por APT y, además, disfruta de una interfaz
+  muy atractiva.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1105 style='height:15.0pt;width:829pt'>Synaptic
+  es un front-end para APT.</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1105 style='width:829pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

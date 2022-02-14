@@ -1,0 +1,415 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../212.4.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(4);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../212.4.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1030 style='border-collapse:
+ collapse;table-layout:fixed;width:773pt'>
+ <col class=xl68 width=982 style='mso-width-source:userset;mso-width-alt:35913;
+ width:737pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=982 style='height:15.0pt;width:737pt'><a
+  name="RANGE!A1">Scripts de configuración de reglas de filtrado</a></td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=982 style='height:15.0pt;width:737pt'>a. Red
+  Hat e iptables</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'>Los
+  sistemas <font class="font9">Red Hat</font><font class="font0"> y sus
+  derivados ofrecen un servicio </font><font class="font16">iptables</font><font
+  class="font0"> que permite aplicar una </font><font class="font5">configuración</font><font
+  class="font0"> de </font><font class="font5">filtrado</font><font
+  class="font0"> o </font><font class="font5">NAT</font><font class="font0"> </font><font
+  class="font16">automáticamente</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'>El
+  arranque del servicio aplica la configuración y su parada anula todos los
+  filtros.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'>Este
+  funcionamiento es extremadamente práctico y permite gestionar un cortafuegos
+  RedHat cómodamente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=982 style='height:15.0pt;width:737pt'>b.
+  Creación de servicios personalizados de cortafuegos con iptables</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'>Se
+  comprueba bastante rápido que la creación de reglas de filtrado y de <font
+  class="font5">NAT</font><font class="font0"> con </font><font class="font13">iptables</font><font
+  class="font0"> tiene aspectos pesados.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'>Por
+  consiguiente, <font class="font11">después</font><font class="font0"> de
+  haber </font><font class="font21">determinado</font><font class="font0"> qué </font><font
+  class="font16">reglas</font><font class="font0"> se necesitan, es interesante
+  </font><font class="font11">escribirlas</font><font class="font0"> en un </font><font
+  class="font16">script</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl65 height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=982 style='height:15.0pt;width:737pt'>*Ejemplo
+  de script de configuración de cortafuegos</td>
+  <td class=xl65 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'>Este
+  tipo de script no fuerza a que se tengan que gestionar las reglas una por una
+  en el caso de que se modifique la configuración.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'>Es mucho
+  más fácil insertar una línea en el script que desplazar la numeración de las
+  reglas en memoria.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'>Sin
+  embargo, hay que anular cualquier regla antes de cada ejecución del script.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>#!/bin/bash<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'># nombre
+  del archivo: /etc/cortafuegos_on<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>#
+  Política básica<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>iptables
+  -P INPUT DROP<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>iptables
+  -P OUTPUT DROP<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>iptables
+  -P FORWARD DROP<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'># NAT
+  con eth0 como interna y eth1 como externa - dirección IP pública fija<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>iptables
+  -t nat -A POSTROUTING<span style='mso-spacerun:yes'>  </span>-o eth1 -j SNAT
+  --to-source 81.2.3.4<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>#
+  gestión de paquetes devueltos<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>iptables
+  -A FORWARD -i eth1 -o eth0 -m state --state ESTABLISHED,RELATED -j
+  ACCEPT<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>#
+  tráfico saliente autorizado<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>iptables
+  -A FORWARD -i eth0 -o eth1 -p tcp --dport 80 -j ACCEPT<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>iptables
+  -A FORWARD -i eth0 -o eth1 -p tcp --dport 443 -j ACCEPT<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>iptables
+  -A FORWARD -i eth0 -o eth1 -p udp --dport 53 -j ACCEPT</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=982 style='height:15.0pt;width:737pt'>Por
+  supuesto, no hay que olvidar convertirlo en ejecutable.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'>También
+  será útil crear un script de anulación de todas las reglas de filtrado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'>En
+  efecto, puede ser útil autorizar más o menos provisionalmente todo el tráfico
+  para una actualización del cortafuegos o para usar una aplicación puntual.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=982 style='height:15.0pt;width:737pt'>*Ejemplo
+  de script de anulación de filtrado</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>#!/bin/bash<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'># nombre
+  del archivo: cortafuegos_off<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>#
+  Borrado de reglas<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>iptables
+  -F<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>#
+  Política permisiva<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>iptables
+  -P INPUT ACCEPT<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>iptables
+  -P OUTPUT ACCEPT<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>iptables
+  -P FORWARD ACCEPT</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'>Finalmente,
+  se puede crear un script de gestión de servicio estándar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=982 style='height:15.0pt;width:737pt'>*Ejemplo
+  de script de servicio del cortafuegos</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'>Naturalmente,
+  hay que poner este script en el directorio /etc/init.d.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>#!/bin/bash<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'># nombre
+  del archivo: cortafuegos<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>case $1
+  in<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>start)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'><span
+  style='mso-spacerun:yes'>  </span>/etc/cortafuegos_on<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'><span
+  style='mso-spacerun:yes'>  </span>;;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>stop)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'><span
+  style='mso-spacerun:yes'>  </span>/etc/cortafuegos_off<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'><span
+  style='mso-spacerun:yes'>  </span>;;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>status)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'><span
+  style='mso-spacerun:yes'>  </span>iptables -L<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'><span
+  style='mso-spacerun:yes'>  </span>;;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>*)<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'><span
+  style='mso-spacerun:yes'>  </span>echo &quot;Syntaxis:
+  /etc/init.d/cortafuegos start|stop|status<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'><span
+  style='mso-spacerun:yes'>  </span>;;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=982 style='height:15.0pt;width:737pt'>esac</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=982 style='height:15.0pt;width:737pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=982 style='height:15.0pt;width:737pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=982 style='width:737pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

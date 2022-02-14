@@ -1,0 +1,198 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../104.6.htm">
+<link rel=File-List href=filelist.xml>
+<title>104.6 - Create and change bard and symbolic links</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../104.6.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl74>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1708 style='border-collapse:
+ collapse;table-layout:fixed;width:1282pt'>
+ <col class=xl74 width=942 style='mso-width-source:userset;mso-width-alt:34450;
+ width:707pt'>
+ <col class=xl74 width=766 style='mso-width-source:userset;mso-width-alt:28013;
+ width:575pt'>
+ <col class=xl74 width=914 style='mso-width-source:userset;mso-width-alt:33426;
+ width:686pt'>
+ <col class=xl74 width=767 style='mso-width-source:userset;mso-width-alt:28050;
+ width:575pt'>
+ <col class=xl74 width=450 style='mso-width-source:userset;mso-width-alt:16457;
+ width:338pt'>
+ <col class=xl74 width=174 style='mso-width-source:userset;mso-width-alt:6363;
+ width:131pt'>
+ <col class=xl74 width=102 style='mso-width-source:userset;mso-width-alt:3730;
+ width:77pt'>
+ <col class=xl74 width=80 style='width:60pt'>
+ <col class=xl74 width=45 style='mso-width-source:userset;mso-width-alt:1645;
+ width:34pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=942 style='height:15.0pt;width:707pt'><a
+  name="RANGE!A1">Un hard link permite añadir una referencia a un inodo.</a></td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'>El hard
+  link añade una asociación en una tabla de catálogo.</td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'></td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl80 width=942 style='height:15.0pt;width:707pt'>No se
+  modifican los permisos del fichero.</td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl81 style='height:15.0pt'></td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=942 style='height:15.0pt;width:707pt'>Un hard
+  link no permite asignar varios nombres a un mismo directorio, ni tampoco
+  permite efectuar vínculos desde o hacia otro sistema de ficheros.</td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'></td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'>Además,
+  tenga cuidado con el contador de vínculos facilitado por el comando ls -l</td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=942 style='height:15.0pt;width:707pt'>un 1
+  indica que este fichero no posee otros vínculos o, dicho de otro modo, es el
+  último.</td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'></td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'>Si usted
+  lo suprime, se pierde de manera definitiva.</td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'></td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl76 width=942 style='height:15.0pt;width:707pt'>En
+  cambio, mientras este contador sea superior a 1, si se suprime un vínculo,
+  queda una copia del fichero en alguna parte.</td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'></td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=942 style='height:15.0pt;width:707pt'>$ touch
+  fic1</td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'>$ ln
+  fic1 fic2</td>
+  <td class=xl76 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'>$ ls -li</td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'>2394875
+  -rw-r--r-- 2 seb users<span style='mso-spacerun:yes'>    </span>0 mar 21
+  22:40 fic1</td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'>2394875
+  -rw-r--r-- 2 seb users<span style='mso-spacerun:yes'>    </span>0 mar 21
+  22:40 fic2</td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'></td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'>El
+  ejemplo anterior muestra que los hard links representan el mismo fichero, ya
+  que sólo se trata de los nombres asociados al mismo inodo.</td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'></td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'>Cada uno
+  tiene dos vínculos, lo que es lógico ya que los dos ficheros apuntan al mismo
+  inodo.</td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'></td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl74 width=942 style='height:15.0pt;width:707pt'>Finalmente,
+  puede ver que fic1 y fic2 tienen el mismo inodo, a saber 2394875.</td>
+  <td class=xl74 width=766 style='width:575pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=942 style='width:707pt'></td>
+  <td width=766 style='width:575pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

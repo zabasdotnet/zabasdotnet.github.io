@@ -1,0 +1,252 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../203.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(1);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../203.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1083 style='border-collapse:
+ collapse;table-layout:fixed;width:812pt'>
+ <col class=xl68 width=1035 style='mso-width-source:userset;mso-width-alt:37851;
+ width:776pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1035 style='height:15.0pt;width:776pt'><a
+  name="RANGE!A1">fsck</a></td>
+  <td class=xl74 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'>La
+  revisión de un sistema de archivos consiste principalmente en la comprobación
+  de coherencia entre su tabla de inodos y los bloques de datos
+  correspondientes.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'>Es
+  decir, para cada inodo se comprobará que los bloques de datos apuntados por
+  este inodo están presentes, con el número y la cantidad indicados.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'>En el
+  caso de los sistemas de archivos con registro, <font class="font5">la opción
+  -f forzará una comprobación completa </font><font class="font0">de un sistema
+  de archivos que aparentemente ya esté limpio.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1035 style='height:15.0pt;width:776pt'>Ejemplo:
+  un sistema de archivos que no ha sufrido ninguna operación de escritura desde
+  la última comprobación con éxito.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1035 style='height:15.0pt;width:776pt'>La
+  revisión del sistema de archivos se realiza con el comando fsck.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1035 style='height:15.0pt;width:776pt'>*Sintaxis
+  del comando fsck:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl75 width=1035 style='height:15.0pt;width:776pt'>fsck -t
+  tipo dispositivo</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1035 style='height:15.0pt;width:776pt'>*Opciones
+  y parámetros:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1035 style='height:15.0pt;width:776pt'><font
+  class="font12">-t tipo --&gt;</font><font class="font10"> Tipo de sistema de
+  archivos que se comprobará.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl71 width=1035 style='height:15.0pt;width:776pt'><font
+  class="font12">dispositivo --&gt;</font><font class="font10"> Archivo
+  especial de bloque que designa el dispositivo en el que se encuentra el
+  sistema de archivos que se desea revisar.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'>Aunque
+  el comando <font class="font12">fsck</font><font class="font0"> permite
+  comprobar los sistemas de archivos </font><font class="font5">xfs,</font><font
+  class="font0"> se recomienda utilizar los comandos específicos </font><font
+  class="font12">xfs_check</font><font class="font0"> y </font><font
+  class="font12">xfs_repair.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1035 style='height:15.0pt;width:776pt'>Las
+  sintaxis para los comandos mkfs y fsck son universales y deben funcionar.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'>No
+  obstante, hay que saber que estos comandos invocan en realidad a otros
+  subprogramas:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1035 style='height:15.0pt;width:776pt'>mkfs.ext2
+  por ejemplo para mkfs -t ext2</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'>Además
+  hay otros comandos específicos que producirán el mismo resultado.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1035 style='height:15.0pt;width:776pt'>mke2fs
+  es otra alternativa a mkfs -t ext2.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1035 style='height:15.0pt;width:776pt'>La
+  mayor parte de las preguntas de la certificación LPI usan esta sintaxis
+  común.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1035 style='height:15.0pt;width:776pt'>Al
+  contrario que con el comando fsck, e2fsck funciona por defecto en modo
+  interactivo.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1035 style='height:15.0pt;width:776pt'>Para un
+  funcionamiento en modo no interactivo tiene que recibir como parámetro la
+  opción <font class="font13">-p</font><font class="font8">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'>De este
+  modo revisa automáticamente el sistema de archivos sin necesitar la
+  intervención del usuario.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1035 style='height:15.0pt;width:776pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1035 style='height:15.0pt;width:776pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1035 style='width:776pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

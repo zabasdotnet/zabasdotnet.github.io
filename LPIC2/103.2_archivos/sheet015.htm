@@ -1,0 +1,82 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../103.2.htm">
+<link rel=File-List href=filelist.xml>
+<title>103.2 - Process text streams using filters</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(14);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../103.2.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple>
+
+<table border=0 cellpadding=0 cellspacing=0 width=871 style='border-collapse:
+ collapse;table-layout:fixed;width:653pt'>
+ <col width=871 style='mso-width-source:userset;mso-width-alt:31853;width:653pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 width=871 style='height:15.0pt;width:653pt'><a
+  name="RANGE!A1">uniq</a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 style='height:15.0pt'>El comando uniq permite suprimir las
+  líneas repetidas en flujos en entrada o ficheros ordenados.</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 style='height:15.0pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 style='height:15.0pt'>Por ejemplo, a continuación se muestra
+  cómo sacar únicamente la lista de los GID realmente utilizados como grupo
+  principal de usuarios:</td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 style='height:15.0pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl69 style='height:15.0pt'>$ cut -d: -f4 /etc/passwd |
+  sort -n | uniq</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=871 style='width:653pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>

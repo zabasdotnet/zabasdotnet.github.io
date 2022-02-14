@@ -1,0 +1,510 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../208.1.htm">
+<link rel=File-List href=filelist.xml>
+<title>200.1 - Measure and Troubleshoot Resource Usage</title>
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(2);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../208.1.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link=blue vlink=purple class=xl68>
+
+<table border=0 cellpadding=0 cellspacing=0 width=1291 style='border-collapse:
+ collapse;table-layout:fixed;width:968pt'>
+ <col class=xl68 width=1243 style='mso-width-source:userset;mso-width-alt:45458;
+ width:932pt'>
+ <col class=xl68 width=48 style='mso-width-source:userset;mso-width-alt:1755;
+ width:36pt'>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1243 style='height:15.0pt;width:932pt'>Hosts
+  virtuales de un servidor Apache</td>
+  <td class=xl66 width=48 style='width:36pt'><a href="sheet001.htm#RANGE!A1"><span
+  style='font-weight:700'>Volver</span></a></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr class=xl67 height=20 style='height:15.0pt'>
+  <td height=20 class=xl67 width=1243 style='height:15.0pt;width:932pt'>Es
+  frecuente que un servidor Apache físico albergue <font class="font19">varios
+  sitios web distintos</font><font class="font9">.</font></td>
+  <td class=xl67 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Es lo
+  que permite a las empresas de alojamiento gestionar sitios web de decenas de
+  clientes en un solo servidor.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Esta
+  tecnología se conoce en el mundo Apache con el nombre de <font class="font16">«Virtual
+  Host» (host virtual)</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1243 style='height:15.0pt;width:932pt'>1.
+  Configuración global</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1243 style='height:15.0pt;width:932pt'>a.
+  Gestión de contenidos</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Si un
+  servidor tiene que gestionar hosts virtuales, es porque debe albergar varios
+  contenidos o sitios web distintos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Simplemente
+  será necesario albergar cada uno de estos contenidos en directorios
+  diferentes y debidamente identificados.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>El
+  alojamiento de un gran número de sitios web en un solo servidor requiere
+  cierta disciplina y convenios de nomenclatura estrictos.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1243 style='height:15.0pt;width:932pt'>b.
+  Organización de sitios virtuales</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>El
+  archivo de configuración debe modificarse ligeramente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Cada
+  host virtual lee sus elementos de configuración específicos en contenedores
+  declarados mediante la <font class="font16">directiva VirtualHost</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Algunas
+  directivas de tipo general (DocumentRoot, por ejemplo) dejarán de usarse y
+  deberán especificarse en cada uno de los hosts virtuales en el contenedor
+  correspondiente.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Si un
+  servidor Apache gestiona hosts virtuales, solo hay que hacer este cambio.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Es
+  decir, no hay configuración estándar a la que se añadan configuraciones
+  específicas para los hosts virtuales.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Una vez
+  que se configuran los hosts virtuales, todo acceso al servidor se realiza por
+  un host virtual, incluso si es el sitio básico.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1243 style='height:15.0pt;width:932pt'>2.
+  Configuración de hosts virtuales</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Hay dos
+  técnicas de implementación de hosts virtuales:</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'><font
+  class="font16">- los hosts virtuales por dirección IP</font><font
+  class="font0"> -donde el servidor proporciona contenido distinto según la IP
+  con la que se contacta con él.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'><font
+  class="font16">- los hosts virtuales por nombre de host</font><font
+  class="font0"> -donde el servidor proporciona contenido distinto en función
+  del nombre de host presente en la URL con la que se contacta con él.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1243 style='height:15.0pt;width:932pt'>a.
+  Hosts virtuales por dirección IP</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Aunque
+  el servidor soporta hosts virtuales por dirección IP, raramente se usa.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>En esta
+  configuración, el servidor dispone de varias direcciones IP y responde de
+  forma distinta según la interfaz a la que llegue cada petición HTTP.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Se
+  tiene que crear una <font class="font5">directiva VirtualHost</font><font
+  class="font0"> para </font><font class="font5">cada</font><font class="font0">
+  dirección </font><font class="font5">IP</font><font class="font0"> que esté
+  en uso.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Esta
+  directiva contendrá la declaración del directorio que incluya los datos html
+  correspondientes al sitio virtual.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Esta
+  declaración se realiza mediante la <font class="font5">directiva DocumentRoot</font><font
+  class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1243 style='height:15.0pt;width:932pt'>*Declaración
+  en el archivo de configuración Apache</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>&lt;VirtualHost
+  dirección_1:80&gt;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>ServerName
+  nombre1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>DocumentRoot
+  dir1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>&lt;/VirtualHost&gt;<span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>&lt;VirtualHost
+  dirección_2:80&gt;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>ServerName
+  nombre2<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>DocumentRoot
+  dir2<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>&lt;/VirtualHost&gt;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1243 style='height:15.0pt;width:932pt'>*Archivo
+  de configuración: declaración de hosts virtuales</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>&lt;VirtualHost&gt;
+  <font class="font13">--&gt; Declaración de un host virtual: todas las
+  directivas que contiene afectarán al host virtual.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>dirección_x:80
+  <font class="font13">--&gt; El host virtual se elegirá si la petición que se
+  recibe tiene como dirección IP de destino esta dirección del servidor
+  configurada en el puerto 80.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>ServerName
+  nombre <font class="font13">--&gt; Opcional si existe una resolución de
+  nombres inversa. Si no, puede devolver un mensaje de error no bloqueante.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>DocumentRoot
+  dir <font class="font13">--&gt; Las páginas web de este host virtual están en
+  el directorio dir.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1243 style='height:15.0pt;width:932pt'>b.
+  Hosts virtuales por nombre de host</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>El
+  soporte de hosts virtuales por nombre de host requiere que se use la
+  directiva <font class="font5">NameVirtualHost</font><font class="font0">.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Debe
+  ubicarse en el contexto general del archivo de configuración y tantas <font
+  class="font5">directivas</font><font class="font0"> de contenedor </font><font
+  class="font5">VirtualHost</font><font class="font0"> como sitios </font><font
+  class="font5">virtuales</font><font class="font0"> albergue el servidor.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Para
+  entender adecuadamente la organización de los sitios virtuales, hay que saber
+  que no hay un sitio principal y varios sitios virtuales, sino que todo sitio
+  alojado en el servidor es un sitio virtual.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>Como el
+  sitio virtual se reconoce a partir de su nombre de host, la directiva <font
+  class="font5">ServerName</font><font class="font0"> debe estar presente de
+  forma sistemática en los contenedores de host virtual.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>El
+  nombre asociado debe ser precisamente el que usarán los clientes para acceder
+  al servidor (el nombre tiene que estar en la URL).</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'>La
+  última directiva obligatoria en una declaración de host virtual es la
+  directiva DocumentRoot, que determina la ubicación de los datos web asociados
+  al sitio virtual.</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1243 style='height:15.0pt;width:932pt'>*Declaración
+  del sitio virtual en el archivo de configuración Apache</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>NameVirtualHost
+  *:80<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1243 style='height:15.0pt;width:932pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>&lt;VirtualHost
+  *:80&gt;<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>ServerName
+  nombre1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>DocumentRoot
+  dir1<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>&lt;/VirtualHost&gt;<span
+  style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl70 width=1243 style='height:15.0pt;width:932pt'><span
+  style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>&lt;VirtualHost
+  *:80&gt;<span style='mso-spacerun:yes'>  </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>ServerName
+  nombre2<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>DocumentRoot
+  dir2<span style='mso-spacerun:yes'> </span></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>&lt;/VirtualHost&gt;</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl65 width=1243 style='height:15.0pt;width:932pt'>*Archivo
+  de configuración: declaración de hosts virtuales</td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>NameVirtualHost
+  *:80 <font class="font13">--&gt; Se gestionan los hosts virtuales por nombre.
+  La escucha de las peticiones se realiza a través del puerto 80.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>&lt;VirtualHost&gt;
+  <font class="font13">--&gt; Declaración de un host virtual: todo lo que se
+  encuentre en el contenedor afectará al host virtual.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>*:80 <font
+  class="font13">--&gt; El host virtual se elegirá para las peticiones que se
+  reciban en cualquier dirección IP del servidor por el puerto 80.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>ServerName
+  nombre <font class="font13">--&gt; Este host virtual se elegirá para las
+  peticiones que tengan el nombre de servidor nombre. Es decir, se activará
+  para las peticiones a http://nombre.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl72 width=1243 style='height:15.0pt;width:932pt'>DocumentRoot
+  dir <font class="font13">--&gt; Las páginas web de este host virtual se
+  almacenarán en el directorio dir.</font></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl68 width=1243 style='height:15.0pt;width:932pt'></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <tr height=20 style='height:15.0pt'>
+  <td height=20 class=xl66 width=1243 style='height:15.0pt;width:932pt'><a
+  href="sheet001.htm#RANGE!A1"><span style='font-weight:700'>Volver</span></a></td>
+  <td class=xl68 width=48 style='width:36pt'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=1243 style='width:932pt'></td>
+  <td width=48 style='width:36pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>
