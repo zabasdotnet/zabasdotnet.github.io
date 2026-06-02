@@ -12,6 +12,10 @@
             --matrix-glow: rgba(0, 255, 65, 0.4);
             --matrix-red: #ff3b30;
             --matrix-red-glow: rgba(255, 59, 48, 0.4);
+            --matrix-purple: #ff00ff;
+            --matrix-purple-glow: rgba(255, 0, 255, 0.3);
+            --cyber-yellow: #ffdf00;
+            --cyber-yellow-glow: rgba(255, 223, 0, 0.5);
             --dark-bg: #0d0d0d;
             --panel-bg: rgba(20, 24, 30, 0.95);
             --border-ui: rgba(0, 149, 194, 0.3);
@@ -104,7 +108,7 @@
             min-height: 450px;
         }
 
-        /* Hub Screen */
+        /* Hub Screen - COMPLETAMENTE LIMPIO */
         .hub-screen h2 {
             font-size: 20px;
             margin-bottom: 10px;
@@ -123,25 +127,41 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
         .module-card {
-            background: rgba(0, 86, 112, 0.15);
+            background: rgba(0, 86, 112, 0.12);
             border: 1px solid var(--border-ui);
             padding: 20px;
             border-radius: 4px;
             cursor: pointer;
             text-align: left;
             transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .module-card:hover {
-            background: rgba(0, 149, 194, 0.25);
+            background: rgba(0, 149, 194, 0.22);
             border-color: var(--vmware-light);
             box-shadow: 0 0 15px rgba(0, 149, 194, 0.4);
             transform: scale(1.01);
+        }
+
+        .module-logo {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .module-info {
+            flex: 1;
         }
 
         .module-card h3 {
@@ -155,13 +175,44 @@
             font-size: 12px;
         }
 
-        /* Nodos de pregunta */
+        /* Nodos de pregunta e Interfaz interna del Examen */
         .question-node {
             display: none;
         }
 
         .question-node.visible {
             display: block;
+        }
+
+        .exam-progress-container {
+            margin-bottom: 25px;
+        }
+
+        .exam-progress-text {
+            font-size: 12px;
+            color: #8a99ad;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .exam-progress-bar {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 223, 0, 0.25);
+            height: 12px;
+            border-radius: 3px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .exam-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #ffaa00, var(--cyber-yellow));
+            box-shadow: 0 0 10px var(--cyber-yellow-glow);
+            transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .meta-step {
@@ -171,6 +222,9 @@
             margin-bottom: 15px;
             font-weight: bold;
             letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .statement {
@@ -378,6 +432,35 @@
             color: #a5b1c2;
         }
 
+        .official-explanation {
+            margin-top: 12px;
+            padding: 12px;
+            background: rgba(255, 0, 255, 0.04);
+            border: 1px dashed rgba(255, 0, 255, 0.25);
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .explanation-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .explanation-body {
+            color: var(--matrix-purple);
+            font-size: 12.5px;
+            line-height: 1.45;
+            font-style: italic;
+        }
+
         footer {
             text-align: center;
             padding: 25px 0;
@@ -413,27 +496,79 @@
         </header>
 
         <div class="main-frame">
+            <!-- HUB PRINCIPAL: PURA SELECCIÓN, NADA MÁS -->
             <div id="screen-hub" class="hub-screen">
                 <h2>Carga de Módulos de Evaluación</h2>
                 <p>Selecciona un entorno para iniciar el test controlado por tiempo.</p>
                 <div class="grid-modules">
+                    
                     <div class="module-card" onclick="launchEvaluation('VSICM')">
-                        <h3>VMware vSphere: Install, Configure, Manage [ICM]</h3>
-                        <span>20 Preguntas • Core Datacenter Infrastructure</span>
+                        <div class="module-logo">
+                            <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5" stroke="#0095c2"/>
+                                <polyline points="2 8.5 12 15 22 8.5" stroke="#0095c2"/>
+                                <line x1="12" y1="15" x2="12" y2="22" stroke="#0095c2"/>
+                                <line x1="12" y1="2" x2="12" y2="15" stroke="#00ff41"/>
+                            </svg>
+                        </div>
+                        <div class="module-info">
+                            <h3>VMware vSphere: Install, Configure, Manage [ICM]</h3>
+                            <span>20 Preguntas • Core Datacenter Infrastructure</span>
+                        </div>
                     </div>
+
                     <div class="module-card" onclick="launchEvaluation('VSOS')">
-                        <h3>VMware vSphere: Optimize and Scale [OS]</h3>
-                        <span>20 Preguntas • Advanced Performance Tuning</span>
+                        <div class="module-logo">
+                            <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" stroke="#005670" stroke-dasharray="4 2"/>
+                                <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="#0095c2"/>
+                                <path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83" stroke="#00ff41"/>
+                                <polyline points="12 12 16 10" stroke="#ff00ff" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="module-info">
+                            <h3>VMware vSphere: Optimize and Scale [OS]</h3>
+                            <span>20 Preguntas • Advanced Performance Tuning</span>
+                        </div>
                     </div>
+
                     <div class="module-card" onclick="launchEvaluation('VSAN')">
-                        <h3>VMware vSAN</h3>
-                        <span>20 Preguntas • Architecture & Storage Policies</span>
+                        <div class="module-logo">
+                            <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="4" rx="1" stroke="#0095c2"/>
+                                <rect x="3" y="10" width="18" height="4" rx="1" stroke="#0095c2"/>
+                                <rect x="3" y="17" width="18" height="4" rx="1" stroke="#0095c2"/>
+                                <circle cx="6" cy="5" r="1" fill="#00ff41"/>
+                                <circle cx="6" cy="12" r="1" fill="#00ff41"/>
+                                <circle cx="6" cy="19" r="1" fill="#ff3b30"/>
+                            </svg>
+                        </div>
+                        <div class="module-info">
+                            <h3>VMware vSAN</h3>
+                            <span>20 Preguntas • Architecture & Storage Policies</span>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
+            <!-- MOTOR DE EXAMEN INTERNO (Aquí está encapsulado todo el layout del test) -->
             <div id="screen-quiz" style="display: none;">
+                <!-- Barra de Progreso: Solo existe y se renderiza aquí dentro -->
+                <div class="exam-progress-container">
+                    <div class="exam-progress-text">
+                        <span>Progreso de Evaluación</span>
+                        <span id="exam-progress-string">0 / 0 (0%)</span>
+                    </div>
+                    <div class="exam-progress-bar">
+                        <div class="exam-progress-fill" id="exam-progress-metrics"></div>
+                    </div>
+                </div>
+
+                <!-- Bloque donde se inyectan las preguntas dinámicas -->
                 <div id="deck-target"></div>
+                
+                <!-- Botonera de navegación y control: Exclusiva del examen activo -->
                 <div class="action-bar">
                     <div>
                         <button class="ctrl-btn" id="nav-prev" onclick="moveStep(-1)">Anterior</button>
@@ -446,6 +581,7 @@
                 </div>
             </div>
 
+            <!-- PANTALLA DE ESTADÍSTICAS FINALES -->
             <div id="screen-metrics" class="metric-screen" style="display: none;">
                 <h2>Análisis de Resultados</h2>
                 
@@ -482,73 +618,72 @@
     </footer>
 
     <script>
-        // Banco de Datos Completo Estabilizado sin Template Literals Conflictivos
         const storageEngine = {
             VSAN: [
-                {q: "Which vSAN feature requires an all-flash cluster?", o: ["Deduplication and compression", "Erasure coding", "RAID 5/6 erasure coding", "Software checksum"], a: 2},
-                {q: "What is the minimum number of network ports required for a vSAN cluster?", o: ["1", "2", "3", "4"], a: 0},
-                {q: "An administrator wants to configure a vSAN cluster with a single host failure to tolerate (FTT=1) using RAID-1 mirroring. What is the minimum number of hosts required for this configuration?", o: ["2", "3", "4", "5"], a: 1},
-                {q: "Which vSAN component is used to maintain quorum in a 2-node vSAN cluster?", o: ["Witness host", "Master host", "Backup host", "Agent host"], a: 0},
-                {q: "What is the maximum number of disk groups that can be configured per host in a vSAN Original Storage Architecture (OSA)?", o: ["2", "3", "4", "5"], a: 3},
-                {q: "Which type of vSAN deployment architecture allows for high availability across two geographically separated sites?", o: ["Standard cluster", "Stretched cluster", "2-node cluster", "Direct Connect cluster"], a: 1},
-                {q: "What is the purpose of the cache tier in a hybrid vSAN configuration?", o: ["100% Read cache", "100% Write buffer", "70% Read cache and 30% Write buffer", "30% Read cache and 70% Write buffer"], a: 2},
-                {q: "When configuring vSAN encryption, which component is responsible for generating and managing the Data Encryption Keys (DEKs)?", o: ["vCenter Server", "Key Management Server (KMS)", "ESXi host", "vSAN Storage Provider"], a: 1},
-                {q: "An administrator is deploying vSAN ESA (Express Storage Architecture). Which storage device type is supported for both performance and capacity in this architecture?", o: ["SAS SSD", "SATA SSD", "NVMe SSD", "HDD"], a: 2},
-                {q: "What happens to a virtual machine's VMDK if it violates the vSAN Storage Policy but the cluster has enough resources to comply?", o: ["The VM is powered off automatically.", "vSAN automatically initiates a resynchronization to make it compliant.", "The disk becomes read-only until manual intervention.", "The disk is moved to a non-vSAN datastore."], a: 1},
-                {q: "What is the maximum number of capacity devices that can be added to a single disk group in vSAN OSA?", o: ["5", "7", "9", "12"], a: 1},
-                {q: "Which tool can an administrator use to monitor vSAN performance, health, and capacity directly from the vSphere Client?", o: ["vRealize Log Insight", "vSAN Skyline Health", "esxtop", "vCenter Command Line"], a: 1},
-                {q: "In a vSAN Stretched Cluster, what is the maximum round-trip time (RTT) latency supported between the two main data sites?", o: ["1 ms", "5 ms", "10 ms", "20 ms"], a: 1},
-                {q: "Which vSAN storage policy setting defines the number of data replicas created across different fault domains or hosts?", o: ["Number of disk stripes per object", "Failures to tolerate (FTT)", "Object space reservation", "Flash read cache reservation"], a: 1},
-                {q: "What is a prerequisite for enabling vSAN de-duplication and compression in an OSA cluster?", o: ["The cluster must be hybrid.", "The cluster must be All-Flash.", "It requires a minimum of 5 hosts.", "It requires NVMe devices only."], a: 1},
-                {q: "Which network protocol is used by vSAN for communication and data replication between hosts?", o: ["FCIP", "iSCSI", "TCP/IP", "NFS"], a: 2},
-                {q: "An administrator changes a vSAN storage policy from RAID-1 (Mirroring) to RAID-5 (Erasure Coding). What is the primary benefit of this change?", o: ["Higher write performance", "Reduced storage capacity consumption", "Lower network traffic", "Reduced CPU overhead on the hosts"], a: 1},
-                {q: "What is the minimum network bandwidth requirement for vSAN ESA hosts?", o: ["1 Gbps", "10 Gbps", "25 Gbps", "40 Gbps"], a: 2},
-                {q: "In vSAN, what is the purpose of a \"Witness\" component?", o: ["To cache read requests for faster access.", "To store virtual machine swap files.", "To serve as a tie-breaker and maintain quorum when a cluster partition occurs.", "To log all API configuration changes."], a: 2},
-                {q: "Which command-line tool utility on an ESXi host can be used to check local vSAN cluster membership and node status?", o: ["esxcli vsan cluster get", "vicfg-vsan status", "vsan-health-check", "esxcfg-vsan -l"], a: 0}
+                {q: "Which vSAN feature requires an all-flash cluster?", o: ["Deduplication and compression", "Erasure coding", "RAID 5/6 erasure coding", "Software checksum"], a: 2, e: "RAID 5/6 Erasure Coding está disponible exclusivamente en entornos All-Flash para reducir la penalización de I/O de escritura y optimizar el espacio sin perder paridad."},
+                {q: "What is the minimum number of network ports required for a vSAN cluster?", o: ["1", "2", "3", "4"], a: 0, e: "vSAN requiere como mínimo un único puerto de red físico dedicado (1 Gbps en híbrido, mínimo 10 Gbps en All-Flash) para gestionar el tráfico de replicación interna del clúster."},
+                {q: "An administrator wants to configure a vSAN cluster with a single host failure to tolerate (FTT=1) using RAID-1 mirroring. What is the minimum number of hosts required for this configuration?", o: ["2", "3", "4", "5"], a: 1, e: "Para FTT=1 mediante RAID-1 (Mirroring), la fórmula de hosts mínimos es 2n+1 (donde n=1). Por lo tanto, se necesitan obligatoriamente 3 hosts (2 datos + 1 testigo/quórum)."},
+                {q: "Which vSAN component is used to maintain quorum in a 2-node vSAN cluster?", o: ["Witness host", "Master host", "Backup host", "Agent host"], a: 0, e: "El Witness Host actúa como un desempate (tie-breaker) virtual externo para mantener el quórum de los componentes de almacenamiento en caso de partición de red."},
+                {q: "What is the maximum number of disk groups that can be configured per host in a vSAN Original Storage Architecture (OSA)?", o: ["2", "3", "4", "5"], a: 3, e: "En la arquitectura clásica OSA, un nodo ESXi puede contener un máximo estricto de 4 Disk Groups operativos simultáneamente."},
+                {q: "Which type of vSAN deployment architecture allows for high availability across two geographically separated sites?", o: ["Standard cluster", "Stretched cluster", "2-node cluster", "Direct Connect cluster"], a: 1, e: "Los Stretched Clusters permiten extender el almacenamiento vSAN activo-activo a través de dos centros de datos geográficamente distantes, monitorizados por un Witness."},
+                {q: "What is the purpose of the cache tier in a hybrid vSAN configuration?", o: ["100% Read cache", "100% Write buffer", "70% Read cache and 30% Write buffer", "30% Read cache and 70% Write buffer"], a: 2, e: "En arquitecturas híbridas (SSD + HDD), el disco de caché se divide rígidamente: 70% para acelerar lecturas frecuentes y 30% como búfer de absorción de escrituras."},
+                {q: "When configuring vSAN encryption, which component is responsible for generating and managing the Data Encryption Keys (DEKs)?", o: ["vCenter Server", "Key Management Server (KMS)", "ESXi host", "vSAN Storage Provider"], a: 1, e: "El KMS externo genera la llave maestra (KEK), pero interactúa directamente con el clúster para la provisión y custodia centralizada de las claves internas del disco (DEK)."},
+                {q: "An administrator is deploying vSAN ESA (Express Storage Architecture). Which storage device type is supported for both performance and capacity in this architecture?", o: ["SAS SSD", "SATA SSD", "NVMe SSD", "HDD"], a: 2, e: "vSAN ESA elimina el concepto de Disk Groups y requiere exclusivamente dispositivos NVMe SSD de alto rendimiento para asumir simultáneamente las cargas de rendimiento y capacidad."},
+                {q: "What happens to a virtual machine's VMDK if it violates the vSAN Storage Policy but the cluster has enough resources to comply?", o: ["The VM is powered off automatically.", "vSAN automatically initiates a resynchronization to make it compliant.", "The disk becomes read-only until manual intervention.", "The disk is moved to a non-vSAN datastore."], a: 1, e: "Si el clúster dispone de espacio y recursos, el motor de almacenamiento de vSAN lanzará de manera automática tareas en segundo plano de resincronización para forzar el cumplimiento de la directiva (SPBM)."},
+                {q: "What is the maximum number of capacity devices that can be added to a single disk group in vSAN OSA?", o: ["5", "7", "9", "12"], a: 1, e: "En cada Disk Group de la arquitectura OSA se permite un máximo estricto de 1 dispositivo de caché y hasta 7 dispositivos de capacidad."},
+                {q: "Which tool can an administrator use to monitor vSAN performance, health, and capacity directly from the vSphere Client?", o: ["vRealize Log Insight", "vSAN Skyline Health", "esxtop", "vCenter Command Line"], a: 1, e: "vSAN Skyline Health está integrado nativamente en el vSphere Client y monitoriza en tiempo real el cumplimiento del hardware, conectividad, red y estado de salud general del almacenamiento."},
+                {q: "In a vSAN Stretched Cluster, what is the maximum round-trip time (RTT) latency supported between the two main data sites?", o: ["1 ms", "5 ms", "10 ms", "20 ms"], a: 1, e: "Para garantizar la replicación síncrona sin bloquear los subprocesos de las máquinas virtuales, la latencia máxima RTT entre sitios de datos no debe exceder los 5 ms."},
+                {q: "Which vSAN storage policy setting defines the number of data replicas created across different fault domains or hosts?", o: ["Number of disk stripes per object", "Failures to tolerate (FTT)", "Object space reservation", "Flash read cache reservation"], a: 1, e: "La regla FTT (Failures to Tolerate) define cuántos fallos concurrentes de nodos o dominios de aislamiento puede resistir un objeto de almacenamiento duplicando o distribuyendo sus componentes."},
+                {q: "What is a prerequisite for enabling vSAN de-duplication and compression in an OSA cluster?", o: ["The cluster must be hybrid.", "The cluster must be All-Flash.", "It requires a minimum of 5 hosts.", "It requires NVMe devices only."], a: 1, e: "Los servicios avanzados de eficiencia de espacio (deduplicación y compresión) a nivel de bloque en OSA solo se soportan cuando los Disk Groups son 100% All-Flash."},
+                {q: "Which network protocol is used by vSAN for communication and data replication between hosts?", o: ["FCIP", "iSCSI", "TCP/IP", "NFS"], a: 2, e: "La comunicación intraclúster de vSAN se transporta por completo sobre la pila de red estándar TCP/IP mediante sockets de comunicación directos entre VMkernels."},
+                {q: "An administrator changes a vSAN storage policy from RAID-1 (Mirroring) to RAID-5 (Erasure Coding). What is the primary benefit of this change?", o: ["Higher write performance", "Reduced storage capacity consumption", "Lower network traffic", "Reduced CPU overhead on the hosts"], a: 1, e: "RAID-5 (Erasure Coding) requiere sustancialmente menos espacio físico bruto (1.33x) comparado con el 2x necesario para el espejo idéntico de datos de RAID-1."},
+                {q: "What is the minimum network bandwidth requirement for vSAN ESA hosts?", o: ["1 Gbps", "10 Gbps", "25 Gbps", "40 Gbps"], a: 2, e: "La arquitectura Express Storage Architecture (ESA) procesa volúmenes masivos de I/O directo, por lo que exige adaptadores de red de como mínimo 25 Gbps."},
+                {q: "In vSAN, what is the purpose of a \"Witness\" component?", o: ["To cache read requests for faster access.", "To store virtual machine swap files.", "To serve as a tie-breaker and maintain quorum when a cluster partition occurs.", "To log all API configuration changes."], a: 2, e: "Los objetos Witness no contienen bloques de datos de la VM; solo almacenan metadatos para resolver empates de red y conservar el quórum legítimo del clúster."},
+                {q: "Which command-line tool utility on an ESXi host can be used to check local vSAN cluster membership and node status?", o: ["esxcli vsan cluster get", "vicfg-vsan status", "vsan-health-check", "esxcfg-vsan -l"], a: 0, e: "El comando maestro ejecutado directamente en la consola del hipervisor para diagnosticar el UUID del clúster y los nodos unidos es `esxcli vsan cluster get`."}
             ],
             VSICM: [
-                {q: "Which storage technology can an administrator use to deploy the Virtual Machine File System (VMFS)?", o: ["Fibre Channel storage", "vSAN storage", "Virtual Volumes storage", "NFS storage"], a: 0},
-                {q: "What is supported ESXi boot options?", o: ["NFS", "iSCSI", "vSAN", "vSphere Virtual Volumes"], a: 1},
-                {q: "Which TCP/IP stack can support management traffic, vSphere vMotion, IP storage and vSphere Fault Tolerance?", o: ["VXLAN TCP/IP stack", "Provisioning TCP/IP stack", "Default TCP/IP stack", "vSphere vMotion TCP/IP stack"], a: 2},
-                {q: "A recently deployed set of test virtual machines are impacting the performance of a company development team project datastore. The shared cache server appears to be suffering from storage congestion. Storage I/O Control is already enabled on all company datastores. Which step should the administrator take to improve the performance of the cache server?", o: ["Update the storage provider for the existing array.", "Create a claim rule to control the storage path.", "Configure the path selection policy.", "Configure storage shares per virtual machine."], a: 3},
-                {q: "A single host is manually configured to company standards. Which option would an administrator select to capture this configuration for future use?", o: ["Extract Host Profile", "vReset Host Customizations", "Attach Host Profile", "Import Host Profile"], a: 0},
-                {q: "An administrator needs to monitor traffic on a vSwitch Standard in a vSphere environment. Which option, if configured, would accomplish this task?", o: ["Forged Transmits", "MAC Address Changes", "Promiscuous Mode", "vNotify Switches"], a: 2},
-                {q: "What is the minimum CPU core requirement for successful installation, or upgrade, or ESXi on a host?", o: ["8", "1", "32", "2"], a: 3},
-                {q: "What is the server virtualization product that combines the ESXi hypervisor and the vCenter Server?", o: ["NSX", "vRealize Operations Manager", "vSphere", "vSAN"], a: 2},
-                {q: "An IT department is experiencing random hardware failures that are costing the company money. The CIO is looking for technical support beyond traditional break/fix with enhanced visibility and proactive insights into the environment at no additional cost. Which VMware service meets the needs of the CIO?", o: ["VMware Global Support Services", "VMware Premier Support", "VMware Skyline", "vRealize Operations Manager"], a: 2},
-                {q: "Which vSphere feature enable remote site availability?", o: ["vSphere Fault Tolerance", "vSphere vMotion", "vSphere Replication", "vSphere Architecture"], a: 2},
-                {q: "An administrator wants to be able to log in to the vSphere Client and view the inventories of two vCenter Server instances. What must the administrator do to meet this requirement?", o: ["Configure Lockdown Mode on each vCenter Server instance after deployment is complete.", "Connect each vCenter Server instance to the same vCenter Single Sign-On domain during Deployment or also called Enhanced Linked Mode", "Connect each vCenter Server instance to the same vCenter Single Sign-On domain using the vSphere Client.", "Configure the vCenter Server Management Interface to view both vCenter Server instances."], a: 1},
-                {q: "When deploying a vCenter Server Appliance, which single sign-on (SSO)-related option is presented to an administrator?", o: ["Create a vCenter Enhanced Linked Mode Group", "Join an existing vCenter Single Sign-On domain", "Repoint to another domain", "Reset Single Sign-On password"], a: 1},
-                {q: "In a vSphere 7.0 environment is deployed with the following: A single vCenter Server, Two vSAN node cluster, A vSAN default storage policy. Which statement is true regarding virtual disk availability in this environment?", o: ["Replicas will be placed on different disk groups but can be placed on the same host.", "All stripes will be placed on different disk groups and cannot be placed on the same host.", "Each virtual disk will have four replicas of data.", "Each virtual disk will have two replicas of data."], a: 3},
-                {q: "An administrator wants to ensure that when virtual machines (VMs) are powered on, Distributed Resource Scheduler (DRS) places them on the best-suited host. When the cluster becomes imbalanced, the administrator wants DRS to display recommendations for manual VM migration. Which DRS automation level should the administrator select?", o: ["Manual", "Partially automated", "Fully automated", "Disabled"], a: 1},
-                {q: "Which feature is a pre-requisite for configuring admission control on a cluster?", o: ["vSphere Enhanced vMotion Compatibility (EVC)", "vSphere High Availability (HA)", "vSphere Fault Tolerance", "vSphere Distributed Resource Scheduler (DRS)"], a: 1},
-                {q: "An administrator is tasked with upgrading an existing vSphere environment to version 7.0. There are existing VMFS3 and VMFS5 datastores in the environment. Which statement is true regarding this upgrade?", o: ["An ESXi 7.0 host will NOT recognize a VMFS3 datastore.", "VMFS3 is supported with ESXi 7.0 to store boot configurations only.", "A VMFS5 datastore CANNOT be upgraded; a new VMFS6 datastore is required.", "An ESXi 7.0 host can automatically upgrade a VMFS5 datastore."], a: 2},
-                {q: "An administrator can attach a baseline to which inventory object?", o: ["Resource pools", "Datastores", "Templates", "ESXi hosts"], a: 3},
-                {q: "A vSphere environment is configured with 1 Gigabit Ethernet for vSphere vMotion. The application team is complaining that when they try to migrate a powered-on virtual machine, the progress is slow and unsuccessful the majority of the time. Which is a good recommendation should the administrator make to improve vSphere vMotion performance?", o: ["Use at least two VMkernel ports for vMotion.", "Use vSphere Storage I/O Control (SIOC).", "Use Link Aggregation Control Protocol (LACP) on the port group.", "Disable vSphere Fault Tolerance."], a: 0},
-                {q: "Which virtual disk option allows a virtual machine to consume the minimum storage capacity?", o: ["Independent persistent", "Lazy-zeroed thick-provisioned", "Eager-zeroed thick-provisioned", "Thin-provisioned"], a: 3},
-                {q: "In a vSphere High Availability (vSphere HA) cluster, which condition can be detected by datastore heartbeating?", o: ["Fault tolerance virtual machine (VM) failover", "Network isolation", "Virtual machine (VM) disk failure", "Datastore All Paths Down (APD) event"], a: 1}
+                {q: "Which storage technology can an administrator use to deploy the Virtual Machine File System (VMFS)?", o: ["Fibre Channel storage", "vSAN storage", "Virtual Volumes storage", "NFS storage"], a: 0, e: "VMFS es un sistema de archivos de bloques de alto rendimiento que solo se puede formatear sobre cabeceras o LUNs basadas en canales de fibra (FC), iSCSI o almacenamiento SAS directo."},
+                {q: "What is supported ESXi boot options?", o: ["NFS", "iSCSI", "vSAN", "vSphere Virtual Volumes"], a: 1, e: "El hipervisor ESXi soporta arranque remoto nativo mediante almacenamiento por bloques en red a través de iSCSI (Boot from iSCSI), pero no sobre protocolos de archivos compartidos tipo NFS."},
+                {q: "Which TCP/IP stack can support management traffic, vSphere vMotion, IP storage and vSphere Fault Tolerance?", o: ["VXLAN TCP/IP stack", "Provisioning TCP/IP stack", "Default TCP/IP stack", "vSphere vMotion TCP/IP stack"], a: 2, e: "La pila predeterminada (Default TCP/IP stack) puede dar servicio a todos los tipos de tráfico de infraestructura del sistema si no se aíslan de forma explícita en pilas dedicadas."},
+                {q: "A recently deployed set of test virtual machines are impacting the performance of a company development team project datastore. The shared cache server appears to be suffering from storage congestion. Storage I/O Control is already enabled on all company datastores. Which step should the administrator take to improve the performance of the cache server?", o: ["Update the storage provider for the existing array.", "Create a claim rule to control the storage path.", "Configure the path selection policy.", "Configure storage shares per virtual machine."], a: 3, e: "Cuando SIOC ya se encuentra activo globalmente, ajustar los 'Shares' o cuotas de almacenamiento de forma granular a nivel de VM prioriza la asignación de IOPS a las máquinas críticas durante periodos de contención extrema."},
+                {q: "A single host is manually configured to company standards. Which option would an administrator select to capture this configuration for future use?", o: ["Extract Host Profile", "vReset Host Customizations", "Attach Host Profile", "Import Host Profile"], a: 0, e: "La acción 'Extract Host Profile' permite leer la configuración de un host de referencia que cumple las directrices para exportarla como plantilla de despliegue automatizado."},
+                {q: "An administrator needs to monitor traffic on a vSwitch Standard in a vSphere environment. Which option, if configured, would accomplish this task?", o: ["Forged Transmits", "MAC Address Changes", "Promiscuous Mode", "vNotify Switches"], a: 2, e: "Habilitar el modo promiscuo (Promiscuous Mode) en las directivas de seguridad del switch virtual permite que las herramientas de red capturen y analicen tramas de datos ajenas a su interfaz."},
+                {q: "What is the minimum CPU core requirement for successful installation, or upgrade, or ESXi on a host?", o: ["8", "1", "32", "2"], a: 3, e: "Los requisitos oficiales de VMware para inicializar o actualizar el instalador del hipervisor ESXi exigen un procesador físico con un mínimo de 2 núcleos de cómputo."},
+                {q: "What is the server virtualization product that combines the ESXi hypervisor and the vCenter Server?", o: ["NSX", "vRealize Operations Manager", "vSphere", "vSAN"], a: 2, e: "vSphere es la suite comercial completa que unifica la potencia de cómputo del hipervisor (ESXi) con la herramienta de control centralizado (vCenter Server)."},
+                {q: "An IT department is experiencing random hardware failures that are costing the company money. The CIO is looking for technical support beyond traditional break/fix with enhanced visibility and proactive insights into the environment at no additional cost. Which VMware service meets the needs of the CIO?", o: ["VMware Global Support Services", "VMware Premier Support", "VMware Skyline", "vRealize Operations Manager"], a: 2, e: "VMware Skyline es un servicio analítico proactivo gratuito que predice de forma automatizada problemas de configuración, riesgos de hardware y bugs antes de que causen cortes de servicio."},
+                {q: "Which vSphere feature enable remote site availability?", o: ["vSphere Fault Tolerance", "vSphere vMotion", "vSphere Replication", "vSphere Architecture"], a: 2, e: "vSphere Replication copia bloques de datos de forma asíncrona hacia una infraestructura secundaria remota para garantizar la recuperación ante desastres (DR)."},
+                {q: "An administrator wants to be able to log in to the vSphere Client and view the inventories of two vCenter Server instances. What must the administrator do to meet this requirement?", o: ["Configure Lockdown Mode on each vCenter Server instance after deployment is complete.", "Connect each vCenter Server instance to the same vCenter Single Sign-On domain during Deployment or also called Enhanced Linked Mode", "Connect each vCenter Server instance to the same vCenter Single Sign-On domain using the vSphere Client.", "Configure the vCenter Server Management Interface to view both vCenter Server instances."], a: 1, e: "Para unificar inventarios en una única vista de consola (Enhanced Linked Mode), ambos vCenter Servers deben apuntar obligatoriamente al mismo dominio Single Sign-On (SSO) durante el asistente de instalación."},
+                {q: "When deploying a vCenter Server Appliance, which single sign-on (SSO)-related option is presented to an administrator?", o: ["Create a vCenter Enhanced Linked Mode Group", "Join an existing vCenter Single Sign-On domain", "Repoint to another domain", "Reset Single Sign-On password"], a: 1, e: "El instalador ofrece dos opciones claras de SSO en la Fase 2: Iniciar un nuevo dominio de autenticación o unirse de forma nativa a un dominio SSO ya desplegado en la red."},
+                {q: "In a vSphere 7.0 environment is deployed with the following: A single vCenter Server, Two vSAN node cluster, A vSAN default storage policy. Which statement is true regarding virtual disk availability in this environment?", o: ["Replicas will be placed on different disk groups but can be placed on the same host.", "All stripes will be placed on different disk groups and cannot be placed on the same host.", "Each virtual disk will have four replicas of data.", "Each virtual disk will have two replicas of data."], a: 3, e: "Bajo las reglas por defecto (RAID-1 Mirroring con FTT=1), vSAN dividirá el disco virtual en al menos 2 réplicas exactas distribuidas obligatoriamente en diferentes hosts físicos para tolerar caídas."},
+                {q: "An administrator wants to ensure that when virtual machines (VMs) are powered on, Distributed Resource Scheduler (DRS) places them on the best-suited host. When the cluster becomes imbalanced, the administrator wants DRS to display recommendations for manual VM migration. Which DRS automation level should the administrator select?", o: ["Manual", "Partially automated", "Fully automated", "Disabled"], a: 1, e: "El nivel Partially Automated (Parcialmente Automatizado) asume la colocación inicial automática al encender la VM, pero emite meras alertas consultivas para el rebalanceo dinámico posterior."},
+                {q: "Which feature is a pre-requisite for configuring admission control on a cluster?", o: ["vSphere Enhanced vMotion Compatibility (EVC)", "vSphere High Availability (HA)", "vSphere Fault Tolerance", "vSphere Distributed Resource Scheduler (DRS)"], a: 1, e: "El Control de Admisión (Admission Control) es una funcionalidad específica y dependiente del servicio vSphere HA que reserva recursos en previsión de conmutaciones por error."},
+                {q: "An administrator is tasked with upgrading an existing vSphere environment to version 7.0. There are existing VMFS3 and VMFS5 datastores in the environment. Which statement is true regarding this upgrade?", o: ["An ESXi 7.0 host will NOT recognize a VMFS3 datastore.", "VMFS3 is supported with ESXi 7.0 to store boot configurations only.", "A VMFS5 datastore CANNOT be upgraded; a new VMFS6 datastore is required.", "An ESXi 7.0 host can automatically upgrade a VMFS5 datastore."], a: 2, e: "VMware ha eliminado por completo el soporte heredado para sistemas de archivos VMFS3 en ESXi 7.0; sin embargo, las cabeceras de almacenes VMFS5 se pueden leer pero no actualizar in situ a estructuras avanzadas VMFS6."},
+                {q: "An administrator can attach a baseline to which inventory object?", o: ["Resource pools", "Datastores", "Templates", "ESXi hosts"], a: 3, e: "Con vSphere Lifecycle Manager (vLCM), las directivas de actualización de software o parches (baselines) se vinculan directamente a hosts ESXi, clústeres o servidores vCenter."},
+                {q: "A vSphere environment is configured with 1 Gigabit Ethernet for vSphere vMotion. The application team is complaining that when they try to migrate a powered-on virtual machine, the progress is slow and unsuccessful the majority of the time. Which is a good recommendation should the administrator make to improve vSphere vMotion performance?", o: ["Use at least two VMkernel ports for vMotion.", "Use vSphere Storage I/O Control (SIOC).", "Use Link Aggregation Control Protocol (LACP) on the port group.", "Disable vSphere Fault Tolerance."], a: 0, e: "Configurar una arquitectura Multi-NIC vMotion vinculando al menos dos interfaces VMkernel dedicadas permite equilibrar de forma automática los flujos de memoria agilizando las migraciones en vivo."},
+                {q: "Which virtual disk option allows a virtual machine to consume the minimum storage capacity?", o: ["Independent persistent", "Lazy-zeroed thick-provisioned", "Eager-zeroed thick-provisioned", "Thin-provisioned"], a: 3, e: "Los discos Thin-Provisioned (Aprovisionamiento Fino) solo reclaman almacenamiento físico bajo demanda a medida que los bloques del sistema de archivos de la VM escriben datos reales."},
+                {q: "In a vSphere High Availability (vSphere HA) cluster, which condition can be detected by datastore heartbeating?", o: ["Fault tolerance virtual machine (VM) failover", "Network isolation", "Virtual machine (VM) disk failure", "Datastore All Paths Down (APD) event"], a: 1, e: "Si un host maestro pierde los latidos de red con un nodo esclavo, el sistema recurrentemente al Datastore Heartbeating para comprobar si el nodo sigue vivo accediendo al almacenamiento o si está aislado por red."}
             ],
             VSOS: [
-                {q: "An administrator is tasked with upgrading an existing VMware vSphere 6.5 environment to version 7.0. There are existing VMFS3 and VMFS5 datastores in the environment. Which statements is true regarding this upgrade?", o: ["A VMFS3 datastore cannot be upgraded; a new VMFS6 datastore is required.", "An ESXi 7.0 host can automatically upgrade a VMFS5 to VMFS6 datastore.", "An ESXi 7.0 host will automatically upgrade a VMFS3 datastore when discovered.", "VMFS5 is no longer supported with ESXi 7.0."], a: 0},
-                {q: "What can an administrator use to partition limited CPU and memory resources between two departments?", o: ["Resource pools", "vSphere distributed switch", "vCenter folders", "vSphere High Availability"], a: 0},
-                {q: "What is a minimum disk controller requirement for VMware vSAN?", o: ["A disk controller in pass-through or RAID 5 mode", "A disk controller in JBOD mode", "A disk controller in pass-through or RAID 0 mode", "A disk controller in pass-through or RAID 1 mode"], a: 2},
-                {q: "What is the minimum CPU core requirement for successful installation, or upgrade, of ESXi on a host?", o: ["2", "8", "32", "1"], a: 0},
-                {q: "Which local only host utility is used for primary, real-time performance monitoring in vSphere?", o: ["top", "esxCop", "vCenter Command-Line Interface (CLI)", "esxtop"], a: 3},
-                {q: "An administrator is trying to configure vCenter Single Sign-On from the vSphere Client but does NOT have permission. Which role is required in order to configure vCenter Single Sign-On?", o: ["vCenter Single Sign-On Administrator", "vCenter Power User", "vCenter Server Appliance Root", "vCenter Administrator"], a: 0},
-                {q: "Which feature is a pre-requisite for configuring admission control on a cluster?", o: ["vSphere High Availability (HA)", "vSphere Distributed Resource Scheduler (DRS)", "vSphere Enhanced vMotion Compatibility (EVC)", "vSphere Fault Tolerance"], a: 0},
-                {q: "What is a requirement of Storage I/O Control?", o: ["Storage connected through Fibre Channel", "Management by a single vCenter Server", "Automated storage tiering capabilities", "Datastores with multiple extents"], a: 1},
-                {q: "An administrator is unable to manage certificates with the vSphere Client. What is another supported option that can be used to manage certificates?", o: ["Cloud Builder", "Command Line Interface", "vRealize Operations Manager", "vCenter Server Management Interface"], a: 3},
-                {q: "What is a pre-requisite for increasing datastore capacity?", o: ["The datastore is managed by Storage DRS (SDRS).", "The backing device for the datastore has enough free space.", "There are NO powered-on virtual machines on the datastore.", "The datastore is 100% full."], a: 1},
-                {q: "What is a pre-requisites for enabling ESXi secure boot?", o: ["vExternal Key Management Service", "ESXi 7.0 or greater", "Unified Extensible Firmware Interface (UEFI)", "Trusted Platform Module version 2.0"], a: 2},
-                {q: "An administrator wants to enable bandwidth allocation for workloads by using Network I/O Control. What should the administrator configure to accomplish this?", o: ["Load-balancing", "Virtual machine traffic vNIC teaming policy", "Management traffic"], a: 1},
-                {q: "ESXi provides VLAN support by assigning a VLAN ID to which component?", o: ["Physical network interface card (NIC)", "Virtual standard switch vVirtual distributed switch", "Port group"], a: 2},
-                {q: "Which type of network adapter is designed to provide connectivity to hosts and handle the standard system traffic of vSphere vMotion?", o: ["Virtual machine network interface card (VMNIC)", "VM network", "VMkernel port", "VXLAN virtual tunnel end point (VXLAN VTEP)"], a: 2},
-                {q: "vCenter Server experiences a catastrophic failure and the administrator must restore from a vCenter Server backup stored on an FTP server. What must the administrator do to restore vCenter Server?", o: ["Use the vCenter Server GUI installer to deploy a vCenter Server instance and restore the vCenter Server data from the backup.", "Use the vSphere Client to deploy the appliance onto an ESXi host and restore the vCenter Server data from the backup.", "Use the vCenter Server Management Interface to restore the vCenter Server data, and power on the appliance.", "Use the vCenter Server GUI installer to deploy a vCenter Server instance and use the vSphere Client to restore vCenter Server data from the backup."], a: 0},
-                {q: "There are two vSphere clusters in a company environment. One cluster is hosting development workloads and another is hosting production workloads. Both vSphere clusters are managed by the same vCenter Server. The application team would like to move a new virtual machine from the development to production cluster with no downtime. Which feature would allow non-disruptive movement between these two clusters?", o: ["Cross vCenter Migration", "vSphere Replication", "vSphere vMotion", "vSphere High Availability"], a: 2},
-                {q: "Which resource pool setting is used to specify the relative priority or importance as high, normal or low?", o: ["Limits", "Reservation type", "Reservations", "Shares"], a: 3},
-                {q: "vCenter High Availability (HA) protects vCenter Server against host and hardware failures. What is the minimum number of ESXi hosts required to enable this capability?", o: ["5", "3", "1", "7"], a: 1},
-                {q: "An administrator would like to make virtual machine templates and ISO images available to all vCenter Server instances in the data center. Which feature should the administrator use to achieve this goal?", o: ["Content libraries", "Host profiles", "Storage policies", "Resource pools"], a: 0},
-                {q: "An administrator is asked to take a snapshot of a virtual machine prior to an application upgrade. The virtual machine has one standard virtual machine disk (VMDK) and one physical mode raw device mapping (RDM) attached. Which statement is true with regard to taking this snapshot?", o: ["The administrator will be able to snapshot the RDM in independent persistent mode.", "The administrator will be able to snapshot the standard VMDK in independent persistent mode.", "The administrator will be able to snapshot both disks.", "The administrator will be unable to snapshot the RDM."], a: 3}
+                {q: "An administrator is tasked with upgrading an existing VMware vSphere 6.5 environment to version 7.0. There are existing VMFS3 and VMFS5 datastores in the environment. Which statements is true regarding this upgrade?", o: ["A VMFS3 datastore cannot be upgraded; a new VMFS6 datastore is required.", "An ESXi 7.0 host can automatically upgrade a VMFS5 to VMFS6 datastore.", "An ESXi 7.0 host will automatically upgrade a VMFS3 datastore when discovered.", "VMFS5 is no longer supported with ESXi 7.0."], a: 0, e: "No existe un método automatizado para saltar en caliente de metadatos de sistemas de archivos obsoletos VMFS3 a VMFS6; es imperativo aprovisionar un nuevo Datastore nativo en VMFS6 y migrar los datos."},
+                {q: "What can an administrator use to partition limited CPU and memory resources between two departments?", o: ["Resource pools", "vSphere distributed switch", "vCenter folders", "vSphere High Availability"], a: 0, e: "Los Resource Pools permiten subdividir jerárquicamente la potencia total de memoria RAM y los ciclos de CPU asignándoles cuotas proporcionales (Reservas/Límites)."},
+                {q: "What is a minimum disk controller requirement for VMware vSAN?", o: ["A disk controller in pass-through or RAID 5 mode", "A disk controller in JBOD mode", "A disk controller in pass-through or RAID 0 mode", "A disk controller in pass-through or RAID 1 mode"], a: 2, e: "vSAN requiere el control nativo de los discos. La controladora debe admitir el modo Pass-Through directo o, en su defecto, configurar individualmente volúmenes RAID-0 de un solo disco sin caché de escritura."},
+                {q: "What is the minimum CPU core requirement for successful installation, or upgrade, of ESXi on a host?", o: ["2", "8", "32", "1"], a: 0, e: "Para pasar las comprobaciones iniciales del kernel del instalador oficial del hipervisor, es un prerrequisito de hardware que la máquina cuente con al menos 2 núcleos de procesamiento x86_64."},
+                {q: "Which local only host utility is used for primary, real-time performance monitoring in vSphere?", o: ["top", "esxCop", "vCenter Command-Line Interface (CLI)", "esxtop"], a: 3, e: "El comando interactivo de terminal ejecutado directamente vía SSH en un servidor ESXi es `esxtop`. Permite auditar en tiempo real métricas analíticas de CPU, memoria, almacenamiento y adaptadores de red."},
+                {q: "An administrator is trying to configure vCenter Single Sign-On from the vSphere Client but does NOT have permission. Which role is required in order to configure vCenter Single Sign-On?", o: ["vCenter Single Sign-On Administrator", "vCenter Power User", "vCenter Server Appliance Root", "vCenter Administrator"], a: 0, e: "Los privilegios de gestión global para añadir proveedores de identidad o configurar dominios Single Sign-On están restringidos por defecto a los miembros explícitos del rol vCenter Single Sign-On Administrator."},
+                {q: "Which feature is a pre-requisite for configuring admission control on a cluster?", o: ["vSphere High Availability (HA)", "vSphere Distributed Resource Scheduler (DRS)", "vSphere Enhanced vMotion Compatibility (EVC)", "vSphere Fault Tolerance"], a: 0, e: "Admission Control es el pilar de contingencia del módulo vSphere High Availability (HA). Bloquea la activación excesiva de VMs si calcula que un nodo superviviente no tolerará el failover."},
+                {q: "What is a requirement of Storage I/O Control?", o: ["Storage connected through Fibre Channel", "Management by a single vCenter Server", "Automated storage tiering capabilities", "Datastores with multiple extents"], a: 1, e: "Para coordinar y equilibrar la asignación de IOPS entre múltiples hosts ESXi concurrentes, un Datastore gestionado bajo SIOC debe estar supeditado al ámbito de un único vCenter Server."},
+                {q: "An administrator is unable to manage certificates with the vSphere Client. What is another supported option that can be used to manage certificates?", o: ["Cloud Builder", "Command Line Interface", "vRealize Operations Manager", "vCenter Server Management Interface"], a: 1, e: "El vSphere Command Line Interface y herramientas del sistema operativo como la utilidad de consola `vmafd` permiten gestionar almacenes de certificados (VECS) when web graphical client fails."},
+                {q: "What is a pre-requisite for increasing datastore capacity?", o: ["The datastore is managed by Storage DRS (SDRS).", "The backing device for the datastore has enough free space.", "There are NO powered-on virtual machines on the datastore.", "The datastore is 100% full."], a: 1, e: "Para expandir de forma segura un almacén existente (VMFS), es condición necesaria e indispensable que el dispositivo de bloques físico LUN subyacente en la cabina de almacenamiento haya sido previamente redimensionado con espacio libre disponible."},
+                {q: "What is a pre-requisites for enabling ESXi secure boot?", o: ["vExternal Key Management Service", "ESXi 7.0 or greater", "Unified Extensible Firmware Interface (UEFI)", "Trusted Platform Module version 2.0"], a: 2, e: "Secure Boot (Arranque Seguro) confía en la firma criptográfica de los binarios del kernel. Requiere que la placa base del servidor hardware esté configurada en modo nativo UEFI en lugar de BIOS heredado (Legacy)."},
+                {q: "An administrator wants to enable bandwidth allocation for workloads by using Network I/O Control. What should the administrator configure to accomplish this?", o: ["Load-balancing", "Virtual machine traffic vNIC teaming policy", "Management traffic"], a: 1, e: "Al habilitar NIOC en un Distributed Switch, los recursos compartidos y límites de red se aplican asignando políticas granulares para perfiles específicos, vinculándose de forma nativa a políticas de teaming de tráfico virtual."},
+                {q: "ESXi provides VLAN support by assigning a VLAN ID to which component?", o: ["Physical network interface card (NIC)", "Virtual standard switch vVirtual distributed switch", "Port group"], a: 2, e: "En el etiquetado a nivel virtual (Virtual Switch Tagging - VST), los identificadores numéricos de VLAN se asignan de manera lógica a nivel de Port Groups dentro del switch virtual."},
+                {q: "Which type of network adapter is designed to provide connectivity to hosts and handle the standard system traffic of vSphere vMotion?", o: ["Virtual machine network interface card (VMNIC)", "VM network", "VMkernel port", "VXLAN virtual tunnel end point (VXLAN VTEP)"], a: 2, e: "Los puertos de tipo VMkernel son los adaptadores virtuales internos dedicados que gestionan y encapsulan los tramas de servicios de sistema del hipervisor, tales como vMotion, almacenamiento IP o gestión de host."},
+                {q: "vCenter Server experiences a catastrophic failure and the administrator must restore from a vCenter Server backup stored on an FTP server. What must the administrator do to restore vCenter Server?", o: ["Use the vCenter Server GUI installer to deploy a vCenter Server instance and restore the vCenter Server data from the backup.", "Use the vSphere Client to deploy the appliance onto an ESXi host and restore the vCenter Server data from the backup.", "Use the vCenter Server Management Interface to restore the vCenter Server data, and power on the appliance.", "Use the vCenter Server GUI installer to deploy a vCenter Server instance and use the vSphere Client to restore vCenter Server data from the backup."], a: 0, e: "El proceso oficial de recuperación (Restore) requiere ejecutar el asistente de instalación interactivo (GUI) desde una máquina externa para desplegar un nuevo chasis virtual (VCSA) y, en la fase 2, inyectar los datos del backup guardado en el FTP."},
+                {q: "There are two vSphere clusters in a company environment. One cluster is hosting development workloads and another is hosting production workloads. Both vSphere clusters are managed by the same vCenter Server. The application team would like to move a new virtual machine from the development to production cluster with no downtime. Which feature would allow non-disruptive movement between these two clusters?", o: ["Cross vCenter Migration", "vSphere Replication", "vSphere vMotion", "vSphere High Availability"], a: 2, e: "vSphere vMotion estándar permite realizar migraciones calientes tanto de cómputo como de almacenamiento de forma transparente para el usuario final si los hosts pertenecen al mismo dominio de vCenter."},
+                {q: "Which resource pool setting is used to specify the relative priority or importance as high, normal or low?", o: ["Limits", "Reservation type", "Reservations", "Shares"], a: 3, e: "Las cuotas (Shares) son valores paramétricos relativos definidos de forma abstracta (High, Normal, Low) que dictaminan la prioridad que tiene un grupo de recursos ante situaciones críticas de escasez."},
+                {q: "vCenter High Availability (HA) protects vCenter Server against host and hardware failures. What is the minimum number of ESXi hosts required to enable this capability?", o: ["5", "3", "1", "7"], a: 1, e: "La arquitectura nativa de protección de vCenter HA se compone obligatoriamente de 3 instancias lógicas distribuidas en 3 hosts ESXi diferentes: el nodo Activo, el nodo Pasivo y el nodo Testigo."},
+                {q: "An administrator would like to make virtual machine templates and ISO images available to all vCenter Server instances in the data center. Which feature should the administrator use to achieve this goal?", o: ["Content libraries", "Host profiles", "Storage policies", "Resource pools"], a: 0, e: "Las Content Libraries (Bibliotecas de Contenido) permiten centralizar y sincronizar de manera automatizada plantillas OVF, imágenes ISO y scripts de configuración entre múltiples centros de gestión vCenter remotos."},
+                {q: "An administrator is asked to take a snapshot of a virtual machine prior to an application upgrade. The virtual machine has one standard virtual machine disk (VMDK) and one physical mode raw device mapping (RDM) attached. Which statement is true with regard to taking this snapshot?", o: ["The administrator will be able to snapshot the RDM in independent persistent mode.", "The administrator will be able to snapshot the standard VMDK in independent persistent mode.", "The administrator will be able to snapshot both disks.", "The administrator will be unable to snapshot the RDM."], a: 3, e: "Los discos físicos RDM (Raw Device Mapping en modo físico) puentean el hipervisor enviando comandos SCSI directos a la cabina SAN, lo que imposibilita de forma nativa a las APIs de VMware realizar operaciones de snapshot sobre ellos."}
             ]
         };
 
@@ -559,7 +694,7 @@
         let countdownTimer;
         let timelineSecs = 3600; 
 
-        // RENDERIZADO DEL FONDO MATRIX DEL CANVAS (MÉTODO SEGURO)
+        // RENDERIZADO DEL FONDO MATRIX
         const matrixCanvas = document.getElementById('canvas-matrix');
         const matrixCtx = matrixCanvas.getContext('2d');
         
@@ -595,7 +730,7 @@
         }
         setInterval(renderMatrixFrame, 35);
 
-        // NÚCLEO DE CONTROL DE FLUJO DE LA APLICACIÓN
+        // CONTROL DE FLUJO Y NAVEGACIÓN
         function launchEvaluation(moduleKey) {
             currentModule = moduleKey;
             workingDataset = storageEngine[moduleKey];
@@ -603,10 +738,11 @@
             responseMap = Array(workingDataset.length).fill(null);
             timelineSecs = 3600;
 
-            document.getElementById('current-scope').innerText = "Active Session: " + moduleKey + " Assessment";
+            // Ocultar HUB por completo y levantar pantalla de examen activa
             document.getElementById('screen-hub').style.display = 'none';
             document.getElementById('screen-quiz').style.display = 'block';
             document.getElementById('clock-element').style.display = 'block';
+            document.getElementById('current-scope').innerText = "Active Session: " + moduleKey + " Assessment";
 
             compileQuizView();
             displayQuestion(0);
@@ -616,8 +752,6 @@
         function abortExam() {
             if(confirm("ALERTA CRÍTICA: ¿Estás seguro de que deseas abortar el examen actual?\nSe perderán todas tus respuestas y volverás al inicio.")) {
                 clearInterval(countdownTimer);
-                document.getElementById('screen-quiz').style.display = 'none';
-                document.getElementById('clock-element').style.display = 'none';
                 restoreHub();
             }
         }
@@ -632,7 +766,15 @@
                 
                 const meta = document.createElement('div');
                 meta.className = 'meta-step';
-                meta.innerText = 'Question ' + (qIdx + 1) + ' of ' + workingDataset.length;
+                meta.innerHTML = `
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--vmware-light)" stroke-width="2" style="transform: rotate(45deg);">
+                        <rect x="4" y="4" width="16" height="16" rx="1"/>
+                    </svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--matrix-purple)" stroke-width="2">
+                        <path d="M2 5h8v14H2zM14 5h8v14h-8z"/>
+                    </svg>
+                    <span>[Node Framework] — Question ${qIdx + 1} of ${workingDataset.length}</span>
+                `;
                 node.appendChild(meta);
 
                 const stmt = document.createElement('div');
@@ -666,6 +808,12 @@
             });
         }
 
+        function updateExamProgressBar(current, total) {
+            const percentage = Math.round(((current + 1) / total) * 100);
+            document.getElementById('exam-progress-string').innerText = `${current + 1} / ${total} (${percentage}%)`;
+            document.getElementById('exam-progress-metrics').style.width = percentage + "%";
+        }
+
         function displayQuestion(idx) {
             document.querySelectorAll('.question-node').forEach(n => n.classList.remove('visible'));
             const activeNode = document.querySelector('.target-node-' + idx);
@@ -673,6 +821,8 @@
 
             document.getElementById('nav-prev').disabled = (idx === 0);
             document.getElementById('nav-next').disabled = (idx === workingDataset.length - 1);
+            
+            updateExamProgressBar(idx, workingDataset.length);
         }
 
         function moveStep(dir) {
@@ -739,6 +889,26 @@
                 sdetails.innerHTML = '<div><strong>Tu respuesta:</strong> ' + userAnsText + '</div>' +
                                       '<div style="margin-top:2px;"><strong>Respuesta del sistema:</strong> ' + correctAnsText + '</div>';
 
+                const expBlock = document.createElement('div');
+                expBlock.className = 'official-explanation';
+                
+                const expHeader = document.createElement('div');
+                expHeader.className = 'explanation-header';
+                expHeader.innerHTML = `
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--vmware-light)" stroke-width="2" style="transform: rotate(45deg);">
+                        <rect x="4" y="4" width="16" height="16" rx="1"/>
+                    </svg>
+                    <span>OFFICIAL Knowledge</span>
+                `;
+                
+                const expBody = document.createElement('div');
+                expBody.className = 'explanation-body';
+                expBody.innerText = item.e;
+
+                expBlock.appendChild(expHeader);
+                expBlock.appendChild(expBody);
+                sdetails.appendChild(expBlock);
+
                 summaryItem.appendChild(smeta);
                 summaryItem.appendChild(qtext);
                 summaryItem.appendChild(sdetails);
@@ -772,7 +942,9 @@
 
         function restoreHub() {
             document.getElementById('current-scope').innerText = "System Initialization Ready";
+            document.getElementById('screen-quiz').style.display = 'none';
             document.getElementById('screen-metrics').style.display = 'none';
+            document.getElementById('clock-element').style.display = 'none';
             document.getElementById('screen-hub').style.display = 'block';
         }
     </script>
