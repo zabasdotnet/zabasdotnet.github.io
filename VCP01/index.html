@@ -695,6 +695,7 @@
         let timelineSecs = 3600; 
 
         // RENDERIZADO DEL FONDO MATRIX
+
         const matrixCanvas = document.getElementById('canvas-matrix');
         const matrixCtx = matrixCanvas.getContext('2d');
         
@@ -707,28 +708,38 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        const symbols = "010101001101011010".split("");
-        const fontPixels = 14;
+        // Caracteres oficiales estilo Matrix (Katakana + números invertidos)
+        const katakana = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン";
+        const nums = "0123456789";
+        const symbols = (katakana + nums).split("");
+        
+        const fontPixels = 16;
         let streamDrops = Array(Math.floor(window.innerWidth / fontPixels) || 40).fill(1);
 
         function renderMatrixFrame() {
             if (!matrixCtx || !matrixCanvas) return;
-            matrixCtx.fillStyle = 'rgba(13, 13, 13, 0.05)';
+            
+            // Efecto de rastro (fade)
+            matrixCtx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-            matrixCtx.fillStyle = '#00ff41';
+            
+            matrixCtx.fillStyle = '#0F0'; // Verde clásico Matrix
             matrixCtx.font = fontPixels + 'px monospace';
 
             for (let i = 0; i < streamDrops.length; i++) {
                 const char = symbols[Math.floor(Math.random() * symbols.length)];
+                
+                // Dibujar carácter
                 matrixCtx.fillText(char, i * fontPixels, streamDrops[i] * fontPixels);
                 
+                // Reiniciar caída aleatoriamente para crear efecto de columnas irregulares
                 if (streamDrops[i] * fontPixels > matrixCanvas.height && Math.random() > 0.975) {
                     streamDrops[i] = 0;
                 }
                 streamDrops[i]++;
             }
         }
-        setInterval(renderMatrixFrame, 35);
+        setInterval(renderMatrixFrame, 60);
 
         // CONTROL DE FLUJO Y NAVEGACIÓN
         function launchEvaluation(moduleKey) {
