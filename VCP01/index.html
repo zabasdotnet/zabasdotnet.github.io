@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VMware Certification Exam Simulator</title>
+    <style>
+        :root {
+            --vmware-blue: #005670;
+            --vmware-light-blue: #0095c2;
+            --dark-bg: #0a0a0a;
+            --panel-bg: rgba(20, 25, 30, 0.9);
+            --text-light: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Fondo de Lluvia de Matrix */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.35;
+        }
+
+        /* Contenedor Principal */
+        .wrapper {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            z-index: 1;
+            position: relative;
+        }
+
+        header {
+            background: var(--panel-bg);
+            border-bottom: 4px solid var(--vmware-light-blue);
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .logo-area h1 {
+            color: #fff;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        .logo-area span {
+            color: var(--vmware-light-blue);
+            font-size: 12px;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .timer-box {
+            background: rgba(0,0,0,0.6);
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #ff4444;
+            color: #ff4444;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .main-panel {
+            background: var(--panel-bg);
+            padding: 30px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .selector-screen, .results-screen {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .btn {
+            background: var(--vmware-blue);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin: 10px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background: var(--vmware-light-blue);
+        }
+
+        .btn-select {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 15px auto;
+            background: rgba(0, 86, 112, 0.4);
+            border: 1px solid var(--vmware-light-blue);
+        }
+
+        .btn-select:hover {
+            background: var(--vmware-blue);
+        }
+
+        /* Estilos de las preguntas */
+        .question-card {
+            display: none;
+        }
+
+        .question-card.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .q-number {
+            color: var(--vmware-light-blue);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .q-text {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .options-list {
+            list-style: none;
+        }
+
+        .option-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-item:hover {
+            background: rgba(0, 149, 194, 0.1);
+            border-color: var(--vmware-light-blue);
+        }
+
+        .option-item input {
+            margin-right: 15px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .navigation-tools {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .score-big {
+            font-size: 48px;
+            color: var(--vmware-light-blue);
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <div class="wrapper">
+        <header>
+            <div class="logo-area">
+                <h1>VMware Certification</h1>
+                <span id="exam-subtitle">Exam Simulator Engine</span>
+            </div>
+            <div class="timer-box" id="timer" style="display:none;">60:00</div>
+        </header>
+
+        <div class="main-panel">
+            <div id="selector-screen" class="selector-screen">
+                <h2>Selecciona el Módulo de Examen</h2>
+                <p style="margin-bottom: 30px; color: #aaa;">Cada examen consta de 20 preguntas y un tiempo límite de 60 minutos.</p>
+                <button class="btn btn-select" onclick="startExam('VSAN')">VMware vSAN</button>
+                <button class="btn btn-select" onclick="startExam('VSICM')">VMware vSphere: ICM</button>
+                <button class="btn btn-select" onclick="startExam('VSOS')">VMware vSphere: OS</button>
+            </div>
+
+            <div id="quiz-container" style="display:none;">
+                <div id="questions-wrapper"></div>
+                <div class="navigation-tools">
+                    <button class="btn" id="btn-prev" onclick="changeQuestion(-1)">Anterior</button>
+                    <button class="btn" id="btn-next" onclick="changeQuestion(1)">Siguiente</button>
+                    <button class="btn" id="btn-submit" style="background:#ff4444; display:none;" onclick="endExam(false)">Finalizar</button>
+                </div>
+            </div>
+
+            <div id="results-screen" class="results-screen" style="display:none;">
+                <h2>Examen Completado</h2>
+                <div class="score-big" id="score-output">0%</div>
+                <p id="feedback-output" style="margin-bottom:25px;"></p>
+                <button class="btn" onclick="resetSimulator()">Volver al Inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // BASE DE DATOS DE PREGUNTAS (Extraídas del archivo facilitado)
+        const examDatabase = {
+            VSAN: [
+                {q:"Which vSAN feature requires an all-flash cluster?", o:["Deduplication and compression","Erasure coding","RAID 5/6 erasure coding","Software checksum"], a:2},
+                {q:"What is the minimum number of network ports required for a vSAN cluster?", o:["1","2","3","4"], a:0},
+                {q:"An administrator wants to configure a vSAN cluster with a single host failure to tolerate (FTT=1) using RAID-1 mirroring. What is the minimum number of hosts required for this configuration?", o:["2","3","4","5"], a:1},
+                {q:"Which vSAN component is used to maintain quorum in a 2-node vSAN cluster?", o:["Witness host","Master host","Backup host","Agent host"], a:0},
+                {q:"What is the maximum number of disk groups that can be configured per host in a vSAN Original Storage Architecture (OSA)?", o:["2","3","4","5"], a:3},
+                {q:"Which type of vSAN deployment architecture allows for high availability across two geographically separated sites?", o:["Standard cluster","Stretched cluster","2-node cluster","Direct Connect cluster"], a:1},
+                {q:"What is the purpose of the cache tier in a hybrid vSAN configuration?", o:["100% Read cache","100% Write buffer","70% Read cache and 30% Write buffer","30% Read cache and 70% Write buffer"], a:2},
+                {q:"When configuring vSAN encryption, which component is responsible for generating and managing the Data Encryption Keys (DEKs)?", o:["vCenter Server","Key Management Server (KMS)","ESXi host","vSAN Storage Provider"], a:1},
+                {q:"An administrator is deploying vSAN ESA (Express Storage Architecture). Which storage device type is supported for both performance and capacity in this architecture?", o:["SAS SSD","SATA SSD","NVMe SSD","HDD"], a:2},
+                {q:"What happens to a virtual machine's VMDK if it violates the vSAN Storage Policy but the cluster has enough resources to comply?", o:["The VM is powered off automatically.","vSAN automatically initiates a resynchronization to make it compliant.","The disk becomes read-only until manual intervention.","The disk is moved to a non-vSAN datastore."], a:1},
+                {q:"What is the maximum number of capacity devices that can be added to a single disk group in vSAN OSA?", o:["5","7","9","12"], a:1},
+                {q:"Which tool can an administrator use to monitor vSAN performance, health, and capacity directly from the vSphere Client?", o:["vRealize Log Insight","vSAN Skyline Health","esxtop","vCenter Command Line"], a:1},
+                {q:"In a vSAN Stretched Cluster, what is the maximum round-trip time (RTT) latency supported between the two main data sites?", o:["1 ms","5 ms","10 ms","20 ms"], a:1},
+                {q:"Which vSAN storage policy setting defines the number of data replicas created across different fault domains or hosts?", o:["Number of disk stripes per object","Failures to tolerate (FTT)","Object space reservation","Flash read cache reservation"], a:1},
+                {q:"What is a prerequisite for enabling vSAN de-duplication and compression in an OSA cluster?", o:["The cluster must be hybrid.","The cluster must be All-Flash.","It requires a minimum of 5 hosts.","It requires NVMe devices only."], a:1},
+                {q:"Which network protocol is used by vSAN for communication and data replication between hosts?", o:["FCIP","iSCSI","TCP/IP","NFS"], a:2},
+                {q:"An administrator changes a vSAN storage policy from RAID-1 (Mirroring) to RAID-5 (Erasure Coding). What is the primary benefit of this change?", o:["Higher write performance","Reduced storage capacity consumption","Lower network traffic","Reduced CPU overhead on the hosts"], a:1},
+                {q:"What is the minimum network bandwidth requirement for vSAN ESA hosts?", o:["1 Gbps","10 Gbps","25 Gbps","40 Gbps"], a:2},
+                {q:"In vSAN, what is the purpose of a \"Witness\" component?", o:["To cache read requests for faster access.","To store virtual machine swap files.","To serve as a tie-breaker and maintain quorum when a cluster partition occurs.","To log all API configuration changes."], a:2},
+                {q:"Which command-line tool utility on an ESXi host can be used to check local vSAN cluster membership and node status?", o:["esxcli vsan cluster get","vicfg-vsan status","vsan-health-check","esxcfg-vsan -l"], a:0}
+            ],
+            VSICM: [
+                {q:"Which storage technology can an administrator use to deploy the Virtual Machine File System (VMFS)?", o:["Fibre Channel storage","vSAN storage","Virtual Volumes storage","NFS storage"], a:0},
+                {q:"What is supported ESXi boot options?", o:["NFS","iSCSI","vSAN","vSphere Virtual Volumes"], a:1},
+                {q:"Which TCP/IP stack can support management traffic, vSphere vMotion, IP storage and vSphere Fault Tolerance?", o:["VXLAN TCP/IP stack","Provisioning TCP/IP stack","Default TCP/IP stack","vSphere vMotion TCP/IP stack"], a:2},
+                {q:"A recently deployed set of test virtual machines are impacting the performance of a company development team project datastore. The shared cache server appears to be suffering from storage congestion. Storage I/O Control is already enabled on all company datastores. Which step should the administrator take to improve the performance of the cache server?", o:["Update the storage provider for the existing array.","Create a claim rule to control the storage path.","Configure the path selection policy.","Configure storage shares per virtual machine."], a:3},
+                {q:"A single host is manually configured to company standards. Which option would an administrator select to capture this configuration for future use?", o:["Extract Host Profile","vReset Host Customizations","Attach Host Profile","Import Host Profile"], a:0},
+                {q:"An administrator needs to monitor traffic on a vSwitch Standard in a vSphere environment. Which option, if configured, would accomplish this task?", o:["Forged Transmits","MAC Address Changes","Promiscuous Mode","vNotify Switches"], a:2},
+                {q:"What is the minimum CPU core requirement for successful installation, or upgrade, or ESXi on a host?", o:["8","1","32","2"], a:3},
+                {q:"What is the server virtualization product that combines the ESXi hypervisor and the vCenter Server?", o:["NSX","vRealize Operations Manager","vSphere","vSAN"], a:2},
+                {q:"An IT department is experiencing random hardware failures that are costing the company money. The CIO is looking for technical support beyond traditional break/fix with enhanced visibility and proactive insights into the environment at no additional cost. Which VMware service meets the needs of the CIO?", o:["VMware Global Support Services","VMware Premier Support","VMware Skyline","vRealize Operations Manager"], a:2},
+                {q:"Which vSphere feature enable remote site availability?", o:["vSphere Fault Tolerance","vSphere vMotion","vSphere Replication"], o:["vSphere Fault Tolerance","vSphere vMotion","vSphere Replication"], a:2},
+                {q:"An administrator wants to be able to log in to the vSphere Client and view the inventories of two vCenter Server instances. What must the administrator do to meet this requirement?", o:["Configure Lockdown Mode on each vCenter Server instance after deployment is complete.","Connect each vCenter Server instance to the same vCenter Single Sign-On domain during Deployment or also called Enhanced Linked Mode","Connect each vCenter Server instance to the same vCenter Single Sign-On domain using the vSphere Client.","Configure the vCenter Server Management Interface to view both vCenter Server instances."], a:1},
+                {q:"When deploying a vCenter Server Appliance, which single sign-on (SSO)-related option is presented to an administrator?", o:["Create a vCenter Enhanced Linked Mode Group","Join an existing vCenter Single Sign-On domain","Repoint to another domain","Reset Single Sign-On password"], a:1},
+                {q:"In a vSphere 7.0 environment is deployed with the following: A single vCenter Server, Two vSAN node cluster, A vSAN default storage policy. Which statement is true regarding virtual disk availability in this environment?", o:["Replicas will be placed on different disk groups but can be placed on the same host.","All stripes will be placed on different disk groups and cannot be placed on the same host.","Each virtual disk will have four replicas of data.","Each virtual disk will have two replicas of data."], a:3},
+                {q:"An administrator wants to ensure that when virtual machines (VMs) are powered on, Distributed Resource Scheduler (DRS) places them on the best-suited host. When the cluster becomes imbalanced, the administrator wants DRS to display recommendations for manual VM migration. Which DRS automation level should the administrator select?", o:["Manual","Partially automated","Fully automated","Disabled"], a:1},
+                {q:"Which feature is a pre-requisite for configuring admission control on a cluster?", o:["vSphere Enhanced vMotion Compatibility (EVC)","vSphere High Availability (HA)","vSphere Fault Tolerance","vSphere Distributed Resource Scheduler (DRS)"], a:1},
+                {q:"An administrator is tasked with upgrading an existing vSphere environment to version 7.0. There are existing VMFS3 and VMFS5 datastores in the environment. Which statement is true regarding this upgrade?", o:["An ESXi 7.0 host will NOT recognize a VMFS3 datastore.","VMFS3 is supported with ESXi 7.0 to store boot configurations only.","A VMFS5 datastore CANNOT be upgraded; a new VMFS6 datastore is required.","An ESXi 7.0 host can automatically upgrade a VMFS5 datastore."], a:2},
+                {q:"An administrator can attach a baseline to which inventory object?", o:["Resource pools","Datastores","Templates","ESXi hosts"], a:3},
+                {q:"A vSphere environment is configured with 1 Gigabit Ethernet for vSphere vMotion. The application team is complaining that when they try to migrate a powered-on virtual machine, the progress is slow and unsuccessful the majority of the time. Which is a good recommendation should the administrator make to improve vSphere vMotion performance?", o:["Use at least two VMkernel ports for vMotion.","Use vSphere Storage I/O Control (SIOC).","Use Link Aggregation Control Protocol (LACP) on the port group.","Disable vSphere Fault Tolerance."], a:0},
+                {q:"Which virtual disk option allows a virtual machine to consume the minimum storage capacity?", o:["Independent persistent","Lazy-zeroed thick-provisioned","Eager-zeroed thick-provisioned","Thin-provisioned"], a:3},
+                {q:"In a vSphere High Availability (vSphere HA) cluster, which condition can be detected by datastore heartbeating?", o:["Fault tolerance virtual machine (VM) failover","Network isolation","Virtual machine (VM) disk failure","Datastore All Paths Down (APD) event"], a:1}
+            ],
+            VSOS: [
+                {q:"An administrator is tasked with upgrading an existing VMware vSphere 6.5 environment to version 7.0. There are existing VMFS3 and VMFS5 datastores in the environment. Which statements is true regarding this upgrade?", o:["A VMFS3 datastore cannot be upgraded; a new VMFS6 datastore is required.","An ESXi 7.0 host can automatically upgrade a VMFS5 to VMFS6 datastore.","An ESXi 7.0 host will automatically upgrade a VMFS3 datastore when discovered.","VMFS5 is no longer supported with ESXi 7.0."], a:0},
+                {q:"What can an administrator use to partition limited CPU and memory resources between two departments?", o:["Resource pools","vSphere distributed switch","vCenter folders","vSphere High Availability"], a:0},
+                {q:"What is a minimum disk controller requirement for VMware vSAN?", o:["A disk controller in pass-through or RAID 5 mode","A disk controller in JBOD mode","A disk controller in pass-through or RAID 0 mode","A disk controller in pass-through or RAID 1 mode"], a:2},
+                {q:"What is the minimum CPU core requirement for successful installation, or upgrade, of ESXi on a host?", o:["2","8","32","1"], a:0},
+                {q:"Which local only host utility is used for primary, real-time performance monitoring in vSphere?", o:["top","esxCop","vCenter Command-Line Interface (CLI)","esxtop"], a:3},
+                {q:"An administrator is trying to configure vCenter Single Sign-On from the vSphere Client but does NOT have permission. Which role is required in order to configure vCenter Single Sign-On?", o:["vCenter Single Sign-On Administrator","vCenter Power User","vCenter Server Appliance Root","vCenter Administrator"], a:0},
+                {q:"Which feature is a pre-requisite for configuring admission control on a cluster?", o:["vSphere High Availability (HA)","vSphere Distributed Resource Scheduler (DRS)","vSphere Enhanced vMotion Compatibility (EVC)","vSphere Fault Tolerance"], a:0},
+                {q:"What is a requirement of Storage I/O Control?", o:["Storage connected through Fibre Channel","Management by a single vCenter Server","Automated storage tiering capabilities","Datastores with multiple extents"], a:1},
+                {q:"An administrator is unable to manage certificates with the vSphere Client. What is another supported option that can be used to manage certificates?", o:["Cloud Builder","Command Line Interface","vRealize Operations Manager","vCenter Server Management Interface"], a:3},
+                {q:"What is a pre-requisite for increasing datastore capacity?", o:["The datastore is managed by Storage DRS (SDRS).","The backing device for the datastore has enough free space.","There are NO powered-on virtual machines on the datastore.","The datastore is 100% full."], a:1},
+                {q:"What is a pre-requisites for enabling ESXi secure boot?", o:["vExternal Key Management Service","ESXi 7.0 or greater","Unified Extensible Firmware Interface (UEFI)","Trusted Platform Module version 2.0"], a:2},
+                {q:"An administrator wants to enable bandwidth allocation for workloads by using Network I/O Control. What should the administrator configure to accomplish this?", o:["Load-balancing","Virtual machine traffic vNIC teaming policy","Management traffic"], a:1},
+                {q:"ESXi provides VLAN support by assigning a VLAN ID to which component?", o:["Physical network interface card (NIC)","Virtual standard switch vVirtual distributed switch","Port group"], a:2},
+                {q:"Which type of network adapter is designed to provide connectivity to hosts and handle the standard system traffic of vSphere vMotion?", o:["Virtual machine network interface card (VMNIC)","VM network","VMkernel port","VXLAN virtual tunnel end point (VXLAN VTEP)"], a:2},
+                {q:"vCenter Server experiences a catastrophic failure and the administrator must restore from a vCenter Server backup stored on an FTP server. What must the administrator do to restore vCenter Server?", o:["Use the vCenter Server GUI installer to deploy a vCenter Server instance and restore the vCenter Server data from the backup.","Use the vSphere Client to deploy the appliance onto an ESXi host and restore the vCenter Server data from the backup.","Use the vCenter Server Management Interface to restore the vCenter Server data, and power on the appliance.","Use the vCenter Server GUI installer to deploy a vCenter Server instance and use the vSphere Client to restore vCenter Server data from the backup."], a:0},
+                {q:"There are two vSphere clusters in a company environment. One cluster is hosting development workloads and another is hosting production workloads. Both vSphere clusters are managed by the same vCenter Server. The application team would like to move a new virtual machine from the development to production cluster with no downtime. Which feature would allow non-disruptive movement between these two clusters?", o:["Cross vCenter Migration","vSphere Replication","vSphere vMotion","vSphere High Availability"], a:2},
+                {q:"Which resource pool setting is used to specify the relative priority or importance as high, normal or low?", o:["Limits","Reservation type","Reservations","Shares"], a:3},
+                {q:"vCenter High Availability (HA) protects vCenter Server against host and hardware failures. What is the minimum number of ESXi hosts required to enable this capability?", o:["5","3","1","7"], a:1},
+                {q:"An administrator would like to make virtual machine templates and ISO images available to all vCenter Server instances in the data center. Which feature should the administrator use to achieve this goal?", o:["Content libraries","Host profiles","Storage policies","Resource pools"], a:0},
+                {q:"An administrator is asked to take a snapshot of a virtual machine prior to an application upgrade. The virtual machine has one standard virtual machine disk (VMDK) and one physical mode raw device mapping (RDM) attached. Which statement is true with regard to taking this snapshot?", o:["The administrator will be able to snapshot the RDM in independent persistent mode.","The administrator will be able to snapshot the standard VMDK in independent persistent mode.","The administrator will be able to snapshot both disks.","The administrator will be unable to snapshot the RDM."], a:3}
+            ]
+        };
+
+        let currentExam = [];
+        let currentQuestionIdx = 0;
+        let userAnswers = [];
+        let timerInterval;
+        let timeLeft = 3600; // 60 minutos
+
+        // ANIMACIÓN MATRIX
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const alphabet = katakana.split('');
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const rainDrops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(10, 10, 10, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#0F0'; // Color verde Matrix
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet[Math.floor(Math.random() * alphabet.length)];
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 30);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // LÓGICA DEL SIMULADOR
+        function startExam(moduleKey) {
+            currentExam = examDatabase[moduleKey];
+            currentQuestionIdx = 0;
+            userAnswers = Array(currentExam.length).fill(null);
+            timeLeft = 3600;
+
+            document.getElementById('exam-subtitle').innerText = "Active Exam: " + moduleKey;
+            document.getElementById('selector-screen').style.display = 'none';
+            document.getElementById('quiz-container').style.display = 'block';
+            document.getElementById('timer').style.display = 'block';
+
+            buildQuizUI();
+            showQuestion(0);
+            startTimer();
+        }
+
+        function buildQuizUI() {
+            const wrapper = document.getElementById('questions-wrapper');
+            wrapper.innerHTML = '';
+            
+            currentExam.forEach((item, qIdx) => {
+                let optionsHtml = '';
+                item.o.forEach((opt, oIdx) => {
+                    optionsHtml += `
+                        <label class="option-item">
+                            <input type="radio" name="q-${qIdx}" value="${oIdx}" onchange="saveAnswer(${qIdx}, ${oIdx})">
+                            ${String.fromCharCode(97 + oIdx)}. ${opt}
+                        </label>
+                    `;
+                });
+
+                const card = document.createElement('div');
+                card.className = `question-card q-card-${qIdx}`;
+                card.innerHTML = `
+                    <div class="q-number">Question ${qIdx + 1} of ${currentExam.length}</div>
+                    <div class="q-text">${item.q}</div>
+                    <div class="options-list">${optionsHtml}</div>
+                `;
+                wrapper.appendChild(card);
+            });
+        }
+
+        function showQuestion(idx) {
+            document.querySelectorAll('.question-card').forEach(c => c.classList.remove('active'));
+            document.querySelector(`.q-card-${idx}`).classList.add('active');
+            
+            document.getElementById('btn-prev').style.visibility = idx === 0 ? 'hidden' : 'visible';
+            
+            if (idx === currentExam.length - 1) {
+                document.getElementById('btn-next').style.display = 'none';
+                document.getElementById('btn-submit').style.display = 'block';
+            } else {
+                document.getElementById('btn-next').style.display = 'block';
+                document.getElementById('btn-submit').style.display = 'none';
+            }
+        }
+
+        function changeQuestion(dir) {
+            currentQuestionIdx += dir;
+            showQuestion(currentQuestionIdx);
+        }
+
+        function saveAnswer(qIdx, oIdx) {
+            userAnswers[qIdx] = oIdx;
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                let min = Math.floor(timeLeft / 60);
+                let sec = timeLeft % 60;
+                document.getElementById('timer').innerText = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+                
+                if (timeLeft <= 0) {
+                    endExam(true);
+                }
+            }, 1000);
+        }
+
+        function endExam(timeout) {
+            clearInterval(timerInterval);
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('timer').style.display = 'none';
+            document.getElementById('results-screen').style.display = 'block';
+
+            let correctCount = 0;
+            currentExam.forEach((item, idx) => {
+                if (userAnswers[idx] === item.a) correctCount++;
+            });
+
+            let finalScore = Math.round((correctCount / currentExam.length) * 100);
+            document.getElementById('score-output').innerText = finalScore + "%";
+            
+            if (finalScore >= 70) {
+                document.getElementById('score-output').style.color = '#44ff44';
+                document.getElementById('feedback-output').innerText = `¡Enhorabuena! Has aprobado el examen respondiendo correctamente ${correctCount} de ${currentExam.length} preguntas.`;
+            } else {
+                document.getElementById('score-output').style.color = '#ff4444';
+                document.getElementById('feedback-output').innerText = `No has alcanzado la puntuación de corte (70%). Acertaste ${correctCount} de ${currentExam.length}. ¡Sigue repasando!`;
+            }
+        }
+
+        function resetSimulator() {
+            document.getElementById('exam-subtitle').innerText = "Exam Simulator Engine";
+            document.getElementById('results-screen').style.display = 'none';
+            document.getElementById('selector-screen').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
