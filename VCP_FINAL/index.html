@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador Examen IT Pro</title>
+    <style>
+        body { font-family: sans-serif; background: #f0f2f5; padding: 20px; }
+        .card { background: white; max-width: 800px; margin: auto; padding: 30px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .progress-bar { height: 10px; background: #e0e0e0; border-radius: 5px; margin-bottom: 20px; }
+        #progress-fill { height: 100%; background: #2563eb; width: 0%; border-radius: 5px; transition: 0.3s; }
+        .controls { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        button { padding: 10px 20px; cursor: pointer; border: none; border-radius: 5px; background: #2563eb; color: white; }
+        button:disabled { background: #ccc; }
+        .timer { font-size: 1.2rem; font-weight: bold; color: #dc2626; margin-bottom: 10px; }
+        .status-box { padding: 15px; border-radius: 8px; margin: 10px 0; }
+        .color-verde { border-left: 5px solid #16a34a; background: #f0fdf4; }
+        .color-rojo { border-left: 5px solid #dc2626; background: #fef2f2; }
+        .color-amarillo { border-left: 5px solid #ca8a04; background: #fefce8; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div id="setup">
+        <h2>Simulador de Examen</h2>
+        <input type="file" id="file-input" accept=".txt">
+        <button onclick="iniciarExamen()">Iniciar Examen</button>
+    </div>
+
+    <div id="quiz-ui" style="display:none;">
+        <div class="timer" id="timer">Tiempo: 60:00</div>
+        <div class="progress-bar"><div id="progress-fill"></div></div>
+        <h2 id="q-text"></h2>
+        <div id="options"></div>
+        <div class="controls">
+            <button onclick="cambiarPregunta(-1)">Anterior</button>
+            <button onclick="cambiarPregunta(1)">Siguiente</button>
+            <button onclick="finalizarExamen()" style="background:#dc2626;">Abortar/Finalizar</button>
+        </div>
+    </div>
+
+    <div id="results" style="display:none;"></div>
+</div>
+
+<script>
+let questions = [], currentIdx = 0, userAnswers = {}, timer, timeLeft = 3600;
+
+function iniciarExamen() {
+    const file = document.getElementById('file-input').files[0];
+    if (!file) return alert("Selecciona un archivo");
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        parsear(e.target.result);
+        document.getElementById('setup').style.display = 'none';
+        document.getElementById('quiz-ui').style.display = 'block';
+        iniciarTemporizador();
+        renderizar();
+    };
+    reader.readAsText(file);
+}
+
+function iniciarTemporizador() {
+    timer = setInterval(() => {
+        timeLeft--;
+        let min = Math.floor(timeLeft / 60);
+        let seg = timeLeft % 60;
+        document.getElementById('timer').innerText = `Tiempo: ${min}:${seg < 10 ? '0'+seg : seg}`;
+        if (timeLeft <= 0) finalizarExamen();
+    }, 1000);
+}
+
+function parsear(text) {
+    // Lógica de parseo simplificada igual a la original
+    questions = text.split(/Question:\s*/i).filter(b => b.trim()).map(block => {
+        let lines = block.split('\n');
+        return {
+            text: lines[0],
+            options: lines.filter(l => /^[A-L]\.\s+/i.test(l)),
+            correct: lines.find(l => /Respuesta correcta:/i.test(l))?.split(':')[1].trim().split(',').map(x=>x.trim())
+        };
+    });
+}
+
+function renderizar() {
+    let q = questions[currentIdx];
+    document.getElementById('progress-fill').style.width = `${((currentIdx + 1) / questions.length) * 100}%`;
+    document.getElementById('q-text').innerText = q.text;
+    let container = document.getElementById('options');
+    container.innerHTML = '';
+    q.options.forEach(opt => {
+        let letter = opt.split('.')[0].trim();
+        let checked = userAnswers[currentIdx]?.includes(letter) ? 'checked' : '';
+        container.innerHTML += `<label><input type="checkbox" value="${letter}" ${checked} onchange="guardarRespuesta('${letter}')"> ${opt}</label><br>`;
+    });
+}
+
+function guardarRespuesta(letter) {
+    if (!userAnswers[currentIdx]) userAnswers[currentIdx] = [];
+    let idx = userAnswers[currentIdx].indexOf(letter);
+    idx > -1 ? userAnswers[currentIdx].splice(idx, 1) : userAnswers[currentIdx].push(letter);
+}
+
+function cambiarPregunta(dir) {
+    if (currentIdx + dir >= 0 && currentIdx + dir < questions.length) {
+        currentIdx += dir;
+        renderizar();
+    }
+}
+
+function finalizarExamen() {
+    clearInterval(timer);
+    let correctas = 0, incorrectas = 0, omitidas = 0;
+    questions.forEach((q, i) => {
+        let user = userAnswers[i] || [];
+        if (user.length === 0) omitidas++;
+        else if (user.sort().join(',') === q.correct.sort().join(',')) correctas++;
+        else incorrectas++;
+    });
+
+    document.getElementById('quiz-ui').style.display = 'none';
+    document.getElementById('results').style.display = 'block';
+    document.getElementById('results').innerHTML = `
+        <h2>Resultados</h2>
+        <p>Acertadas: <span style="color:green">${correctas}</span></p>
+        <p>Incorrectas: <span style="color:red">${incorrectas}</span></p>
+        <p>No contestadas: <span style="color:orange">${omitidas}</span></p>
+        <button onclick="location.reload()">Reiniciar</button>
+    `;
+}
+</script>
+</body>
+</html>
