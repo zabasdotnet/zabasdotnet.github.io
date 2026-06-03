@@ -3,958 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VMware Certification Exam Engine – Final Exam</title>
+    <title>Simulador de Examen IT</title>
     <style>
-        :root {
-            --vmware-blue: #005670;
-            --vmware-light: #0095c2;
-            --matrix-green: #00ff41;
-            --matrix-glow: rgba(0, 255, 65, 0.4);
-            --matrix-red: #ff3b30;
-            --matrix-red-glow: rgba(255, 59, 48, 0.4);
-            --matrix-purple: #ff00ff;
-            --matrix-purple-glow: rgba(255, 0, 255, 0.3);
-            --cyber-yellow: #ffdf00;
-            --cyber-yellow-glow: rgba(255, 223, 0, 0.5);
-            --dark-bg: #0d0d0d;
-            --panel-bg: rgba(20, 24, 30, 0.95);
-            --border-ui: rgba(0, 149, 194, 0.3);
-            --text-main: #f0f0f0;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Consolas', 'Segoe UI', Monaco, monospace;
-        }
-
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        #canvas-matrix {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            opacity: 0.15;
-        }
-
-        .container {
-            max-width: 1000px;
-            width: 100%;
-            margin: 40px auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 10;
-            flex: 1;
-        }
-
-        header {
-            background: var(--panel-bg);
-            border-bottom: 3px solid var(--vmware-light);
-            padding: 25px;
-            border-radius: 6px 6px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.7);
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .brand h1 {
-            color: #ffffff;
-            font-size: 22px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .brand span {
-            color: var(--vmware-light);
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: block;
-            margin-top: 2px;
-        }
-
-        .timer-display {
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid var(--matrix-red);
-            color: var(--matrix-red);
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 20px;
-            font-weight: bold;
-            box-shadow: 0 0 10px var(--matrix-red-glow);
-            display: none;
-        }
-
-        .main-frame {
-            background: var(--panel-bg);
-            border-radius: 0 0 6px 6px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-top: none;
-            min-height: 450px;
-        }
-
-        /* Hub Screen */
-        .hub-screen h2 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            text-align: center;
-            color: #fff;
-        }
-
-        .hub-screen p {
-            text-align: center;
-            color: #8a99ad;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-
-        .grid-modules {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .module-card {
-            background: rgba(0, 86, 112, 0.12);
-            border: 1px solid var(--border-ui);
-            padding: 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            text-align: left;
-            transition: all 0.25s ease;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .module-card:hover {
-            background: rgba(0, 149, 194, 0.22);
-            border-color: var(--vmware-light);
-            box-shadow: 0 0 15px rgba(0, 149, 194, 0.4);
-            transform: scale(1.01);
-        }
-
-        .module-logo {
-            width: 50px;
-            height: 50px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .module-info {
-            flex: 1;
-        }
-
-        .module-card h3 {
-            color: #fff;
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-
-        .module-card span {
-            color: var(--vmware-light);
-            font-size: 12px;
-        }
-
-        /* Question nodes */
-        .question-node {
-            display: none;
-        }
-
-        .question-node.visible {
-            display: block;
-        }
-
-        .exam-progress-container {
-            margin-bottom: 25px;
-        }
-
-        .exam-progress-text {
-            font-size: 12px;
-            color: #8a99ad;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .exam-progress-bar {
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 223, 0, 0.25);
-            height: 12px;
-            border-radius: 3px;
-            overflow: hidden;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.8);
-        }
-
-        .exam-progress-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #ffaa00, var(--cyber-yellow));
-            box-shadow: 0 0 10px var(--cyber-yellow-glow);
-            transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .meta-step {
-            color: var(--vmware-light);
-            font-size: 13px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .statement {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            color: #ffffff;
-        }
-
-        .option-box {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 16px;
-            margin-bottom: 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            transition: all 0.2s ease;
-        }
-
-        .option-box:hover {
-            background: rgba(0, 149, 194, 0.08);
-            border-color: var(--vmware-light);
-        }
-
-        .option-box input[type="radio"] {
-            margin-right: 15px;
-            transform: scale(1.2);
-            cursor: pointer;
-            accent-color: var(--vmware-light);
-        }
-
-        .action-bar {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 35px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            gap: 10px;
-        }
-
-        .ctrl-btn {
-            background: var(--vmware-blue);
-            color: #fff;
-            border: none;
-            padding: 12px 24px;
-            font-size: 13px;
-            border-radius: 4px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
-
-        .ctrl-btn:hover {
-            background: var(--vmware-light);
-        }
-
-        .ctrl-btn:disabled {
-            background: #242930;
-            color: #576574;
-            cursor: not-allowed;
-        }
-
-        /* Metric screen */
-        .metric-screen h2 {
-            font-size: 24px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-
-        .telemetry-layout {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 25px;
-            margin: 25px 0;
-            text-align: left;
-        }
-
-        @media (max-width: 768px) {
-            .telemetry-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .telemetry-aside {
-            background: rgba(0,0,0,0.4);
-            border: 1px solid var(--border-ui);
-            padding: 25px;
-            border-radius: 4px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .score-badge {
-            font-size: 58px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .telemetry-main {
-            background: rgba(0,0,0,0.4);
-            border: 1px solid var(--border-ui);
-            padding: 25px;
-            border-radius: 4px;
-        }
-
-        .telemetry-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            font-size: 13px;
-        }
-
-        .telemetry-row:last-child {
-            border-bottom: none;
-        }
-
-        .telemetry-label {
-            color: #8a99ad;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .telemetry-value {
-            color: var(--vmware-light);
-            font-weight: bold;
-        }
-
-        .report-field {
-            background: rgba(0,0,0,0.6);
-            border: 1px solid rgba(255,255,255,0.08);
-            padding: 20px;
-            border-radius: 4px;
-            font-size: 13px;
-            line-height: 1.7;
-            white-space: pre-wrap;
-            margin-bottom: 25px;
-        }
-
-        .progress-outer {
-            background: rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,223,0,0.25);
-            height: 14px;
-            border-radius: 3px;
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-
-        .progress-inner {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #ffaa00, var(--cyber-yellow));
-            transition: width 1s ease;
-        }
-
-        .summary-block {
-            margin-top: 30px;
-        }
-
-        .summary-block h3 {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #8a99ad;
-            margin-bottom: 15px;
-        }
-
-        .summary-item {
-            background: rgba(0,0,0,0.4);
-            border-left: 4px solid transparent;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 2px;
-        }
-
-        .summary-item.correct {
-            border-left-color: var(--matrix-green);
-        }
-
-        .summary-item.incorrect {
-            border-left-color: var(--matrix-red);
-        }
-
-        .summary-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .summary-item.correct .summary-meta {
-            color: var(--matrix-green);
-        }
-
-        .summary-item.incorrect .summary-meta {
-            color: var(--matrix-red);
-        }
-
-        .q-text {
-            color: #ccc;
-            font-size: 13px;
-            margin-bottom: 8px;
-            line-height: 1.5;
-        }
-
-        .summary-details {
-            font-size: 12px;
-            color: #8a99ad;
-        }
-
-        .official-explanation {
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px dashed rgba(255,255,255,0.1);
-        }
-
-        .explanation-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--vmware-light);
-            margin-bottom: 6px;
-        }
-
-        .explanation-body {
-            font-size: 12px;
-            color: #a0aab8;
-            line-height: 1.6;
-        }
-
-        .system-log {
-            font-size: 11px;
-            color: #3d4f5c;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        footer {
-            background: var(--panel-bg);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 12px 40px;
-            font-size: 11px;
-            color: #3d4f5c;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #eef2f7; padding: 20px; color: #333; margin: 0; }
+        .card { background: white; max-width: 750px; margin: 30px auto; padding: 35px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        h2 { color: #1e3a8a; font-size: 1.4rem; line-height: 1.5; margin-top: 0; }
+        .info-header { font-weight: bold; color: #6b7280; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 10px; display: block; }
+        .option-container { display: block; margin: 12px 0; padding: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+        .option-container:hover { background: #f1f5f9; }
+        .option-container input { margin-right: 12px; transform: scale(1.1); }
+        .btn-container { margin-top: 25px; display: flex; justify-content: flex-end; }
+        button { background: #2563eb; color: white; border: none; padding: 12px 24px; font-size: 15px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+        button:hover { background: #1d4ed8; }
+        .result-good { color: #16a34a; font-weight: bold; }
+        .result-bad { color: #dc2626; font-weight: bold; }
+        .review-block { background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #cbd5e1; }
+        .review-block.correct-block { border-left-color: #16a34a; }
+        .review-block.incorrect-block { border-left-color: #dc2626; }
+        hr { border: 0; height: 1px; background: #e2e8f0; margin: 20px 0; }
     </style>
 </head>
 <body>
-<canvas id="canvas-matrix"></canvas>
 
-<div class="container">
-    <header>
-        <div class="brand">
-            <h1>VMware Cert Engine</h1>
-            <span id="current-scope">System Initialization Ready</span>
+<div class="card" id="quiz-container">
+    <!-- Pantalla de carga Local -->
+    <div id="file-picker-section" style="text-align: center; padding: 20px;">
+        <h2 style="margin-bottom: 25px;">Simulador de Cuestionarios</h2>
+        <p>Por seguridad de Windows, selecciona tu archivo <strong>preguntas.txt</strong> para iniciar el examen:</p>
+        <input type="file" id="file-input" accept=".txt" style="display:none;" onchange="cargarDesdeArchivo(this)">
+        <button onclick="document.getElementById('file-input').click()">Seleccionar preguntas.txt</button>
+    </div>
+
+    <!-- Cuerpo del Examen -->
+    <div id="quiz-body" style="display:none;">
+        <span class="info-header" id="question-number">Pregunta</span>
+        <h2 id="question-text">Estructurando cuestionario...</h2>
+        <div id="options-container"></div>
+        <div class="btn-container">
+            <button id="next-btn" onclick="nextQuestion()">Siguiente</button>
         </div>
-        <div class="timer-display" id="clock-element">60:00</div>
-    </header>
+    </div>
 
-    <div class="main-frame">
-
-        <!-- HUB -->
-        <div id="screen-hub" class="hub-screen">
-            <h2>EXAM SELECTION</h2>
-            <p>Select the assessment module to initialize the evaluation session.</p>
-            <div class="grid-modules">
-                <div class="module-card" onclick="launchEvaluation('DIA26')">
-                    <div class="module-logo">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <rect width="40" height="40" rx="4" fill="rgba(0,149,194,0.15)" stroke="rgba(0,149,194,0.5)" stroke-width="1"/>
-                            <path d="M8 20 L20 8 L32 20 L20 32 Z" fill="none" stroke="#0095c2" stroke-width="1.5"/>
-                            <circle cx="20" cy="20" r="5" fill="#0095c2" opacity="0.8"/>
-                        </svg>
-                    </div>
-                    <div class="module-info">
-                        <h3>Examen Final – DIA 26</h3>
-                        <span>110 Questions · 60 min · vSphere Administration</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- QUIZ -->
-        <div id="screen-quiz" style="display:none;">
-            <div class="exam-progress-container">
-                <div class="exam-progress-text">
-                    <span>Progress</span>
-                    <span id="exam-progress-string">1 / 110 (1%)</span>
-                </div>
-                <div class="exam-progress-bar">
-                    <div class="exam-progress-fill" id="exam-progress-metrics"></div>
-                </div>
-            </div>
-            <div id="deck-target"></div>
-            <div class="action-bar">
-                <button class="ctrl-btn" id="nav-prev" onclick="moveStep(-1)" disabled>◀ Anterior</button>
-                <button class="ctrl-btn" style="background:#6b2737;" onclick="abortExam()">✕ Abortar</button>
-                <button class="ctrl-btn" id="nav-submit" onclick="terminateExam()">Enviar ✓</button>
-                <button class="ctrl-btn" id="nav-next" onclick="moveStep(1)">Siguiente ▶</button>
-            </div>
-        </div>
-
-        <!-- METRICS -->
-        <div id="screen-metrics" class="metric-screen" style="display:none;">
-            <div class="system-log">// System Telemetry Output – Assessment Complete</div>
-            <h2>Informe de Evaluación</h2>
-
-            <div class="telemetry-layout">
-                <div class="telemetry-aside">
-                    <div class="score-badge" id="rate-view">–</div>
-                    <div style="font-size:12px;color:#8a99ad;text-transform:uppercase;letter-spacing:1px;">Score Final</div>
-                </div>
-                <div class="telemetry-main">
-                    <div class="telemetry-row">
-                        <span class="telemetry-label">Módulo</span>
-                        <span class="telemetry-value" id="telemetry-mod">–</span>
-                    </div>
-                    <div class="telemetry-row">
-                        <span class="telemetry-label">Total Preguntas</span>
-                        <span class="telemetry-value" id="telemetry-total">–</span>
-                    </div>
-                    <div class="telemetry-row">
-                        <span class="telemetry-label">Respondidas</span>
-                        <span class="telemetry-value" id="telemetry-answered">–</span>
-                    </div>
-                    <div class="telemetry-row">
-                        <span class="telemetry-label">Session ID</span>
-                        <span class="telemetry-value" id="telemetry-hex">–</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="progress-outer">
-                <div class="progress-inner" id="progress-bar-fill"></div>
-            </div>
-
-            <div class="report-field" id="report-view"></div>
-
-            <button class="ctrl-btn" onclick="restoreHub()" style="margin-bottom:30px;">↩ Volver al inicio</button>
-
-            <div class="summary-block">
-                <h3>Desglose de Respuestas</h3>
-                <div id="summary-target"></div>
-            </div>
-        </div>
-
-    </div><!-- /main-frame -->
-</div><!-- /container -->
-
-<footer>VMware Cert Engine · Examen Final DIA 26 · 110 Questions</footer>
+    <!-- Pantalla de Resultados -->
+    <div id="result-body" style="display:none;">
+        <h2 style="font-size: 2rem; color: #1e3a8a;">Resultado del Examen</h2>
+        <p id="score-text" style="font-size: 1.2rem; font-weight: bold;"></p>
+        <hr>
+        <div id="review-container"></div>
+        <br>
+        <button onclick="location.reload()">Repetir Examen</button>
+    </div>
+</div>
 
 <script>
-    const storageEngine = {
-        DIA26: [
-            {q:"An administrator is tasked with applying updates to a vSphere cluster running vSAN using vSphere Lifecycle Manager. Downtime to the ESXi hosts must be minimal. The administrator has already: downloaded all applicable software and created a new image, attached the new image to the cluster and run a compliance check, ran a remediation pre-check. Which two series of steps should the administrator perform to start the remediation using the new image? (Choose two.)", o:["1. Use the Remediate option in vSphere Lifecycle Manager to remediate all ESXi hosts in parallel. 2. Allow vSphere Lifecycle Manager to automatically control maintenance mode.", "1. Place each of the ESXi hosts into maintenance mode manually. 2. Use the Stage option to stage the required software on all ESXi hosts one at a time.", "1. Leave all ESXi hosts in the cluster operational. 2. Use the Stage All option to stage the required software onto all ESXi hosts one at a time.", "1. Leave all ESXi hosts in the cluster operational. 2. Use the Stage All option to stage the required software onto all ESXi hosts in the cluster in parallel.", "1. Use the Remediate option to remediate all of the ESXi hosts in the cluster in sequence. 2. Allow vSphere Lifecycle Manager to automatically control maintenance mode."], a:3, e:"Para minimizar el tiempo de inactividad, se debe dejar los hosts en funcionamiento y usar Stage All en paralelo para preparar el software en todos los hosts simultáneamente antes de la remediación secuencial."},
-            {q:"An administrator is working with VMware Support and is asked to provide log bundles for the ESXi hosts. Which three options does the administrator have? (Choose three.)", o:["Generate a combined log bundle for all ESXi hosts using the vCenter Management Interface.", "Generate a separate log bundle for each ESXi host using the vSphere Host Client.", "Generate a combined log bundle for all ESXi hosts using the vSphere Client.", "Generate a separate log bundle for each ESXi host using the vSphere Client.", "Generate a separate log bundle for each ESXi host using the vCenter Management Interface.", "Generate a combined log bundle for all ESXi hosts using the vSphere Host Client."], a:1, e:"Los bundles de logs se pueden generar de forma combinada (todos los hosts) mediante el vCenter Management Interface o el vSphere Client, o de forma individual por host usando el vSphere Host Client o el vSphere Client."},
-            {q:"An administrator needs to consolidate a number of physical servers by migrating the workloads to a software-defined data center solution. Which VMware solution should the administrator recommend?", o:["VMware Horizon", "VMware vSAN", "VMware vSphere", "VMware NSX"], a:2, e:"VMware vSphere es la plataforma de virtualización de servidores que forma el núcleo del software-defined data center (SDDC), permitiendo consolidar cargas de trabajo físicas en máquinas virtuales."},
-            {q:"An administrator is tasked with configuring remote direct memory access (RDMA) over Converged Ethernet v2 (RoCE v2). Which two types of adapters must the administrator configure? (Choose two.)", o:["Paravirtual RDMA adapter", "RDMA network adapter", "Software iSCSI adapter", "Fibre Channel over Ethernet (FCoE) adapter", "Software NVMe over RDMA storage adapter"], a:1, e:"Para configurar RoCE v2, se requieren un adaptador de red RDMA (para el transporte de red) y un adaptador de almacenamiento Software NVMe over RDMA para acceder a los dispositivos de almacenamiento."},
-            {q:"An administrator has a host profile named Standard-Config. The administrator wants to change the other host profiles to use only the storage configuration settings that are defined in the Standard-Config host profile. What should the administrator do to make this change?", o:["Export host customizations and import them to the other host profiles.", "Copy the storage settings from Standard-Config to all other host profiles.", "Duplicate the Standard-Config host profile and only modify the storage configuration settings.", "Export the Standard-Config host profile and attach it to the other hosts."], a:1, e:"La opción correcta es copiar específicamente las configuraciones de almacenamiento del perfil Standard-Config hacia todos los demás perfiles de host, manteniendo el resto de sus configuraciones intactas."},
-            {q:"A vSphere cluster has the following configuration: VMs running Production and Test workloads, vSphere DRS is enabled, no resource pools. Performance monitoring shows Production workload VMs are not receiving their fully allocated memory when the vSphere cluster is fully utilized. Which combination of two steps could the administrator perform to ensure Production VMs always get the full allocation of memory? (Choose two.)", o:["Assign a custom memory share value to the resource pool containing the Production VMs.", "Assign a memory reservation value to the resource pool containing the Production VMs.", "Create a parent resource pool for the Production VMs.", "Create a sibling resource pool for each of the Production and Test VMs.", "Create a child resource pool for the Test VMs."], a:1, e:"Para garantizar que las VMs de producción reciban su memoria asignada, se deben asignar reservas de memoria (reservations) al resource pool de producción y crear resource pools hermanos para separar producción de test."},
-            {q:"Which two datastore types store the components of a virtual machine as a set of objects? (Choose two.)", o:["VMware Virtual Machine File System (VMFS)", "VMware vSAN", "Network File System (NFS) 3", "vSphere Virtual Volumes (vVols)", "Network File System (NFS) 4.1"], a:1, e:"vSAN y vSphere Virtual Volumes (vVols) almacenan los componentes de las máquinas virtuales como objetos, a diferencia de VMFS y NFS que los almacenan como archivos."},
-            {q:"After updating a predefined alarm on VMware vCenter, an administrator enables email notifications, however notifications are NOT being sent. Where must the mail server settings be configured by the administrator to resolve this issue?", o:["In the ESXi host system config", "In the alarm rule definition", "In the vCenter settings in the vSphere Client", "In the vCenter Management Interface"], a:2, e:"La configuración del servidor de correo (SMTP) para las notificaciones de alarmas de vCenter se configura en los ajustes globales de vCenter dentro del vSphere Client, no en la definición de la alarma individual."},
-            {q:"An administrator creates a virtual machine that contains the latest company-approved software, tools and security updates. Company policy requires that only full clones are allowed for server workloads. Which combination of two tasks should the administrator complete to prepare for the deployment of this virtual machine for multiple users? (Choose two.)", o:["Set appropriate permissions on the virtual machine.", "Create a virtual machine customization specification.", "Upgrade the virtual hardware.", "Convert the virtual machine to a template.", "Take a snapshot of the virtual machine."], a:1, e:"Para preparar una VM para despliegue múltiple con clones completos, se debe convertirla en plantilla (para que solo se puedan crear clones) y crear una especificación de personalización para automatizar la configuración post-despliegue."},
-            {q:"During the staging of a patch on a vCenter Server Appliance, an error was encountered and the process stopped. An administrator resolved the root cause and is ready to continue with the staging of the patch. From the vCenter Management Interface, which action should the administrator take to continue the process from the point at which the error occurred?", o:["Use the Stage and Install option to resume the staging.", "Use the Resume option to resume the staging.", "Use the Unstage option to restart the staging.", "Use the Stage Only option to restart the staging."], a:1, e:"La opción 'Resume' en el VAMI (vCenter Management Interface) permite continuar un proceso de parcheo desde el punto exacto donde se produjo el error, sin necesidad de comenzar desde el principio."},
-            {q:"An administrator is adding a new ESXi host to an existing vSphere cluster. When selecting the cluster, the administrator is unable to use the Cluster Quickstart workflow to add and configure the additional host. What could be the root cause of this issue?", o:["The administrator has previously dismissed the Cluster Quickstart workflow.", "The administrator must manually add the host to the cluster before using the Cluster Quickstart workflow.", "The administrator has not been assigned the required permissions to use the Cluster Quickstart workflow.", "The administrator must enable the Cluster Quickstart workflow option in VMware vCenter."], a:0, e:"Si el administrador descartó (dismissed) previamente el flujo de trabajo Cluster Quickstart, este ya no está disponible para ese clúster y no se puede reutilizar para agregar nuevos hosts."},
-            {q:"A company has two sites: Site A and Site B. The administrator would like to manage the VMware vCenter inventories in both sites from a single vSphere Client session. Which vCenter feature must be configured?", o:["VMware Certificate Authority", "VMware Site Recovery Manager", "vCenter Single Sign-On", "Enhanced Linked Mode"], a:3, e:"Enhanced Linked Mode permite gestionar múltiples instancias de vCenter Server desde una única sesión del vSphere Client, con capacidad de vMotion entre vCenters del mismo SSO domain."},
-            {q:"An administrator plans to update the Supervisor cluster and has noticed some of the Tanzu Kubernetes Grid clusters are running an incompatible version. Which action must the administrator take before proceeding with the Supervisor cluster update?", o:["Update all Tanzu Kubernetes Grid clusters to the latest version prior to the Supervisor cluster update.", "No action is needed – Tanzu Kubernetes Grid clusters will be updated automatically as part of the update process.", "No action is needed – Incompatible Tanzu Kubernetes Grid clusters can be manually updated after the Supervisor cluster update.", "Update incompatible Tanzu Kubernetes Grid clusters prior to the Supervisor cluster update."], a:3, e:"Antes de actualizar el Supervisor cluster, es obligatorio actualizar primero los TKG clusters que ejecutan versiones incompatibles para evitar problemas de interoperabilidad."},
-            {q:"Which three vSphere features are still supported for Windows-based virtual machines when enabling vSphere's virtualization-based security feature? (Choose three.)", o:["vSphere vMotion", "PCI passthrough", "vSphere High Availability (HA)", "vSphere Fault Tolerance", "vSphere Distributed Resources Scheduler (DRS)", "Hot Add of CPU or memory"], a:0, e:"Cuando se habilita Virtualization-Based Security (VBS), vSphere vMotion, vSphere HA y vSphere DRS continúan siendo compatibles con VMs Windows, mientras que PCI passthrough, Fault Tolerance y Hot Add de CPU/memoria no son compatibles."},
-            {q:"An administrator wants to create virtual machine (VM) templates and store them in a content library. The administrator would like to use the content library to manage different versions of these templates so that reverting to an earlier version is an option. How should the administrator create these templates?", o:["Select a VM in the vCenter inventory. Clone the VM to the content library as a VM template type.", "Select a VM template in the vCenter inventory. Clone the template to the content library.", "Export a VM in the vCenter inventory to an OVF template. Import the OVF template into the content library.", "Convert a VM to a template in the vCenter inventory. Clone the template to the content library."], a:0, e:"Para aprovechar el versionado de plantillas en una Content Library, se debe clonar directamente una VM activa del inventario de vCenter hacia la biblioteca como tipo 'VM template', lo que activa el sistema de control de versiones."},
-            {q:"An administrator is tasked with configuring certificates for a VMware software-defined data center (SDDC) based on the following requirements: All certificates should use certificates trusted by the Enterprise Certificate Authority (CA). The solution should minimize the ongoing management overhead of replacing certificates. Which three actions should the administrator take to ensure that the solution meets corporate policy? (Choose three.)", o:["Replace the VMware Certificate Authority (VMCA) certificate with a self-signed certificate generated from the VMCA.", "Replace the machine SSL certificates with custom certificates generated from the Enterprise CA.", "Replace the machine SSL certificates with trusted certificates generated from the VMware Certificate Authority (VMCA).", "Replace the VMware Certificate Authority (VMCA) certificate with a custom certificate generated from the Enterprise CA.", "Replace the solution user certificates with custom certificates generated from the Enterprise CA.", "Replace the solution user certificates with trusted certificates generated from the VMware Certificate Authority (VMCA)."], a:2, e:"La solución óptima es reemplazar el certificado raíz de VMCA con uno generado por la Enterprise CA, luego usar VMCA como CA subordinada para generar automáticamente certificados SSL de máquina y de usuario de solución confiables."},
-            {q:"An administrator is tasked with moving an application and guest operating system (OS) running on top of a physical server to a software-defined data center (SDDC) in a remote secure location. Constraints: the remote secure location has no network connectivity to the outside world, the business owner is not concerned if all changes in the application make it to the SDDC in the secure location, the application's data is hosted in a database with a high number of transactions. What could the administrator do to create an image of the guest OS and application that can be moved to this remote data center?", o:["Create a hot clone of the physical server using VMware vCenter Converter.", "Create a cold clone of the physical server using VMware vCenter Converter.", "Restore the guest OS from a backup.", "Use storage replication to replicate the guest OS and application."], a:1, e:"Un cold clone garantiza consistencia total de los datos del SO y la aplicación al realizarse con el servidor físico apagado, siendo la opción correcta cuando la consistencia importa más que la continuidad y no hay conectividad de red."},
-            {q:"An administrator is tasked with configuring an appropriate Single Sign-On (SSO) solution for VMware vCenter. The solution must support the creation of Enhanced Link Mode groups. All user accounts are stored within a single Active Directory domain and the solution must support only this Active Directory domain as the identity source. All user account password and account lockout policies must be managed within the Active Directory domain. The solution should support token-based authentication. Which SSO solution should the administrator choose?", o:["vCenter Identity Provider Federation with Active Directory Federation Services as the identity provider", "vCenter Single Sign-On with Active Directory over LDAP as the identity source", "vCenter Single Sign-On with Active Directory (Windows Integrated Authentication) as the identity source", "vCenter Identity Provider Federation with Active Directory over LDAP as the identity provider"], a:0, e:"vCenter Identity Provider Federation con AD FS soporta autenticación basada en tokens (SAML), permite Enhanced Linked Mode, delega completamente la gestión de contraseñas y bloqueos a Active Directory, y soporta dominio único como fuente de identidad."},
-            {q:"An administrator is tasked with looking into the disaster recovery options for protecting a database server using VMware vSphere Replication. The following requirements must be met: the virtual machine must remain online during the protection, the virtual machine's snapshots must be used as part of the replication process. Which step must the administrator complete to accomplish this task?", o:["Configure the virtual machine storage policy.", "Enable guest OS VSS quiescing for this virtual machine.", "Perform a full initial synchronization of the source virtual machine to the target location.", "Configure network traffic isolation for vSphere Replication."], a:1, e:"Para que las snapshots de la VM sean parte del proceso de replicación con la VM en línea, se debe habilitar el VSS quiescing del SO invitado, lo que garantiza la consistencia de los datos de la base de datos durante la creación de snapshots."},
-            {q:"An administrator must gracefully restart a virtual machine (VM) through the vSphere Client but the option is greyed out. The administrator has full administrative access on VMware vCenter and all the objects available in vCenter, but has no access to log onto the operating system. Which action should the administrator take to meet the objective?", o:["Upgrade the virtual hardware", "Migrate the VM to another host", "Install VMware Tools", "Restart vCenter"], a:2, e:"La opción de reinicio graceful (Restart Guest OS) requiere que VMware Tools esté instalado y en ejecución en la VM, ya que es VMware Tools quien ejecuta el comando de reinicio dentro del SO invitado."},
-            {q:"An administrator is tasked with installing VMware vCenter. The vCenter Server Appliance must support an environment of 400 hosts and 4000 virtual machines. Which two resources must be allocated, at a minimum, to meet the requirements? (Choose two.)", o:["16 vCPUs", "30 GB Memory", "4 vCPUs", "8 vCPUs", "20 GB Memory"], a:1, e:"Para un entorno de hasta 400 hosts y 4000 VMs (tamaño Medium), el VCSA requiere un mínimo de 8 vCPUs y 30 GB de memoria RAM según las especificaciones oficiales de dimensionamiento de VMware."},
-            {q:"Which VMware offering will allow an administrator to manage the lifecycle of multiple vCenter Server instances in a single software as a service (SaaS)-based solution to help drive operational efficiency?", o:["VMware vSphere with Tanzu", "VMware Cloud Foundation", "VMware vSphere+", "VMware Aria Suite Lifecycle"], a:2, e:"VMware vSphere+ es la oferta SaaS de VMware que permite gestionar el ciclo de vida de múltiples instancias de vCenter Server desde la nube a través de VMware Cloud Console, mejorando la eficiencia operativa."},
-            {q:"Which feature would allow for the non-disruptive migration of a virtual machine between two clusters in a single VMware vCenter instance?", o:["vSphere vMotion", "Cross vCenter Migration", "vSphere Storage vMotion", "vSphere Fault Tolerance"], a:0, e:"vSphere vMotion permite migrar VMs en caliente entre clusters dentro de la misma instancia de vCenter sin interrupción del servicio, siempre que los hosts compartan almacenamiento o se realice una migración combinada de compute y storage."},
-            {q:"Which four elements can a vSphere Lifecycle Manager image contain? (Choose four.)", o:["ESXi base image", "ESXi configuration", "Vendor agents", "Vendor add-ons", "BIOS updates", "Firmware and drivers add-on", "Independent components"], a:0, e:"Una imagen de vSphere Lifecycle Manager puede contener: ESXi base image, Vendor add-ons, Firmware and drivers add-on, e Independent components. La configuración ESXi no forma parte de la imagen sino del host profile."},
-            {q:"If a distributed switch uses the 'Route based on physical NIC load' load balancing algorithm, what does the mean send or receive utilization of an uplink need to exceed for the flow of traffic to move to the second uplink?", o:["75 percent of the capacity over a 30 second period", "60 percent of the capacity over a 30 second period", "60 percent of the capacity over a 40 second period", "75 percent of the capacity over a 40 second period"], a:0, e:"El algoritmo 'Route based on physical NIC load' mueve el tráfico a un segundo uplink cuando la utilización media de envío o recepción supera el 75% de la capacidad durante un período de 30 segundos."},
-            {q:"An administrator manually configures a reference ESXi host that meets company security standards. The administrator now needs to apply all of the security standards to every identically configured host across multiple vSphere clusters within a single VMware vCenter instance. Which four steps would the administrator complete to meet this requirement? (Choose four.)", o:["Extract the host profile from the reference host.", "Export the host profile from vCenter.", "Import host customization on the reference host.", "Attach the host profile to each cluster that requires the secure configuration.", "Check the compliance of each host against the host profile.", "Reset host customization on the reference host.", "Remediate all non-compliant hosts."], a:0, e:"El flujo para aplicar host profiles es: (1) Extraer el host profile del host de referencia, (2) Adjuntarlo a cada cluster, (3) Verificar el cumplimiento de cada host contra el perfil, (4) Remediar todos los hosts no conformes."},
-            {q:"After a recent unexplained peak in virtual machine (VM) CPU usage, an administrator is asked to monitor the VM performance for a recurrence of the issue. Which two tools can the administrator use? (Choose two.)", o:["vCenter Management Interface", "Direct Console User Interface (DCUI)", "vSphere Performance Charts", "vCenter Command Line Interface", "ESXi Shell"], a:2, e:"Para monitorizar el rendimiento de CPU de las VMs, el administrador puede usar vSphere Performance Charts (en el vSphere Client) y ESXi Shell con la herramienta esxtop para análisis en tiempo real."},
-            {q:"An administrator is tasked with configuring vSphere Trust Authority. The administrator has completed the following steps: set up the workstation, enabled the Trust Authority Administrator, enabled the Trust Authority State, collected information about the ESXi hosts and vCenter to be trusted. Which step does the administrator need to complete next?", o:["Import the Trusted Host information to the Trust Authority Cluster", "Import the Trusted Cluster information to the Trusted Hosts", "Create the Key Provider on the Trusted Cluster", "Import the Trusted Host information to the Trusted Cluster"], a:0, e:"Tras recopilar la información de los hosts y vCenter de confianza, el siguiente paso es importar esa información del Trusted Host al Trust Authority Cluster para que pueda verificar su identidad."},
-            {q:"Refer to the exhibit. An administrator set up the following configuration: the distributed switch has three ESXi hosts, each host has two 40 Gbps NICs. The amount of bandwidth reserved for virtual machine (VM) traffic is 6 Gbps. The administrator wants to guarantee that VMs in the Finance distributed port group can access 50 percent of the available reserved bandwidth for VM traffic. Given this scenario, what should the size (in Gbps) of the Finance network resource pool be?", o:["18", "80", "36", "120"], a:0, e:"Cálculo: 3 hosts × 2 NICs × 40 Gbps = 240 Gbps total. El ancho de banda reservado para VM traffic es 6 Gbps. El 50% de 6 Gbps × 3 hosts = 9 Gbps. Pero usando la fórmula correcta: 6 Gbps reservados, 50% = 3 Gbps por host × 6 NICs = 18 Gbps para el pool de Finance."},
-            {q:"A vSphere environment is experiencing intermittent short bursts of CPU contention, causing brief production outages for some of the virtual machines (VMs). To understand the cause of the issue, the administrator wants to observe near real-time statistics for all VMs. Which two vSphere reporting tools could the administrator use? (Choose two.)", o:["Advanced Performance Charts", "esxcli", "resxtop", "Overview Performance Charts", "esxtop"], a:2, e:"resxtop y esxtop son las herramientas de línea de comandos que proporcionan estadísticas en tiempo real de rendimiento del sistema ESXi. esxtop se ejecuta directamente en el host ESXi y resxtop de forma remota."},
-            {q:"An administrator is performing maintenance activities and discovers that a Virtual Machine File System (VMFS) datastore has a lot more used capacity than expected. The datastore contains 10 virtual machines and discovers that five virtual machines have a snapshot file (-delta.vmdk) that has not been modified in over 12 months. The administrator checks the Snapshot Manager within the vSphere Client and confirms that there are no snapshots visible. Which task should the administrator complete on the virtual machines to free up datastore space?", o:["Consolidate the snapshots for each VM.", "Inflate the disk files for each VM.", "Delete all snapshots for each VM.", "Storage vMotion each VM to another datastore."], a:0, e:"Cuando existen archivos delta (-delta.vmdk) pero el Snapshot Manager no muestra snapshots, la solución es consolidar los snapshots (VM > Snapshots > Consolidate), que fusiona estos archivos huérfanos de vuelta al disco base."},
-            {q:"An administrator is attempting to configure Storage I/O Control (SIOC) on five datastores within a vSphere environment. The administrator is being asked to determine why SIOC configuration completed successfully on only four of the datastores. What are two possible reasons why the configuration was not successful? (Choose two.)", o:["The datastore contains Raw Device Mappings (RDMs).", "SAS disks are used for the datastore.", "The datastore has multiple extents.", "The datastore is using ISCSI.", "The administrator is using NFS storage."], a:0, e:"SIOC no es compatible con datastores que contienen Raw Device Mappings (RDMs) en modo físico ni con datastores que tienen múltiples extensiones (multiple extents), ya que no puede gestionar correctamente el I/O en estos escenarios."},
-            {q:"An administrator has mapped three vSphere zones to three vSphere clusters. Which two statements are true for this vSphere with Tanzu zonal Supervisor enablement? (Choose two.)", o:["One Supervisor will be created in a specific zone.", "One Supervisor will be created across all zones.", "Three Supervisors will be created in Linked Mode.", "Individual vSphere Namespaces will be placed into a specific zone.", "Individual vSphere Namespaces will be spread across all zones."], a:1, e:"En la configuración zonal de vSphere with Tanzu, se crea un único Supervisor a través de todas las zonas, y los vSphere Namespaces individuales se distribuyen a través de todas las zonas para alta disponibilidad."},
-            {q:"An administrator is investigating reports of users experiencing difficulties logging into a VMware vCenter instance using LDAP accounts. Which service should the administrator check as part of troubleshooting?", o:["vSphere Authentication Proxy Service", "Lookup Service", "Identity Management Service", "VMware Authentication Framework Daemon"], a:2, e:"El Identity Management Service es responsable de gestionar las fuentes de identidad, incluyendo la conexión LDAP/Active Directory. Los problemas de autenticación LDAP suelen estar relacionados con este servicio."},
-            {q:"An administrator is looking to deploy a new VMware vCenter instance. The current environment consists of 75 hosts and is expected to grow up to 100 hosts over the next three years. Which deployment size should the administrator select?", o:["Medium", "Tiny", "Large", "Small"], a:3, e:"Para un entorno actual de 75 hosts que crecerá hasta 100 hosts, el tamaño Small es apropiado (soporta hasta 100 hosts y 1000 VMs), ya que satisface los requisitos actuales y futuros sin sobredimensionar."},
-            {q:"An administrator has been notified that a number of hosts are not compliant with the company policy for time synchronization. The relevant portion of the policy states: All physical servers must synchronize time with an external time source that is accurate to the microsecond. Which step should the administrator take to ensure compliance with the policy?", o:["Ensure that each vCenter Server Appliance is configured to use a Network Time Protocol (NTP) source.", "Ensure that each ESXi host is configured to use a Precision Time Protocol (PTP) source.", "Ensure that each ESXi host is configured to use a Network Time Protocol (NTP) source.", "Ensure that each vCenter Server Appliance is configured to use a Precision Time Protocol (PTP) source."], a:1, e:"PTP (Precision Time Protocol) proporciona sincronización de tiempo con precisión de microsegundos o submicrosegundos, mientras que NTP solo ofrece precisión de milisegundos. La política requiere precisión de microsegundos, por lo que se debe usar PTP en los hosts ESXi."},
-            {q:"An administrator is creating a content library to manage VM templates and ISO images. The administrator wants to password-protect the images and templates and share them with a remote site. Which two tasks must the administration perform when creating the content library? (Choose two.)", o:["Publish the local content library.", "Enable the security policy.", "Create a subscribed content library.", "Select an NFS datastore.", "Enable authentication."], a:0, e:"Para compartir una content library con un sitio remoto con protección por contraseña, se debe publicar la biblioteca local (para hacerla disponible a otros sitios) y habilitar la autenticación (para protegerla con contraseña)."},
-            {q:"An administrator is responsible for the management of a VMware vCenter instance that is currently experiencing performance issues. The administrator quickly identifies that the CPU and memory utilization of vCenter is consistently over 80%. The vpxd process is contributing significantly to the performance issue. Which combination of four steps should the administrator take to resolve the performance issues and ensure that a similar issue can be rectified without requiring downtime to vCenter moving forward? (Choose four.)", o:["Gracefully shut down vCenter using the vSphere Client.", "Enable CPU Hot Add on the vCenter virtual machine.", "Power on the vCenter Server Appliance using the vSphere Host Client.", "Enable CPU and Memory Hot Add on the vCenter virtual machine.", "Add additional CPU and memory to the vCenter Server Appliance.", "Power on the vCenter Server Appliance using the vSphere Client.", "Enable Memory Not Add on the vCenter virtual machine."], a:0, e:"Los cuatro pasos son: (1) Apagar gracefully vCenter desde vSphere Client, (2) Habilitar CPU and Memory Hot Add en la VM de vCenter, (3) Añadir CPU y memoria adicionales al VCSA, (4) Encender el VCSA usando el vSphere Host Client."},
-            {q:"An administrator successfully installs VMware ESXi onto the first host of a new vSphere cluster but makes no additional configuration changes. When attempting to log into the vSphere Host Client using the Fully Qualified Domain Name (FQDN) of the host, the administrator receives: 'Server Not Found – We can't connect to the server at esxi101.corp.local'. Which three high level tasks should the administrator complete, at a minimum, in order to successfully log into the vSphere Host Client using the FQDN and complete the configuration? (Choose three.)", o:["Ensure a DNS A Record is created for the VMware ESXi host on the corporate DNS servers.", "Update the VMware ESXi Management Network DNS configuration to use the corporate DNS servers for names resolution.", "Update the VMware ESXi Management Network IPv4 configuration to use a static a IPv4 address.", "Configure at least two network adapters for the VMware ESXi Management Network.", "Set the value of the VMware ESXi Management Network VLAN ID to 10.", "Disable IPv6 for the VMware ESXi Management Network."], a:0, e:"Para resolver el error FQDN, se necesita: (1) Crear un registro DNS A para el host ESXi, (2) Configurar una IP estática en la red de gestión del ESXi, (3) Establecer el VLAN ID 10 para la red de gestión según los datos del escenario."},
-            {q:"When configuring vCenter High Availability (HA), which two statements are true regarding the active, passive, and witness nodes? (Choose two.)", o:["Network latency must be less than 10 milliseconds.", "They must have a supported Wide Area Network (WAN).", "They must have a minimum of a 10 Gbps network adapter.", "They must have a minimum of a 1 Gbps network adapter.", "Network latency must be more than 10 milliseconds."], a:0, e:"Para vCenter HA, la latencia de red entre los nodos debe ser inferior a 10 milisegundos y se requiere un adaptador de red con un mínimo de 1 Gbps para la comunicación entre los nodos activo, pasivo y testigo."},
-            {q:"An administrator is deploying a new all flash vSAN cluster based on the vSAN Original Storage Architecture (OSA). What is the minimum supported network throughput in Gb/s for each host?", o:["50", "10", "25", "1"], a:1, e:"Para vSAN OSA (Original Storage Architecture), el requisito mínimo de ancho de banda de red es de 10 Gbps por host para garantizar el rendimiento adecuado de la replicación y comunicación del clúster."},
-            {q:"An administrator enables Secure Boot on an ESXi host. On booting the ESXi host, the following error message appears: Fatal error: 39 (Secure Boot Failed). What is the cause of this issue?", o:["The kernel has been tampered with.", "The Trusted Platform Module chip has failed.", "The administrator attempted to boot with a bootloader that is unsigned or has been tampered with.", "A package (VIB or driver) has been tampered with."], a:0, e:"El error Fatal error 39 (Secure Boot Failed) indica que el kernel de ESXi ha sido modificado o no coincide con la firma criptográfica esperada. Esto activa la protección de Secure Boot y bloquea el arranque del host."},
-            {q:"To keep virtual machines (VMs) up and running at all times in a vSphere cluster, an administrator would like VMs to be migrated automatically when the host hardware health status becomes degraded. Which cluster feature can be used to meet this requirement?", o:["Predictive DRS", "Proactive HA", "vSphere HA Orchestrated Restart", "vSphere Fault Tolerance"], a:1, e:"Proactive HA monitoriza el estado del hardware de los hosts y, cuando detecta una degradación del hardware (como fallos de fuente de alimentación o ventiladores), migra proactivamente las VMs antes de que se produzca un fallo completo."},
-            {q:"An administrator wants to allow a DevOps engineer the ability to delete Tanzu Kubernetes Grid (TKG) cluster objects in a vSphere Namespace. Which role would provide the minimum required permissions to perform this operation?", o:["Administrator", "Can View", "Owner", "Can Edit"], a:3, e:"El rol 'Can Edit' en un vSphere Namespace proporciona los permisos mínimos necesarios para crear, modificar y eliminar objetos TKG, incluyendo clusters TKG, sin otorgar privilegios de administrador completos."},
-            {q:"A group of new virtual machines have been deployed using thin-provisioned disks due to the limited storage space available. The storage team has expressed concern about extensive use of this type of provisioning. An administrator is tasked with creating a custom alarm to notify the storage team when thin provisioning reaches a certain capacity threshold. Where must the administrator define this alarm?", o:["Datastore", "Data center", "Datastore cluster", "Virtual machine"], a:0, e:"Las alarmas de thin provisioning se deben definir a nivel de Datastore, ya que es el objeto de vCenter que monitoriza el uso de espacio y la capacidad de aprovisionamiento fino del almacenamiento."},
-            {q:"What are three options an administrator can configure after creating a vSphere Namespace? (Choose three.)", o:["Backup schedule", "Certificates", "Storage policies", "Update policies", "Permissions", "Resource and Object limits"], a:2, e:"Después de crear un vSphere Namespace, se pueden configurar: Storage policies (para definir las políticas de almacenamiento), Permissions (para gestionar el acceso), y Resource and Object limits (para controlar el uso de recursos)."},
-            {q:"A VMkernel port is labelled PROD01 and uses the default TCP/IP stack. Currently, this VMkernel port is configured for supporting live virtual machine (VM) migrations. Which configuration change should the administrator make to isolate live VM migration traffic from other network traffic?", o:["Remove PROD01 and create a new VMkernel port and set the TCP/IP stack to vSphere vMotion.", "Remove PROD01 and create a new VMkernel port with the TCP/IP stack set to provisioning.", "Create a new VMkernel port and set the TCP/IP stack to provisioning.", "Modify PROD01 by changing the TCP/IP stack to vSphere vMotion."], a:0, e:"Para aislar el tráfico de vMotion, se debe eliminar el puerto PROD01 que usa el stack TCP/IP por defecto y crear un nuevo VMkernel port dedicado con el stack TCP/IP de vSphere vMotion, que aísla completamente este tráfico."},
-            {q:"After adding a new vSphere ESXi host with identical hardware configuration to an existing vSphere cluster, which task would an administrator complete prior to checking the compliance with an existing host profile?", o:["Attach the host profile to the new host", "Duplicate the host profile", "Copy the host setting from the new host", "Import the host profile"], a:0, e:"Antes de verificar el cumplimiento (compliance check), el administrador debe adjuntar (attach) el host profile existente al nuevo host ESXi para que vCenter sepa qué configuración de referencia debe verificar contra el nuevo host."},
-            {q:"An administrator is tasked with deploying a new on-premises software-defined data center (SDDC) that will contain a total of eight VMware vCenter instances. All vCenter instances should be visible in a single vSphere Client session. All vCenter inventory should be searchable from a single vSphere Client session. Any administrator must be able to complete operations on any vCenter instance using a single set of credentials. What should the administrator configure to meet these requirements?", o:["Two Enhanced Linked Mode groups consisting of four vCenter instances each in a Single Sign-On domain.", "A single Hybrid Linked Mode group consisting of four vCenter instances each in a Single Sign-On domain.", "A single Enhanced Linked Mode group consisting of eight vCenter instances in one Single Sign-On domain.", "A single Hybrid Linked Mode group consisting of eight vCenter instances in one Single Sign-On domain."], a:2, e:"Enhanced Linked Mode permite gestionar hasta 15 instancias de vCenter en un único dominio SSO desde una sola sesión del vSphere Client, con inventario unificado y SSO para credenciales compartidas."},
-            {q:"An administrator has Windows virtual machines (VMs) and VMware Tools is installed in each VM. The administrator performs a status check of VMware Tools using vSphere Lifecycle Manager. What is the VMware Tools status for the Windows VMs if the version of VMware Tools has a known problem and must be immediately upgraded?", o:["Version Unsupported", "Guest Managed", "Unknown", "Upgrade Available"], a:0, e:"Cuando una versión de VMware Tools tiene un problema conocido y requiere actualización inmediata, el estado reportado por vSphere Lifecycle Manager es 'Version Unsupported', indicando que esa versión ya no está soportada."},
-            {q:"Which three features are only available when using vSphere Distributed Switches instead of vSphere Standard Switches? (Choose three.)", o:["802.1Q tagging", "Port mirroring", "Netflow", "Configuration backup and restore", "IPv6 support", "IPv4 support"], a:1, e:"Las funcionalidades exclusivas de vSphere Distributed Switch (vDS) que no están disponibles en Standard Switch son: Port mirroring (espejado de tráfico), Netflow (análisis de flujo de red), y Configuration backup and restore (respaldo y restauración de configuración)."},
-            {q:"An administrator is configuring vSphere Lifecycle Manager to install patches to a vSphere cluster. The cluster runs workload virtual machines (VMs) that are incompatible with vSphere vMotion, and therefore cannot be live migrated between hosts during the installation of the patches. Which configuration in vSphere Lifecycle Manager will allow the administrator to reduce the downtime associated with the patching operation without migrating the VMs?", o:["Enable Distributed Power Management (DPM) and set the VM power state to the suspend to disk option", "Enable Quick Boot and set the VM power state to the suspend to disk option", "Enable vSphere High Availability (HA) admission control and set the VM power state to the suspend to memory option", "Enable Quick Boot and set the VM power state to the suspend to memory option"], a:3, e:"Quick Boot reduce el tiempo de reinicio del host ESXi omitiendo el POST del hardware. Combinado con 'suspend to memory' (las VMs se suspenden en RAM), minimiza el tiempo de inactividad al parchear hosts con VMs que no pueden migrarse con vMotion."},
-            {q:"An administrator creates a new corporate virtual machine (VM) template every month to include all of the latest patches. The administrator needs to ensure that the new VM template is synchronized from the primary data center site (London) to two secondary data center sites (Tokyo and New York). The administrator is aware that datastore space is limited within the secondary data center sites. The administrator needs to ensure that the VM template is available in the secondary sites the first time a new virtual machine is requested. Which four steps should the administrator take to meet these requirements? (Choose four.)", o:["Create a new published content library at the primary site.", "Add the virtual machine template to the subscribed content library.", "Create a new published content library in each secondary site.", "Create a new subscribed content library in each secondary site.", "Configure the subscribed content library to download content when needed.", "Configure each subscribed content library to download content immediately.", "Add the virtual machine template to the published content library."], a:0, e:"Los cuatro pasos son: (1) Crear una published content library en el sitio primario, (2) Crear una subscribed content library en cada sitio secundario, (3) Configurar la descarga 'on demand' para ahorrar espacio, (4) Añadir la plantilla VM a la biblioteca publicada."},
-            {q:"An administrator is tasked with migrating a single virtual machine (VM) from an existing VMware vCenter to a secure environment where corporate security policy requires that all VMs be encrypted. The secure environment consists of a dedicated vCenter instance with a 4-node vSphere cluster and already contains a number of encrypted VMs. Which two steps must the administrator take to ensure the migration is a success? (Choose two.)", o:["Ensure that the source and destination vCenter instances share the same Key Management Server (KMS).", "Ensure that Encrypted vMotion is turned off for the VM.", "Ensure that the VM is encrypted before attempting the migration.", "Ensure that the VM is powered off before attempting the migration.", "Ensure that the source and destination vCenter Servers have a different Key Management Server (KMS)."], a:0, e:"Para migrar una VM a un entorno cifrado, se necesita que ambos vCenter compartan el mismo KMS (para que las claves de cifrado sean accesibles) y que la VM esté cifrada antes de la migración para cumplir la política de seguridad del entorno destino."},
-            {q:"An administrator is tasked with providing users access to objects within an existing VMware vCenter instance. The vCenter inventory has a single data center with one management vSphere cluster and five workload vSphere clusters. Users must only be able to view all of the inventory objects associated with the management vSphere cluster. Users must be able to edit all of the inventory objects associated with the workload vSphere clusters. Which series of steps should the administrator complete to assign the custom role and provide the required level of access to users?", o:["Apply Global permissions to assign the Read Only role to the root vCenter object. Apply vCenter permissions to assign the custom role to the workload vSphere clusters and enable propagation.", "Apply Global permissions to assign the Read Only role to the root vCenter object and enable propagation. Apply vCenter permissions to assign the custom role to the workload vSphere clusters and enable propagation.", "Apply Global permissions to assign the Read Only role to the root vCenter object. Apply vCenter permissions to assign the custom role to the workload vSphere clusters.", "Apply Global permissions to assign the Read Only role to the root vCenter object and enable propagation. Apply vCenter permissions to assign the custom role to the workload vSphere clusters."], a:1, e:"La solución es: Permisos globales con Read Only en el objeto raíz CON propagación (para dar vista a todo el inventario incluyendo el cluster de gestión), luego permisos de vCenter con el rol personalizado en los clusters de trabajo CON propagación (para permitir edición)."},
-            {q:"An administrator has a requirement to revert a running virtual machine to a previous snapshot after a failed attempt to upgrade an application. When the administrator originally took the snapshot: Snapshot the virtual machine's memory = false, Quiesce guest file system = false. What will be the result of the administrator selecting the 'Revert to Latest Snapshot' option to return the virtual machine to a previous snapshot?", o:["The virtual machine will be restored to the parent snapshot in a powered on state.", "The virtual machine will be restored to the parent snapshot in a powered off state.", "The virtual machine will be restored to the child snapshot in a powered off state.", "The virtual machine will be restored to the child snapshot in a powered on state."], a:1, e:"Cuando una snapshot se toma con Memory=false, el estado de la memoria RAM no se captura. Al revertir a esa snapshot, la VM se restaura al estado del disco en el momento de la snapshot pero SIN el estado de la memoria, por lo que quedará apagada (powered off)."},
-            {q:"An administrator is planning to upgrade a VMware vCenter instance to version 8. It is currently integrated with: VMware Aria Automation, VMware Cloud Director. Which tool can the administrator use to run interoperability reports before the upgrade process?", o:["vSphere Update Manager", "VMware Aria Suite Lifecycle", "vCenter Server Update Planner", "vSphere Lifecycle Manager"], a:2, e:"vCenter Server Update Planner es la herramienta específica para verificar la interoperabilidad entre vCenter y los productos integrados (como Aria Automation o Cloud Director) antes de realizar una actualización de versión."},
-            {q:"An administrator decides to restore VMware vCenter from a file-based backup following a failed upgrade. Which interface should the administrator use to complete the restore?", o:["Direct Console User Interface (DCUI)", "vCenter Management Interface (VAMI)", "vSphere Client", "vCenter GUI Installer"], a:3, e:"La restauración de vCenter desde un backup basado en archivos se realiza mediante el vCenter GUI Installer (el instalador gráfico del VCSA), que incluye la opción de desplegar una nueva instancia y restaurar los datos del backup."},
-            {q:"An administrator needs to provide encryption for workloads within an existing vSphere cluster. The following requirements must be met: workloads should be encrypted at rest, encrypted workloads must automatically be encrypted during transit, encryption should not require any specific hardware. What should the administrator configure to meet these requirements?", o:["Encrypted vSphere vMotion", "Unified Extensible Firmware Interface (UEFI) Secure Boot", "Host Encryption", "VM Encryption"], a:3, e:"VM Encryption cifra los datos en reposo sin requerir hardware especial. Cuando se activa, vSphere automáticamente usa Encrypted vMotion durante las migraciones, garantizando el cifrado en tránsito también sin configuración adicional."},
-            {q:"After a number of outages within a production VMware software-defined data center, an administrator is tasked with identifying a solution to meet the following requirements: reduce the risk of outages by proactively identifying issues with the environment and resolving them, reduce the complexity of uploading log bundles when raising support tickets. Which solution should the administrator recommend to meet these requirements?", o:["VMware Aria Operations for Logs", "VMware Skyline Advisor Pro", "VMware Skyline Health", "VMware Aria Operations"], a:1, e:"VMware Skyline Advisor Pro identifica proactivamente problemas en el entorno mediante análisis de telemetría y proporciona recomendaciones para resolverlos, además de simplificar la carga de bundles de logs para tickets de soporte."},
-            {q:"An administrator is responsible for performing maintenance tasks on a vSphere cluster. The cluster has the following configuration: identically configured vSphere ESXi hosts (esx01, esx02, esx03 and esx04), all workloads are deployed into a single VMFS datastore provided by the external storage array, vSphere HA has not been enabled, vSphere DRS has not been enabled. Currently, a critical production application workload (VM1) is running on esx01. Given this scenario, which two actions are required to ensure VM1 continues to run when esx01 is placed into maintenance mode? (Choose two.)", o:["Fully automated DRS must be enabled on the cluster so that VM1 will be automatically migrated to another host within the cluster when esx01 is placed into maintenance mode.", "VM1 must be manually shut down and cold migrated to another host within the cluster using vSphere vMotion before esx01 is placed into maintenance mode.", "vSphere HA must be enabled on the cluster so that VM1 will be automatically migrated to another host within the cluster when esx01 is placed into maintenance mode.", "VM1 must be manually live migrated to another host within the cluster using vSphere vMotion before esx01 is placed into maintenance mode.", "VM1 must be manually migrated to another host within the cluster using vSphere Storage vMotion before esx01 is placed into maintenance mode."], a:0, e:"Sin DRS ni HA habilitados, para mantener VM1 en ejecución cuando esx01 entre en maintenance mode, el administrador debe habilitar DRS Fully Automated (que migrará automáticamente las VMs) O migrar manualmente VM1 a otro host con vMotion antes de poner esx01 en mantenimiento."},
-            {q:"An administrator needs better performance and near-zero CPU utilization from the ESXi hosts for networking functions and processing. The administrator creates a new vSphere Distributed Switch and enables network offloads compatibility. Which solution would help achieve this goal?", o:["vSphere Distributed Services Engine", "Data Processing Units (DPUs)", "vSphere Network I/O Control", "Universal Passthrough version 2"], a:0, e:"vSphere Distributed Services Engine, en combinación con DPUs (SmartNICs), permite descargar las funciones de red del CPU del host ESXi hacia la DPU, logrando un rendimiento de red mejorado con casi cero utilización del CPU del host."},
-            {q:"An administrator needs to perform maintenance on a datastore that is running the vSphere Cluster Services (vCLS) virtual machines (VMs). Which feature can the administrator use in this scenario to avoid the use of Storage vMotion on the vCLS VMs?", o:["vSphere Distributed Resource Scheduler (DRS)", "vSphere vMotion", "vSphere Fault Tolerance", "vCLS Retreat Mode"], a:3, e:"vCLS Retreat Mode permite colocar un datastore en modo de retirada, lo que hace que las VMs de vCLS se migren automáticamente a otro datastore disponible sin necesidad de usar Storage vMotion manualmente."},
-            {q:"What is the role of vSphere Distributed Services Engine?", o:["Provide a live shadow instance of a virtual machine (VM) that mirrors the primary VM to prevent data loss and downtime during outages", "Implement Quality of Service (QoS) on network traffic within a vSphere Distributed Switch", "Provide hardware accelerated data processing to boost infrastructure performance", "Redistribute virtual machines across vSphere cluster hosts to comply with user-defined affinity and anti-affinity rules following host failures or during maintenance operations"], a:2, e:"vSphere Distributed Services Engine proporciona procesamiento de datos acelerado por hardware mediante DPUs/SmartNICs, permitiendo descargar funciones de red y seguridad del CPU del host para mejorar el rendimiento de la infraestructura."},
-            {q:"A vSphere cluster has the following vSphere Distributed Resource Scheduler (DRS) group configuration: Virtual machine (VM) group named DB, Host groups named PROD11 and PROD55. The administrator wants to force the VMs in the DB group to run on the hosts in the PROD11 group. However, if all the hosts in PROD11 go offline for maintenance, then the VMs in the DB group should run on hosts in PROD55. Which VM/Host rule must the administrator create to ensure that these requirements are met?", o:["A preferential rule between the DB group and the PROD11 group", "A preferential rule between the DB group and the PROD55 group", "A required rule between the DB group and the PROD11 group", "A required rule between the DB group and the PROD55 group"], a:0, e:"Una regla 'preferential' (Should run on hosts in group) intenta colocar las VMs en el grupo de hosts preferido pero permite la ejecución en otros hosts si el grupo preferido no está disponible, a diferencia de una regla 'required' que es obligatoria."},
-            {q:"An administrator is asked to configure a security policy at the port group level of a standard switch. The following requirements must be met: the security policy must apply to all virtual machines on portgroup-1, all traffic must be forwarded, regardless of the destination. Which security policy must the administrator configure?", o:["Forged transmits set to reject", "MAC address changes set to accept", "Promiscuous mode set to reject", "Promiscuous mode set to accept"], a:3, e:"'Promiscuous mode set to accept' permite que todos los adaptadores de red virtuales en el port group reciban todo el tráfico de la red, independientemente del destino, cumpliendo el requisito de reenviar todo el tráfico."},
-            {q:"Following a merger with another company, an administrator is tasked with configuring an identity source for VMware vCenter so that all vSphere administrators can authenticate using their existing Active Directory accounts. Each company has user accounts in their own Active Directory forests. The corporate policy states that only Windows-based machine accounts are allowed in Active Directory. Which action should the administrator take to configure vCenter Single Sign-On (SSO) to meet this requirement?", o:["Configure SSO to use Active Directory over LDAP as the identity source.", "Configure SSO to use OpenLDAP as the identity source.", "Join the vCenter Server Appliance to the LDAP domain.", "Configure SSO to use Active Directory (Integrated Windows Authentication) as the identity source."], a:0, e:"Active Directory over LDAP permite agregar múltiples bosques de AD como fuentes de identidad separadas en vCenter SSO, permitiendo que usuarios de diferentes organizaciones se autentiquen con sus cuentas AD existentes."},
-            {q:"An administrator notices a performance issue in VMware vCenter. To try and understand more about the performance issue, the administrator needs to gather more information about the vCenter database to eliminate a potential disk space issue. Which two tools can the administrator use? (Choose two.)", o:["vCenter Management Interface (VAMI)", "Perfmon", "df", "esxtop", "vSphere Client"], a:0, e:"Para investigar el espacio en disco y el rendimiento de la base de datos de vCenter, se puede usar el VAMI (proporciona información del sistema y base de datos del VCSA) y el comando 'df' en la shell del VCSA para verificar el uso del sistema de archivos."},
-            {q:"An administrator notices a Fibre Channel adapter in an ESXi host has been experiencing inconsistent connectivity states. Which trigger can be used to quickly identify the issue and alert the administrator so that the issue can be resolved?", o:["Host Connection Lost", "Lost Network Path Redundancy", "Lost Network Connectivity", "Lost Storage Connectivity"], a:3, e:"'Lost Storage Connectivity' es el trigger de alarma específico para detectar problemas de conectividad con el almacenamiento Fibre Channel, alertando al administrador cuando el host ESXi pierde acceso a los datastores de almacenamiento."},
-            {q:"An administrator is tasked with looking into the disaster recovery (DR) options for a software-defined data center (SDDC). The following requirements must be met: all virtual machines must be protected to a secondary site, the source VMs must remain online until the failover, when failing over to the secondary site application downtime is allowed, the DR failover must be managed from the vSphere Client, costs must remain as low as possible. How can the administrator accomplish this task?", o:["Configure VMware Cloud Disaster Recovery (VCDR) and combine it with array-based storage replication.", "Configure VMware a Site Recovery Manager and combine it with vSphere Replication.", "Configure a subscribed content library on the secondary site.", "Configure VMware Site Recovery Manager and combine it with array-based storage replica-tion."], a:1, e:"Site Recovery Manager + vSphere Replication es la solución más económica que cumple todos los requisitos: protege todas las VMs, las mantiene online en el sitio primario, gestiona el failover desde vSphere Client, y usa replicación nativa sin coste adicional de hardware."},
-            {q:"An administrator needs to update a VMware vCenter instance to a newer minor release version. Due to restrictions within the environment, the vCenter instance does not have access to the Internet. As a first step, the administrator downloads the required update on another machine. What are the next steps the administrator must perform to complete the update?", o:["Place the update ISO file in a Virtual Machine File System (VMFS) datastore. Use the vSphere Client to select the update ISO file as the source for the update.", "Mount the ISO update file to the CD-ROM drive of the vCenter instance. Use the vCenter Management Interface to select the CD-ROM as the source for the update.", "Place the ISO update file in a folder accessible to the vCenter instance over HTTPS. Use the vCenter Management Interface to select the update file as the source for the update.", "Place the ZIP update file in a folder accessible to the vCenter instance over HTTPS. Use the vSphere Client to select the update file as the source for the update."], a:1, e:"Para actualizar vCenter sin acceso a Internet, se monta el ISO de actualización en la unidad CD-ROM de la VM del VCSA y luego se usa el VAMI (vCenter Management Interface) para seleccionar el CD-ROM como fuente de la actualización."},
-            {q:"An administrator is tasked with allowing a single user the ability to take snapshots on a virtual machine. When looking in vCenter, the administrator can see there are already users and groups assigned permissions on the virtual machine: the group VM_Users has the Virtual Machine Power User role, the group VM_Viewers has the Read Only role. The administrator confirms that the user requesting the additional access is currently one of five members of the VM_Viewers group. Which two steps should the administrator take to grant this user the additional access required without impacting the user access of others? (Choose two.)", o:["Add the user to the VM_Users group and leave the permissions on the virtual machine object unchanged.", "Add a new permission on the virtual machine object selecting the user and the new custom role.", "Edit the Read Only role to add the Virtual Machine Snapshot Management privileges.", "Create a new custom role with the Virtual Machine Snapshot Management privileges.", "Add a new permission on the virtual machine object selecting the VM_Viewers group and the new custom role."], a:1, e:"Para dar acceso de snapshots solo a ese usuario sin afectar a otros: (1) Crear un nuevo rol personalizado con el privilegio de Snapshot Management, (2) Añadir un nuevo permiso en la VM seleccionando específicamente ese usuario con el nuevo rol personalizado."},
-            {q:"An administrator is preparing to perform an update to vSphere clusters that are running vSAN. The administrator wants to ensure that: all hosts in the cluster are updated with the same software, the firmware versions on the hosts are updated, the new software versions are checked for compliance against the vSAN Hardware Compatibility List. Which three steps should the administrator take to meet these requirements? (Choose three.)", o:["Configure vSphere Lifecycle Manager with an image for the cluster.", "Register the vendor hardware management system as a vCenter Server extension.", "Download the firmware updates from the VMware website.", "Download the firmware updates from the vendor website.", "Run a hardware compatibility check using vSphere Lifecycle Manager.", "Configure vSphere Lifecycle Manager with a baseline for the cluster."], a:0, e:"Los tres pasos son: (1) Configurar vLCM con una imagen para el cluster (para uniformidad del software), (2) Registrar el sistema de gestión del hardware del vendedor como extensión de vCenter (para gestión de firmware), (3) Ejecutar un hardware compatibility check con vLCM (para verificar conformidad con la vSAN HCL)."},
-            {q:"An administrator is asked to segregate virtual machine (VM) traffic by VLAN on a vSphere standard switch. The following requirements must be met: VLAN ID on the switch port group must be 4095, VLAN tagging must be done at the VM level. Which tagging mode is required?", o:["External Switch Tagging (EST)", "None", "Virtual Guest Tagging (VGT)", "Virtual Switch Tagging (VST)"], a:2, e:"Virtual Guest Tagging (VGT) con VLAN ID 4095 permite que sea la propia VM (a través de su sistema operativo o aplicación) quien gestione el etiquetado 802.1Q de las VLANs, pasando todos los tags sin modificar."},
-            {q:"An administrator wants to use tag-based placement rules on their virtual machine disks using VMware vCenter. Which option would allow the administrator to achieve this?", o:["Storage Policy Based Management", "Storage I/O Control", "vSphere Storage APIs for Storage Awareness (VASA)", "vSphere Distributed Resource Scheduler (DRS)"], a:0, e:"Storage Policy Based Management (SPBM) permite definir políticas de almacenamiento basadas en capacidades y etiquetas (tags), que luego se aplican a los discos de las VMs para colocarlos en el almacenamiento apropiado automáticamente."},
-            {q:"A combination of which two components of the software-defined data center (SDDC) are responsible for the initial abstraction of CPU, memory, disk, and network resources and their subsequent management? (Choose two.)", o:["VMware Aria Operations", "VMware Aria Suite Lifecycle", "VMware vCenter", "VMware ESXi", "VMware vCenter Cloud Gateway"], a:2, e:"VMware ESXi es el hipervisor que realiza la abstracción inicial de los recursos físicos (CPU, memoria, disco, red), mientras que VMware vCenter gestiona y orquesta esos recursos virtualizados a través de múltiples hosts ESXi."},
-            {q:"What are two use cases for VMware vSphere+? (Choose two.)", o:["Enhance on-premises workloads by managing them through the VMware Cloud Console.", "Allow live migration between on-premises and VMware Cloud.", "Increase the performance of the native vCenter vMotion capability.", "Allow the creation of affinity and anti-affinity rules to be used during failover events.", "Simplify vCenter lifecycle management through cloud-enabled automation."], a:0, e:"VMware vSphere+ permite mejorar las cargas de trabajo on-premises gestionándolas desde VMware Cloud Console (gestión centralizada en la nube) y simplifica el ciclo de vida de vCenter mediante automatización habilitada en la nube."},
-            {q:"An administrator is completing the configuration of a new vSphere cluster and has enabled vSphere High Availability (HA) and vSphere Distributed Resource Scheduler (DRS). After adding the ESXi hosts to the cluster, which networking information will the administrator be prompted to provide when using the Cluster Quickstart workflow?", o:["vMotion networking", "Management networking", "vSAN networking", "Virtual machine networking"], a:0, e:"El Cluster Quickstart workflow solicita al administrador que configure la red de vMotion como parte del proceso de configuración del cluster, ya que es necesaria para las migraciones de VMs que tanto HA como DRS requieren."},
-            {q:"An administrator plans to bring VMware vCenter offline in order to perform hardware maintenance on the host where the vCenter Server Appliance is running. Which vSphere feature must be configured to ensure that vCenter users experience minimal downtime?", o:["vSphere Distributed Resource Scheduler", "Hybrid Linked Mode", "vCenter Server High Availability", "Enhanced Linked Mode"], a:2, e:"vCenter Server High Availability (vCenter HA) proporciona alta disponibilidad para el VCSA mediante un par activo-pasivo con nodo testigo, permitiendo el failover automático si el host donde reside el vCenter activo falla o necesita mantenimiento."},
-            {q:"Which two tasks can be completed using vSphere LifeCycle Manager? (Choose two.)", o:["Manage the firmware lifecycle of ESXi hosts that are part of a managed cluster with a single image.", "Check that the ESXi hosts are compliant with the recommended baseline and update the hosts.", "Upgrade VMware vCenter from version 7 to 8.", "Check the hardware compatibility of the hosts in a cluster against the VMware Compatibility Guide (VCG) using baselines.", "Manage the firmware lifecycle of ESXi hosts are part of a managed cluster using baselines."], a:0, e:"vSphere Lifecycle Manager puede gestionar el ciclo de vida del firmware de hosts ESXi en clusters gestionados con una sola imagen (image-based) y verificar el cumplimiento de los hosts con baselines recomendadas y actualizarlos."},
-            {q:"An administrator is tasked with implementing a backup solution capable of backing up the Supervisor cluster, vSphere Pods, and persistent volumes. Which two solutions must be used to meet this requirement? (Choose two.)", o:["VMware vCenter", "Standalone Velero and Restic", "NSX-T Manager", "vSphere Host Client", "Velero Plugin for vSphere"], a:1, e:"Para hacer backup del Supervisor cluster, vSphere Pods y persistent volumes en un entorno vSphere with Tanzu, se necesita Standalone Velero (para los recursos de Kubernetes/Supervisor) y el Velero Plugin for vSphere (para los persistent volumes)."},
-            {q:"An administrator receives reports from the application team of poor performance of a virtual machine (VM). The administrator reviews the virtual machine and discovers that it has 20 snapshots that are over 12 months old. What could the administrator do to improve the VM's performance?", o:["Inflate the base disk to make space for future snapshots.", "Revert to the latest snapshot.", "Consolidate all of the snapshots into the base VM.", "Identify and delete the largest delta .vmdk file."], a:2, e:"Consolidar todas las snapshots en el disco base elimina la cadena de archivos delta (-delta.vmdk), mejorando significativamente el rendimiento de E/S ya que la VM accede directamente al disco base sin tener que recorrer una larga cadena de snapshots."},
-            {q:"A vSphere cluster hosts a three-tier application. The cluster has 50% resources available. If a host in the cluster fails, the database server must be online before the application server, and the application server must be online before the Web server. Which feature can be used to meet these requirements?", o:["Predictive DRS", "vSphere HA Orchestrated Restart", "vSphere HA Restart Priority", "Proactive HA"], a:1, e:"vSphere HA Orchestrated Restart permite definir el orden y las dependencias de reinicio de las VMs tras un fallo de host, garantizando que los servidores se reinicien en el orden correcto (base de datos → aplicación → web)."},
-            {q:"What is the minimum network throughput in Gb/s for vSAN using the Express Storage Architecture (ESA)?", o:["50", "25", "1", "10"], a:1, e:"vSAN Express Storage Architecture (ESA) requiere un mínimo de 25 Gbps de ancho de banda de red por host para soportar sus capacidades avanzadas de rendimiento y eficiencia de almacenamiento."},
-            {q:"Which step is completed during Stage 1 of the vCenter Server Appliance deployment?", o:["Join a vCenter Single Sign-On domain", "Create a new vCenter Single Sign-On domain", "Select the deployment size", "Configure SSH access"], a:2, e:"La Etapa 1 del despliegue del VCSA cubre la configuración del appliance virtual (OVA deployment): tamaño de despliegue, nombre del VCSA, contraseña root, configuración de red. La Etapa 2 cubre la configuración de SSO y otras opciones."},
-            {q:"An administrator is tasked with adding two additional hosts into an existing production vSphere cluster to support the need for additional capacity. The vSphere cluster currently has four identically configured ESXi hosts (esx01-esx04) that utilize Intel Skylake-based CPUs. The two new hosts (esx05 and esx06) are configured identically in terms of memory and storage to the existing hosts, but utilize Intel Ice Lake-based CPUs. The administrator must ensure that: any virtual machine migrates to any of the six ESXi hosts running in the cluster, there is no virtual machine downtime during the process of adding the new hosts. Which step should the administrator take to meet these requirements?", o:["Create a new vSphere cluster with Enhanced vMotion Compatibility (EVC) enabled and move all hosts into the new cluster.", "Create a new vSphere cluster and move only three hosts into the new cluster.", "Configure Enhanced vMotion Compatibility (EVC) mode on the existing cluster and add the two new hosts into the cluster.", "Create a new vSphere cluster with vSphere High Availability (HA) enabled and move all hosts into the new cluster."], a:2, e:"Configurar EVC en el cluster existente iguala el conjunto de características del CPU al denominador común más bajo (Skylake), permitiendo la migración vMotion entre todos los hosts independientemente del tipo de CPU, sin downtime de las VMs."},
-            {q:"An administrator is investigating user logon failures for a VMware vCenter instance. Where can the administrator find log files containing information related to user login activities?", o:["On the vCenter Management Interface", "On the ESXi host using the Direct Console User Interface", "On the vCenter Server Appliance", "In the vSphere Client when viewing the vCenter virtual machine"], a:2, e:"Los archivos de log relacionados con la autenticación y actividades de login de usuarios en vCenter se encuentran en el propio vCenter Server Appliance, específicamente en /var/log/vmware/sso/ y /var/log/vmware/vsphere-client/."},
-            {q:"What are two uses cases for VMware Tools? (Choose two.)", o:["Time synchronization with an NTP server", "Direct deployment of the Aria Automation Config minion", "Share folders between ESXi hosts and guest OS file systems", "Ability to shut down a virtual machine remotely", "Support for unsupported network device drivers"], a:3, e:"VMware Tools proporciona dos funcionalidades clave: la capacidad de apagar/reiniciar graciosamente una VM de forma remota desde vCenter (usando las APIs de VMware Tools), y soporte para drivers de dispositivos de red no soportados nativamente en el SO invitado."},
-            {q:"An administrator has configured Storage I/O Control (SIOC) on a Virtual Machine File System (VMFS) datastore: the datastore supports 30,000 IOPS, Storage I/O Control has been set to manual, Storage I/O Control is triggered when latency hits 30 ms, the datastore contains 3 virtual machines: 1 gold tier VM, 1 silver tier VM, 1 bronze tier VM. Assuming the datastore latency does not exceed 29ms, what is the maximum number of IOPS the bronze tier VM is entitled to?", o:["30,000", "20,000", "10,000", "5,000"], a:0, e:"Cuando la latencia del datastore no supera el umbral de 30ms, SIOC no está activo. Por tanto, las VMs no están limitadas por las cuotas de shares de SIOC y la VM de tier bronze puede acceder a los 30,000 IOPS completos del datastore."},
-            {q:"An administrator needs to configure a content library solution based on the following information: a new corporate VM template is created every month, the new VM template should be downloaded from the primary data center site (London) to two secondary data center sites (Tokyo and New York) as soon as possible, there is limited disk space available at one of the secondary data center sites (Tokyo) due to an ongoing data center consolidation project. Which four steps should the administrator take to configure the content library solution before adding a VM template? (Choose four.)", o:["Create a published content library in each secondary site.", "Configure the New York subscribed content library to download content immediately.", "Configure the Tokyo subscribed content library to download content immediately.", "Configure the Tokyo subscribed content library to download content when needed.", "Create a new published content library at the primary site.", "Configure the New York subscribed content library to download content when needed.", "Create a new subscribed content library in each secondary site."], a:1, e:"Los cuatro pasos son: (1) Crear una published content library en el sitio primario (London), (2) Crear subscribed content libraries en cada sitio secundario, (3) Configurar New York para descarga inmediata (sin restricción de espacio), (4) Configurar Tokyo para descarga 'on demand' (espacio limitado)."},
-            {q:"An administrator is required to configure several Microsoft Windows virtual machines (VMs) to support Secure Boot for a critical secure application. The following information is provided: the corporate security policy states that all forms of data encryption must utilize a key provider, the firmware of each VM is currently set to use Unified Extensible Firmware Interface (UEFI), the guest OS for each VM is currently a minimum of Windows Server 2008 and Windows 7. Which security feature should the administrator implement to meet these requirements?", o:["vSphere Virtual Machine Encryption", "vSphere Visualization-Based Security", "Virtual Intel Software Guard Extensions (vSGX)", "Virtual Trusted Platform Module (vTPM)"], a:3, e:"Virtual Trusted Platform Module (vTPM) es el componente requerido para habilitar Secure Boot en VMs Windows, ya que proporciona el almacén de claves criptográficas necesario. Requiere UEFI (ya configurado) y un key provider para la gestión de claves."},
-            {q:"An administrator is preparing for a deployment of a new vCenter Server Appliance with the following information: ESXi Host name (FQDN): esx01.corp.local, ESXi IP Address: 172.20.10.200, vCenter Server Name (FQDN): vcsa01.corp.local, vCenter Server IP Address: 172.20.10.100, NTP Server: 172.20.10.20, DNS Server: 172.20.10.1, Deployment Size: Tiny, Storage Size: Default. Which two actions must the administrator complete before starting the installation of the vCenter Server Appliance? (Choose two.)", o:["Create a DNS CNAME record for the vCenter Server (vcsa01.corp.local).", "Create a DNS CNAME record for the ESXi Host server (esx01.corp.local).", "Create a reverse DNS A record for the vCenter Server (vcsa01).", "Create a reverse DNS A record for the ESXi Host server (esx01)", "Create a forward DNS A record for the vCenter Server (vcsa01)."], a:2, e:"Antes de instalar el VCSA, se deben crear: (1) Un registro DNS A directo (forward) para el VCSA (vcsa01.corp.local → 172.20.10.100) para resolver el nombre a IP, (2) Un registro DNS PTR inverso (reverse) para el VCSA (172.20.10.100 → vcsa01.corp.local) para la resolución inversa."},
-            {q:"An administrator manages VM templates and ISO images for a remote office. Their main requirements are to store these templates in a single repository and manage different versions of the templates. What solution should the administrator deploy to meet these requirements?", o:["A vSAN datastore", "A shared VMFS datastore", "A local content library", "A subscribed content library"], a:2, e:"Una local content library (biblioteca de contenido local) permite almacenar plantillas VM e imágenes ISO en un repositorio centralizado con gestión de versiones, ideal para una oficina remota que necesita controlar diferentes versiones de sus plantillas."},
-            {q:"An administrator needs to create affinity rules for the following vSphere cluster setup: the cluster contains two VMs named app01 and app02, the cluster contains six hosts named esx11 through esx16, the app01 and app02 VMs run software that is licensed to run only on esx11, esx12, or esx13, vSphere DRS is configured. Which set of steps must the administrator perform to ensure that the licensing requirements are met for app01 and app02?", o:["1. Add all the hosts to a host group. 2. Create a VM-VM anti-affinity rule for app01 and app02.", "1. Add the esx11-esx13 hosts to a host group. 2. Create a VM-VM affinity rule for app01 and app02.", "1. Add the VMs to a VM group and the esx11-esx13 hosts to a host group. 2. Create a VM-Host required rule between the VM group and the host group.", "1. Add the VMs to a VM group and the esx11-esx13 hosts to a host group. 2. Create a VM-Host preferential rule between the VM group and the host group."], a:2, e:"Para garantizar que las VMs solo se ejecuten en los hosts licenciados, se necesita: (1) Crear un VM group con app01 y app02, y un host group con esx11-esx13, (2) Crear una regla VM-Host REQUIRED (Must run on hosts in group), que es obligatoria y no permite excepciones."},
-            {q:"The vCenter inventory contains a virtual machine (VM) template called Linux-01. The administrator wants to install a software patch into Linux-01 while allowing users to continue to access Linux-01 to deploy VMs. Which series of steps should the administrator take to accomplish this task?", o:["1. Verify that Linux-01 is in a content library. 2. Clone Linux-01. 3. Convert the clone to a VM. 4. Install the software patch.", "1. Convert Linux-01 to a VM. 2. Install the software patch. 3. Convert the VM back to a VM template. 4. Add Linux-01 to the content library.", "1. Verify that Linux-01 is in a content library. 2. Check out Linux-01. 3. Install the software patch. 4. Check in Linux-01.", "1. Clone Linux-01. 2. Convert the clone to a VM. 3. Install the software patch. 4. Convert the VM back to a template."], a:3, e:"El proceso correcto para parchear una plantilla sin interrumpir su disponibilidad es: (1) Clonar la plantilla, (2) Convertir el clon en VM, (3) Instalar el parche en esa VM, (4) Convertir la VM actualizada de vuelta a plantilla, reemplazando la original."},
-            {q:"An administrator remotely deploys VMware ESXi using an out of band management connection and now needs to complete the configuration of the management network so that the host is accessible through the vSphere Host Client. Host FQDN: esxi01.corp.local, Management VLAN ID: 10, DHCP: No, Management IP Address: 172.16.10.101/24, Management IP Gateway: 172.16.10.1, Corporate DNS Servers: 172.16.10.5, 172.16.10.6, DNS Domain: corp.local. All host configurations must also meet the following requirements: the management network must use only IPv4 network protocols, the management network must be fault tolerant. Which four high level tasks should the administrator complete in the Direct Console User Interface (DCUI) to meet the requirements? (Choose four.)", o:["Set the value of the VMware ESXi Management Network VLAN ID to 10.", "Configure at least two network adapters for the VMware ESXi Management Network.", "Update the VMware ESXi Management Network IPv4 configuration to use a static IPv4 address.", "Create a DNS A Record for the VMware ESXi host on the corporate DNS servers.", "Disable IPv6 for the VMware ESXi Management Network.", "Restore the original Management vSphere Standard Switch.", "Update the VMware ESXi Management Network DNS configuration to use the corporate DNS servers for names resolution."], a:0, e:"Los cuatro pasos en el DCUI son: (1) Establecer VLAN ID 10, (2) Configurar al menos dos adaptadores de red para tolerancia a fallos, (3) Configurar IP estática, (4) Deshabilitar IPv6 para usar solo IPv4. El registro DNS y la configuración DNS se hacen en otros sistemas."},
-            {q:"Refer to the exhibit. Given the configuration shown in the exhibit, what should the administrator do if the latest VM template contains changes that are no longer needed?", o:["Delete App-LibTemplate (2)", "Revert to App-LibTemplate (2)", "Delete App-LibTemplate (3)", "Check out App-LibTemplate (3)"], a:1, e:"Si la última versión de la plantilla (versión 3) contiene cambios no deseados, el administrador debe revertir a la versión anterior (App-LibTemplate 2), que es la versión estable y conocida, utilizando la funcionalidad de versionado de las content libraries."},
-            {q:"Refer to the exhibit. An administrator configures a distributed switch and adds the first VMware ESXi server to it. The administrator assigns two uplinks to the distributed switch and enables uplink teaming. When attempting to perform a health check of the teaming policy, the health status of the Teaming and Failover reports as 'Unknown'. What can the administrator change in the distributed switch for the health status to report correctly?", o:["Add a minimum of three hosts with two uplinks each", "Add a minimum of two hosts with two uplinks each", "Add a minimum of three hosts with four uplinks each", "Add a minimum of two hosts with one uplink each"], a:1, e:"Para que el health check de Teaming and Failover funcione correctamente en un vDS, se necesitan al menos dos hosts conectados al distributed switch, cada uno con al menos dos uplinks configurados para el teaming."},
-            {q:"Refer to the exhibit. After removing an ESXi host from a cluster for maintenance, a number of virtual machines have encountered the warning 'Virtual machine CPU usage'. After re-adding the ESXi, the issue is resolved. Which step should the administrator take to move the triggered alarm to its normal state?", o:["Ignore", "Acknowledge", "Disable", "Reset to Green"], a:3, e:"'Reset to Green' restablece el estado de una alarma que ya fue disparada pero cuya condición subyacente ya no existe (el host fue re-añadido y el uso de CPU volvió a la normalidad), restaurando el estado de monitorización a verde."},
-            {q:"Refer to the exhibit. An administrator set up the following configuration: the distributed switch has four ESXi hosts, each host has two 10 Gbps NICs. In the Network I/O Control configuration, the amount of bandwidth reserved for virtual machine (VM) traffic is 4 Gbps. The administrator wants to guarantee that VMs in the Retail distributed port group can access 50 percent of the available reserved bandwidth for VM traffic. Given this scenario, what should the size (in Gbps) of the Retail network resource pool be?", o:["40", "32", "8", "16"], a:3, e:"Cálculo: 4 hosts × 2 NICs × 10 Gbps = 80 Gbps total. El ancho de banda reservado para VM traffic es 4 Gbps. El 50% del bandwidth reservado por host (4 Gbps) × 4 hosts = 8 Gbps. Pero el pool de recursos de red se configura como total: 4 Gbps × 4 hosts × 50% = 8 Gbps... La respuesta correcta según el escenario es 16 Gbps (50% de 4 Gbps × 8 uplinks)."},
-            {q:"Refer to the exhibit. An environment has the following configuration: Resource Pool 'RP-MOM' has a reservation of 6GHz and one running VM 'VM-M1' with 1 GHz reserved. Resource Pool 'RP-KID' has a reservation of 2GHz and expandable reservations is activated. The administrator creates two VMs, 'VM-K1' and 'VM-K2', in the 'RP-KID' resource pool with 2GHz reserved for each, and turns on 'VM-M1'. Given this scenario, which statement is true?", o:["The administrator must deactivate expandable reservations to turn on VM-K2.", "The administrator can create a third VM ('VM-K3') at RP-KID and reserve 6GHz.", "VM-K2 can be powered on because it can get the resources needed from RP-MOM.", "VM-K2 cannot be powered on because there are not enough resources in RP-KID."], a:2, e:"Con 'Expandable Reservations' activado, RP-KID puede solicitar recursos prestados del pool padre (RP-MOM). Como RP-MOM tiene 6GHz reservados y solo 1GHz está en uso por VM-M1, VM-K2 puede encenderse obteniendo los 2GHz que necesita del pool padre."},
-            {q:"Refer to the exhibit. An administrator is tasked with adding new capacity to an existing software-defined data center (SDDC). The SDDC currently hosts two vSphere clusters (ClusterA and ClusterB) with different CPU compatibilities. vSphere vMotion and vSphere DRS are currently in use. The new capacity will be implemented by provisioning four ESXi hosts running a new generation of Intel Skylake CPUs. All workload VMs must support live migration to any cluster in the SDDC. The administrator noticed the running critical 'evc1' VM shown in the exhibit is not migrating using vSphere vMotion to the original Clusters A or B. Which three steps must the administrator take to support this functionality? (Choose three.)", o:["Disable the Enhanced vMotion Compatibility (EVC) on the VM.", "Reboot the VM.", "Configure the Enhanced vMotion Compatibility (EVC) on the VM to Intel Skylake.", "Power on the VM.", "Configure the Enhanced vMotion Compatibility (EVC) on vSphere Cluster A and B to support Intel Skylake.", "Power off the VM."], a:0, e:"Para habilitar vMotion en la VM evc1 hacia los clusters A y B: (1) Deshabilitar EVC en la VM, (2) Apagar la VM (los cambios de EVC a nivel de VM requieren apagado), (3) Configurar EVC en Cluster A y B para soportar Intel Skylake (el nivel de CPU de los nuevos hosts)."},
-            {q:"An administrator has a requirement to revert a running virtual machine to a previous snapshot after a failed attempt to upgrade an application. When the administrator originally took the snapshot: Snapshot the virtual machine's memory = false, Quiesce guest file system = false. What will be the result of the administrator selecting the 'Revert to Latest Snapshot' option to return the virtual machine to a previous snapshot? (Choose two.)", o:["The virtual machine will be restored to the parent snapshot", "The virtual machine will be restored in a powered off state.", "The virtual machine will be restored to the child snapshot", "The virtual machine will be restored in a powered on state.", "The virtual machine will be restored in a suspended state."], a:0, e:"Con Memory=false en la snapshot, al revertir: la VM se restaura al estado del DISCO en el momento de la snapshot (snapshot padre), y como no se capturó el estado de la memoria, la VM quedará en estado apagado (powered off)."},
-            {q:"An administrator is tasked with configuring certificates for a VMware software-defined data center (SDDC) based on the following requirements: the solution should minimize the ongoing management overhead of replacing certificates, no intermediate certificate authorities are allowed in the certificate chain, all external traffic should be secured using certificates signed by an Enterprise Certificate Authority (CA). Which two actions should the administrator take to ensure the solution meets corporate policy? (Choose two.)", o:["Replace the solution user certificates with custom certificates generated from the Enterprise CA.", "Replace the machine SSL certificates with custom certificates generated from the Enterprise CA.", "Replace the machine SSL certificates with self-signed certificates generated from the VMware Certificate Authority (VMCA).", "Replace the VMware Certificate Authority (VMCA) certificate with a custom certificate generated from the Enterprise CA.", "Replace the solution user certificates with self-signed certificates generated from the VMware Certificate Authority (VMCA)."], a:0, e:"Para cumplir con la política (sin CAs intermedias, todo firmado por Enterprise CA), se deben reemplazar tanto los certificados de usuario de solución como los certificados SSL de máquina con certificados personalizados generados directamente por la Enterprise CA (modo de gestión personalizada completa)."},
-            {q:"An administrator is planning to upgrade a VMware vCenter instance to version 8. It is currently integrated with: VMware Aria Operations for Logs, VMware Aria Operations. Which tool can the administrator use to automatically detect interoperability between the solutions and eliminate any unwanted or unexpected results during the upgrade process?", o:["vSphere Update Manager", "vSphere Lifecycle Manager", "VMware Aria Suite Lifecycle", "vCenter Server Update Planner"], a:3, e:"vCenter Server Update Planner genera automáticamente informes de interoperabilidad que identifican posibles incompatibilidades entre la nueva versión de vCenter y los productos integrados (como Aria Operations y Aria Operations for Logs) antes del upgrade."},
-            {q:"An administrator has a requirement to revert a running virtual machine to a previous snapshot after a failed attempt to upgrade an application. When the administrator originally took the snapshot: Snapshot the virtual machine's memory = true, Quiesce guest file system = false. Which two statements describe the result of the administrator selecting the 'Revert to Latest Snapshot' option to return the virtual machine to a previous snapshot? (Choose two.)", o:["The virtual machine will be restored in a suspended state.", "The virtual machine will be restored in a powered off state.", "The virtual machine will be restored in a powered on state.", "The virtual machine will be restored to the parent snapshot.", "The virtual machine will be restored to the child snapshot."], a:2, e:"Con Memory=true en la snapshot, se capturó el estado completo de la RAM. Al revertir, la VM se restaura exactamente al estado que tenía cuando se tomó la snapshot (incluyendo la memoria), por lo que quedará en estado encendido (powered on) y se restaurará al snapshot padre (el más reciente)."},
-            {q:"Refer to the exhibit. Given the configuration shown in the exhibit, what must the administrator do to delete only the latest version of the template?", o:["In the SA-Templates folder, rename App-LibTemplate (2) to App-LibTemplate (4).", "Check out App-LibTemplate (3) and delete the template from the SA-Templates folder.", "Delete App-LibTemplate (3) from the SA-Templates folder.", "Revert to App-LibTemplate (2) and delete App-LibTemplate (3)."], a:3, e:"Para eliminar solo la última versión de una plantilla en una content library con versionado, se debe primero revertir a la versión anterior estable (App-LibTemplate 2) para que sea la versión activa, y luego eliminar la versión no deseada (App-LibTemplate 3)."},
-            {q:"A VMkernel port is labelled PROD01 and uses the default TCP/IP stack. Which configuration change should the administrator make to isolate long-distance vSphere vMotion migration traffic from other vSphere vMotion traffic?", o:["Create a new VMkernel port and set the TCP/IP stack to vMotion.", "Remove PROD01 and create a new VMkernel port with the TCP/IP stack set to vMotion.", "Modify PROD01 by changing the TCP/IP stack to provisioning.", "Remove PROD01 and create a new VMkernel port with the TCP/IP stack set to provisioning."], a:0, e:"Para aislar el tráfico de vMotion de larga distancia, se crea un nuevo VMkernel port adicional con el stack TCP/IP de vMotion dedicado. No es necesario eliminar PROD01, ya que se puede tener múltiples VMkernel ports con diferentes stacks TCP/IP para diferentes tipos de tráfico vMotion."},
-            {q:"An administrator is configuring a vSphere cluster to use a vSphere Lifecycle Manager image. The vSphere Lifecycle Manager depot has been configured with all of the software components needed for the image. The administrator plans to reuse an existing image that is configured on a cluster in another VMware vCenter instance. Which series of steps should the administrator take to complete this task?", o:["1. Export the existing image to an ISO file format to their local machine. 2. Attach the ISO file to the CD-ROM drive of the ESXi host. 3. Import the image from the CD-ROM drive of the ESXi host into the vSphere Lifecycle Manager Import Image dialog to create a new image.", "1. Export the existing image to a ZIP file format to a web server machine. 2. Import the ZIP image file into the vSphere Lifecycle Manager depot to create a new image.", "1. Export the existing image to a JSON file format to their local machine. 2. Import the JSON image file into the vSphere Lifecycle Manager Import Image dialog to create a new image.", "1. Export the existing image to an ISO file format to a web server. 2. Upload the ISO file to a datastore accessible to the vSphere Cluster. 3. Import the image from the uploaded ISO file into the vSphere Lifecycle Manager Import Image dialog to create a new image."], a:2, e:"Para reutilizar una imagen de vSphere Lifecycle Manager entre instancias de vCenter, se exporta la imagen en formato JSON desde el cluster origen y se importa ese archivo JSON en el diálogo 'Import Image' del vSphere Lifecycle Manager del cluster destino."},
-            {q:"An administrator is responsible for the management of a VMware vCenter instance that is currently experiencing performance issues. The administrator quickly identifies that the CPU utilization of vCenter is consistently over 80%. The vpxd process is contributing significantly to the performance issue. Which combination of four steps should the administrator take to resolve the performance issues and ensure that a similar issue can be rectified without requiring downtime to vCenter moving forward? (Choose four.)", o:["Add additional memory resources to the vCenter Server Appliance.", "Power on the vCenter Server Appliance using the vSphere Host Client.", "Enable CPU Hot Add on the vCenter virtual machine.", "Enable CPU and Memory Hot Add on the vCenter virtual machine.", "Gracefully shut down vCenter using the vSphere Client.", "Enable Memory Hot Add on the vCenter virtual machine.", "Add additional CPU resources to the vCenter Server Appliance."], a:1, e:"Los cuatro pasos son: (1) Apagar gracefully vCenter desde vSphere Client, (2) Habilitar CPU and Memory Hot Add en la VM del VCSA (para cambios futuros sin downtime), (3) Añadir CPU adicional al VCSA, (4) Encender el VCSA desde el vSphere Host Client."}
-        ]
+let questions = [];
+let currentQuestionIndex = 0;
+let score = 0;
+let userAnswers = [];
+
+// INTENTO AUTOMÁTICO (Para cuando esté subido en GitHub.io)
+fetch('preguntas.txt')
+    .then(response => {
+        if (!response.ok) throw new Error("No remoto");
+        return response.text();
+    })
+    .then(text => {
+        // Si está en un servidor (GitHub), oculta el selector y procesa directo
+        document.getElementById('file-picker-section').style.display = 'none';
+        document.getElementById('quiz-body').style.display = 'block';
+        parsearTextoPreguntas(text);
+    })
+    .catch(() => {
+        // Si está en local (D:\...), se queda esperando que uses el botón obligatoriamente
+        console.log("Modo local activado: Esperando selección manual de preguntas.txt");
+    });
+
+// LECTURA LOCAL MEDIANTE EL BOTÓN
+function cargarDesdeArchivo(input) {
+    let file = input.files[0];
+    if (!file) return;
+    
+    let reader = new FileReader();
+    reader.onload = function(e) {
+        document.getElementById('file-picker-section').style.display = 'none';
+        document.getElementById('quiz-body').style.display = 'block';
+        parsearTextoPreguntas(e.target.result);
     };
+    reader.readAsText(file, "UTF-8");
+}
 
-    let currentModule = "";
-    let workingDataset = [];
-    let cursorIdx = 0;
-    let responseMap = [];
-    let countdownTimer;
-    let timelineSecs = 3600;
+// PROCESADOR DE TU FORMATO EXACTO (DUMPS)
+function parsearTextoPreguntas(text) {
+    let rawBlocks = text.split(/Question:\s*/i);
+    
+    rawBlocks.forEach(block => {
+        if (!block.trim()) return;
+        
+        let lines = block.split('\n');
+        let qNum = lines[0].trim();
+        
+        let textLines = [];
+        let options = [];
+        let correctAnswers = [];
+        let gatheringText = true;
 
-    // MATRIX BACKGROUND
-    const matrixCanvas = document.getElementById('canvas-matrix');
-    const matrixCtx = matrixCanvas.getContext('2d');
+        for (let i = 1; i < lines.length; i++) {
+            let line = lines[i].trim();
+            if (!line) continue;
 
-    function resizeCanvas() {
-        if (matrixCanvas) {
-            matrixCanvas.width = window.innerWidth;
-            matrixCanvas.height = window.innerHeight;
-        }
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    const katakana = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン";
-    const nums = "0123456789";
-    const symbols = (katakana + nums).split("");
-    const fontPixels = 16;
-    let streamDrops = Array(Math.floor(window.innerWidth / fontPixels) || 40).fill(1);
-
-    function renderMatrixFrame() {
-        if (!matrixCtx || !matrixCanvas) return;
-        matrixCtx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-        matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
-        matrixCtx.fillStyle = '#0F0';
-        matrixCtx.font = fontPixels + 'px monospace';
-        for (let i = 0; i < streamDrops.length; i++) {
-            const char = symbols[Math.floor(Math.random() * symbols.length)];
-            matrixCtx.fillText(char, i * fontPixels, streamDrops[i] * fontPixels);
-            if (streamDrops[i] * fontPixels > matrixCanvas.height && Math.random() > 0.975) {
-                streamDrops[i] = 0;
+            if (line.toLowerCase().includes('respuesta correcta:')) {
+                let ansPart = line.split(/respuesta correcta:\s*/i);
+                if (ansPart[1]) {
+                    correctAnswers = ansPart[1].split(',').map(x => x.trim().toUpperCase());
+                }
+                gatheringText = false;
+            } 
+            else if (/^[A-Z1l]\.\s+/i.test(line)) {
+                gatheringText = false;
+                let match = line.match(/^([A-Z1l])\.\s*(.*)/i);
+                if (match) {
+                    let letter = match[1].toUpperCase();
+                    if (letter === '1' || letter === 'L') letter = 'L'; // Normalizar fallos comunes de OCR
+                    options.push({ letter: letter, text: line });
+                }
+            } 
+            else if (gatheringText) {
+                textLines.push(line);
             }
-            streamDrops[i]++;
         }
-    }
-    setInterval(renderMatrixFrame, 60);
 
-    // FLOW CONTROL
-    function launchEvaluation(moduleKey) {
-        currentModule = moduleKey;
-        workingDataset = storageEngine[moduleKey];
-        cursorIdx = 0;
-        responseMap = Array(workingDataset.length).fill(null);
-        timelineSecs = 3600;
-
-        document.getElementById('screen-hub').style.display = 'none';
-        document.getElementById('screen-quiz').style.display = 'block';
-        document.getElementById('clock-element').style.display = 'block';
-        document.getElementById('current-scope').innerText = "Active Session: " + moduleKey + " Assessment";
-
-        compileQuizView();
-        displayQuestion(0);
-        initClock();
-    }
-
-    function abortExam() {
-        if(confirm("ALERTA CRÍTICA: ¿Estás seguro de que deseas abortar el examen actual?\nSe perderán todas tus respuestas y volverás al inicio.")) {
-            clearInterval(countdownTimer);
-            restoreHub();
-        }
-    }
-
-    function compileQuizView() {
-        const container = document.getElementById('deck-target');
-        container.innerHTML = '';
-
-        workingDataset.forEach((item, qIdx) => {
-            const node = document.createElement('div');
-            node.className = 'question-node target-node-' + qIdx;
-
-            const meta = document.createElement('div');
-            meta.className = 'meta-step';
-            meta.innerHTML = `
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--vmware-light)" stroke-width="2" style="transform: rotate(45deg);"><rect x="4" y="4" width="16" height="16" rx="1"/></svg>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--matrix-purple)" stroke-width="2"><path d="M2 5h8v14H2zM14 5h8v14h-8z"/></svg>
-                <span>[Node Framework] — Question ${qIdx + 1} of ${workingDataset.length}</span>
-            `;
-            node.appendChild(meta);
-
-            const stmt = document.createElement('div');
-            stmt.className = 'statement';
-            stmt.innerText = item.q;
-            node.appendChild(stmt);
-
-            const pane = document.createElement('div');
-            pane.className = 'options-pane';
-
-            item.o.forEach((opt, oIdx) => {
-                const box = document.createElement('label');
-                box.className = 'option-box';
-
-                const rad = document.createElement('input');
-                rad.type = 'radio';
-                rad.name = 'assessment-q-' + qIdx;
-                rad.value = oIdx;
-                rad.onclick = function() { registerAnswer(qIdx, oIdx); };
-
-                const span = document.createElement('span');
-                span.innerText = String.fromCharCode(97 + oIdx) + '. ' + opt;
-
-                box.appendChild(rad);
-                box.appendChild(span);
-                pane.appendChild(box);
+        if (textLines.length > 0) {
+            questions.push({
+                number: qNum,
+                question: textLines.join('<br>'),
+                options: options,
+                correct: correctAnswers
             });
-
-            node.appendChild(pane);
-            container.appendChild(node);
-        });
-    }
-
-    function updateExamProgressBar(current, total) {
-        const percentage = Math.round(((current + 1) / total) * 100);
-        document.getElementById('exam-progress-string').innerText = `${current + 1} / ${total} (${percentage}%)`;
-        document.getElementById('exam-progress-metrics').style.width = percentage + "%";
-    }
-
-    function displayQuestion(idx) {
-        document.querySelectorAll('.question-node').forEach(n => n.classList.remove('visible'));
-        const activeNode = document.querySelector('.target-node-' + idx);
-        if(activeNode) activeNode.classList.add('visible');
-        document.getElementById('nav-prev').disabled = (idx === 0);
-        document.getElementById('nav-next').disabled = (idx === workingDataset.length - 1);
-        updateExamProgressBar(idx, workingDataset.length);
-    }
-
-    function moveStep(dir) {
-        cursorIdx += dir;
-        displayQuestion(cursorIdx);
-    }
-
-    function registerAnswer(qIdx, oIdx) {
-        responseMap[qIdx] = oIdx;
-    }
-
-    function initClock() {
-        clearInterval(countdownTimer);
-        document.getElementById('clock-element').innerText = "60:00";
-        countdownTimer = setInterval(() => {
-            timelineSecs--;
-            let m = Math.floor(timelineSecs / 60);
-            let s = timelineSecs % 60;
-            document.getElementById('clock-element').innerText = m.toString().padStart(2, '0') + ":" + s.toString().padStart(2, '0');
-            if (timelineSecs <= 0) { terminateExam(); }
-        }, 1000);
-    }
-
-    function terminateExam() {
-        clearInterval(countdownTimer);
-        document.getElementById('screen-quiz').style.display = 'none';
-        document.getElementById('clock-element').style.display = 'none';
-        document.getElementById('screen-metrics').style.display = 'block';
-
-        let hits = 0;
-        let answeredCount = 0;
-        const summaryContainer = document.getElementById('summary-target');
-        summaryContainer.innerHTML = '';
-
-        workingDataset.forEach((item, idx) => {
-            const userAns = responseMap[idx];
-            const isCorrect = userAns === item.a;
-            if (userAns !== null) answeredCount++;
-            if (isCorrect) hits++;
-
-            const stateClass = isCorrect ? 'correct' : 'incorrect';
-            const statusLabel = isCorrect ? 'ACIERTO ✓' : 'ERROR ✗';
-
-            let userAnsText = userAns !== null ? String.fromCharCode(97 + userAns) + ") " + item.o[userAns] : "Sin responder";
-            let correctAnsText = String.fromCharCode(97 + item.a) + ") " + item.o[item.a];
-
-            const summaryItem = document.createElement('div');
-            summaryItem.className = 'summary-item ' + stateClass;
-
-            const smeta = document.createElement('div');
-            smeta.className = 'summary-meta';
-            smeta.innerHTML = '<span>PREGUNTA ' + (idx + 1) + '</span><span>' + statusLabel + '</span>';
-
-            const qtext = document.createElement('div');
-            qtext.className = 'q-text';
-            qtext.innerText = item.q;
-
-            const sdetails = document.createElement('div');
-            sdetails.className = 'summary-details';
-            sdetails.innerHTML = '<div><strong>Tu respuesta:</strong> ' + userAnsText + '</div>' +
-                                  '<div style="margin-top:2px;"><strong>Respuesta del sistema:</strong> ' + correctAnsText + '</div>';
-
-            const expBlock = document.createElement('div');
-            expBlock.className = 'official-explanation';
-
-            const expHeader = document.createElement('div');
-            expHeader.className = 'explanation-header';
-            expHeader.innerHTML = `
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--vmware-light)" stroke-width="2" style="transform: rotate(45deg);"><rect x="4" y="4" width="16" height="16" rx="1"/></svg>
-                <span>OFFICIAL Knowledge</span>
-            `;
-
-            const expBody = document.createElement('div');
-            expBody.className = 'explanation-body';
-            expBody.innerText = item.e;
-
-            expBlock.appendChild(expHeader);
-            expBlock.appendChild(expBody);
-            sdetails.appendChild(expBlock);
-
-            summaryItem.appendChild(smeta);
-            summaryItem.appendChild(qtext);
-            summaryItem.appendChild(sdetails);
-            summaryContainer.appendChild(summaryItem);
-        });
-
-        let finalRatio = Math.round((hits / workingDataset.length) * 100);
-
-        document.getElementById('telemetry-mod').innerText = currentModule;
-        document.getElementById('telemetry-total').innerText = workingDataset.length;
-        document.getElementById('telemetry-answered').innerText = answeredCount + " / " + workingDataset.length;
-
-        let hexCode = "0x" + Math.floor(Math.random()*16777215).toString(16).toUpperCase();
-        document.getElementById('telemetry-hex').innerText = hexCode;
-
-        const viewNode = document.getElementById('rate-view');
-        viewNode.innerText = finalRatio + "%";
-        document.getElementById('progress-bar-fill').style.width = finalRatio + "%";
-
-        if (finalRatio >= 70) {
-            viewNode.style.color = "var(--matrix-green)";
-            viewNode.style.textShadow = "0 0 20px var(--matrix-glow)";
-            document.getElementById('report-view').innerText = "RESULTADO: ASIGNACIÓN APROBADA (APTO)\n\nHas superado de forma correcta el módulo con una efectividad global del " + finalRatio + "%. Acceso y sincronización validados con éxito.";
-        } else {
-            viewNode.style.color = "var(--matrix-red)";
-            viewNode.style.textShadow = "0 0 20px var(--matrix-red-glow)";
-            document.getElementById('report-view').innerText = "RESULTADO: ANOMALÍA DETECTADA (NO APTO)\n\nEl ratio de respuestas válidas obtenido (" + finalRatio + "%) no cumple las directrices exigidas por el sistema central. Reevaluación sugerida.";
         }
+    });
+
+    if (questions.length > 0) {
+        showQuestion();
+    } else {
+        document.getElementById('question-text').innerText = "Formato de texto no reconocido en preguntas.txt.";
+    }
+}
+
+function showQuestion() {
+    if (currentQuestionIndex >= questions.length) {
+        showResults();
+        return;
+    }
+    
+    let q = questions[currentQuestionIndex];
+    document.getElementById('question-number').innerText = `Pregunta ${currentQuestionIndex + 1} de ${questions.length} (ID original: ${q.number})`;
+    document.getElementById('question-text').innerHTML = q.question;
+    
+    let optionsDiv = document.getElementById('options-container');
+    optionsDiv.innerHTML = '';
+
+    // Si tiene más de una letra en la solución, activa casillas cuadradas (checkbox), sino circulares (radio)
+    let inputType = q.correct.length > 1 ? 'checkbox' : 'radio';
+
+    q.options.forEach(opt => {
+        optionsDiv.innerHTML += `
+            <label class="option-container">
+                <input type="${inputType}" name="quiz-option" value="${opt.letter}">
+                ${opt.text}
+            </label>
+        `;
+    });
+}
+
+function nextQuestion() {
+    let selected = Array.from(document.querySelectorAll('input[name="quiz-option"]:checked')).map(el => el.value);
+    
+    if (selected.length === 0) {
+        alert("Por favor, selecciona una respuesta.");
+        return;
     }
 
-    function restoreHub() {
-        document.getElementById('current-scope').innerText = "System Initialization Ready";
-        document.getElementById('screen-quiz').style.display = 'none';
-        document.getElementById('screen-metrics').style.display = 'none';
-        document.getElementById('clock-element').style.display = 'none';
-        document.getElementById('screen-hub').style.display = 'block';
-    }
+    let q = questions[currentQuestionIndex];
+    let isCorrect = selected.length === q.correct.length && selected.every(val => q.correct.includes(val));
+    
+    if (isCorrect) score++;
+    
+    userAnswers.push({
+        number: q.number,
+        question: q.question,
+        selected: selected,
+        correct: q.correct,
+        isCorrect: isCorrect,
+        rawOptions: q.options.map(o => o.text)
+    });
+
+    currentQuestionIndex++;
+    showQuestion();
+}
+
+function showResults() {
+    document.getElementById('quiz-body').style.display = 'none';
+    document.getElementById('result-body').style.display = 'block';
+    
+    let porcentaje = ((score / questions.length) * 100).toFixed(1);
+    document.getElementById('score-text').innerHTML = `Has acertado <span class="result-good">${score}</span> de ${questions.length} preguntas (${porcentaje}%).`;
+    
+    let reviewDiv = document.getElementById('review-container');
+    reviewDiv.innerHTML = '<h3 style="color: #1e3a8a;">Revisión de respuestas:</h3>';
+    
+    userAnswers.forEach((ans, index) => {
+        let blockClass = ans.isCorrect ? 'correct-block' : 'incorrect-block';
+        let statusText = ans.isCorrect ? '✓ CORRECTA' : '✗ INCORRECTA';
+        let statusClass = ans.isCorrect ? 'result-good' : 'result-bad';
+        
+        let opcionesHtml = ans.rawOptions.map(o => `<li>${o}</li>`).join('');
+
+        reviewDiv.innerHTML += `
+            <div class="review-block ${blockClass}">
+                <p><strong>P${index + 1} (ID: ${ans.number}):</strong> ${ans.question}</p>
+                <ul style="list-style-type: none; padding-left: 10px;">${opcionesHtml}</ul>
+                <p style="margin-top:10px;">Tu selección: <strong>${ans.selected.join(', ')}</strong> <span class="${statusClass}">[${statusText}]</span></p>
+                <p>Respuesta correcta: <strong class="result-good">${ans.correct.join(', ')}</strong></p>
+            </div>
+        `;
+    });
+}
 </script>
 </body>
 </html>
