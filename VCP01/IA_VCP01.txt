@@ -1,0 +1,32 @@
+###
+Tengo un PDF que es un examen tipo test.
+Tiene sus preguntas, y sus opciones de respuesta, y la respuesta correcta, marcada en verde.
+Unas preguntas solo tienen una respuesta,
+otras preguntas tienen varias respuestas, unas tienen 3, otras tienen 4, otras tienen 2.
+en el PDF las respuestas correctas, tanto single como multi, están en color verde.
+Si hay 2 colores verdes en la respuesta, pues son 2, si hay 3 colores verdes, 3 ,etc..
+
+Ya tengo un simulador del examen, con todas las preguntas y respuestas, en formato .html.
+Pero solo me funciona con preguntas que tienen solo una respuesta, las que tengo en el PDF.
+y yo necesito que me funcione con las preguntas del PDF además de que solo tienen una respuesta, y las otras preguntas que tienen varias respuestas, 2 , 3, depende de la pregunta, y esas están el el PDF, también.
+El resto de la página web, diseño, funcionalidad, barra de progreso, etc... tiene que ser igual.
+Solo necesito que en las preguntas que necesitan más de una respuesta, las que están en el PDF, las tengo que poder seleccionarlas, para que al final, en el detalle, me diga las que he acertado o he fallado, tanto las single como las multi.
+
+Sabrías hacerlo?
+Quiero que siga siendo el mismo simulador,
+solo que esta vez, 
+acepte preguntas con respuestas múltiples,
+que están en el PDF.
+
+
+Durante en proceso, aquí, en esta ventana, solo quiero ver una barra de progeso.
+Nada de código.
+Y luego, cuando todo termine OK,
+creas un fichero .ZIP que contenga la página web index.html,
+y me generas un enlace para que pueda descargar el fichero .ZIP desde aquí.
+Recuerda, no me enseñes código por pantalla.
+Y recuerda, quiero un .ZIP con un fichero index.html dentro.
+OK?
+Vas a ser capaz?
+###
+
