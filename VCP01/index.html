@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VMware Certification Exam Engine</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0095c2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="VMware Exams">
+    <link rel="apple-touch-icon" href="icon-192.png">
     <style>
         :root {
             --vmware-blue: #005670;
@@ -957,6 +963,16 @@
             document.getElementById('screen-metrics').style.display = 'none';
             document.getElementById('clock-element').style.display = 'none';
             document.getElementById('screen-hub').style.display = 'block';
+        }
+    </script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(r => console.log('SW registered'))
+                    .catch(e => console.log('SW error', e));
+            });
         }
     </script>
 </body>
