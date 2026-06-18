@@ -277,6 +277,10 @@
             flex-shrink: 0;
         }
 
+        .option-box span {
+            white-space: pre-line;
+        }
+
         .action-bar {
             display: flex;
             justify-content: space-between;
@@ -446,9 +450,101 @@
             margin-bottom: 8px;
         }
 
+        .summary-options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .summary-option-line {
+            font-size: 13px;
+            color: #c8d6e5;
+            padding: 6px 10px;
+            border-radius: 3px;
+            background: rgba(255,255,255,0.015);
+            border: 1px solid rgba(255,255,255,0.06);
+            white-space: pre-line;
+        }
+
+        .summary-option-line .opt-letter {
+            font-weight: bold;
+            margin-right: 4px;
+        }
+
+        .summary-option-line.opt-correct {
+            border-color: rgba(0, 255, 65, 0.4);
+            background: rgba(0, 255, 65, 0.05);
+            color: var(--matrix-green);
+        }
+
+        .summary-option-line.opt-user-wrong {
+            border-color: rgba(255, 59, 48, 0.4);
+            background: rgba(255, 59, 48, 0.05);
+            color: var(--matrix-red);
+        }
+
+        .summary-option-line .opt-tag {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: 8px;
+            opacity: 0.85;
+        }
+
         .summary-details {
             font-size: 13px;
             color: #a5b1c2;
+        }
+
+        .answer-line {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .answer-label {
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .answer-label.label-user {
+            color: var(--vmware-light);
+        }
+
+        .answer-label.label-correct {
+            color: var(--matrix-green);
+        }
+
+        .answer-value {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .answer-value.value-user-ok {
+            color: var(--matrix-green);
+            text-shadow: 0 0 8px var(--matrix-glow);
+        }
+
+        .answer-value.value-user-bad {
+            color: var(--matrix-red);
+            text-shadow: 0 0 8px var(--matrix-red-glow);
+        }
+
+        .answer-value.value-unanswered {
+            color: var(--cyber-yellow);
+            text-shadow: 0 0 8px var(--cyber-yellow-glow);
+            font-style: italic;
+        }
+
+        .answer-value.value-correct-ref {
+            color: var(--matrix-purple);
+            text-shadow: 0 0 8px var(--matrix-purple-glow);
         }
 
         .official-explanation {
@@ -606,7 +702,7 @@
     <script>
 const storageEngine = {
     VCP_DCV: [
-        {q: "An administrator is tasked with applying updates to a vSphere cluster running vSAN using vSphere Lifecycle Manager. Downtime to the ESXi hosts must be minimal while the work is completed. The administrator has already completed the following steps and no errors have been returned: Downloaded all applicable software and created a new image. Attached the new image to the cluster and run a compliance check against the image for the cluster. Ran a remediation pre-check for the cluster. Which two series of steps should the administrator perform to start the remediation of the cluster using the new image? (Choose two.)", o: ["1. Use the Remediate option in vSphere Lifecycle Manager to remediate all of the ESXi hosts in the cluster in parallel. 2. Allow vSphere Lifecycle Manager to automatically control maintenance mode on the ESXi hosts.", "1. Place each of the ESXi hosts into maintenance mode manually. 2. Use the Stage option in vSphere Lifecycle Manager to stage the required software on all ESXi hosts one at a time.", "1. Leave all ESXi hosts in the cluster operational. 2. Use the Stage All option in vSphere Lifecycle Manager to stage the required software onto all ESXi hosts one at a time.", "1. Leave all ESXi hosts in the cluster operational. 2. Use the Stage All option in vSphere Lifecycle Manager to stage the required software onto all ESXi hosts in the cluster in parallel.", "1. Use the Remediate option in vSphere Lifecycle Manager to remediate all of the ESXi hosts in the cluster in sequence. 2. Allow vSphere Lifecycle Manager to automatically control maintenance mode on the ESXi hosts."], a: [3, 4], e: "vSphere Lifecycle Manager (vLCM) permite primero usar 'Stage All' para precargar el software en todos los hosts del clúster sin interrupciones (los hosts permanecen operativos), y después usar 'Remediate' en secuencia, donde vLCM controla automáticamente el modo de mantenimiento de cada host uno a uno para minimizar el downtime. Las opciones D (Stage en paralelo) y E (Remediate en secuencia con MM automático) son el flujo correcto."},
+        {q: "An administrator is tasked with applying updates to a vSphere cluster running vSAN using vSphere Lifecycle Manager. Downtime to the ESXi hosts must be minimal while the work is completed. The administrator has already completed the following steps and no errors have been returned: Downloaded all applicable software and created a new image. Attached the new image to the cluster and run a compliance check against the image for the cluster. Ran a remediation pre-check for the cluster. Which two series of steps should the administrator perform to start the remediation of the cluster using the new image? (Choose two.)", o: ["1. Use the Remediate option in vSphere Lifecycle Manager to remediate all of the ESXi hosts in the cluster in parallel.\n2. Allow vSphere Lifecycle Manager to automatically control maintenance mode on the ESXi hosts.", "1. Place each of the ESXi hosts into maintenance mode manually.\n2. Use the Stage option in vSphere Lifecycle Manager to stage the required software on all ESXi hosts one at a time.", "1. Leave all ESXi hosts in the cluster operational.\n2. Use the Stage All option in vSphere Lifecycle Manager to stage the required software onto all ESXi hosts one at a time.", "1. Leave all ESXi hosts in the cluster operational.\n2. Use the Stage All option in vSphere Lifecycle Manager to stage the required software onto all ESXi hosts in the cluster in parallel.", "1. Use the Remediate option in vSphere Lifecycle Manager to remediate all of the ESXi hosts in the cluster in sequence.\n2. Allow vSphere Lifecycle Manager to automatically control maintenance mode on the ESXi hosts."], a: [3, 4], e: "vSphere Lifecycle Manager (vLCM) permite primero usar 'Stage All' para precargar el software en todos los hosts del clúster sin interrupciones (los hosts permanecen operativos), y después usar 'Remediate' en secuencia, donde vLCM controla automáticamente el modo de mantenimiento de cada host uno a uno para minimizar el downtime. Las opciones D (Stage en paralelo) y E (Remediate en secuencia con MM automático) son el flujo correcto."},
         {q: "An administrator is working with VMware Support and is asked to provide log bundles for the ESXi hosts in an environment. Which three options does the administrator have? (Choose three)", o: ["Generate a combined log bundle for all ESXi hosts using the vCenter Management Interface.", "Generate a separate log bundle for each ESXi host using the vSphere Host Client.", "Generate a combined log bundle for all ESXi hosts using the vSphere Client.", "Generate a separate log bundle for each ESXi host using the vSphere Client.", "Generate a separate log bundle for each ESXi host using the vCenter Management Interface.", "Generate a combined log bundle for all ESXi hosts using the vSphere Host Client."], a: [3, 4], e: "Para recopilar bundles de logs de hosts ESXi existen múltiples vías: (D) desde vSphere Client se puede generar un bundle por host individual, (E) desde vCenter Management Interface también se genera uno por host, y (B) desde vSphere Host Client se puede generar el log bundle del host conectado directamente. La generación combinada de todos los hosts en una sola operación se realiza desde vSphere Client, no desde VAMI."},
         {q: "An administrator needs to consolidate a number of physical servers my migrating the workloads to a software-defined data center solution. Which VMware solution should the administrator recommend?", o: ["VMware Horizon", "VMware vSAN", "VMware vSphere", "VMware NSX"], a: [2], e: "VMware vSphere es la plataforma de virtualización de servidores por excelencia del software-defined data center (SDDC). Permite consolidar múltiples servidores físicos en máquinas virtuales sobre un conjunto reducido de hardware, siendo la solución correcta para migrar workloads físicos a un entorno virtualizado centralizado."},
         {q: "An administrator is tasked with configuring remote direct memory access (RDMA) over Converged Ethernet v2 (RoCE v2). Which two types of adapters must the administrator configure? (Choose two.)", o: ["Paravirtual RDMA adapter", "RDMA network adapter", "Software iSCSi adapter", "Fibre Channel over Ethernet (FCoE) adapter", "Software NVMe over RDMA storage adapter"], a: [1, 4], e: "Para implementar RDMA over Converged Ethernet v2 (RoCE v2) en un host ESXi se necesitan dos adaptadores: (B) un adaptador de red físico compatible con RDMA (RNIC) en el hardware del host, y (E) un adaptador de almacenamiento software NVMe over RDMA que utiliza esa capacidad RDMA para conectividad de almacenamiento de alta velocidad y baja latencia."},
@@ -699,8 +795,8 @@ const storageEngine = {
         {q: "An administrator is required to configure several Microsoft Windows virtual machines (VMs) to support Secure Boot for a critical secure application. The following information is provided: - The corporate security policy states that all forms of data encryption must utilize a key provider. - The firmware of each VM is currently set to use Unified Extensible Firmware Interface (UEFI). - Due to the nature of the application running within the VMs, the guest operating system for each VM is currently a minimum of Windows Server 2008 and Windows 7. Which security feature should the administrator implement to meet these requirements?", o: ["vSphere Virtual Machine Encryption", "vSphere Visualization-Based Security", "Virtual Intel Software Guard Extensions (vSGX)", "Virtual Trusted Platform Module (VTPM)"], a: [3], e: "Virtual TPM (vTPM) cumple todos los requisitos: requiere UEFI (ya configurado), soporta Windows Server 2008/Windows 7 y versiones superiores, implementa Secure Boot para VMs Windows, y utiliza un key provider para la encriptación de las claves del TPM virtual según la política de seguridad corporativa."},
         {q: "An administrator is preparing for a deployment of a new vCenter Server Appliance. The follow-ing information has been provided to complete the deployment: - ESXi Host name (FQDN): esx01.corp.local - ESXi IP Address: 172.20.10.200 - vCenter Server Name (FQDN): vcsa01.corp.local - vCenter Server IP Address: 172.20.10.100 - NTP Server: 172.20.10.20 - DNS Server: 172.20.10.1 - Deployment Size: Tiny - Storage Size: Default Which two actions must the administrator complete before starting the installation of the vCenter Server Appliance? (Choose two.)", o: ["Create a DNS CNAME record for the vCenter Server (vcsa01.corp.local).", "Create a DNS CNAME record for the ESXi Host server (esx01.corp.local).", "Create a reverse DNS A record for the vCenter Server (vcsa01).", "Create a reverse DNS A record for the ESXu Host Server (esx01).", "Create a forward DNS A record for the vCenter Server (vcsa01)."], a: [2, 4], e: "Antes de instalar el vCenter Server Appliance se deben crear registros DNS correctos: (C) un registro DNS A inverso (reverse DNS record PTR) para el vCenter Server, ya que la instalación requiere resolución DNS inversa para validar la identidad, y (E) un registro DNS A directo (forward) para el vCenter Server (vcsa01.corp.local → 172.20.10.100)."},
         {q: "An administrator manages VM templates and ISO images for a remote office. Their main re-quirements are to store these templates in a single repository and manage different versions of the templates. What solution should the administrator deploy to meet these requirements?", o: ["A vSAN datatore", "A shared VMFS datastore", "A local content libregy", "A subscribed content library"], a: [2], e: "Un local content library proporciona un repositorio centralizado único para almacenar templates de VM e imágenes ISO en una sola ubicación, con soporte nativo para gestión de versiones (check-in/check-out) de los templates. Es la solución ideal para una oficina remota que necesita control de versiones sin necesidad de replicación."},
-        {q: "An administrator needs to create affinity rules for the following vSphere cluster setup: - The cluster contains two virtual machines (VMs) named appO1 and app02. - The cluster contains six hosts named esx11 through esxl6. - The app01 and app02 VMs run software that is licensed to run only on esx11, esx12, or esx13. - Sphere Distributed Resource Scheduler (DRS) is configured. Which set of steps must the administrator perform to ensure that the licensing requirements are met for appO1 and app02?", o: ["1. Add all the hosts to a host group. 2. Create a VM-VM anti-affinity rule for appO1 and app02.", "1. Add the esx11-esx13 hosts to a host group. 2. Create a VM-VM affinity rule for appO1 and app02.", "1. Add the VMs to a VM group and the esx11-esx13 hosts to a host group. 2. Create a VM-Host required rule between the VM group and the host group.", "1. Add the VMs to a VM group and the esx11-esx13 hosts to a host group. 2. Create a VM-Host preferential rule between the VM group and the host group."], a: [2], e: "Para cumplir requisitos de licenciamiento donde app01 y app02 solo pueden ejecutarse en esx11-esx13: (C) crear un VM group con app01 y app02, crear un host group con los hosts esx11-esx13, y crear una regla VM-Host requerida (Must run on) entre ambos grupos. Una regla requerida garantiza que DRS nunca coloque estas VMs en hosts fuera del grupo."},
-        {q: "The vCenter inventory contains a virtual machine (VM) template called Linux-01. The adminis-trator wants to install a software patch into Linux-01 while allowing users to continue to access Linux-01 to deploy VMs. Which set of steps should the administrator take to accomplish this task?", o: ["1. Verify that Linux-01 is in a content library. 2. Clone Linux-01 3. Convert the clone to a VM. 4. Install the software patch.", "1. Convert Linux-01 to a VM 2. Install the software patch. 3. Convert the VM back to a VM template. 4. Add Linux-01 to the content library.", "1. Verify that Linux-01 is in a content library. 2. Check out Linux-01. 3. Install the software patch. 4. Check in Linux-01.", "1. Clone Linux-01. 2. Convert the clone to a VM. 3. Install the software patch. 4. Convert the VM back to a template."], a: [3], e: "Para instalar un parche en el template Linux-01 mientras los usuarios pueden seguir desplegando VMs desde él: (D) clonar Linux-01 como nueva VM, convertir el clon a VM, instalar el parche en la VM clon, y convertir la VM clon de vuelta a template. El template original permanece disponible durante todo el proceso."},
+        {q: "An administrator needs to create affinity rules for the following vSphere cluster setup: - The cluster contains two virtual machines (VMs) named appO1 and app02. - The cluster contains six hosts named esx11 through esxl6. - The app01 and app02 VMs run software that is licensed to run only on esx11, esx12, or esx13. - Sphere Distributed Resource Scheduler (DRS) is configured. Which set of steps must the administrator perform to ensure that the licensing requirements are met for appO1 and app02?", o: ["1. Add all the hosts to a host group.\n2. Create a VM-VM anti-affinity rule for appO1 and app02.", "1. Add the esx11-esx13 hosts to a host group.\n2. Create a VM-VM affinity rule for appO1 and app02.", "1. Add the VMs to a VM group and the esx11-esx13 hosts to a host group.\n2. Create a VM-Host required rule between the VM group and the host group.", "1. Add the VMs to a VM group and the esx11-esx13 hosts to a host group.\n2. Create a VM-Host preferential rule between the VM group and the host group."], a: [2], e: "Para cumplir requisitos de licenciamiento donde app01 y app02 solo pueden ejecutarse en esx11-esx13: (C) crear un VM group con app01 y app02, crear un host group con los hosts esx11-esx13, y crear una regla VM-Host requerida (Must run on) entre ambos grupos. Una regla requerida garantiza que DRS nunca coloque estas VMs en hosts fuera del grupo."},
+        {q: "The vCenter inventory contains a virtual machine (VM) template called Linux-01. The adminis-trator wants to install a software patch into Linux-01 while allowing users to continue to access Linux-01 to deploy VMs. Which set of steps should the administrator take to accomplish this task?", o: ["1. Verify that Linux-01 is in a content library.\n2. Clone Linux-01\n3. Convert the clone to a VM.\n4. Install the software patch.", "1. Convert Linux-01 to a VM\n2. Install the software patch.\n3. Convert the VM back to a VM template.\n4. Add Linux-01 to the content library.", "1. Verify that Linux-01 is in a content library.\n2. Check out Linux-01.\n3. Install the software patch.\n4. Check in Linux-01.", "1. Clone Linux-01.\n2. Convert the clone to a VM.\n3. Install the software patch.\n4. Convert the VM back to a template."], a: [3], e: "Para instalar un parche en el template Linux-01 mientras los usuarios pueden seguir desplegando VMs desde él: (D) clonar Linux-01 como nueva VM, convertir el clon a VM, instalar el parche en la VM clon, y convertir la VM clon de vuelta a template. El template original permanece disponible durante todo el proceso."},
         {q: "An administrator remotely deploys VMware ESXi using an out of band management connection and now needs to complete the configuration of the management network so thatthe host is ac-cessible through the vSphere Host Client. The following information has been provided to complete the contiguration: - Host FQDN: esxiO1.corp.local - Management VLAN ID: 10 - DHCP: No - Management IP Address: 172:16.10.101/24 - Management IP Gateway: 172.16.10.1 - Corporate DNS Servers: 172.16:10.5,172.16.10.6 - DNS Domain: corp.local In additon, al host configurations must also most the following requirements: - The management network must use only 1Pv4 network protocols. - The management network must be fault tolerant. Which four high Level tasks should the administrator complete in the Direct Console User Inter-face (DCUI) in order to meet the requirements and successfully log nto tho vSphero Host Cli-ent? (Choose four)", o: ["Set the value of the VMware ESXI Management Network VLAN ID to 10.", "Configure at least two network adapters for the VMware ESXI Management Network.", "Update tha VMware ESXI Management Network IPv4 configuration to use a static IPv4 ad-dress.", "Create a DNS A Record for the VMware ESX hoston the corporate DNS servers.", "Disable IPv6 tor the VMware ESXi Management Network.", "Restore the original Management vSphere Standard Switch.", "Update the ViMware ESXI Management Network DNS configuration to usa the corporate DNS servers for names resolution."], a: [0, 1, 2, 4], e: "Desde el DCUI para configurar acceso completo al vSphere Host Client cumpliendo los requisitos: (A) configurar VLAN ID 10 en el management network, (B) configurar al menos 2 adaptadores de red para fault tolerance, (C) configurar IP estática IPv4 (DHCP=No), y (E) deshabilitar IPv6 (solo protocolo IPv4 requerido). La creación de DNS A Record se hace en los servidores DNS, no en DCUI."},
         {q: "Given the configuration shown in the exhibit, what shloud administrator do if the latest VM template contains changes that are no longer needed?", o: ["Delele App-LibTemplate (2)", "Revert to App-LibTemplate (2)", "Delele App-LibTemplate (3)", "Check out App-LibTemplate (3)"], a: [1], e: "Si el template más reciente (versión 3) contiene cambios no deseados, se debe revertir a la versión anterior (App-LibTemplate versión 2). La operación 'Revert' en content library templates restaura el template a la versión anterior seleccionada, eliminando los cambios de la versión actual."},
         {q: "An administrator configures a distributed switch and adds the first VMware ESXi server to it. The administrator also performs the following activities: - The administrator assigns two uplinks to the distributed switch. - The administrator enabled uplink teaming. When attempting to perform a health check of the teaming policy, the health status of the Team-ing and Failover reports as \"Unknown\", as seen in the exhibit. What can the administrator changes in the distributed switch for the health status to report cor-rectly?", o: ["Add a minimum of three hosts with two uplinks each", "Add a minimum of two hosts with two uplinks each", "Add a minimum of three hosts with four uplinks each", "Add a minimum of two hosts with one uplinks each"], a: [1], e: "El health check de Teaming and Failover en un VDS muestra 'Unknown' cuando no hay suficientes hosts conectados para realizar la verificación. Se necesitan al menos 2 hosts con 2 uplinks cada uno (configuración mínima para verificar el balanceo y failover de teaming), ya que la comprobación requiere comparar configuraciones entre múltiples hosts."},
@@ -714,7 +810,7 @@ const storageEngine = {
         {q: "An administrator has a requirement to revert a running virtual machine to a previous snapshot af-ter a failed attempt to upgrade an application. When the administrator originally took the snap-shot, the following choices in the Take Snapshot dialog were made: - Snapshot the virtual machines memory = true - Quiesce guest file system = false Which two statements describe the result of the administrator selecting the \"Revert to Latest Snapshot\" option to return the virtual machine to a previous snapshot? (Choose two.)", o: ["The virtual machine will be restored in a suspended state.", "The virtual machine will be restored in a powered off state.", "The virtual machine will be restored in a powered on state.", "The virtual machine will be restored to the parent snapshot.", "The virtual machine will be restored to the child snapshot."], a: [2, 3], e: "Con 'Snapshot VM memory = true', el snapshot captura el estado completo de la RAM de la VM. Al revertir a ese snapshot: (C) la VM se restaura en estado powered on (porque la memoria fue capturada y se puede restaurar el estado de ejecución), y (D) la VM se restaura al snapshot padre (el punto en el tiempo donde se tomó el snapshot con memoria)."},
         {q: "Given the configuration shown in the exhibit, what must the administrator do to delete only the latest version of the template?", o: ["In the SA-Templates folder, rename APP-LibTemplate (2) to APP-LibTemplate(4).", "Check out APP-LibTemplate (3) and delete the template from the SA-Templates folders.", "Delete APP-LibTemplate (3) from the SA-Templates folders.", "Revert to APP-LibTemplate (2) and delete APP-LibTemplate (3)."], a: [3], e: "Para eliminar solo la versión más reciente del template (versión 3) sin perder la versión anterior: se debe primero revertir al template de versión 2 (App-LibTemplate 2) para que sea la versión activa, y luego eliminar la versión 3 (App-LibTemplate 3). No se puede eliminar la versión activa directamente si hay versiones más antiguas."},
         {q: "A VMkernel port is labelled PRODO1 and uses the default TCP/IP stack. Which configuration change should the administrator make to isolate long-distance vSphere vMotion migration traffic from other Sphere vMotion traffic?", o: ["Create a new VMkernel port and set the TCP/IP stack to vMotion.", "Remove PRODO1 and create a new VMkernel port with the TCP/IP stack set to vMotion.", "Modify PRODO1 by changing the TCP/IP stack to provisioning.", "Remove PRODO1 and create a new VMkernel port with the TCP/IP stack set to provisioning."], a: [0], e: "Para aislar el tráfico de vSphere vMotion de larga distancia del resto del tráfico vMotion se utiliza el TCP/IP stack de Long Distance vMotion. Se debe crear un nuevo VMkernel port con este stack dedicado, sin eliminar PRODO1 que gestiona el vMotion estándar. El stack de Long Distance vMotion está optimizado para mayor latencia de WAN."},
-        {q: "An administrator is configuring a vSphere cluster to use a vSphere Lifecycle Manager image. The vSphere Lifecycle Manager depot has been configured with all of the software components needed for the image. The administrator plans to reuse an existing image that is configured on a cluster in another VMware vCenter instance. Which series of steps should the administrator take to complete this task?", o: ["1. Export the existing image to an ISO file format to their local machine. 2. Attach the ISO file to the CD-ROM drive of the ESXi host. 3. Import the image from the CD-ROM drive of the ESXi host into the vSphere Lifecycle Man-ager Import Image dialog to create a new image.", "1. Export the existing image to a ZIP file format to a web server machine. 2. Import the ZIP image file into the vSphere Lifecycle Manager depot to create a new image.", "1. Export the existing image to a JSON file format to their local machine. 2. Import the JSON image file into the vSphere Lifecycle Manager Import Image dialog to create a new image.", "1. Export the existing image to an ISO file format to a web server. 2. Upload the ISO file to a datastore accessible to the vSphere Cluster. 3. Import the image from the uploaded ISO file into the vSphere Lifecycle Manager Import Im-age dialog to create a new image."], a: [2], e: "Para reutilizar un image existente de vLCM desde otro vCenter: (C) exportar el image en formato JSON desde el cluster origen, e importar el archivo JSON mediante el diálogo Import Image de vSphere Lifecycle Manager en el vCenter destino. El formato JSON preserva todos los componentes del image incluyendo versiones exactas y configuración."},
+        {q: "An administrator is configuring a vSphere cluster to use a vSphere Lifecycle Manager image. The vSphere Lifecycle Manager depot has been configured with all of the software components needed for the image. The administrator plans to reuse an existing image that is configured on a cluster in another VMware vCenter instance. Which series of steps should the administrator take to complete this task?", o: ["1. Export the existing image to an ISO file format to their local machine.\n2. Attach the ISO file to the CD-ROM drive of the ESXi host.\n3. Import the image from the CD-ROM drive of the ESXi host into the vSphere Lifecycle Man-ager Import Image dialog to create a new image.", "1. Export the existing image to a ZIP file format to a web server machine.\n2. Import the ZIP image file into the vSphere Lifecycle Manager depot to create a new image.", "1. Export the existing image to a JSON file format to their local machine.\n2. Import the JSON image file into the vSphere Lifecycle Manager Import Image dialog to create a new image.", "1. Export the existing image to an ISO file format to a web server.\n2. Upload the ISO file to a datastore accessible to the vSphere Cluster.\n3. Import the image from the uploaded ISO file into the vSphere Lifecycle Manager Import Im-age dialog to create a new image."], a: [2], e: "Para reutilizar un image existente de vLCM desde otro vCenter: (C) exportar el image en formato JSON desde el cluster origen, e importar el archivo JSON mediante el diálogo Import Image de vSphere Lifecycle Manager en el vCenter destino. El formato JSON preserva todos los componentes del image incluyendo versiones exactas y configuración."},
         {q: "An administrator is responsible for the management of a VMware vCenter instance that is currently experiencing performance issues. The administrator quickly identifies that the CPU utilization of vCenter is consistently over 80%. Upon further analysis, it seems that the vpxd process is contributing significantly to the performance issue. A combination of which four steps should the administrator take to resolve the performance issues and ensure that a similar issue can be rectified without requiring downtime to vCenter moving forward? (Choose four.)", o: ["Add additional memory resources to the vCenter Server Appliance.", "Power on the vCenter Server Appliance using the vSphere Host Client.", "Enable CPU Hot Add on the vCenter virtual machine.", "Enable CPU and Memory Hot Add on the vCenter virtual machine.", "Gracefully shut down vCenter using the vSphere Client.", "Enable Memory Hot Add on the vCenter virtual machine.", "Add additional CPU resources to the vCenter Server Appliance."], a: [1, 2, 4, 6], e: "Para resolver el problema de alto uso de CPU por el proceso vpxd y garantizar futuros cambios sin downtime: (E) apagar gracefully vCenter desde vSphere Client, (G) añadir CPU adicional al appliance para resolver el problema inmediato, (B) encender la vCSA desde vSphere Host Client (vCenter está apagado), y (C) habilitar CPU Hot Add en la VM de vCenter para que futuras ampliaciones de CPU no requieran downtime. La opción D (CPU+Memory Hot Add) no es correcta aquí porque el problema es exclusivamente de CPU; la opción correcta para el futuro es solo CPU Hot Add (C)."},
     ]
 };
@@ -955,12 +1051,16 @@ const storageEngine = {
                 const statusLabel = isCorrect ? 'ACIERTO ✓' : 'ERROR ✗';
 
                 let userAnsText = '';
+                let userValueClass = '';
                 if (!hasAnswered) {
                     userAnsText = 'Sin responder';
+                    userValueClass = 'value-unanswered';
                 } else if (isMulti) {
                     userAnsText = userAns.sort().map(i => String.fromCharCode(65+i)).join(', ');
+                    userValueClass = isCorrect ? 'value-user-ok' : 'value-user-bad';
                 } else {
                     userAnsText = String.fromCharCode(65 + userAns);
+                    userValueClass = isCorrect ? 'value-user-ok' : 'value-user-bad';
                 }
 
                 const correctAnsText = item.a.sort().map(i => String.fromCharCode(65+i)).join(', ');
@@ -976,10 +1076,53 @@ const storageEngine = {
                 qtext.className = 'q-text';
                 qtext.innerText = item.q;
 
+                const userSelected = !hasAnswered ? [] : (isMulti ? userAns : [userAns]);
+
+                const optionsList = document.createElement('div');
+                optionsList.className = 'summary-options-list';
+                item.o.forEach((opt, oIdx) => {
+                    const line = document.createElement('div');
+                    line.className = 'summary-option-line';
+                    const isThisCorrect = item.a.includes(oIdx);
+                    const isThisUserPick = userSelected.includes(oIdx);
+
+                    if (isThisCorrect) {
+                        line.classList.add('opt-correct');
+                    } else if (isThisUserPick) {
+                        line.classList.add('opt-user-wrong');
+                    }
+
+                    let tagText = '';
+                    if (isThisCorrect && isThisUserPick) {
+                        tagText = '✓ Tu respuesta — Correcta';
+                    } else if (isThisCorrect) {
+                        tagText = '✓ Correcta';
+                    } else if (isThisUserPick) {
+                        tagText = '✗ Tu respuesta';
+                    }
+
+                    const letterSpan = document.createElement('span');
+                    letterSpan.className = 'opt-letter';
+                    letterSpan.innerText = String.fromCharCode(65 + oIdx) + '.';
+
+                    line.appendChild(letterSpan);
+                    line.appendChild(document.createTextNode(' ' + opt));
+
+                    if (tagText) {
+                        const tagSpan = document.createElement('span');
+                        tagSpan.className = 'opt-tag';
+                        tagSpan.innerText = tagText;
+                        line.appendChild(tagSpan);
+                    }
+
+                    optionsList.appendChild(line);
+                });
+
                 const sdetails = document.createElement('div');
                 sdetails.className = 'summary-details';
-                sdetails.innerHTML = '<div><strong>Tu respuesta:</strong> ' + userAnsText + '</div>' +
-                                      '<div style="margin-top:4px;"><strong>Respuesta correcta:</strong> ' + correctAnsText + '</div>';
+                sdetails.innerHTML =
+                    '<div class="answer-line"><span class="answer-label label-user">Tu respuesta:</span> <span class="answer-value ' + userValueClass + '">' + userAnsText + '</span></div>' +
+                    '<div class="answer-line"><span class="answer-label label-correct">Respuesta correcta:</span> <span class="answer-value value-correct-ref">' + correctAnsText + '</span></div>';
 
                 const expBlock = document.createElement('div');
                 expBlock.className = 'official-explanation';
@@ -1003,6 +1146,7 @@ const storageEngine = {
 
                 summaryItem.appendChild(smeta);
                 summaryItem.appendChild(qtext);
+                summaryItem.appendChild(optionsList);
                 summaryItem.appendChild(sdetails);
                 summaryContainer.appendChild(summaryItem);
             });
