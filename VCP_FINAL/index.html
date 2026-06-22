@@ -595,7 +595,63 @@
             color: var(--vmware-light);
             font-weight: bold;
         }
-    </style>
+    
+        /* ── ANIMATED THEME ───────────────────────────────────────────── */
+        @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+        @keyframes spin    { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+        @keyframes pulse   { 0%,100%{transform:scale(1)} 50%{transform:scale(1.15)} }
+        @keyframes fadeInUp{ from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes shake   { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-8px)} 40%,80%{transform:translateX(8px)} }
+        @keyframes firework-rise { 0%{transform:translateY(0) scale(1);opacity:1} 100%{transform:translateY(-300px) scale(0.2);opacity:0} }
+        @keyframes firework-burst{ 0%{transform:translate(0,0) scale(0);opacity:1} 100%{transform:translate(var(--dx),var(--dy)) scale(1);opacity:0} }
+        @keyframes confetti-fall { 0%{transform:translateY(-20px) rotate(0deg);opacity:1} 100%{transform:translateY(110vh) rotate(720deg);opacity:0} }
+        @keyframes sad-droop    { 0%{transform:rotate(0deg)} 50%{transform:rotate(-15deg)} 100%{transform:rotate(0deg)} }
+        @keyframes nope-shake   { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-10px)} 75%{transform:translateX(10px)} }
+
+        .emoji-bounce { display:inline-block; animation:bounce 1s infinite; font-size:2rem; }
+        .emoji-spin   { display:inline-block; animation:spin 2s linear infinite; font-size:1.5rem; }
+        .emoji-pulse  { display:inline-block; animation:pulse 1.2s ease-in-out infinite; }
+
+        #question-mascot {
+            position:fixed; bottom:24px; right:24px;
+            font-size:3.5rem; z-index:999; pointer-events:none;
+            transition:all 0.4s ease;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+        }
+        #reaction-toast {
+            position:fixed; top:80px; right:24px;
+            background:rgba(0,0,0,0.85); color:#fff;
+            padding:10px 18px; border-radius:12px;
+            font-size:1.2rem; z-index:1000;
+            opacity:0; pointer-events:none;
+            transition:opacity 0.3s ease;
+            border:1px solid rgba(255,255,255,0.15);
+        }
+        #reaction-toast.show { opacity:1; }
+
+        /* Fireworks canvas */
+        #fireworks-canvas {
+            position:fixed; inset:0; z-index:9998;
+            pointer-events:none; display:none;
+        }
+        /* Fail overlay */
+        #fail-overlay {
+            position:fixed; inset:0; z-index:9998;
+            pointer-events:none; display:none;
+            overflow:hidden;
+        }
+        .fail-emoji {
+            position:absolute; font-size:3rem;
+            animation: confetti-fall 3s ease-in forwards;
+        }
+        /* Correct/wrong flash on option select */
+        .flash-correct { animation: pulse 0.5s ease 2 !important; }
+        .flash-wrong   { animation: shake 0.5s ease !important; }
+
+        /* Progress bar pulse when near end */
+        .timer-warning { animation: pulse 0.8s ease-in-out infinite; color: #ff6b6b !important; }
+
+        </style>
     <script src="cuestionario.js"></script>
 </head>
 <body>
@@ -613,7 +669,13 @@
 
         <div class="main-frame">
             <!-- HUB PRINCIPAL -->
-            <div id="screen-hub" class="hub-screen">
+            
+    <div id="question-mascot">🤖</div>
+    <div id="reaction-toast"></div>
+    <canvas id="fireworks-canvas"></canvas>
+    <div id="fail-overlay"></div>
+
+    <div id="screen-hub" class="hub-screen">
                 <h2>Carga de Módulos de Evaluación</h2>
                 <p>Selecciona un entorno para iniciar el test controlado por tiempo.</p>
                 <div class="grid-modules">
@@ -897,6 +959,7 @@
         }
 
         function displayQuestion(idx) {
+            const _dqItem = workingDataset[idx]; if (_dqItem && typeof hookAfterRender === "function") hookAfterRender(_dqItem.a.length > 1);
             document.querySelectorAll('.question-node').forEach(n => n.classList.remove('visible'));
             const activeNode = document.querySelector('.target-node-' + idx);
             if(activeNode) activeNode.classList.add('visible');
@@ -952,6 +1015,7 @@
                 let m = Math.floor(timelineSecs / 60);
                 let s = timelineSecs % 60;
                 document.getElementById('clock-element').innerText = m.toString().padStart(2, '0') + ":" + s.toString().padStart(2, '0');
+                if (timelineSecs === 300 && typeof window._onTimerWarning === "function") window._onTimerWarning();
                 if (timelineSecs <= 0) { terminateExam(); }
             }, 1000);
         }
@@ -986,6 +1050,7 @@
 
                 if (hasAnswered) answeredCount++;
                 if (isCorrect) hits++;
+                if (typeof window._onAnswerResult === "function") window._onAnswerResult(isCorrect, item.a.length > 1);
 
                 const stateClass = isCorrect ? 'correct' : 'incorrect';
                 const statusLabel = isCorrect ? 'ACIERTO ✓' : 'ERROR ✗';
@@ -1105,6 +1170,7 @@
             viewNode.innerText = finalRatio + '%';
             document.getElementById('progress-bar-fill').style.width = finalRatio + '%';
 
+            if (typeof window._onResults === "function") window._onResults(finalRatio >= 70);
             if (finalRatio >= 70) {
                 viewNode.style.color = 'var(--matrix-green)';
                 viewNode.style.textShadow = '0 0 20px var(--matrix-glow)';
@@ -1115,6 +1181,172 @@
                 document.getElementById('report-view').innerText = 'RESULTADO: ANOMALÍA DETECTADA (NO APTO)\n\nEl ratio de respuestas válidas (' + finalRatio + '%) no cumple el umbral mínimo requerido del 70%. Reevaluación sugerida.';
             }
         }
+
+
+        // ── ANIMATION ENGINE ──────────────────────────────────────────────
+        const mascot = document.getElementById('question-mascot');
+        const toast  = document.getElementById('reaction-toast');
+
+        const mascots = {
+            idle:    ['🤖','🧠','💡','🎯','⚡'],
+            correct: ['🎉','✅','🏆','🌟','💪','🥳','🔥'],
+            wrong:   ['😬','❌','🤔','😅','💀','🫠'],
+            multi:   ['🧩','🔢','🎲','📋','🤯'],
+            review:  ['🔍','📊','🎓','🏁','⭐'],
+            timer:   ['⏰','⌛','🚨','💨','🏃']
+        };
+
+        let mascotInterval = null;
+        function setMascot(type) {
+            clearInterval(mascotInterval);
+            const arr = mascots[type] || mascots.idle;
+            let i = 0;
+            mascot.textContent = arr[i];
+            mascotInterval = setInterval(() => {
+                i = (i + 1) % arr.length;
+                mascot.textContent = arr[i];
+            }, 1200);
+        }
+
+        function showToast(msg, duration=2000) {
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), duration);
+        }
+
+        const toastsCorrect = ['¡Correcto! 🎯','¡Exacto! ⚡','¡Bien hecho! 💪','¡Perfecto! 🌟','¡Así se hace! 🏆'];
+        const toastsWrong   = ['Casi... 😅','¡Revisa el tema! 📖','Error 💀','No era esa... 🤔','Sigue intentando 💡'];
+        const toastsMulti   = ['Selecciona todas las correctas 🧩','Respuesta múltiple 🔢','Ojo, son varias 🎲'];
+
+        // ── FIREWORKS ─────────────────────────────────────────────────────
+        const fwCanvas = document.getElementById('fireworks-canvas');
+        const fwCtx    = fwCanvas ? fwCanvas.getContext('2d') : null;
+        let fwAnimId   = null;
+        const fwParticles = [];
+
+        function launchFireworks(duration=6000) {
+            if (!fwCanvas || !fwCtx) return;
+            fwCanvas.style.display = 'block';
+            fwCanvas.width  = window.innerWidth;
+            fwCanvas.height = window.innerHeight;
+
+            const colors = ['#FFD700','#FF6B6B','#4ECDC4','#45B7D1','#96CEB4','#FFEAA7','#FF9FF3','#54A0FF','#5F27CD','#00D2D3'];
+            const endAt = Date.now() + duration;
+
+            function spawnBurst() {
+                if (Date.now() > endAt) return;
+                const x = Math.random() * fwCanvas.width;
+                const y = Math.random() * fwCanvas.height * 0.6;
+                const color = colors[Math.floor(Math.random()*colors.length)];
+                const count = 60 + Math.floor(Math.random()*40);
+                for (let i=0; i<count; i++) {
+                    const angle  = (Math.PI*2/count)*i;
+                    const speed  = 2 + Math.random()*5;
+                    fwParticles.push({
+                        x, y, vx: Math.cos(angle)*speed,
+                        vy: Math.sin(angle)*speed - 1,
+                        alpha:1, color,
+                        size: 2+Math.random()*3,
+                        gravity: 0.08
+                    });
+                }
+                setTimeout(spawnBurst, 400 + Math.random()*600);
+            }
+
+            cancelAnimationFrame(fwAnimId);
+            fwParticles.length = 0;
+            spawnBurst(); spawnBurst();
+
+            function draw() {
+                fwCtx.fillStyle = 'rgba(0,0,0,0.15)';
+                fwCtx.fillRect(0,0,fwCanvas.width,fwCanvas.height);
+                fwParticles.forEach((p,i) => {
+                    p.x += p.vx; p.y += p.vy; p.vy += p.gravity;
+                    p.vx *= 0.98; p.alpha -= 0.013;
+                    if (p.alpha <= 0) { fwParticles.splice(i,1); return; }
+                    fwCtx.save();
+                    fwCtx.globalAlpha = p.alpha;
+                    fwCtx.fillStyle   = p.color;
+                    fwCtx.beginPath();
+                    fwCtx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+                    fwCtx.fill();
+                    fwCtx.restore();
+                });
+                if (Date.now() < endAt || fwParticles.length > 0)
+                    fwAnimId = requestAnimationFrame(draw);
+                else {
+                    fwCtx.clearRect(0,0,fwCanvas.width,fwCanvas.height);
+                    fwCanvas.style.display = 'none';
+                }
+            }
+            draw();
+        }
+
+        // ── FAIL RAIN ──────────────────────────────────────────────────────
+        const failOverlay = document.getElementById('fail-overlay');
+        const failEmojis  = ['😢','💔','❌','😭','🪦','💀','😰','🫠','😩','🌧️'];
+
+        function launchFailRain(duration=4000) {
+            if (!failOverlay) return;
+            failOverlay.style.display = 'block';
+            failOverlay.innerHTML = '';
+            const count = 35;
+            for (let i=0; i<count; i++) {
+                const el = document.createElement('span');
+                el.className = 'fail-emoji';
+                el.textContent = failEmojis[Math.floor(Math.random()*failEmojis.length)];
+                el.style.left  = Math.random()*100 + 'vw';
+                el.style.top   = '-60px';
+                el.style.fontSize = (2+Math.random()*2) + 'rem';
+                el.style.animationDelay    = (Math.random()*2) + 's';
+                el.style.animationDuration = (2+Math.random()*2) + 's';
+                failOverlay.appendChild(el);
+            }
+            setTimeout(() => {
+                failOverlay.style.display = 'none';
+                failOverlay.innerHTML = '';
+            }, duration);
+        }
+
+        // ── HOOK: on question render ───────────────────────────────────────
+        const _origRenderQ = typeof renderQuestion === 'function' ? renderQuestion : null;
+
+        function hookAfterRender(isMulti) {
+            if (isMulti) {
+                setMascot('multi');
+                showToast(toastsMulti[Math.floor(Math.random()*toastsMulti.length)], 2500);
+            } else {
+                setMascot('idle');
+            }
+        }
+
+        // ── HOOK: on answer check (called from submitCurrentAnswer) ─────────
+        window._onAnswerResult = function(isCorrect, isMulti) {
+            if (isCorrect) {
+                setMascot('correct');
+                showToast(toastsCorrect[Math.floor(Math.random()*toastsCorrect.length)], 1800);
+            } else {
+                setMascot('wrong');
+                showToast(toastsWrong[Math.floor(Math.random()*toastsWrong.length)], 1800);
+            }
+        };
+
+        // ── HOOK: timer warning ────────────────────────────────────────────
+        window._onTimerWarning = function() {
+            setMascot('timer');
+        };
+
+        // ── HOOK: results screen ───────────────────────────────────────────
+        window._onResults = function(passed) {
+            setMascot('review');
+            if (passed) {
+                showToast('🎉 ¡APROBADO! ¡Enhorabuena! 🏆', 5000);
+                setTimeout(() => launchFireworks(7000), 300);
+            } else {
+                showToast('😢 No apto esta vez. ¡Tú puedes! 💪', 5000);
+                setTimeout(() => launchFailRain(5000), 300);
+            }
+        };
 
         function restoreHub() {
             document.getElementById('current-scope').innerText = 'System Initialization Ready';
