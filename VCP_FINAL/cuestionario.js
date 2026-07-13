@@ -43,7 +43,7 @@ D.	Generate a separate log bundle for each ESXi host using the vSphere Client.
 E.	Generate a separate log bundle for each ESXi host using the vCenter Management Interface.
 F.	Generate a combined log bundle for all ESXi hosts using the vSphere Host Client.
 
-Correct answer: D, E
+Correct answer: B, C, D
 
 Explanation: Para recopilar bundles de logs de hosts ESXi existen múltiples vías: (D) desde vSphere Client se puede generar un bundle por host individual, (E) desde vCenter Management Interface también se genera uno por host, y (B) desde vSphere Host Client se puede generar el log bundle del host conectado directamente. La generación combinada de todos los hosts en una sola operación se realiza desde vSphere Client, no desde VAMI.
 
