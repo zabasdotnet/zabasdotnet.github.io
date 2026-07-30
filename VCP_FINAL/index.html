@@ -570,7 +570,7 @@
         }
 
         .explanation-body {
-            color: var(--matrix-purple);
+            color: #00d4ff;
             font-size: 12.5px;
             line-height: 1.45;
             font-style: italic;
@@ -651,8 +651,66 @@
         /* Progress bar pulse when near end */
         .timer-warning { animation: pulse 0.8s ease-in-out infinite; color: #ff6b6b !important; }
 
+        
+        /* ── v3.3 EXPLANATION IMAGE ─────────────────────────────────── */
+        /* ── v3.3 EXPLANATION BOX (HTML puro, cross-browser) ── */
+        .explanation-img-wrap {
+            margin: 14px 0 4px 0;
+            border-radius: 8px;
+            border: 2px solid rgba(255,255,255,0.1);
+            background: #0a1520;
+            padding: 12px 16px 10px 16px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .explanation-img-wrap.img-correct {
+            border-color: #22c55e;
+            box-shadow: 0 0 16px rgba(34,197,94,0.3);
+        }
+        .explanation-img-wrap.img-wrong {
+            border-color: #ef4444;
+            box-shadow: 0 0 16px rgba(239,68,68,0.3);
+        }
+        .explanation-img-wrap.img-unanswered {
+            border-color: #e040fb;
+            box-shadow: 0 0 16px rgba(224,64,251,0.3);
+        }
+        .explanation-box-header {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 8.5px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #2a7ab5;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .explanation-box-body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10.5px;
+            line-height: 1.65;
+            color: #e0f4ff;
+            text-align: justify;
+            text-justify: inter-word;
+            font-style: normal;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+        .explanation-img-caption {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 9px;
+            text-align: center;
+            padding: 6px 0 2px;
+            font-style: italic;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-top: 1px solid #152535;
+        }
+        .img-correct    .explanation-img-caption { color: #22c55e; }
+        .img-wrong      .explanation-img-caption { color: #ef4444; }
+        .img-unanswered .explanation-img-caption { color: #e040fb; }
+
         </style>
     <script src="cuestionario.js"></script>
+    <script src="imagenes.js"></script>
 </head>
 <body>
 
@@ -759,7 +817,7 @@
     </div>
 
     <footer>
-        © <span>ZABAS.NET</span>, 2026 // All Virtual Environments Verified
+        © <span>ZABAS.NET</span>, 2026 // All Virtual Environments Verified &nbsp;·&nbsp; <span style="opacity:.7">v3.3</span>
     </footer>
 
     <script>
@@ -821,7 +879,7 @@
         let cursorIdx = 0;
         let responseMap = [];
         let countdownTimer;
-        let timelineSecs = 5400;
+        let timelineSecs = 7200;
 
         // MATRIX BACKGROUND
         const matrixCanvas = document.getElementById('canvas-matrix');
@@ -866,7 +924,7 @@
             workingDataset = storageEngine[moduleKey] || [];
             cursorIdx = 0;
             responseMap = workingDataset.map(q => q.a.length > 1 ? [] : null);
-            timelineSecs = 5400; // 90 min for 109 questions
+            timelineSecs = 7200; // 120 min for 110 questions
 
             document.getElementById('screen-hub').style.display = 'none';
             document.getElementById('screen-quiz').style.display = 'block';
@@ -1147,6 +1205,51 @@
 
                 expBlock.appendChild(expHeader);
                 expBlock.appendChild(expBody);
+                // v3.3 — cajita de explicación en HTML puro (cross-browser, sin SVG como img)
+                const qIdx33 = idx + 1;
+                if (item.e && item.e.trim().length > 0) {
+                    const imgWrap = document.createElement('div');
+                    // Color class: green=correct, red=wrong, fucsia=unanswered
+                    let imgColorClass = 'img-unanswered';
+                    const userAns33 = responseMap[idx];
+                    const correctAns33 = item.a;
+                    if (userAns33 === null || userAns33 === undefined ||
+                        (Array.isArray(userAns33) && userAns33.length === 0)) {
+                        imgColorClass = 'img-unanswered';
+                    } else {
+                        let isOk = false;
+                        if (Array.isArray(correctAns33) && correctAns33.length > 1) {
+                            const userSorted    = (Array.isArray(userAns33) ? userAns33 : [userAns33]).slice().sort().join(',');
+                            const correctSorted = correctAns33.slice().sort().join(',');
+                            isOk = userSorted === correctSorted;
+                        } else {
+                            const ca = Array.isArray(correctAns33) ? correctAns33[0] : correctAns33;
+                            const ua = Array.isArray(userAns33)    ? userAns33[0]    : userAns33;
+                            isOk = ca === ua;
+                        }
+                        imgColorClass = isOk ? 'img-correct' : 'img-wrong';
+                    }
+                    imgWrap.className = 'explanation-img-wrap ' + imgColorClass;
+                    // Cabecera
+                    const boxHeader = document.createElement('div');
+                    boxHeader.className = 'explanation-box-header';
+                    boxHeader.textContent = 'OFFICIAL KNOWLEDGE — VMware VCP-DCV';
+                    // Cuerpo del texto
+                    const boxBody = document.createElement('div');
+                    boxBody.className = 'explanation-box-body';
+                    boxBody.textContent = item.e;
+                    // Pie de página
+                    const imgCap = document.createElement('div');
+                    imgCap.className = 'explanation-img-caption';
+                    const capLabel = imgColorClass === 'img-correct' ? '✓  Respondida correctamente'
+                                   : imgColorClass === 'img-wrong'   ? '✗  Respuesta incorrecta'
+                                   : '○  Sin responder';
+                    imgCap.textContent = capLabel + '  ·  Q' + qIdx33 + ' de 110  ·  VMware VCP-DCV';
+                    imgWrap.appendChild(boxHeader);
+                    imgWrap.appendChild(boxBody);
+                    imgWrap.appendChild(imgCap);
+                    expBlock.appendChild(imgWrap);
+                }
                 sdetails.appendChild(expBlock);
 
                 summaryItem.appendChild(smeta);

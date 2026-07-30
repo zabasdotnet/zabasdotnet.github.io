@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="159" viewBox="0 0 500 159">
+  <rect width="500" height="159" rx="8" fill="#0a1520"/>
+  <text x="20" y="18" font-family="Arial,sans-serif" font-size="8.5"
+        font-weight="700" fill="#2a7ab5" letter-spacing="2">OFFICIAL KNOWLEDGE — VMware VCP-DCV</text>
+  <text font-family="Arial,sans-serif">
+    <tspan x="20" y="43" fill="#e0f4ff" font-size="10.5" textLength="460" lengthAdjust="spacingAndGlyphs">Para sincronizar templates desde London a Tokyo y New York con</tspan>
+    <tspan x="20" y="59" fill="#e0f4ff" font-size="10.5" textLength="460" lengthAdjust="spacingAndGlyphs">espacio limitado: (A) crear published library en el site primario,</tspan>
+    <tspan x="20" y="75" fill="#e0f4ff" font-size="10.5" textLength="460" lengthAdjust="spacingAndGlyphs">(D) crear subscribed library en cada site secundario, (E) configurar</tspan>
+    <tspan x="20" y="91" fill="#e0f4ff" font-size="10.5" textLength="460" lengthAdjust="spacingAndGlyphs">la subscribed library para descargar el contenido cuando sea</tspan>
+    <tspan x="20" y="107" fill="#e0f4ff" font-size="10.5" textLength="460" lengthAdjust="spacingAndGlyphs">necesario (on-demand, no inmediatamente para ahorrar espacio), y (G)</tspan>
+    <tspan x="20" y="123" fill="#e0f4ff" font-size="10.5">añadir el template a la published library.</tspan>
+  </text>
+  <line x1="20" y1="135" x2="480" y2="135" stroke="#152535" stroke-width="1"/>
+  <text x="250" y="151" font-family="Arial,sans-serif" font-size="8.5"
+        text-anchor="middle" fill="#2a5a85">Q53 de 110 · VMware VCP-DCV oficial</text>
+</svg>

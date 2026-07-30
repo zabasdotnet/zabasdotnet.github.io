@@ -1,5 +1,10 @@
-const CACHE = 'vcp-dcv-v3-1';
-const FILES = ['./index.html', './manifest.json', './cuestionario.js'];
+const CACHE = 'vcp-dcv-v3-3';
+const FILES = [
+  './index.html',
+  './manifest.json',
+  './cuestionario.js',
+  './imagenes.js'
+];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)));

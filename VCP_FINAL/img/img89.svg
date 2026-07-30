@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="143" viewBox="0 0 500 143">
+  <rect width="500" height="143" rx="8" fill="#0a1520"/>
+  <text x="20" y="18" font-family="Arial,sans-serif" font-size="8.5"
+        font-weight="700" fill="#2a7ab5" letter-spacing="2">OFFICIAL KNOWLEDGE — VMware VCP-DCV</text>
+  <text font-family="Arial,sans-serif">
+    <tspan x="20" y="43" fill="#e0f4ff" font-size="10.5" textLength="460" lengthAdjust="spacingAndGlyphs">Cuando la latencia del datastore no supera el umbral configurado de</tspan>
+    <tspan x="20" y="59" fill="#e0f4ff" font-size="10.5" textLength="460" lengthAdjust="spacingAndGlyphs">SIOC (29ms &lt; 30ms), Storage I/O Control no está activo y no</tspan>
+    <tspan x="20" y="75" fill="#e0f4ff" font-size="10.5" textLength="460" lengthAdjust="spacingAndGlyphs">aplica limitaciones de IOPS. En este estado, todas las VMs tienen</tspan>
+    <tspan x="20" y="91" fill="#e0f4ff" font-size="10.5" textLength="460" lengthAdjust="spacingAndGlyphs">acceso irrestricto al total de IOPS disponibles (30,000 IOPS), sin</tspan>
+    <tspan x="20" y="107" fill="#e0f4ff" font-size="10.5">importar sus shares configurados.</tspan>
+  </text>
+  <line x1="20" y1="119" x2="480" y2="119" stroke="#152535" stroke-width="1"/>
+  <text x="250" y="135" font-family="Arial,sans-serif" font-size="8.5"
+        text-anchor="middle" fill="#2a5a85">Q89 de 110 · VMware VCP-DCV oficial</text>
+</svg>

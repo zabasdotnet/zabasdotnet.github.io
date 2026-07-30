@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="159" viewBox="0 0 500 159">
+  <rect width="500" height="159" rx="8" fill="#0a1520"/>
+  <text x="20" y="18" font-family="Arial,sans-serif" font-size="8.5"
+        font-weight="700" fill="#2a7ab5" letter-spacing="2">OFFICIAL KNOWLEDGE — VMware VCP-DCV</text>
+  <text font-family="Arial,sans-serif">
+    <tspan x="20" y="43" fill="#e0f4ff" font-size="10.5" textLength="460" lengthAdjust="spacingAndGlyphs">Las características exclusivas de vSphere Distributed Switch (VDS)</tspan>
+    <tspan x="20" y="59" fill="#e0f4ff" font-size="10.5" textLength="460" lengthAdjust="spacingAndGlyphs">no disponibles en vSphere Standard Switch (VSS) incluyen: (B) Port</tspan>
+    <tspan x="20" y="75" fill="#e0f4ff" font-size="10.5" textLength="460" lengthAdjust="spacingAndGlyphs">mirroring (análisis de tráfico mediante duplicación de puertos), (C)</tspan>
+    <tspan x="20" y="91" fill="#e0f4ff" font-size="10.5" textLength="460" lengthAdjust="spacingAndGlyphs">NetFlow (exportación de estadísticas de flujo de red para análisis),</tspan>
+    <tspan x="20" y="107" fill="#e0f4ff" font-size="10.5" textLength="460" lengthAdjust="spacingAndGlyphs">y (D) Configuration backup and restore (copia de seguridad y</tspan>
+    <tspan x="20" y="123" fill="#e0f4ff" font-size="10.5">restauración de la configuración completa del switch).</tspan>
+  </text>
+  <line x1="20" y1="135" x2="480" y2="135" stroke="#152535" stroke-width="1"/>
+  <text x="250" y="151" font-family="Arial,sans-serif" font-size="8.5"
+        text-anchor="middle" fill="#2a5a85">Q51 de 110 · VMware VCP-DCV oficial</text>
+</svg>
